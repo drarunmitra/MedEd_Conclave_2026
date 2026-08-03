@@ -1,0 +1,338 @@
+---
+title: "4 · Introduction to Quarto"
+subtitle: "One source, many outputs"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Teaching]{.meta-label}[14:00 – 14:45]{.meta-value}
+:::
+::: {.meta-item}
+[Hands-on]{.meta-label}[14:45 – 15:15]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Arun Mitra]{.meta-value}
+:::
+::: {.meta-item}
+[Slides]{.meta-label}[[Open deck ↗](../slides/day1/s4-quarto.html){target="_blank"}]{.meta-value}
+:::
+:::
+
+## Learning objectives
+
+1. Describe the three parts of a `.qmd` file and what each does.
+2. Write prose with Markdown: headings, emphasis, lists, links, tables.
+3. Embed R code so that results appear in the output document.
+4. Control chunk behaviour with options (`echo`, `eval`, `warning`, `fig-cap`).
+5. Render the same source to HTML, Word and Reveal.js slides.
+
+## What a `.qmd` file is
+
+Three ingredients, in this order:
+
+```` markdown
+---
+title: "Knowledge gain in a flipped classroom"
+author: "Dr A. Nair"
+format: html
+---
+
+## Background                            <-- 2. prose, in Markdown
+
+The flipped classroom has been proposed as...
+
+```{{r}}                                  <-- 3. code, in chunks
+library(tidyverse)
+students <- read_csv("data/meded_students.csv")
+mean(students$gain, na.rm = TRUE)
+```
+````
+
+1. **YAML header** between `---` fences: metadata and output settings.
+2. **Markdown prose**: what you would have written in Word.
+3. **Code chunks**: what you would have done in SPSS, except it stays.
+
+Render, and Quarto runs the code and drops the results into the prose. Change
+the data, render again, and every number updates. Nothing is copied by hand.
+
+::: {.callout-important}
+## This is the whole idea
+The alternative — run the analysis, copy the number, paste into Word, format
+the table — breaks silently the moment anything changes. And something always
+changes: a duplicate is found, an exclusion criterion shifts, a reviewer asks
+for a subgroup.
+:::
+
+## Markdown in ninety seconds
+
+| You write | You get |
+|---|---|
+| `## Methods` | A level-2 heading |
+| `*italic*`, `**bold**` | *italic*, **bold** |
+| `- item` | Bullet list |
+| `1. item` | Numbered list |
+| `[text](https://url)` | A hyperlink |
+| `![caption](figure.png)` | An image |
+| `` `code` `` | `inline code` |
+| `> quoted` | A block quote |
+
+Tables use pipes:
+
+```markdown
+| Arm | n | Mean gain |
+|-----|---|-----------|
+| Flipped | 120 | 12.4 |
+| Traditional | 120 | 7.1 |
+```
+
+Blank lines matter. Two lines of text with no blank line between them become
+one paragraph.
+
+## Code chunks and their options
+
+Chunk options go at the top of the chunk, after `#|`:
+
+````markdown
+```{{r}}
+#| label: fig-gain
+#| fig-cap: "Knowledge gain by teaching arm."
+#| echo: false
+#| warning: false
+ggplot(students, aes(teaching_arm, gain)) + geom_boxplot()
+```
+````
+
+The ones you will use constantly:
+
+| Option | Effect | Typical use |
+|---|---|---|
+| `echo: false` | Hide the code, show the result | Manuscripts |
+| `eval: false` | Show the code, do not run it | Teaching, examples |
+| `include: false` | Run it, show nothing | Setup chunks |
+| `warning: false`, `message: false` | Suppress noise | Package loading |
+| `fig-cap:` | Caption the figure | Always, in papers |
+| `label: fig-...` | Make it cross-referenceable | Always, in papers |
+
+::: {.callout-tip}
+## Set them once, globally
+Put defaults in the YAML rather than repeating them in thirty chunks:
+
+```yaml
+execute:
+  echo: false
+  warning: false
+  message: false
+```
+:::
+
+## Inline code — where the magic actually lives
+
+```markdown
+The mean knowledge gain was `r knitr::inline_expr("round(mean(students$gain, na.rm = TRUE), 1)")` points.
+```
+
+Renders as: *The mean knowledge gain was 9.8 points.*
+
+That number is not typed. It is computed at render time. When you find two
+duplicated records next month and re-run, the sentence corrects itself. Every
+number in your results section can work this way, and once you have done it
+once you will not go back.
+
+## Cross-references
+
+```markdown
+As shown in @fig-gain, the flipped arm gained more.
+See @tbl-baseline for the cohort characteristics.
+```
+
+Label chunks `fig-something` for figures and `tbl-something` for tables, and
+Quarto numbers them, links them, and renumbers when you reorder. No more
+"Figure 3 (now Figure 4)".
+
+## Citations
+
+Put a `.bib` file next to your document, point the YAML at it, and cite with
+`@key`:
+
+```yaml
+---
+bibliography: references.bib
+csl: vancouver.csl
+---
+```
+
+```markdown
+Reproducibility is the minimum standard [@peng2011].
+```
+
+Quarto builds the reference list, in the style you name, from only the
+citations you actually used. Zotero exports `.bib` directly (Better BibTeX
+keeps the keys stable — worth installing).
+
+## One source, many outputs
+
+```yaml
+format:
+  html:  {toc: true}
+  docx:  {reference-doc: template.docx}
+  pdf:   {documentclass: article}
+  revealjs: {slide-level: 2}
+```
+
+Then:
+
+```{r}
+#| eval: false
+quarto::quarto_render("report.qmd")                    # all formats
+quarto::quarto_render("report.qmd", output_format = "docx")
+```
+
+Or click **Render** in RStudio, using the dropdown to pick a format.
+
+::: {.callout-note}
+## The Word workflow that actually survives co-authors
+Render to `docx`. Send it. Co-authors track-change the Word file. You read
+their changes and make the corresponding edits **in the `.qmd`**, then
+re-render. Yes, that is a manual step — but the source of truth stays
+singular. The alternative, editing the Word file directly, forks your project
+permanently.
+:::
+
+# Hands-on {#hands-on}
+
+**14:45 – 15:15.** Thirty minutes. The goal is one rendered document
+containing prose, a table and a figure.
+
+::: {.callout-note title="Exercise 1: your first rendered document"}
+**Time:** 10 minutes
+
+1. **File → New File → Quarto Document**. Title: "Knowledge gain — first
+   look". Format: HTML.
+2. Delete everything below the YAML header.
+3. Add a `## Background` heading and two sentences about the flipped
+   classroom study.
+4. Add a setup chunk that loads `tidyverse` and reads
+   `data/meded_students.csv`, with `#| include: false`.
+5. Save as `report.qmd` in your project root and click **Render**.
+:::
+
+::: {.callout-tip title="Solution 1" collapse="true"}
+````markdown
+---
+title: "Knowledge gain — first look"
+author: "Your name"
+date: today
+format: html
+---
+
+## Background
+
+Three medical colleges compared a flipped classroom against traditional
+lectures on a module in evidence-based practice. Students were assessed
+before and after with the same knowledge test.
+
+```{{r}}
+#| include: false
+library(tidyverse)
+students <- read_csv("data/meded_students.csv")
+```
+````
+
+`include: false` runs the chunk but shows neither code nor output — exactly
+what you want for loading packages and data.
+:::
+
+::: {.callout-note title="Exercise 2: add a figure, a table and a live number"}
+**Time:** 15 minutes
+
+Extend `report.qmd`:
+
+1. A `## Results` section.
+2. A code chunk producing your boxplot of `gain` by `teaching_arm`, with
+   `#| label: fig-gain`, a `fig-cap`, and `echo: false`.
+3. A small summary table — count and mean gain per arm — printed with
+   `knitr::kable()`.
+4. One sentence in the prose that reports the overall mean gain using
+   **inline code**, not a typed number.
+5. Reference the figure in the text with `@fig-gain`.
+6. Render.
+:::
+
+::: {.callout-tip title="Solution 2" collapse="true"}
+````markdown
+## Results
+
+```{{r}}
+#| label: fig-gain
+#| fig-cap: "Knowledge gain by teaching arm."
+#| echo: false
+ggplot(students, aes(x = teaching_arm, y = gain, fill = teaching_arm)) +
+  geom_boxplot(alpha = 0.75) +
+  labs(x = NULL, y = "Gain (post − pre)") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+```{{r}}
+#| label: tbl-arm
+#| tbl-cap: "Knowledge gain by teaching arm."
+#| echo: false
+students |>
+  group_by(teaching_arm) |>
+  summarise(
+    n         = sum(!is.na(gain)),
+    mean_gain = round(mean(gain, na.rm = TRUE), 1),
+    sd_gain   = round(sd(gain, na.rm = TRUE), 1)
+  ) |>
+  knitr::kable()
+```
+
+Across the cohort, mean knowledge gain was
+`r knitr::inline_expr("round(mean(students$gain, na.rm = TRUE), 1)")` points
+(@fig-gain). Eleven students without a post-test are excluded from all
+gain calculations.
+````
+
+The last sentence is the important one: the number is computed, and the
+exclusion is stated in the text rather than buried.
+:::
+
+::: {.callout-note title="Exercise 3 (stretch): change the format"}
+**Time:** 5 minutes
+
+1. Change `format: html` to `format: docx`. Render. Open the Word file.
+2. Now try:
+
+```yaml
+format:
+  html: default
+  docx: default
+```
+
+3. Render again. Both appear. Same source, no retyping.
+:::
+
+::: {.callout-tip title="Solution 3" collapse="true"}
+Nothing more to write — that is the point of the exercise. If `docx` fails,
+close any open Word document with the same name; Word locks the file and
+Quarto cannot overwrite it. This will happen to you at least twice.
+
+For PDF you also need `tinytex::install_tinytex()` — see
+[Setup](../prelude/install.qmd).
+:::
+
+## Key takeaways
+
+::: {.callout-note appearance="minimal"}
+- A `.qmd` is YAML + Markdown + code chunks.
+- Chunk options control what the reader sees; `echo: false` for manuscripts,
+  `include: false` for setup.
+- Inline code is how numbers in your prose stay correct.
+- Label figures `fig-*` and tables `tbl-*` and let Quarto do the numbering.
+- One source, many formats. Never maintain two versions of a document.
+:::
+
+## Next
+
+→ [5 · Working with data](s5-dplyr-eda.qmd) — the verbs that produce the
+numbers you just embedded.

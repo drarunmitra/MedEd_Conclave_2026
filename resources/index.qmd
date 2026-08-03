@@ -1,0 +1,66 @@
+---
+title: "Resources"
+---
+
+Everything here stays online after the workshop.
+
+## During the workshop
+
+- [Cheatsheet](cheatsheet.qmd) — the functions you will use in these two days, on one page
+- [Troubleshooting](troubleshooting.qmd) — the errors that account for most lost time
+- [Glossary](glossary.qmd) — plain-English definitions
+
+## Materials
+
+- [Datasets and codebook](../prelude/data.qmd)
+- [Slide decks](#slides)
+- [Setup check script](../setup/check_setup.R)
+- [Complete worked pipeline](../R/01_analysis.R)
+- [Group activity template](../R/report_template.qmd)
+
+## Slides {#slides}
+
+**Prelude**
+
+- [Modern Research & Data Science: Philosophy, Paradigms, and AI-Augmented Reproducibility](../slides/workshop_intro.html){target="_blank"}
+
+**Day 1**
+
+- [1 · Introduction to the basics](../slides/day1/s1-fundamentals.html){target="_blank"}
+- [2 · Getting started](../slides/day1/s2-getting-started.html){target="_blank"}
+- [3 · R and data visualisation](../slides/day1/s3-ggplot2.html){target="_blank"}
+- [4 · Introduction to Quarto](../slides/day1/s4-quarto.html){target="_blank"}
+- [5 · Working with data](../slides/day1/s5-dplyr-eda.html){target="_blank"}
+
+**Day 2**
+
+- [6 · Communicating with Quarto](../slides/day2/s6-quarto-communication.html){target="_blank"}
+- [7 · Publication-ready tables](../slides/day2/s7-gtsummary.html){target="_blank"}
+- [8 · Generative AI in health research](../slides/day2/s8-genai.html){target="_blank"}
+
+::: {.callout-tip}
+## Speaker notes
+Press <kbd>S</kbd> in any deck for the presenter view, <kbd>O</kbd> for the
+slide overview, <kbd>E</kbd> for print view (then print to PDF), and
+<kbd>F</kbd> for fullscreen.
+:::
+
+## After the workshop
+
+- [Further reading](further-reading.qmd)
+- The [repository](https://github.com/SET-TEAM/meded-conclave-2026) — fork it and run this in your own department
+- Follow-up session: bring your own data. Details by email.
+
+## Feedback {#feedback}
+
+The feedback form is circulated by the SET Team and stays open for one week.
+Please include the parts that did not work — the next cohort inherits your
+answers.
+
+## Licence
+
+Materials [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), code
+MIT. Reuse and adapt with attribution.
+
+**Suggested citation.** Soman B, Mitra A, Gurpreet, and the SET Team (2026).
+*R & Reproducible Research: a two-day workshop.* MedEd Conclave 2026.

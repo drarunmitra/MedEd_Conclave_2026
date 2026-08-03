@@ -1,0 +1,221 @@
+---
+title: "R primer"
+subtitle: "The 45 minutes of R that Day 1 assumes"
+---
+
+Day 1 starts with data *visualisation* at 11:15, which means you will be
+handed a data frame and asked to plot it. This page makes sure the words
+"data frame", "vector" and "package" mean something to you by then.
+
+Work through it in RStudio. Type the code — do not copy-paste. Typing is
+slower, and that is the point: you notice the brackets.
+
+## Objects: everything has a name
+
+R stores things in objects. `<-` is the assignment arrow.
+
+```{r}
+n_students <- 240
+course     <- "Community Medicine"
+passed     <- TRUE
+
+n_students
+course
+```
+
+::: {.callout-tip}
+## Shortcut
+<kbd>Alt</kbd> + <kbd>-</kbd> types `<-` for you. Use it from the start;
+your wrists will thank you.
+:::
+
+## Functions: verbs that take arguments
+
+```{r}
+sqrt(64)
+round(3.14159, digits = 2)
+mean(c(72, 68, 81, 90))
+```
+
+`c()` is the most-used function in R: it **c**ombines values into a vector.
+Arguments in brackets, separated by commas. Named arguments (`digits = 2`)
+are clearer than positional ones — prefer them.
+
+If you do not know what a function does, ask R:
+
+```{r}
+#| eval: false
+?round
+```
+
+## Vectors: a column of values, all the same type
+
+```{r}
+scores <- c(72, 68, 81, 90, 55)
+scores
+
+length(scores)
+mean(scores)
+scores > 70          # a comparison returns a logical vector
+```
+
+The four types you will meet:
+
+| Type | Example | In your data |
+|---|---|---|
+| `numeric` | `72.5` | Marks, age, BMI |
+| `character` | `"MBBS"` | Names, comments |
+| `logical` | `TRUE` | Pass/fail flags |
+| `factor` | `Female` | Categories with fixed levels |
+
+A vector holds **one** type. Mixing them silently converts everything to the
+most permissive type — a classic source of confusion:
+
+```{r}
+c(1, 2, "three")     # all become character
+```
+
+## Data frames: the rectangle you actually analyse
+
+A data frame is a set of equal-length vectors side by side: rows are
+observations (students, patients, sessions), columns are variables.
+
+```{r}
+students <- data.frame(
+  id     = c("S01", "S02", "S03", "S04"),
+  batch  = c("2023", "2023", "2024", "2024"),
+  score  = c(72, 68, 81, 90),
+  passed = c(TRUE, TRUE, TRUE, TRUE)
+)
+
+students
+```
+
+Ways to look at one:
+
+```{r}
+nrow(students)     # rows
+ncol(students)     # columns
+names(students)    # variable names
+str(students)      # structure: types and first values
+summary(students)  # quick descriptives
+```
+
+`str()` is the function you will use most often when something goes wrong.
+Nine times out of ten the problem is that a column is a `character` when you
+thought it was a `numeric`.
+
+Pull out a single column with `$`:
+
+```{r}
+students$score
+mean(students$score)
+```
+
+## Packages: R's extensions
+
+Base R can do a lot. The rest arrives in packages. Install once, load every
+session.
+
+```{r}
+#| eval: false
+install.packages("dplyr")   # once, ever
+library(dplyr)              # every session, at the top of every script
+```
+
+::: {.callout-warning}
+## `install.packages()` does not belong in your script
+Put `library()` calls at the top of a script; keep `install.packages()` in
+the console. A script that reinstalls packages every run is slow and rude to
+whoever else runs it.
+:::
+
+## The pipe `|>`
+
+The pipe passes the thing on its left into the function on its right as the
+first argument. These two lines do exactly the same thing:
+
+```{r}
+round(mean(c(72, 68, 81, 90)), 1)
+
+c(72, 68, 81, 90) |> mean() |> round(1)
+```
+
+The second reads left to right, in the order the work happens: *take these
+scores, take the mean, round to one decimal*. Once your analysis is six steps
+long, the pipe is the difference between readable and unreadable code. We use
+`|>` (native, built into R 4.1+) throughout this workshop.
+
+::: {.callout-note}
+## `|>` vs `%>%`
+You will see `%>%` (from the **magrittr**/**dplyr** world) in older code and
+in most tutorials online. For everything in this workshop they behave the
+same. We use `|>` because it needs no package.
+:::
+
+## Getting data in
+
+```{r}
+#| eval: false
+library(readr)
+students <- read_csv("data/meded_students.csv")
+```
+
+Relative path, because you are working inside an RStudio project. See
+[Datasets](data.qmd) for the files.
+
+## Exercise
+
+::: {.callout-note title="Exercise: your first data frame"}
+**Time:** 10 minutes
+
+1. Create a vector `osce` with the marks 78, 64, 91, 55, 83.
+2. Find its mean and its highest value (`max()`).
+3. How many of those marks are 70 or above? *Hint:* `sum(osce >= 70)` —
+   `TRUE` counts as 1.
+4. Build a data frame `viva` with two columns: `station`
+   (`"History"`, `"Exam"`, `"Counselling"`) and `marks` (`8`, `7`, `9`).
+5. Print the structure of `viva`.
+:::
+
+::: {.callout-tip title="Solution" collapse="true"}
+```{r}
+osce <- c(78, 64, 91, 55, 83)
+
+mean(osce)
+max(osce)
+sum(osce >= 70)
+
+viva <- data.frame(
+  station = c("History", "Exam", "Counselling"),
+  marks   = c(8, 7, 9)
+)
+
+str(viva)
+```
+
+Note that `station` is a character column and `marks` is numeric — exactly
+what `str()` tells you.
+:::
+
+## Errors you will meet, and what they mean
+
+| Message | Cause | Fix |
+|---|---|---|
+| `could not find function "read_csv"` | Package not loaded | `library(readr)` |
+| `object 'students' not found` | Typo, or you never ran the line that created it | Re-run the earlier line; check spelling and case |
+| `unexpected symbol` / `unexpected ')'` | Missing comma or unbalanced bracket | Look at the line *above* the one flagged |
+| `+` in the console instead of `>` | R is waiting for you to finish an expression | Press <kbd>Esc</kbd> and retype |
+
+R is case sensitive. `Students` and `students` are different objects. So are
+`TRUE` and `True` — the second is an error.
+
+## Where to go if you want more
+
+- [R for Data Science (2e), chapters 2–4](https://r4ds.hadley.nz/) — free online, the standard reference
+- [Posit primers](https://posit.cloud/learn/primers) — interactive, browser-based, no installation
+- [Swirl](https://swirlstats.com/) — learn R inside R: `install.packages("swirl"); library(swirl); swirl()`
+
+## Next
+
+→ [Datasets](data.qmd) — get the files we will use on both days.

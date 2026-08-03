@@ -1,0 +1,111 @@
+---
+title: "Introduction to Quarto"
+subtitle: "One source, many outputs · Day 1, Session 4"
+author: "Arun Mitra"
+date: 2026-09-09
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: c/t
+    footer: "MedEd Conclave 2026 · R & Reproducible Research"
+    transition: fade
+    center: false
+execute:
+  echo: true
+  warning: false
+---
+
+## The copy-paste problem {.section-divider}
+
+Run analysis → copy number → paste into Word → format table
+
+. . .
+
+Then the data change. And they always change.
+
+::: {.notes}
+⏱️ 3 min. Ask: who has had to redo a table because two duplicates were found
+late? Every hand goes up.
+:::
+
+## Three ingredients
+
+````markdown
+---
+title: "Knowledge gain"
+format: html          <- 1. YAML: metadata
+---
+
+## Background         <- 2. Markdown: prose
+
+The flipped classroom...
+
+```{{r}}               <- 3. Chunks: code
+mean(students$gain, na.rm = TRUE)
+```
+````
+
+## Markdown in 90 seconds
+
+| Write | Get |
+|---|---|
+| `## Methods` | Heading |
+| `**bold**` `*italic*` | **bold** *italic* |
+| `- item` | Bullet |
+| `[text](url)` | Link |
+| `@fig-gain` | Cross-reference |
+
+Blank lines matter.
+
+## Chunk options
+
+| Option | Effect |
+|---|---|
+| `echo: false` | Hide code, show result |
+| `include: false` | Run, show nothing |
+| `eval: false` | Show, don't run |
+| `fig-cap:` | Caption |
+| `label: fig-x` | Cross-referenceable |
+
+Set defaults once in the YAML.
+
+## The actual magic
+
+```markdown
+Mean gain was `r knitr::inline_expr("round(mean(students$gain, na.rm = TRUE), 1)")` points.
+```
+
+. . .
+
+> Mean gain was 9.8 points.
+
+. . .
+
+That number is **computed**, not typed. Fix a data error → the sentence
+corrects itself.
+
+::: {.notes}
+🎯 If they take one thing from this session, it is inline code. Demo it live:
+change a value, re-render, watch the sentence change.
+:::
+
+## One source, many outputs
+
+```yaml
+format:
+  html:  {toc: true}
+  docx:  {reference-doc: template.docx}
+  pdf:   {documentclass: article}
+  revealjs: {slide-level: 2}
+```
+
+These slides and the workshop website are the same machinery.
+
+## Hands-on — 30 min {background-color="#0f5257"}
+
+One rendered document with prose, a figure, a table, and one inline number.
+
+::: {.notes}
+📋 Expect: Word file open and locked, missing bracket, wrong path. All three
+are on the troubleshooting page.
+:::

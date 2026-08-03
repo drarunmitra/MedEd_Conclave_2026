@@ -1,0 +1,141 @@
+project:
+  type: website
+  output-dir: _site
+  execute-dir: project
+  render:
+    - "index.qmd"
+    - "schedule.qmd"
+    - "prelude/*.qmd"
+    - "day1/*.qmd"
+    - "day2/*.qmd"
+    - "resources/*.qmd"
+    - "slides/day1/*.qmd"
+    - "slides/day2/*.qmd"
+  resources:
+    - "data/**"
+    - "R/**"
+    - "setup/**"
+    - "admin/**"
+    - "slides/workshop_intro.html"
+
+website:
+  title: "R & Reproducible Research"
+  description: "MedEd Conclave 2026 — a two-day hands-on workshop for medical education faculty and researchers."
+  site-url: "https://SET-TEAM.github.io/meded-conclave-2026/"
+  repo-url: "https://github.com/SET-TEAM/meded-conclave-2026"
+  repo-actions: [issue]
+  page-navigation: true
+  back-to-top-navigation: true
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    background: primary
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Prelude"
+        href: prelude/index.qmd
+      - text: "Day 1"
+        href: day1/index.qmd
+      - text: "Day 2"
+        href: day2/index.qmd
+      - text: "Schedule"
+        href: schedule.qmd
+      - text: "Resources"
+        href: resources/index.qmd
+    right:
+      - icon: github
+        href: https://github.com/SET-TEAM/meded-conclave-2026
+        aria-label: GitHub repository
+
+  sidebar:
+    - id: prelude
+      title: "Prelude"
+      style: floating
+      collapse-level: 2
+      contents:
+        - prelude/index.qmd
+        - prelude/install.qmd
+        - prelude/check-setup.qmd
+        - prelude/r-primer.qmd
+        - prelude/data.qmd
+        - prelude/pre-reading.qmd
+
+    - id: day1
+      title: "Day 1 — Wed 9 Sep"
+      style: floating
+      collapse-level: 2
+      contents:
+        - day1/index.qmd
+        - section: "Morning"
+          contents:
+            - day1/s1-fundamentals.qmd
+            - day1/s2-getting-started.qmd
+            - day1/s3-ggplot2.qmd
+        - section: "Afternoon"
+          contents:
+            - day1/s4-quarto.qmd
+            - day1/s5-dplyr-eda.qmd
+
+    - id: day2
+      title: "Day 2 — Thu 10 Sep"
+      style: floating
+      collapse-level: 2
+      contents:
+        - day2/index.qmd
+        - section: "Morning"
+          contents:
+            - day2/s6-quarto-communication.qmd
+            - day2/s7-gtsummary.qmd
+        - section: "Afternoon"
+          contents:
+            - day2/s8-genai.qmd
+            - day2/s9-live-coding.qmd
+            - day2/s10-group-activity.qmd
+
+    - id: resources
+      title: "Resources"
+      style: floating
+      contents:
+        - resources/index.qmd
+        - resources/cheatsheet.qmd
+        - resources/troubleshooting.qmd
+        - resources/glossary.qmd
+        - resources/further-reading.qmd
+
+  page-footer:
+    background: light
+    left: "MedEd Conclave 2026 · SET Team"
+    center: "Materials licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); code [MIT](https://opensource.org/licenses/MIT)"
+    right: "Built with [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme:
+      light: [cosmo, styles.scss]
+    toc: true
+    toc-depth: 3
+    toc-title: "On this page"
+    code-copy: true
+    code-overflow: wrap
+    code-link: true
+    df-print: paged
+    link-external-newwindow: true
+    anchor-sections: true
+    fig-align: center
+    fig-width: 7
+    fig-height: 4.5
+
+execute:
+  freeze: auto
+  warning: false
+  message: false
+  echo: true
+
+knitr:
+  opts_chunk:
+    comment: "#>"
+    collapse: true
+    R.options:
+      width: 76

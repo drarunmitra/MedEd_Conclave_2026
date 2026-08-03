@@ -1,0 +1,224 @@
+---
+title: "10 · Group activity"
+subtitle: "Four groups, one question each, one rendered document"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Build]{.meta-label}[15:15 – 16:00]{.meta-value}
+:::
+::: {.meta-item}
+[Presentations]{.meta-label}[16:15 – 17:00]{.meta-value}
+:::
+::: {.meta-item}
+[Facilitators]{.meta-label}[All faculty + SET Team]{.meta-value}
+:::
+:::
+
+::: {.callout-important}
+## Collect this brief at the Day 2 morning recap
+Forty-five minutes is enough to *build* but not to *decide*. Read your
+group's question over lunch, agree on who does what, and arrive at 15:15
+ready to type.
+:::
+
+## The task
+
+In 45 minutes, produce **one rendered Quarto document** (HTML or Word)
+answering your group's question, containing:
+
+| | Requirement |
+|---|---|
+| ☐ | A title, your names, and a two-sentence background |
+| ☐ | A `gtsummary` table, properly labelled |
+| ☐ | One labelled figure, saved with `ggsave()` |
+| ☐ | At least one number reported through **inline code** |
+| ☐ | A statement of how missing data were handled, with the count |
+| ☐ | One honest limitation |
+| ☐ | An AI disclosure sentence, or a statement that none was used |
+
+Then present it in **four minutes**. Not the code — the finding, and one thing
+that surprised you.
+
+## Group questions
+
+::: {.callout-note}
+## Group 1 — Does attendance explain the effect?
+The flipped classroom arm gains more. Is that because of the teaching method,
+or because those students attended more?
+
+Compare attendance between arms, then look at whether the gain difference
+survives adjustment for attendance. Report both the unadjusted and adjusted
+estimates in one table.
+
+*Verbs you will need:* `group_by()`, `summarise()`, `lm()`,
+`tbl_regression()`, `tbl_merge()`.
+:::
+
+::: {.callout-note}
+## Group 2 — Which OSCE stations discriminate?
+Using `osce_stations.csv`, find which stations separate strong from weak
+students and which do not.
+
+For each station, compute the mean, SD, and the correlation between station
+score and OSCE total. A station that correlates poorly with the total is
+measuring something else — or nothing.
+
+*Verbs you will need:* `group_by()`, `summarise()`, `left_join()`, `cor()`,
+`ggplot2` with `fct_reorder()`.
+:::
+
+::: {.callout-note}
+## Group 3 — Is burnout related to performance?
+Examine the relationship between `burnout_score`, `attendance_pct` and
+`posttest`.
+
+Beware the direction of causation: burnout may reduce attendance, attendance
+may reduce burnout, or a third factor may drive both. Your document must state
+which direction you can and cannot support with these cross-sectional data.
+
+*Verbs you will need:* `filter()`, `mutate()` with `case_when()`,
+`ggplot2` with `geom_smooth()`, `tbl_summary()` by `burnout_band`.
+:::
+
+::: {.callout-note}
+## Group 4 — What do faculty say they need?
+Clean `faculty_survey_raw.csv` and describe what it shows about faculty
+research practice.
+
+Cleaning is most of the work here: names, duplicates, inconsistent
+departments, mixed missing-value codes. Report how many rows you started with,
+how many you ended with, and why.
+
+*Verbs you will need:* `janitor::clean_names()`, `distinct()`, `str_trim()`,
+`str_to_title()`, `case_when()`, `count()`, `tbl_summary()`.
+:::
+
+## Starter document
+
+Download [`report_template.qmd`](../R/report_template.qmd), or copy this:
+
+````markdown
+---
+title: "Group N — your question here"
+author: "Member A, Member B, Member C"
+date: today
+format:
+  html: {toc: true, embed-resources: true}
+execute:
+  echo: false
+  warning: false
+---
+
+```{{r}}
+#| include: false
+library(tidyverse)
+library(gtsummary)
+theme_set(theme_minimal(base_size = 12))
+
+students <- read_csv("data/meded_students.csv")
+osce     <- read_csv("data/osce_stations.csv")
+```
+
+## Background
+
+Two sentences: what was studied and why your question matters.
+
+## Methods
+
+Data from 240 students across three colleges (synthetic, for training).
+Post-test scores were missing for
+`r knitr::inline_expr("sum(is.na(students$posttest))")` students, who were
+excluded from analyses of knowledge gain.
+
+## Results
+
+```{{r}}
+#| label: tbl-main
+#| tbl-cap: "Your table caption."
+# your gtsummary table
+```
+
+```{{r}}
+#| label: fig-main
+#| fig-cap: "Your figure caption."
+# your ggplot
+```
+
+As shown in @tbl-main and @fig-main, ...
+
+## Limitations
+
+One honest paragraph.
+
+## AI disclosure
+
+[Tool] was used to [specific task]. All output was reviewed and verified by
+the authors. / No generative AI tools were used in this analysis.
+````
+
+`embed-resources: true` bundles images into a single HTML file — you can email
+it, and it still works.
+
+## How to split 45 minutes across a group of six
+
+| Minutes | Everyone |
+|---|---|
+| 0–5 | Agree the answer you expect. Write it down. Compare later. |
+| 5–20 | Two people write the analysis code; two draft the prose; two build the table |
+| 20–30 | Merge into one `.qmd`. This always takes longer than expected |
+| 30–40 | Render. Fix. Render again |
+| 40–45 | Decide who presents and rehearse the four minutes once |
+
+::: {.callout-tip}
+## Render early, render often
+Do not write for 40 minutes then render. Render at minute 10 with an empty
+skeleton, and again every few minutes. A document that has never rendered
+will fail at 15:58, and the failure will be a missing bracket.
+:::
+
+## Presentations {#presentations}
+
+**16:15 – 17:00.** Four minutes per group, two minutes of questions.
+
+Cover, in order:
+
+1. Your question, in one sentence.
+2. Your answer, in one sentence.
+3. Your table or figure — on screen, from your rendered document.
+4. What surprised you, or what you could not do.
+
+::: {.callout-note}
+## What we are assessing — and what we are not
+**We are not assessing** statistical sophistication, elegance of code, or
+whether you found a "significant" result.
+
+**We are assessing** whether the document regenerates itself, whether the
+numbers in the prose come from the data rather than from typing, and whether
+you have been honest about what you do not know.
+
+A group that reports "we found nothing, and here is why our design could not
+have detected it" is doing better science than a group that found a p-value
+below 0.05 in the fourth subgroup they tried.
+:::
+
+## Then
+
+**Post-test, feedback and valedictory** — SET Team.
+
+The [feedback form](../resources/index.qmd#feedback) stays open for a week.
+Please fill it in honestly, including the parts that did not work. The next
+cohort inherits your answers.
+
+## After the workshop
+
+- Everything on this site stays online.
+- The repository is public. Fork it, adapt it, run it in your own department.
+- Bring your own data to the follow-up session — details circulated by email.
+
+::: {.callout-note appearance="minimal"}
+## The one thing to take away
+You will forget the syntax. Everyone does, and it is looked up in seconds.
+What should survive is the habit: **one project folder, one script per step,
+one source document, and a restart before you believe anything.**
+:::

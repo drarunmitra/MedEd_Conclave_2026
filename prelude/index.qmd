@@ -1,0 +1,64 @@
+---
+title: "Prelude"
+subtitle: "What to do before 9 September"
+---
+
+Everything on this page is designed to be done **on your own laptop, before
+the workshop**. Budget about two hours in total, spread over a few evenings.
+
+::: {.callout-important}
+## The one thing that must be done
+Install R, RStudio and Quarto, and run the setup check. If your laptop is not
+ready on the morning of Day 1, you will spend the first session watching
+downloads instead of writing code.
+:::
+
+## Checklist
+
+| | Task | Time | Page |
+|---|---|---|---|
+| ☐ | Install R, RStudio, Quarto | 30 min | [Install the software](install.qmd) |
+| ☐ | Install workshop packages and run the check script | 15 min | [Check your setup](check-setup.qmd) |
+| ☐ | Work through the self-paced R primer | 45 min | [R primer](r-primer.qmd) |
+| ☐ | Download the workshop datasets | 5 min | [Datasets](data.qmd) |
+| ☐ | Skim the pre-reading | 20 min | [Pre-reading](pre-reading.qmd) |
+| ☐ | Complete the online pre-test | 10 min | *link circulated by the SET Team* |
+
+## What to bring
+
+- A laptop you have **administrator rights on** (you will be installing
+  software). Windows, macOS and Linux are all fine.
+- A charger. Power outlets are limited; arrive charged.
+- At least **5 GB free disk space**.
+- Your institutional email, for the R and Quarto ecosystems that ask for one.
+
+::: {.callout-tip}
+## Institutional laptops
+If your IT department locks down installation, contact the SET Team **at
+least one week before** the workshop. A cloud fallback
+([Posit Cloud](https://posit.cloud), free tier) can be arranged, but a local
+installation is strongly preferred — that is what you will use afterwards.
+:::
+
+## What you do *not* need
+
+- Prior programming experience of any kind.
+- Statistics beyond what you already use in your own research.
+- A paid licence for anything. Every tool in this workshop is free and
+  open source.
+
+## Why a prelude at all
+
+Two days is short. Installation problems, "what is a working directory?", and
+"why does my file not open?" can eat half of Day 1 — and they are exactly the
+problems that are easiest to solve alone, in advance, without an audience.
+Doing the prelude buys us the time to spend Day 1 on ideas instead of
+plumbing.
+
+::: {.callout-note}
+## Stuck?
+Work through [Troubleshooting](../resources/troubleshooting.qmd) first — it
+covers the errors that account for most installation failures. If that does
+not help, email the SET Team with (a) your operating system and version,
+(b) the exact error message, and (c) the output of `sessionInfo()`.
+:::

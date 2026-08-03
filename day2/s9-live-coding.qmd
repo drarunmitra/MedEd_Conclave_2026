@@ -1,0 +1,173 @@
+---
+title: "9 · Live code session"
+subtitle: "One dataset to one rendered report, start to finish"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Time]{.meta-label}[14:45 – 15:15]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Biju Soman · Arun Mitra · Gurpreet]{.meta-value}
+:::
+::: {.meta-item}
+[Format]{.meta-label}[Demonstration — watch, don't type]{.meta-value}
+:::
+:::
+
+::: {.callout-important}
+## Watch. Do not type.
+Thirty minutes, three faculty, one complete workflow. The full script is on
+this page — you will have it afterwards. Watching how someone experienced
+moves between console, script and document is the point; transcribing it is
+not.
+:::
+
+## What you will see
+
+An empty folder becomes a rendered report in half an hour, including the
+mistakes. Faculty will deliberately leave the errors in: the misspelt column,
+the forgotten `na.rm`, the join that duplicates rows. Watching an expert
+recover from an error is more instructive than watching one avoid it.
+
+| Minutes | Step | Led by |
+|---|---|---|
+| 0–5 | Project setup, folder structure, `.Rproj` | Biju Soman |
+| 5–12 | Import, inspect, clean; the join that goes wrong | Gurpreet |
+| 12–20 | EDA and the figure, built layer by layer | Gurpreet |
+| 20–26 | `gtsummary` table, model, into the `.qmd` | Arun Mitra |
+| 26–30 | Render to HTML and Word; the reproducibility test | Arun Mitra |
+
+## The pipeline
+
+```{r}
+#| eval: false
+# 01_analysis.R ---------------------------------------------------------------
+# Flipped classroom and knowledge gain: complete workflow
+# Run with a clean session: Ctrl/Cmd + Shift + F10, then source this file.
+
+library(tidyverse)
+library(gtsummary)
+
+# 1. Import -------------------------------------------------------------------
+students <- read_csv("data/meded_students.csv")
+osce     <- read_csv("data/osce_stations.csv")
+
+glimpse(students)
+stopifnot(nrow(students) == 240)   # fail loudly, early
+
+# 2. Derive -------------------------------------------------------------------
+osce_summary <- osce |>
+  group_by(student_id) |>
+  summarise(
+    osce_total    = sum(score),
+    osce_mean     = mean(score),
+    n_stations    = n(),
+    .groups = "drop"
+  )
+
+stopifnot(all(osce_summary$n_stations == 5))   # catch the bad join before it happens
+
+analysis <- students |>
+  left_join(osce_summary, by = "student_id") |>
+  mutate(
+    teaching_arm = factor(teaching_arm,
+                          levels = c("Traditional lecture", "Flipped classroom")),
+    attendance_band = case_when(
+      attendance_pct >= 90 ~ "High",
+      attendance_pct >= 75 ~ "Adequate",
+      .default             = "Below requirement"
+    ),
+    complete_case = !is.na(posttest)
+  )
+
+stopifnot(nrow(analysis) == nrow(students))    # the join did not duplicate
+
+# 3. Describe -----------------------------------------------------------------
+n_excluded <- sum(!analysis$complete_case)
+message("Excluded for missing post-test: ", n_excluded)
+
+tbl1 <- analysis |>
+  select(teaching_arm, age, sex, rural_background, attendance_pct,
+         pretest, osce_total) |>
+  tbl_summary(
+    by = teaching_arm,
+    label = list(age ~ "Age (years)", sex ~ "Sex",
+                 rural_background ~ "Domicile",
+                 attendance_pct ~ "Attendance (%)",
+                 pretest ~ "Pre-test score",
+                 osce_total ~ "OSCE total (/100)")
+  ) |>
+  add_overall() |>
+  bold_labels()
+
+# 4. Visualise ----------------------------------------------------------------
+fig1 <- analysis |>
+  filter(complete_case) |>
+  ggplot(aes(x = teaching_arm, y = gain, fill = teaching_arm)) +
+  geom_boxplot(alpha = 0.75, width = 0.55, outlier.shape = NA) +
+  geom_jitter(width = 0.12, alpha = 0.3, size = 1) +
+  scale_fill_manual(values = c("Traditional lecture" = "#b8860b",
+                               "Flipped classroom"   = "#0f5257")) +
+  labs(x = NULL, y = "Knowledge gain (post − pre)",
+       title = "Knowledge gain by teaching method",
+       subtitle = paste0("n = ", sum(analysis$complete_case),
+                         " with complete data")) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none")
+
+ggsave("output/fig1_gain.png", fig1, width = 7, height = 4.5,
+       dpi = 300, bg = "white")
+
+# 5. Model --------------------------------------------------------------------
+m1 <- lm(gain ~ teaching_arm + pretest + attendance_pct + sex, data = analysis)
+
+tbl2 <- tbl_regression(
+  m1,
+  label = list(teaching_arm ~ "Teaching arm", pretest ~ "Pre-test score",
+               attendance_pct ~ "Attendance (%)", sex ~ "Sex")
+) |>
+  add_glance_table(include = c(nobs, r.squared)) |>
+  bold_p()
+
+# 6. Render -------------------------------------------------------------------
+# quarto::quarto_render("report.qmd")
+```
+
+## Three habits to notice
+
+**`stopifnot()` after every join and import.** It costs one line and turns a
+silent wrong answer into a loud stop. The `n_stations == 5` check catches a
+duplicated station before it inflates every OSCE total — an error that would
+otherwise survive to publication looking entirely plausible.
+
+**`factor(levels = ...)` set explicitly.** R orders factors alphabetically, so
+"Flipped classroom" would become the reference category by accident. Setting
+the reference deliberately means the regression coefficient answers the
+question you meant to ask.
+
+**The figure and the table are objects.** `fig1` and `tbl1` are created in the
+script and referenced from the `.qmd`. Nothing is copied. Change the data,
+re-source, re-render — every number and every figure updates together.
+
+## The reproducibility test, live
+
+At minute 28, faculty will:
+
+1. Delete the entire `output/` folder.
+2. Restart R (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F10</kbd>).
+3. Source `01_analysis.R`, then render `report.qmd`.
+4. Show that everything comes back, identically.
+
+If your own project cannot survive that, it is not yet reproducible — and now
+you know exactly how to find out.
+
+## Downloads
+
+- [`01_analysis.R`](../R/01_analysis.R) — the complete script above
+- [`report_template.qmd`](../R/report_template.qmd) — the starter document for
+  the group activity
+
+## Next
+
+→ [10 · Group activity](s10-group-activity.qmd)

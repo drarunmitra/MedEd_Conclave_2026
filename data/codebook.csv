@@ -1,0 +1,26 @@
+dataset,variable,type,description
+meded_students.csv,student_id,character,Unique student identifier
+meded_students.csv,batch,character,Year of admission
+meded_students.csv,college,character,Medical college (3 sites)
+meded_students.csv,sex,character,Female / Male as self-reported
+meded_students.csv,age,numeric,Age in completed years
+meded_students.csv,rural_background,character,Rural / Urban domicile
+meded_students.csv,teaching_arm,character,Traditional lecture / Flipped classroom
+meded_students.csv,admission_score,numeric,Entrance percentile at admission (0-100)
+meded_students.csv,attendance_pct,numeric,Attendance across the module (%)
+meded_students.csv,pretest,numeric,Knowledge test before the module (0-100)
+meded_students.csv,posttest,numeric,Knowledge test after the module (0-100); 11 missing
+meded_students.csv,gain,numeric,posttest - pretest
+meded_students.csv,study_hours,numeric,Self-reported study hours per week
+meded_students.csv,burnout_score,numeric,"Burnout scale 0-100, higher = worse; 7 missing"
+meded_students.csv,burnout_band,character,Low (<35) / Moderate (35-60) / High (>60)
+meded_students.csv,satisfaction,numeric,"Course satisfaction, 1-5 Likert"
+meded_students.csv,passed,character,Yes if posttest >= 50
+osce_stations.csv,student_id,character,Links to meded_students.csv
+osce_stations.csv,station,character,Station code ST1-ST5
+osce_stations.csv,station_name,character,Station description
+osce_stations.csv,domain,character,Communication / Clinical / Procedural / Cognitive
+osce_stations.csv,examiner,character,Examiner code EX01-EX12
+osce_stations.csv,score,numeric,"Station score, 0-20"
+osce_stations.csv,max_score,numeric,Maximum possible (20)
+faculty_survey_raw.csv,(various),character,"Raw Google Form export: untidy names, mixed date formats, duplicates, inconsistent categories"

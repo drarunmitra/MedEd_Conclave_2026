@@ -1,0 +1,341 @@
+---
+title: "7 · Publication-ready tables & figures"
+subtitle: "gtsummary"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Teaching]{.meta-label}[11:15 – 12:00]{.meta-value}
+:::
+::: {.meta-item}
+[Hands-on]{.meta-label}[12:00 – 13:00]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Arun Mitra]{.meta-value}
+:::
+::: {.meta-item}
+[Slides]{.meta-label}[[Open deck ↗](../slides/day2/s7-gtsummary.html){target="_blank"}]{.meta-value}
+:::
+:::
+
+```{r}
+#| include: false
+library(tidyverse)
+library(gtsummary)
+theme_gtsummary_compact()
+students <- read_csv("data/meded_students.csv", show_col_types = FALSE)
+```
+
+## Learning objectives
+
+1. Produce a Table 1 with `tbl_summary()` in one line.
+2. Stratify by a grouping variable and add an appropriate comparison test.
+3. Control which statistics, labels and digits appear.
+4. Tabulate a regression model with `tbl_regression()`.
+5. Export a table to Word without reformatting it by hand.
+
+## Table 1, in one line
+
+```{r}
+students |>
+  select(age, sex, rural_background, attendance_pct, pretest, burnout_band) |>
+  tbl_summary()
+```
+
+`gtsummary` has already decided, correctly, that `age` and `attendance_pct`
+are continuous (median and IQR), and that `sex` and `burnout_band` are
+categorical (n and %). It has counted the missing values and labelled them.
+
+This is the table you have built by hand, in Word, for every paper you have
+written.
+
+## Stratified, with a test
+
+```{r}
+students |>
+  select(teaching_arm, age, sex, rural_background, attendance_pct,
+         pretest, burnout_band) |>
+  tbl_summary(
+    by = teaching_arm,
+    missing_text = "Missing"
+  ) |>
+  add_p() |>
+  add_overall() |>
+  bold_labels()
+```
+
+`add_p()` picks the test by variable type: Wilcoxon rank-sum for continuous,
+chi-squared for categorical, Fisher's exact when expected counts are small.
+
+::: {.callout-warning}
+## `add_p()` is convenient, and convenience is a risk
+It will happily produce a p-value for every row of your Table 1. Testing
+baseline differences in a randomised comparison is
+[widely criticised](https://doi.org/10.1002/sim.4780090113): if allocation was
+random, any imbalance *is* chance by definition, and the test answers a
+question nobody asked.
+
+Report baseline characteristics with descriptive statistics and a comment on
+clinically meaningful imbalance. Keep `add_p()` for the comparisons you
+actually pre-specified.
+:::
+
+## Taking control
+
+```{r}
+students |>
+  select(teaching_arm, age, attendance_pct, pretest, posttest, gain, sex) |>
+  tbl_summary(
+    by = teaching_arm,
+    label = list(
+      age            ~ "Age (years)",
+      attendance_pct ~ "Attendance (%)",
+      pretest        ~ "Pre-test score",
+      posttest       ~ "Post-test score",
+      gain           ~ "Knowledge gain",
+      sex            ~ "Sex"
+    ),
+    statistic = list(
+      all_continuous()  ~ "{mean} ({sd})",
+      all_categorical() ~ "{n} ({p}%)"
+    ),
+    digits = all_continuous() ~ 1,
+    missing = "no"
+  ) |>
+  add_p(test = all_continuous() ~ "t.test") |>
+  modify_header(label ~ "**Characteristic**") |>
+  modify_caption("**Table 1.** Cohort characteristics by teaching arm.") |>
+  bold_labels()
+```
+
+The pieces:
+
+| Argument | Controls |
+|---|---|
+| `label =` | Human-readable variable names. Do this always — `attendance_pct` is not acceptable in a manuscript |
+| `statistic =` | `{mean} ({sd})` vs the default `{median} ({p25}, {p75})` |
+| `digits =` | Decimal places |
+| `missing =` | `"ifany"` (default), `"no"`, `"always"` |
+| `add_p(test =)` | Override the automatic test choice |
+
+::: {.callout-tip}
+## Report the statistic your data deserve
+The default is median and IQR because it is the safer choice for skewed
+data. Switching to mean and SD is a claim about your distribution — check
+it with a histogram before you make it. `study_hours` in this dataset is
+right-skewed; `pretest` is not.
+:::
+
+## Regression tables
+
+```{r}
+model <- lm(gain ~ teaching_arm + pretest + attendance_pct + sex,
+            data = students)
+
+tbl_regression(
+  model,
+  label = list(
+    teaching_arm   ~ "Teaching arm",
+    pretest        ~ "Pre-test score",
+    attendance_pct ~ "Attendance (%)",
+    sex            ~ "Sex"
+  )
+) |>
+  add_glance_table(include = c(nobs, r.squared, adj.r.squared)) |>
+  bold_p(t = 0.05) |>
+  modify_caption("**Table 2.** Linear regression of knowledge gain.")
+```
+
+Coefficients, confidence intervals and p-values, formatted, labelled and
+ready. For a logistic model, `tbl_regression(..., exponentiate = TRUE)` gives
+odds ratios instead.
+
+```{r}
+glm(factor(passed) ~ teaching_arm + attendance_pct,
+    data = students, family = binomial) |>
+  tbl_regression(exponentiate = TRUE) |>
+  bold_p()
+```
+
+## Side by side
+
+```{r}
+t1 <- students |> select(gain, teaching_arm) |>
+  tbl_summary(by = teaching_arm, missing = "no")
+
+t2 <- lm(gain ~ teaching_arm, data = students) |>
+  tbl_regression()
+
+tbl_merge(list(t1, t2),
+          tab_spanner = c("**Descriptive**", "**Unadjusted model**"))
+```
+
+`tbl_stack()` does the same vertically — useful for reporting the same model
+across several outcomes.
+
+## Getting it into Word
+
+```{r}
+#| eval: false
+tbl <- students |>
+  select(teaching_arm, age, sex, pretest) |>
+  tbl_summary(by = teaching_arm) |>
+  add_p()
+
+# Option 1 — inside a Quarto document rendering to docx: just print it.
+
+# Option 2 — a standalone Word file
+tbl |>
+  as_flex_table() |>
+  flextable::save_as_docx(path = "output/table1.docx")
+```
+
+::: {.callout-important}
+## Option 1 is the point of the whole workshop
+If your table lives in a chunk in your manuscript `.qmd`, then correcting a
+data entry error means re-rendering, not rebuilding the table. Exporting to a
+separate Word file re-introduces the manual step you spent two days learning
+to remove. Use it only when a co-author insists on a bare table.
+:::
+
+# Hands-on {#hands-on}
+
+**12:00 – 13:00.** Exercises 1–3; 4 is a stretch.
+
+::: {.callout-note title="Exercise 1: your Table 1"}
+**Time:** 15 minutes
+
+1. Build a `tbl_summary()` of the cohort stratified by `college`.
+2. Include `age`, `sex`, `rural_background`, `attendance_pct`, `pretest`.
+3. Give every variable a proper label.
+4. Add an overall column.
+:::
+
+::: {.callout-tip title="Solution 1" collapse="true"}
+```{r}
+students |>
+  select(college, age, sex, rural_background, attendance_pct, pretest) |>
+  tbl_summary(
+    by = college,
+    label = list(
+      age              ~ "Age (years)",
+      sex              ~ "Sex",
+      rural_background ~ "Domicile",
+      attendance_pct   ~ "Attendance (%)",
+      pretest          ~ "Pre-test score"
+    )
+  ) |>
+  add_overall() |>
+  bold_labels()
+```
+:::
+
+::: {.callout-note title="Exercise 2: outcomes with a test"}
+**Time:** 15 minutes
+
+1. Table of `pretest`, `posttest` and `gain` by `teaching_arm`.
+2. Report mean (SD).
+3. Add a t-test.
+4. Add a caption.
+5. What does the `pretest` row tell you, and why does it matter for how you
+   read the `gain` row?
+:::
+
+::: {.callout-tip title="Solution 2" collapse="true"}
+```{r}
+students |>
+  select(teaching_arm, pretest, posttest, gain) |>
+  tbl_summary(
+    by = teaching_arm,
+    statistic = all_continuous() ~ "{mean} ({sd})",
+    digits = all_continuous() ~ 1,
+    label = list(pretest ~ "Pre-test", posttest ~ "Post-test",
+                 gain ~ "Gain (post − pre)")
+  ) |>
+  add_p(test = all_continuous() ~ "t.test") |>
+  modify_caption("**Table.** Knowledge scores by teaching arm.")
+```
+
+The `pretest` row should show no meaningful difference — the arms were
+allocated alternately, so they start comparable. That is what licenses reading
+the `gain` difference as an effect of teaching method rather than of who
+ended up in which arm. Had the pre-test differed substantially, the gain
+comparison would need adjustment, and you would have discovered that *before*
+interpreting it.
+:::
+
+::: {.callout-note title="Exercise 3: a model"}
+**Time:** 15 minutes
+
+1. Fit `lm(posttest ~ teaching_arm + pretest + attendance_pct)`.
+2. Tabulate it with `tbl_regression()`, labelled.
+3. Add model fit statistics.
+4. Interpret the `teaching_arm` coefficient in one sentence a clinician would
+   understand.
+:::
+
+::: {.callout-tip title="Solution 3" collapse="true"}
+```{r}
+lm(posttest ~ teaching_arm + pretest + attendance_pct, data = students) |>
+  tbl_regression(
+    label = list(teaching_arm   ~ "Teaching arm",
+                 pretest        ~ "Pre-test score",
+                 attendance_pct ~ "Attendance (%)")
+  ) |>
+  add_glance_table(include = c(nobs, r.squared)) |>
+  bold_p()
+```
+
+Interpretation: *adjusting for pre-test score and attendance, students taught
+by flipped classroom scored about 5 points higher on the post-test than those
+taught by traditional lecture.* Note the two things that sentence contains
+which a bare p-value does not — the size of the effect, and what it is
+adjusted for.
+:::
+
+::: {.callout-note title="Exercise 4 (stretch): merge and export"}
+**Time:** 15 minutes
+
+1. Build a descriptive table of `gain` by arm and a regression table of
+   `gain ~ teaching_arm`.
+2. `tbl_merge()` them with sensible spanners.
+3. Export the result to `output/table_combined.docx`.
+4. Open it in Word. What still needs manual work?
+:::
+
+::: {.callout-tip title="Solution 4" collapse="true"}
+```{r}
+#| eval: false
+t1 <- students |> select(gain, teaching_arm) |>
+  tbl_summary(by = teaching_arm, statistic = all_continuous() ~ "{mean} ({sd})",
+              missing = "no")
+t2 <- lm(gain ~ teaching_arm, data = students) |> tbl_regression()
+
+tbl_merge(list(t1, t2),
+          tab_spanner = c("**Descriptive**", "**Unadjusted**")) |>
+  as_flex_table() |>
+  flextable::save_as_docx(path = "output/table_combined.docx")
+```
+
+What still needs manual work: journal-specific fonts and table borders, and
+sometimes the footnote wording. Set those once in a `reference-doc` Word
+template rather than fixing them after every render — see
+[Session 6](s6-quarto-communication.qmd).
+:::
+
+## Key takeaways
+
+::: {.callout-note appearance="minimal"}
+- `tbl_summary()` builds Table 1; `by =` stratifies it; `add_p()` tests it.
+- Label every variable. `attendance_pct` belongs in your code, not your
+  manuscript.
+- Default is median (IQR); mean (SD) is a claim about your distribution.
+- Do not p-test baseline characteristics of a randomised comparison.
+- `tbl_regression()` for models; `exponentiate = TRUE` for odds ratios.
+- Keep tables inside the `.qmd`. Exporting to Word re-introduces the manual
+  step.
+:::
+
+## Next
+
+→ [8 · Generative AI in health research](s8-genai.qmd)

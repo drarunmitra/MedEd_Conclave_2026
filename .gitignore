@@ -1,0 +1,23 @@
+# Quarto
+/_site/
+/.quarto/
+*_files/
+/_freeze/
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Output
+/output/
+!/output/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+~$*
+
+**/*.quarto_ipynb

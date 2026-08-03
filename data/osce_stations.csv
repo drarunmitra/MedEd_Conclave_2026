@@ -1,0 +1,1201 @@
+student_id,station,station_name,domain,examiner,score,max_score,attempt
+S001,ST1,History taking,Communication,EX03,9,20,1
+S001,ST2,Clinical examination,Clinical skill,EX09,7,20,1
+S001,ST3,Procedure: IV access,Procedural skill,EX02,6,20,1
+S001,ST4,Counselling,Communication,EX02,11,20,1
+S001,ST5,Data interpretation,Cognitive,EX01,11,20,1
+S002,ST1,History taking,Communication,EX07,14,20,1
+S002,ST2,Clinical examination,Clinical skill,EX02,10,20,1
+S002,ST3,Procedure: IV access,Procedural skill,EX10,7,20,1
+S002,ST4,Counselling,Communication,EX01,8,20,1
+S002,ST5,Data interpretation,Cognitive,EX12,13,20,1
+S003,ST1,History taking,Communication,EX11,7,20,1
+S003,ST2,Clinical examination,Clinical skill,EX12,6,20,1
+S003,ST3,Procedure: IV access,Procedural skill,EX08,8,20,1
+S003,ST4,Counselling,Communication,EX12,7,20,1
+S003,ST5,Data interpretation,Cognitive,EX04,7,20,1
+S004,ST1,History taking,Communication,EX08,14,20,1
+S004,ST2,Clinical examination,Clinical skill,EX08,6,20,1
+S004,ST3,Procedure: IV access,Procedural skill,EX02,11,20,1
+S004,ST4,Counselling,Communication,EX08,7,20,1
+S004,ST5,Data interpretation,Cognitive,EX12,7,20,1
+S005,ST1,History taking,Communication,EX03,7,20,1
+S005,ST2,Clinical examination,Clinical skill,EX06,9,20,1
+S005,ST3,Procedure: IV access,Procedural skill,EX03,5,20,1
+S005,ST4,Counselling,Communication,EX06,4,20,1
+S005,ST5,Data interpretation,Cognitive,EX11,0,20,1
+S006,ST1,History taking,Communication,EX04,7,20,1
+S006,ST2,Clinical examination,Clinical skill,EX07,5,20,1
+S006,ST3,Procedure: IV access,Procedural skill,EX04,7,20,1
+S006,ST4,Counselling,Communication,EX10,6,20,1
+S006,ST5,Data interpretation,Cognitive,EX05,9,20,1
+S007,ST1,History taking,Communication,EX06,13,20,1
+S007,ST2,Clinical examination,Clinical skill,EX08,8,20,1
+S007,ST3,Procedure: IV access,Procedural skill,EX05,9,20,1
+S007,ST4,Counselling,Communication,EX03,11,20,1
+S007,ST5,Data interpretation,Cognitive,EX09,4,20,1
+S008,ST1,History taking,Communication,EX11,9,20,1
+S008,ST2,Clinical examination,Clinical skill,EX07,7,20,1
+S008,ST3,Procedure: IV access,Procedural skill,EX08,5,20,1
+S008,ST4,Counselling,Communication,EX03,7,20,1
+S008,ST5,Data interpretation,Cognitive,EX06,8,20,1
+S009,ST1,History taking,Communication,EX08,6,20,1
+S009,ST2,Clinical examination,Clinical skill,EX07,10,20,1
+S009,ST3,Procedure: IV access,Procedural skill,EX02,5,20,1
+S009,ST4,Counselling,Communication,EX03,9,20,1
+S009,ST5,Data interpretation,Cognitive,EX02,9,20,1
+S010,ST1,History taking,Communication,EX12,9,20,1
+S010,ST2,Clinical examination,Clinical skill,EX01,9,20,1
+S010,ST3,Procedure: IV access,Procedural skill,EX12,3,20,1
+S010,ST4,Counselling,Communication,EX10,8,20,1
+S010,ST5,Data interpretation,Cognitive,EX11,8,20,1
+S011,ST1,History taking,Communication,EX04,9,20,1
+S011,ST2,Clinical examination,Clinical skill,EX08,4,20,1
+S011,ST3,Procedure: IV access,Procedural skill,EX11,9,20,1
+S011,ST4,Counselling,Communication,EX12,7,20,1
+S011,ST5,Data interpretation,Cognitive,EX06,3,20,1
+S012,ST1,History taking,Communication,EX06,9,20,1
+S012,ST2,Clinical examination,Clinical skill,EX03,6,20,1
+S012,ST3,Procedure: IV access,Procedural skill,EX11,6,20,1
+S012,ST4,Counselling,Communication,EX09,10,20,1
+S012,ST5,Data interpretation,Cognitive,EX04,9,20,1
+S013,ST1,History taking,Communication,EX11,12,20,1
+S013,ST2,Clinical examination,Clinical skill,EX09,7,20,1
+S013,ST3,Procedure: IV access,Procedural skill,EX04,7,20,1
+S013,ST4,Counselling,Communication,EX10,10,20,1
+S013,ST5,Data interpretation,Cognitive,EX05,6,20,1
+S014,ST1,History taking,Communication,EX07,11,20,1
+S014,ST2,Clinical examination,Clinical skill,EX06,12,20,1
+S014,ST3,Procedure: IV access,Procedural skill,EX10,3,20,1
+S014,ST4,Counselling,Communication,EX09,8,20,1
+S014,ST5,Data interpretation,Cognitive,EX12,6,20,1
+S015,ST1,History taking,Communication,EX05,11,20,1
+S015,ST2,Clinical examination,Clinical skill,EX04,8,20,1
+S015,ST3,Procedure: IV access,Procedural skill,EX01,7,20,1
+S015,ST4,Counselling,Communication,EX07,10,20,1
+S015,ST5,Data interpretation,Cognitive,EX12,11,20,1
+S016,ST1,History taking,Communication,EX02,7,20,1
+S016,ST2,Clinical examination,Clinical skill,EX07,9,20,1
+S016,ST3,Procedure: IV access,Procedural skill,EX12,7,20,1
+S016,ST4,Counselling,Communication,EX05,8,20,1
+S016,ST5,Data interpretation,Cognitive,EX08,8,20,1
+S017,ST1,History taking,Communication,EX04,6,20,1
+S017,ST2,Clinical examination,Clinical skill,EX01,11,20,1
+S017,ST3,Procedure: IV access,Procedural skill,EX08,8,20,1
+S017,ST4,Counselling,Communication,EX03,3,20,1
+S017,ST5,Data interpretation,Cognitive,EX02,6,20,1
+S018,ST1,History taking,Communication,EX05,11,20,1
+S018,ST2,Clinical examination,Clinical skill,EX01,10,20,1
+S018,ST3,Procedure: IV access,Procedural skill,EX02,8,20,1
+S018,ST4,Counselling,Communication,EX07,7,20,1
+S018,ST5,Data interpretation,Cognitive,EX08,4,20,1
+S019,ST1,History taking,Communication,EX01,8,20,1
+S019,ST2,Clinical examination,Clinical skill,EX12,7,20,1
+S019,ST3,Procedure: IV access,Procedural skill,EX01,7,20,1
+S019,ST4,Counselling,Communication,EX01,10,20,1
+S019,ST5,Data interpretation,Cognitive,EX08,14,20,1
+S020,ST1,History taking,Communication,EX06,4,20,1
+S020,ST2,Clinical examination,Clinical skill,EX05,8,20,1
+S020,ST3,Procedure: IV access,Procedural skill,EX05,6,20,1
+S020,ST4,Counselling,Communication,EX12,8,20,1
+S020,ST5,Data interpretation,Cognitive,EX05,2,20,1
+S021,ST1,History taking,Communication,EX11,7,20,1
+S021,ST2,Clinical examination,Clinical skill,EX09,9,20,1
+S021,ST3,Procedure: IV access,Procedural skill,EX01,1,20,1
+S021,ST4,Counselling,Communication,EX05,6,20,1
+S021,ST5,Data interpretation,Cognitive,EX09,4,20,1
+S022,ST1,History taking,Communication,EX10,8,20,1
+S022,ST2,Clinical examination,Clinical skill,EX04,5,20,1
+S022,ST3,Procedure: IV access,Procedural skill,EX09,3,20,1
+S022,ST4,Counselling,Communication,EX01,4,20,1
+S022,ST5,Data interpretation,Cognitive,EX04,3,20,1
+S023,ST1,History taking,Communication,EX04,6,20,1
+S023,ST2,Clinical examination,Clinical skill,EX08,12,20,1
+S023,ST3,Procedure: IV access,Procedural skill,EX11,5,20,1
+S023,ST4,Counselling,Communication,EX07,8,20,1
+S023,ST5,Data interpretation,Cognitive,EX02,5,20,1
+S024,ST1,History taking,Communication,EX01,4,20,1
+S024,ST2,Clinical examination,Clinical skill,EX09,8,20,1
+S024,ST3,Procedure: IV access,Procedural skill,EX03,2,20,1
+S024,ST4,Counselling,Communication,EX07,8,20,1
+S024,ST5,Data interpretation,Cognitive,EX07,6,20,1
+S025,ST1,History taking,Communication,EX07,11,20,1
+S025,ST2,Clinical examination,Clinical skill,EX11,8,20,1
+S025,ST3,Procedure: IV access,Procedural skill,EX12,12,20,1
+S025,ST4,Counselling,Communication,EX05,9,20,1
+S025,ST5,Data interpretation,Cognitive,EX06,7,20,1
+S026,ST1,History taking,Communication,EX05,6,20,1
+S026,ST2,Clinical examination,Clinical skill,EX07,11,20,1
+S026,ST3,Procedure: IV access,Procedural skill,EX06,8,20,1
+S026,ST4,Counselling,Communication,EX07,7,20,1
+S026,ST5,Data interpretation,Cognitive,EX07,8,20,1
+S027,ST1,History taking,Communication,EX07,12,20,1
+S027,ST2,Clinical examination,Clinical skill,EX11,7,20,1
+S027,ST3,Procedure: IV access,Procedural skill,EX11,5,20,1
+S027,ST4,Counselling,Communication,EX09,10,20,1
+S027,ST5,Data interpretation,Cognitive,EX10,8,20,1
+S028,ST1,History taking,Communication,EX06,10,20,1
+S028,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S028,ST3,Procedure: IV access,Procedural skill,EX02,5,20,1
+S028,ST4,Counselling,Communication,EX04,8,20,1
+S028,ST5,Data interpretation,Cognitive,EX06,6,20,1
+S029,ST1,History taking,Communication,EX09,6,20,1
+S029,ST2,Clinical examination,Clinical skill,EX11,5,20,1
+S029,ST3,Procedure: IV access,Procedural skill,EX01,5,20,1
+S029,ST4,Counselling,Communication,EX01,9,20,1
+S029,ST5,Data interpretation,Cognitive,EX07,6,20,1
+S030,ST1,History taking,Communication,EX11,9,20,1
+S030,ST2,Clinical examination,Clinical skill,EX02,7,20,1
+S030,ST3,Procedure: IV access,Procedural skill,EX03,4,20,1
+S030,ST4,Counselling,Communication,EX05,10,20,1
+S030,ST5,Data interpretation,Cognitive,EX02,6,20,1
+S031,ST1,History taking,Communication,EX08,8,20,1
+S031,ST2,Clinical examination,Clinical skill,EX09,8,20,1
+S031,ST3,Procedure: IV access,Procedural skill,EX12,7,20,1
+S031,ST4,Counselling,Communication,EX01,6,20,1
+S031,ST5,Data interpretation,Cognitive,EX11,3,20,1
+S032,ST1,History taking,Communication,EX05,10,20,1
+S032,ST2,Clinical examination,Clinical skill,EX01,6,20,1
+S032,ST3,Procedure: IV access,Procedural skill,EX05,5,20,1
+S032,ST4,Counselling,Communication,EX04,11,20,1
+S032,ST5,Data interpretation,Cognitive,EX09,8,20,1
+S033,ST1,History taking,Communication,EX11,2,20,1
+S033,ST2,Clinical examination,Clinical skill,EX04,8,20,1
+S033,ST3,Procedure: IV access,Procedural skill,EX05,7,20,1
+S033,ST4,Counselling,Communication,EX08,2,20,1
+S033,ST5,Data interpretation,Cognitive,EX10,3,20,1
+S034,ST1,History taking,Communication,EX12,4,20,1
+S034,ST2,Clinical examination,Clinical skill,EX01,7,20,1
+S034,ST3,Procedure: IV access,Procedural skill,EX02,6,20,1
+S034,ST4,Counselling,Communication,EX06,4,20,1
+S034,ST5,Data interpretation,Cognitive,EX02,7,20,1
+S035,ST1,History taking,Communication,EX05,8,20,1
+S035,ST2,Clinical examination,Clinical skill,EX05,8,20,1
+S035,ST3,Procedure: IV access,Procedural skill,EX03,4,20,1
+S035,ST4,Counselling,Communication,EX01,9,20,1
+S035,ST5,Data interpretation,Cognitive,EX05,7,20,1
+S036,ST1,History taking,Communication,EX06,7,20,1
+S036,ST2,Clinical examination,Clinical skill,EX06,9,20,1
+S036,ST3,Procedure: IV access,Procedural skill,EX01,5,20,1
+S036,ST4,Counselling,Communication,EX11,9,20,1
+S036,ST5,Data interpretation,Cognitive,EX04,13,20,1
+S037,ST1,History taking,Communication,EX12,8,20,1
+S037,ST2,Clinical examination,Clinical skill,EX01,12,20,1
+S037,ST3,Procedure: IV access,Procedural skill,EX06,6,20,1
+S037,ST4,Counselling,Communication,EX06,9,20,1
+S037,ST5,Data interpretation,Cognitive,EX06,10,20,1
+S038,ST1,History taking,Communication,EX04,12,20,1
+S038,ST2,Clinical examination,Clinical skill,EX07,9,20,1
+S038,ST3,Procedure: IV access,Procedural skill,EX08,8,20,1
+S038,ST4,Counselling,Communication,EX11,13,20,1
+S038,ST5,Data interpretation,Cognitive,EX05,8,20,1
+S039,ST1,History taking,Communication,EX10,16,20,1
+S039,ST2,Clinical examination,Clinical skill,EX02,14,20,1
+S039,ST3,Procedure: IV access,Procedural skill,EX01,10,20,1
+S039,ST4,Counselling,Communication,EX09,10,20,1
+S039,ST5,Data interpretation,Cognitive,EX01,5,20,1
+S040,ST1,History taking,Communication,EX07,13,20,1
+S040,ST2,Clinical examination,Clinical skill,EX03,6,20,1
+S040,ST3,Procedure: IV access,Procedural skill,EX10,7,20,1
+S040,ST4,Counselling,Communication,EX06,6,20,1
+S040,ST5,Data interpretation,Cognitive,EX02,6,20,1
+S041,ST1,History taking,Communication,EX01,10,20,1
+S041,ST2,Clinical examination,Clinical skill,EX02,6,20,1
+S041,ST3,Procedure: IV access,Procedural skill,EX07,5,20,1
+S041,ST4,Counselling,Communication,EX07,11,20,1
+S041,ST5,Data interpretation,Cognitive,EX06,5,20,1
+S042,ST1,History taking,Communication,EX06,5,20,1
+S042,ST2,Clinical examination,Clinical skill,EX08,13,20,1
+S042,ST3,Procedure: IV access,Procedural skill,EX12,3,20,1
+S042,ST4,Counselling,Communication,EX05,10,20,1
+S042,ST5,Data interpretation,Cognitive,EX12,4,20,1
+S043,ST1,History taking,Communication,EX06,13,20,1
+S043,ST2,Clinical examination,Clinical skill,EX11,7,20,1
+S043,ST3,Procedure: IV access,Procedural skill,EX09,4,20,1
+S043,ST4,Counselling,Communication,EX05,14,20,1
+S043,ST5,Data interpretation,Cognitive,EX11,9,20,1
+S044,ST1,History taking,Communication,EX02,9,20,1
+S044,ST2,Clinical examination,Clinical skill,EX03,6,20,1
+S044,ST3,Procedure: IV access,Procedural skill,EX02,5,20,1
+S044,ST4,Counselling,Communication,EX05,9,20,1
+S044,ST5,Data interpretation,Cognitive,EX07,7,20,1
+S045,ST1,History taking,Communication,EX01,6,20,1
+S045,ST2,Clinical examination,Clinical skill,EX04,8,20,1
+S045,ST3,Procedure: IV access,Procedural skill,EX01,6,20,1
+S045,ST4,Counselling,Communication,EX02,10,20,1
+S045,ST5,Data interpretation,Cognitive,EX08,10,20,1
+S046,ST1,History taking,Communication,EX03,8,20,1
+S046,ST2,Clinical examination,Clinical skill,EX08,5,20,1
+S046,ST3,Procedure: IV access,Procedural skill,EX04,1,20,1
+S046,ST4,Counselling,Communication,EX06,6,20,1
+S046,ST5,Data interpretation,Cognitive,EX06,4,20,1
+S047,ST1,History taking,Communication,EX09,10,20,1
+S047,ST2,Clinical examination,Clinical skill,EX06,6,20,1
+S047,ST3,Procedure: IV access,Procedural skill,EX06,0,20,1
+S047,ST4,Counselling,Communication,EX11,8,20,1
+S047,ST5,Data interpretation,Cognitive,EX09,7,20,1
+S048,ST1,History taking,Communication,EX12,11,20,1
+S048,ST2,Clinical examination,Clinical skill,EX09,9,20,1
+S048,ST3,Procedure: IV access,Procedural skill,EX11,7,20,1
+S048,ST4,Counselling,Communication,EX07,9,20,1
+S048,ST5,Data interpretation,Cognitive,EX04,9,20,1
+S049,ST1,History taking,Communication,EX07,10,20,1
+S049,ST2,Clinical examination,Clinical skill,EX09,10,20,1
+S049,ST3,Procedure: IV access,Procedural skill,EX02,9,20,1
+S049,ST4,Counselling,Communication,EX08,7,20,1
+S049,ST5,Data interpretation,Cognitive,EX08,3,20,1
+S050,ST1,History taking,Communication,EX06,8,20,1
+S050,ST2,Clinical examination,Clinical skill,EX10,9,20,1
+S050,ST3,Procedure: IV access,Procedural skill,EX04,8,20,1
+S050,ST4,Counselling,Communication,EX02,8,20,1
+S050,ST5,Data interpretation,Cognitive,EX09,9,20,1
+S051,ST1,History taking,Communication,EX06,12,20,1
+S051,ST2,Clinical examination,Clinical skill,EX01,11,20,1
+S051,ST3,Procedure: IV access,Procedural skill,EX03,9,20,1
+S051,ST4,Counselling,Communication,EX04,9,20,1
+S051,ST5,Data interpretation,Cognitive,EX09,9,20,1
+S052,ST1,History taking,Communication,EX04,12,20,1
+S052,ST2,Clinical examination,Clinical skill,EX05,9,20,1
+S052,ST3,Procedure: IV access,Procedural skill,EX03,5,20,1
+S052,ST4,Counselling,Communication,EX08,7,20,1
+S052,ST5,Data interpretation,Cognitive,EX05,7,20,1
+S053,ST1,History taking,Communication,EX05,7,20,1
+S053,ST2,Clinical examination,Clinical skill,EX03,10,20,1
+S053,ST3,Procedure: IV access,Procedural skill,EX06,8,20,1
+S053,ST4,Counselling,Communication,EX06,8,20,1
+S053,ST5,Data interpretation,Cognitive,EX06,6,20,1
+S054,ST1,History taking,Communication,EX01,7,20,1
+S054,ST2,Clinical examination,Clinical skill,EX03,10,20,1
+S054,ST3,Procedure: IV access,Procedural skill,EX04,4,20,1
+S054,ST4,Counselling,Communication,EX02,7,20,1
+S054,ST5,Data interpretation,Cognitive,EX12,5,20,1
+S055,ST1,History taking,Communication,EX10,6,20,1
+S055,ST2,Clinical examination,Clinical skill,EX08,11,20,1
+S055,ST3,Procedure: IV access,Procedural skill,EX10,5,20,1
+S055,ST4,Counselling,Communication,EX07,8,20,1
+S055,ST5,Data interpretation,Cognitive,EX10,9,20,1
+S056,ST1,History taking,Communication,EX01,8,20,1
+S056,ST2,Clinical examination,Clinical skill,EX02,10,20,1
+S056,ST3,Procedure: IV access,Procedural skill,EX02,7,20,1
+S056,ST4,Counselling,Communication,EX06,10,20,1
+S056,ST5,Data interpretation,Cognitive,EX02,11,20,1
+S057,ST1,History taking,Communication,EX06,7,20,1
+S057,ST2,Clinical examination,Clinical skill,EX08,10,20,1
+S057,ST3,Procedure: IV access,Procedural skill,EX09,5,20,1
+S057,ST4,Counselling,Communication,EX01,6,20,1
+S057,ST5,Data interpretation,Cognitive,EX01,4,20,1
+S058,ST1,History taking,Communication,EX04,5,20,1
+S058,ST2,Clinical examination,Clinical skill,EX12,8,20,1
+S058,ST3,Procedure: IV access,Procedural skill,EX06,4,20,1
+S058,ST4,Counselling,Communication,EX05,6,20,1
+S058,ST5,Data interpretation,Cognitive,EX01,9,20,1
+S059,ST1,History taking,Communication,EX01,10,20,1
+S059,ST2,Clinical examination,Clinical skill,EX09,7,20,1
+S059,ST3,Procedure: IV access,Procedural skill,EX06,5,20,1
+S059,ST4,Counselling,Communication,EX07,7,20,1
+S059,ST5,Data interpretation,Cognitive,EX11,3,20,1
+S060,ST1,History taking,Communication,EX05,11,20,1
+S060,ST2,Clinical examination,Clinical skill,EX06,11,20,1
+S060,ST3,Procedure: IV access,Procedural skill,EX07,6,20,1
+S060,ST4,Counselling,Communication,EX09,12,20,1
+S060,ST5,Data interpretation,Cognitive,EX12,5,20,1
+S061,ST1,History taking,Communication,EX06,13,20,1
+S061,ST2,Clinical examination,Clinical skill,EX02,9,20,1
+S061,ST3,Procedure: IV access,Procedural skill,EX02,9,20,1
+S061,ST4,Counselling,Communication,EX08,9,20,1
+S061,ST5,Data interpretation,Cognitive,EX07,6,20,1
+S062,ST1,History taking,Communication,EX05,6,20,1
+S062,ST2,Clinical examination,Clinical skill,EX08,5,20,1
+S062,ST3,Procedure: IV access,Procedural skill,EX02,0,20,1
+S062,ST4,Counselling,Communication,EX01,6,20,1
+S062,ST5,Data interpretation,Cognitive,EX03,9,20,1
+S063,ST1,History taking,Communication,EX10,9,20,1
+S063,ST2,Clinical examination,Clinical skill,EX02,11,20,1
+S063,ST3,Procedure: IV access,Procedural skill,EX06,6,20,1
+S063,ST4,Counselling,Communication,EX01,12,20,1
+S063,ST5,Data interpretation,Cognitive,EX12,7,20,1
+S064,ST1,History taking,Communication,EX09,13,20,1
+S064,ST2,Clinical examination,Clinical skill,EX09,10,20,1
+S064,ST3,Procedure: IV access,Procedural skill,EX02,5,20,1
+S064,ST4,Counselling,Communication,EX12,9,20,1
+S064,ST5,Data interpretation,Cognitive,EX05,2,20,1
+S065,ST1,History taking,Communication,EX09,10,20,1
+S065,ST2,Clinical examination,Clinical skill,EX05,11,20,1
+S065,ST3,Procedure: IV access,Procedural skill,EX08,7,20,1
+S065,ST4,Counselling,Communication,EX09,9,20,1
+S065,ST5,Data interpretation,Cognitive,EX01,9,20,1
+S066,ST1,History taking,Communication,EX05,11,20,1
+S066,ST2,Clinical examination,Clinical skill,EX09,11,20,1
+S066,ST3,Procedure: IV access,Procedural skill,EX05,4,20,1
+S066,ST4,Counselling,Communication,EX08,11,20,1
+S066,ST5,Data interpretation,Cognitive,EX04,10,20,1
+S067,ST1,History taking,Communication,EX06,10,20,1
+S067,ST2,Clinical examination,Clinical skill,EX08,6,20,1
+S067,ST3,Procedure: IV access,Procedural skill,EX06,7,20,1
+S067,ST4,Counselling,Communication,EX01,9,20,1
+S067,ST5,Data interpretation,Cognitive,EX09,9,20,1
+S068,ST1,History taking,Communication,EX10,5,20,1
+S068,ST2,Clinical examination,Clinical skill,EX11,4,20,1
+S068,ST3,Procedure: IV access,Procedural skill,EX08,5,20,1
+S068,ST4,Counselling,Communication,EX11,7,20,1
+S068,ST5,Data interpretation,Cognitive,EX12,6,20,1
+S069,ST1,History taking,Communication,EX02,5,20,1
+S069,ST2,Clinical examination,Clinical skill,EX01,9,20,1
+S069,ST3,Procedure: IV access,Procedural skill,EX10,6,20,1
+S069,ST4,Counselling,Communication,EX06,9,20,1
+S069,ST5,Data interpretation,Cognitive,EX05,8,20,1
+S070,ST1,History taking,Communication,EX04,7,20,1
+S070,ST2,Clinical examination,Clinical skill,EX07,6,20,1
+S070,ST3,Procedure: IV access,Procedural skill,EX12,5,20,1
+S070,ST4,Counselling,Communication,EX09,4,20,1
+S070,ST5,Data interpretation,Cognitive,EX01,4,20,1
+S071,ST1,History taking,Communication,EX08,12,20,1
+S071,ST2,Clinical examination,Clinical skill,EX01,10,20,1
+S071,ST3,Procedure: IV access,Procedural skill,EX10,6,20,1
+S071,ST4,Counselling,Communication,EX10,12,20,1
+S071,ST5,Data interpretation,Cognitive,EX01,4,20,1
+S072,ST1,History taking,Communication,EX07,8,20,1
+S072,ST2,Clinical examination,Clinical skill,EX08,9,20,1
+S072,ST3,Procedure: IV access,Procedural skill,EX01,0,20,1
+S072,ST4,Counselling,Communication,EX08,5,20,1
+S072,ST5,Data interpretation,Cognitive,EX12,7,20,1
+S073,ST1,History taking,Communication,EX06,7,20,1
+S073,ST2,Clinical examination,Clinical skill,EX11,11,20,1
+S073,ST3,Procedure: IV access,Procedural skill,EX06,8,20,1
+S073,ST4,Counselling,Communication,EX02,8,20,1
+S073,ST5,Data interpretation,Cognitive,EX02,12,20,1
+S074,ST1,History taking,Communication,EX07,4,20,1
+S074,ST2,Clinical examination,Clinical skill,EX01,6,20,1
+S074,ST3,Procedure: IV access,Procedural skill,EX05,5,20,1
+S074,ST4,Counselling,Communication,EX07,5,20,1
+S074,ST5,Data interpretation,Cognitive,EX04,8,20,1
+S075,ST1,History taking,Communication,EX10,8,20,1
+S075,ST2,Clinical examination,Clinical skill,EX12,10,20,1
+S075,ST3,Procedure: IV access,Procedural skill,EX09,1,20,1
+S075,ST4,Counselling,Communication,EX03,9,20,1
+S075,ST5,Data interpretation,Cognitive,EX02,7,20,1
+S076,ST1,History taking,Communication,EX07,10,20,1
+S076,ST2,Clinical examination,Clinical skill,EX07,7,20,1
+S076,ST3,Procedure: IV access,Procedural skill,EX05,6,20,1
+S076,ST4,Counselling,Communication,EX03,7,20,1
+S076,ST5,Data interpretation,Cognitive,EX03,10,20,1
+S077,ST1,History taking,Communication,EX09,3,20,1
+S077,ST2,Clinical examination,Clinical skill,EX01,8,20,1
+S077,ST3,Procedure: IV access,Procedural skill,EX02,6,20,1
+S077,ST4,Counselling,Communication,EX09,9,20,1
+S077,ST5,Data interpretation,Cognitive,EX04,11,20,1
+S078,ST1,History taking,Communication,EX03,10,20,1
+S078,ST2,Clinical examination,Clinical skill,EX01,10,20,1
+S078,ST3,Procedure: IV access,Procedural skill,EX09,2,20,1
+S078,ST4,Counselling,Communication,EX07,9,20,1
+S078,ST5,Data interpretation,Cognitive,EX01,5,20,1
+S079,ST1,History taking,Communication,EX09,9,20,1
+S079,ST2,Clinical examination,Clinical skill,EX10,9,20,1
+S079,ST3,Procedure: IV access,Procedural skill,EX04,5,20,1
+S079,ST4,Counselling,Communication,EX05,10,20,1
+S079,ST5,Data interpretation,Cognitive,EX11,2,20,1
+S080,ST1,History taking,Communication,EX02,9,20,1
+S080,ST2,Clinical examination,Clinical skill,EX01,7,20,1
+S080,ST3,Procedure: IV access,Procedural skill,EX01,6,20,1
+S080,ST4,Counselling,Communication,EX04,6,20,1
+S080,ST5,Data interpretation,Cognitive,EX03,5,20,1
+S081,ST1,History taking,Communication,EX07,8,20,1
+S081,ST2,Clinical examination,Clinical skill,EX06,9,20,1
+S081,ST3,Procedure: IV access,Procedural skill,EX02,6,20,1
+S081,ST4,Counselling,Communication,EX12,11,20,1
+S081,ST5,Data interpretation,Cognitive,EX11,5,20,1
+S082,ST1,History taking,Communication,EX03,12,20,1
+S082,ST2,Clinical examination,Clinical skill,EX06,9,20,1
+S082,ST3,Procedure: IV access,Procedural skill,EX02,9,20,1
+S082,ST4,Counselling,Communication,EX04,11,20,1
+S082,ST5,Data interpretation,Cognitive,EX06,9,20,1
+S083,ST1,History taking,Communication,EX04,12,20,1
+S083,ST2,Clinical examination,Clinical skill,EX03,11,20,1
+S083,ST3,Procedure: IV access,Procedural skill,EX01,6,20,1
+S083,ST4,Counselling,Communication,EX05,10,20,1
+S083,ST5,Data interpretation,Cognitive,EX09,11,20,1
+S084,ST1,History taking,Communication,EX09,6,20,1
+S084,ST2,Clinical examination,Clinical skill,EX10,5,20,1
+S084,ST3,Procedure: IV access,Procedural skill,EX02,6,20,1
+S084,ST4,Counselling,Communication,EX04,9,20,1
+S084,ST5,Data interpretation,Cognitive,EX01,8,20,1
+S085,ST1,History taking,Communication,EX03,5,20,1
+S085,ST2,Clinical examination,Clinical skill,EX06,6,20,1
+S085,ST3,Procedure: IV access,Procedural skill,EX08,6,20,1
+S085,ST4,Counselling,Communication,EX08,7,20,1
+S085,ST5,Data interpretation,Cognitive,EX03,6,20,1
+S086,ST1,History taking,Communication,EX09,7,20,1
+S086,ST2,Clinical examination,Clinical skill,EX10,9,20,1
+S086,ST3,Procedure: IV access,Procedural skill,EX03,3,20,1
+S086,ST4,Counselling,Communication,EX04,7,20,1
+S086,ST5,Data interpretation,Cognitive,EX07,3,20,1
+S087,ST1,History taking,Communication,EX09,11,20,1
+S087,ST2,Clinical examination,Clinical skill,EX08,9,20,1
+S087,ST3,Procedure: IV access,Procedural skill,EX07,4,20,1
+S087,ST4,Counselling,Communication,EX04,12,20,1
+S087,ST5,Data interpretation,Cognitive,EX07,8,20,1
+S088,ST1,History taking,Communication,EX01,9,20,1
+S088,ST2,Clinical examination,Clinical skill,EX09,10,20,1
+S088,ST3,Procedure: IV access,Procedural skill,EX11,4,20,1
+S088,ST4,Counselling,Communication,EX02,10,20,1
+S088,ST5,Data interpretation,Cognitive,EX10,12,20,1
+S089,ST1,History taking,Communication,EX03,11,20,1
+S089,ST2,Clinical examination,Clinical skill,EX07,7,20,1
+S089,ST3,Procedure: IV access,Procedural skill,EX07,7,20,1
+S089,ST4,Counselling,Communication,EX05,9,20,1
+S089,ST5,Data interpretation,Cognitive,EX07,9,20,1
+S090,ST1,History taking,Communication,EX02,11,20,1
+S090,ST2,Clinical examination,Clinical skill,EX08,6,20,1
+S090,ST3,Procedure: IV access,Procedural skill,EX09,7,20,1
+S090,ST4,Counselling,Communication,EX09,5,20,1
+S090,ST5,Data interpretation,Cognitive,EX02,9,20,1
+S091,ST1,History taking,Communication,EX11,10,20,1
+S091,ST2,Clinical examination,Clinical skill,EX05,5,20,1
+S091,ST3,Procedure: IV access,Procedural skill,EX02,10,20,1
+S091,ST4,Counselling,Communication,EX01,10,20,1
+S091,ST5,Data interpretation,Cognitive,EX10,10,20,1
+S092,ST1,History taking,Communication,EX03,10,20,1
+S092,ST2,Clinical examination,Clinical skill,EX01,10,20,1
+S092,ST3,Procedure: IV access,Procedural skill,EX07,6,20,1
+S092,ST4,Counselling,Communication,EX11,10,20,1
+S092,ST5,Data interpretation,Cognitive,EX06,5,20,1
+S093,ST1,History taking,Communication,EX06,10,20,1
+S093,ST2,Clinical examination,Clinical skill,EX07,4,20,1
+S093,ST3,Procedure: IV access,Procedural skill,EX05,5,20,1
+S093,ST4,Counselling,Communication,EX10,7,20,1
+S093,ST5,Data interpretation,Cognitive,EX04,7,20,1
+S094,ST1,History taking,Communication,EX06,9,20,1
+S094,ST2,Clinical examination,Clinical skill,EX03,8,20,1
+S094,ST3,Procedure: IV access,Procedural skill,EX08,8,20,1
+S094,ST4,Counselling,Communication,EX05,8,20,1
+S094,ST5,Data interpretation,Cognitive,EX11,4,20,1
+S095,ST1,History taking,Communication,EX06,12,20,1
+S095,ST2,Clinical examination,Clinical skill,EX05,8,20,1
+S095,ST3,Procedure: IV access,Procedural skill,EX06,3,20,1
+S095,ST4,Counselling,Communication,EX08,8,20,1
+S095,ST5,Data interpretation,Cognitive,EX01,6,20,1
+S096,ST1,History taking,Communication,EX03,8,20,1
+S096,ST2,Clinical examination,Clinical skill,EX09,11,20,1
+S096,ST3,Procedure: IV access,Procedural skill,EX11,8,20,1
+S096,ST4,Counselling,Communication,EX05,6,20,1
+S096,ST5,Data interpretation,Cognitive,EX05,8,20,1
+S097,ST1,History taking,Communication,EX12,7,20,1
+S097,ST2,Clinical examination,Clinical skill,EX11,7,20,1
+S097,ST3,Procedure: IV access,Procedural skill,EX04,8,20,1
+S097,ST4,Counselling,Communication,EX11,7,20,1
+S097,ST5,Data interpretation,Cognitive,EX12,6,20,1
+S098,ST1,History taking,Communication,EX07,12,20,1
+S098,ST2,Clinical examination,Clinical skill,EX08,10,20,1
+S098,ST3,Procedure: IV access,Procedural skill,EX05,7,20,1
+S098,ST4,Counselling,Communication,EX07,9,20,1
+S098,ST5,Data interpretation,Cognitive,EX05,8,20,1
+S099,ST1,History taking,Communication,EX07,10,20,1
+S099,ST2,Clinical examination,Clinical skill,EX03,10,20,1
+S099,ST3,Procedure: IV access,Procedural skill,EX03,4,20,1
+S099,ST4,Counselling,Communication,EX01,7,20,1
+S099,ST5,Data interpretation,Cognitive,EX05,10,20,1
+S100,ST1,History taking,Communication,EX02,7,20,1
+S100,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S100,ST3,Procedure: IV access,Procedural skill,EX10,6,20,1
+S100,ST4,Counselling,Communication,EX05,8,20,1
+S100,ST5,Data interpretation,Cognitive,EX02,8,20,1
+S101,ST1,History taking,Communication,EX06,7,20,1
+S101,ST2,Clinical examination,Clinical skill,EX01,10,20,1
+S101,ST3,Procedure: IV access,Procedural skill,EX07,6,20,1
+S101,ST4,Counselling,Communication,EX12,13,20,1
+S101,ST5,Data interpretation,Cognitive,EX07,9,20,1
+S102,ST1,History taking,Communication,EX01,9,20,1
+S102,ST2,Clinical examination,Clinical skill,EX04,7,20,1
+S102,ST3,Procedure: IV access,Procedural skill,EX03,3,20,1
+S102,ST4,Counselling,Communication,EX01,13,20,1
+S102,ST5,Data interpretation,Cognitive,EX01,6,20,1
+S103,ST1,History taking,Communication,EX11,9,20,1
+S103,ST2,Clinical examination,Clinical skill,EX03,6,20,1
+S103,ST3,Procedure: IV access,Procedural skill,EX09,1,20,1
+S103,ST4,Counselling,Communication,EX03,10,20,1
+S103,ST5,Data interpretation,Cognitive,EX06,2,20,1
+S104,ST1,History taking,Communication,EX01,7,20,1
+S104,ST2,Clinical examination,Clinical skill,EX01,9,20,1
+S104,ST3,Procedure: IV access,Procedural skill,EX03,2,20,1
+S104,ST4,Counselling,Communication,EX02,9,20,1
+S104,ST5,Data interpretation,Cognitive,EX12,5,20,1
+S105,ST1,History taking,Communication,EX10,9,20,1
+S105,ST2,Clinical examination,Clinical skill,EX03,11,20,1
+S105,ST3,Procedure: IV access,Procedural skill,EX02,6,20,1
+S105,ST4,Counselling,Communication,EX12,9,20,1
+S105,ST5,Data interpretation,Cognitive,EX04,4,20,1
+S106,ST1,History taking,Communication,EX11,8,20,1
+S106,ST2,Clinical examination,Clinical skill,EX10,9,20,1
+S106,ST3,Procedure: IV access,Procedural skill,EX09,6,20,1
+S106,ST4,Counselling,Communication,EX12,7,20,1
+S106,ST5,Data interpretation,Cognitive,EX08,4,20,1
+S107,ST1,History taking,Communication,EX07,11,20,1
+S107,ST2,Clinical examination,Clinical skill,EX07,11,20,1
+S107,ST3,Procedure: IV access,Procedural skill,EX03,6,20,1
+S107,ST4,Counselling,Communication,EX11,8,20,1
+S107,ST5,Data interpretation,Cognitive,EX12,9,20,1
+S108,ST1,History taking,Communication,EX01,12,20,1
+S108,ST2,Clinical examination,Clinical skill,EX06,9,20,1
+S108,ST3,Procedure: IV access,Procedural skill,EX07,9,20,1
+S108,ST4,Counselling,Communication,EX04,10,20,1
+S108,ST5,Data interpretation,Cognitive,EX06,8,20,1
+S109,ST1,History taking,Communication,EX12,12,20,1
+S109,ST2,Clinical examination,Clinical skill,EX09,11,20,1
+S109,ST3,Procedure: IV access,Procedural skill,EX10,5,20,1
+S109,ST4,Counselling,Communication,EX10,7,20,1
+S109,ST5,Data interpretation,Cognitive,EX05,6,20,1
+S110,ST1,History taking,Communication,EX09,12,20,1
+S110,ST2,Clinical examination,Clinical skill,EX05,7,20,1
+S110,ST3,Procedure: IV access,Procedural skill,EX11,9,20,1
+S110,ST4,Counselling,Communication,EX06,11,20,1
+S110,ST5,Data interpretation,Cognitive,EX12,8,20,1
+S111,ST1,History taking,Communication,EX05,9,20,1
+S111,ST2,Clinical examination,Clinical skill,EX09,10,20,1
+S111,ST3,Procedure: IV access,Procedural skill,EX09,5,20,1
+S111,ST4,Counselling,Communication,EX03,8,20,1
+S111,ST5,Data interpretation,Cognitive,EX08,5,20,1
+S112,ST1,History taking,Communication,EX05,7,20,1
+S112,ST2,Clinical examination,Clinical skill,EX11,6,20,1
+S112,ST3,Procedure: IV access,Procedural skill,EX09,9,20,1
+S112,ST4,Counselling,Communication,EX07,8,20,1
+S112,ST5,Data interpretation,Cognitive,EX05,7,20,1
+S113,ST1,History taking,Communication,EX04,12,20,1
+S113,ST2,Clinical examination,Clinical skill,EX04,6,20,1
+S113,ST3,Procedure: IV access,Procedural skill,EX03,8,20,1
+S113,ST4,Counselling,Communication,EX10,8,20,1
+S113,ST5,Data interpretation,Cognitive,EX12,9,20,1
+S114,ST1,History taking,Communication,EX02,7,20,1
+S114,ST2,Clinical examination,Clinical skill,EX05,8,20,1
+S114,ST3,Procedure: IV access,Procedural skill,EX09,6,20,1
+S114,ST4,Counselling,Communication,EX07,10,20,1
+S114,ST5,Data interpretation,Cognitive,EX01,8,20,1
+S115,ST1,History taking,Communication,EX10,10,20,1
+S115,ST2,Clinical examination,Clinical skill,EX04,10,20,1
+S115,ST3,Procedure: IV access,Procedural skill,EX03,10,20,1
+S115,ST4,Counselling,Communication,EX09,11,20,1
+S115,ST5,Data interpretation,Cognitive,EX09,8,20,1
+S116,ST1,History taking,Communication,EX03,9,20,1
+S116,ST2,Clinical examination,Clinical skill,EX03,6,20,1
+S116,ST3,Procedure: IV access,Procedural skill,EX06,12,20,1
+S116,ST4,Counselling,Communication,EX02,4,20,1
+S116,ST5,Data interpretation,Cognitive,EX06,7,20,1
+S117,ST1,History taking,Communication,EX02,7,20,1
+S117,ST2,Clinical examination,Clinical skill,EX11,5,20,1
+S117,ST3,Procedure: IV access,Procedural skill,EX03,4,20,1
+S117,ST4,Counselling,Communication,EX11,4,20,1
+S117,ST5,Data interpretation,Cognitive,EX11,7,20,1
+S118,ST1,History taking,Communication,EX01,7,20,1
+S118,ST2,Clinical examination,Clinical skill,EX09,7,20,1
+S118,ST3,Procedure: IV access,Procedural skill,EX09,7,20,1
+S118,ST4,Counselling,Communication,EX02,8,20,1
+S118,ST5,Data interpretation,Cognitive,EX10,6,20,1
+S119,ST1,History taking,Communication,EX10,5,20,1
+S119,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S119,ST3,Procedure: IV access,Procedural skill,EX01,2,20,1
+S119,ST4,Counselling,Communication,EX02,8,20,1
+S119,ST5,Data interpretation,Cognitive,EX09,6,20,1
+S120,ST1,History taking,Communication,EX07,12,20,1
+S120,ST2,Clinical examination,Clinical skill,EX04,10,20,1
+S120,ST3,Procedure: IV access,Procedural skill,EX03,4,20,1
+S120,ST4,Counselling,Communication,EX12,7,20,1
+S120,ST5,Data interpretation,Cognitive,EX03,8,20,1
+S121,ST1,History taking,Communication,EX03,9,20,1
+S121,ST2,Clinical examination,Clinical skill,EX12,11,20,1
+S121,ST3,Procedure: IV access,Procedural skill,EX11,10,20,1
+S121,ST4,Counselling,Communication,EX03,11,20,1
+S121,ST5,Data interpretation,Cognitive,EX05,9,20,1
+S122,ST1,History taking,Communication,EX02,9,20,1
+S122,ST2,Clinical examination,Clinical skill,EX10,7,20,1
+S122,ST3,Procedure: IV access,Procedural skill,EX02,3,20,1
+S122,ST4,Counselling,Communication,EX06,10,20,1
+S122,ST5,Data interpretation,Cognitive,EX07,8,20,1
+S123,ST1,History taking,Communication,EX06,13,20,1
+S123,ST2,Clinical examination,Clinical skill,EX09,11,20,1
+S123,ST3,Procedure: IV access,Procedural skill,EX01,6,20,1
+S123,ST4,Counselling,Communication,EX09,6,20,1
+S123,ST5,Data interpretation,Cognitive,EX12,10,20,1
+S124,ST1,History taking,Communication,EX08,11,20,1
+S124,ST2,Clinical examination,Clinical skill,EX08,15,20,1
+S124,ST3,Procedure: IV access,Procedural skill,EX09,8,20,1
+S124,ST4,Counselling,Communication,EX10,13,20,1
+S124,ST5,Data interpretation,Cognitive,EX02,10,20,1
+S125,ST1,History taking,Communication,EX12,12,20,1
+S125,ST2,Clinical examination,Clinical skill,EX07,13,20,1
+S125,ST3,Procedure: IV access,Procedural skill,EX03,12,20,1
+S125,ST4,Counselling,Communication,EX02,8,20,1
+S125,ST5,Data interpretation,Cognitive,EX05,10,20,1
+S126,ST1,History taking,Communication,EX08,11,20,1
+S126,ST2,Clinical examination,Clinical skill,EX07,9,20,1
+S126,ST3,Procedure: IV access,Procedural skill,EX12,7,20,1
+S126,ST4,Counselling,Communication,EX03,7,20,1
+S126,ST5,Data interpretation,Cognitive,EX04,8,20,1
+S127,ST1,History taking,Communication,EX09,10,20,1
+S127,ST2,Clinical examination,Clinical skill,EX05,6,20,1
+S127,ST3,Procedure: IV access,Procedural skill,EX03,10,20,1
+S127,ST4,Counselling,Communication,EX11,12,20,1
+S127,ST5,Data interpretation,Cognitive,EX11,6,20,1
+S128,ST1,History taking,Communication,EX03,11,20,1
+S128,ST2,Clinical examination,Clinical skill,EX08,8,20,1
+S128,ST3,Procedure: IV access,Procedural skill,EX07,3,20,1
+S128,ST4,Counselling,Communication,EX05,9,20,1
+S128,ST5,Data interpretation,Cognitive,EX07,7,20,1
+S129,ST1,History taking,Communication,EX06,8,20,1
+S129,ST2,Clinical examination,Clinical skill,EX12,11,20,1
+S129,ST3,Procedure: IV access,Procedural skill,EX11,10,20,1
+S129,ST4,Counselling,Communication,EX03,10,20,1
+S129,ST5,Data interpretation,Cognitive,EX09,11,20,1
+S130,ST1,History taking,Communication,EX04,9,20,1
+S130,ST2,Clinical examination,Clinical skill,EX03,9,20,1
+S130,ST3,Procedure: IV access,Procedural skill,EX02,7,20,1
+S130,ST4,Counselling,Communication,EX02,8,20,1
+S130,ST5,Data interpretation,Cognitive,EX05,10,20,1
+S131,ST1,History taking,Communication,EX05,7,20,1
+S131,ST2,Clinical examination,Clinical skill,EX05,9,20,1
+S131,ST3,Procedure: IV access,Procedural skill,EX08,8,20,1
+S131,ST4,Counselling,Communication,EX10,10,20,1
+S131,ST5,Data interpretation,Cognitive,EX04,9,20,1
+S132,ST1,History taking,Communication,EX03,5,20,1
+S132,ST2,Clinical examination,Clinical skill,EX02,8,20,1
+S132,ST3,Procedure: IV access,Procedural skill,EX04,6,20,1
+S132,ST4,Counselling,Communication,EX09,10,20,1
+S132,ST5,Data interpretation,Cognitive,EX11,8,20,1
+S133,ST1,History taking,Communication,EX12,7,20,1
+S133,ST2,Clinical examination,Clinical skill,EX12,6,20,1
+S133,ST3,Procedure: IV access,Procedural skill,EX10,4,20,1
+S133,ST4,Counselling,Communication,EX04,9,20,1
+S133,ST5,Data interpretation,Cognitive,EX09,5,20,1
+S134,ST1,History taking,Communication,EX09,7,20,1
+S134,ST2,Clinical examination,Clinical skill,EX09,5,20,1
+S134,ST3,Procedure: IV access,Procedural skill,EX08,4,20,1
+S134,ST4,Counselling,Communication,EX06,9,20,1
+S134,ST5,Data interpretation,Cognitive,EX08,6,20,1
+S135,ST1,History taking,Communication,EX04,8,20,1
+S135,ST2,Clinical examination,Clinical skill,EX05,6,20,1
+S135,ST3,Procedure: IV access,Procedural skill,EX01,7,20,1
+S135,ST4,Counselling,Communication,EX08,10,20,1
+S135,ST5,Data interpretation,Cognitive,EX10,6,20,1
+S136,ST1,History taking,Communication,EX02,13,20,1
+S136,ST2,Clinical examination,Clinical skill,EX04,9,20,1
+S136,ST3,Procedure: IV access,Procedural skill,EX10,8,20,1
+S136,ST4,Counselling,Communication,EX04,9,20,1
+S136,ST5,Data interpretation,Cognitive,EX09,6,20,1
+S137,ST1,History taking,Communication,EX05,10,20,1
+S137,ST2,Clinical examination,Clinical skill,EX05,10,20,1
+S137,ST3,Procedure: IV access,Procedural skill,EX02,3,20,1
+S137,ST4,Counselling,Communication,EX10,9,20,1
+S137,ST5,Data interpretation,Cognitive,EX02,4,20,1
+S138,ST1,History taking,Communication,EX09,10,20,1
+S138,ST2,Clinical examination,Clinical skill,EX10,8,20,1
+S138,ST3,Procedure: IV access,Procedural skill,EX08,7,20,1
+S138,ST4,Counselling,Communication,EX05,9,20,1
+S138,ST5,Data interpretation,Cognitive,EX05,7,20,1
+S139,ST1,History taking,Communication,EX11,10,20,1
+S139,ST2,Clinical examination,Clinical skill,EX06,7,20,1
+S139,ST3,Procedure: IV access,Procedural skill,EX12,7,20,1
+S139,ST4,Counselling,Communication,EX11,11,20,1
+S139,ST5,Data interpretation,Cognitive,EX07,8,20,1
+S140,ST1,History taking,Communication,EX01,6,20,1
+S140,ST2,Clinical examination,Clinical skill,EX09,5,20,1
+S140,ST3,Procedure: IV access,Procedural skill,EX10,8,20,1
+S140,ST4,Counselling,Communication,EX07,6,20,1
+S140,ST5,Data interpretation,Cognitive,EX07,7,20,1
+S141,ST1,History taking,Communication,EX08,11,20,1
+S141,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S141,ST3,Procedure: IV access,Procedural skill,EX08,9,20,1
+S141,ST4,Counselling,Communication,EX09,10,20,1
+S141,ST5,Data interpretation,Cognitive,EX10,8,20,1
+S142,ST1,History taking,Communication,EX07,9,20,1
+S142,ST2,Clinical examination,Clinical skill,EX01,8,20,1
+S142,ST3,Procedure: IV access,Procedural skill,EX04,3,20,1
+S142,ST4,Counselling,Communication,EX10,11,20,1
+S142,ST5,Data interpretation,Cognitive,EX05,4,20,1
+S143,ST1,History taking,Communication,EX02,6,20,1
+S143,ST2,Clinical examination,Clinical skill,EX08,12,20,1
+S143,ST3,Procedure: IV access,Procedural skill,EX04,4,20,1
+S143,ST4,Counselling,Communication,EX11,10,20,1
+S143,ST5,Data interpretation,Cognitive,EX09,8,20,1
+S144,ST1,History taking,Communication,EX12,11,20,1
+S144,ST2,Clinical examination,Clinical skill,EX11,8,20,1
+S144,ST3,Procedure: IV access,Procedural skill,EX06,10,20,1
+S144,ST4,Counselling,Communication,EX06,10,20,1
+S144,ST5,Data interpretation,Cognitive,EX06,9,20,1
+S145,ST1,History taking,Communication,EX04,10,20,1
+S145,ST2,Clinical examination,Clinical skill,EX02,6,20,1
+S145,ST3,Procedure: IV access,Procedural skill,EX03,4,20,1
+S145,ST4,Counselling,Communication,EX07,5,20,1
+S145,ST5,Data interpretation,Cognitive,EX02,4,20,1
+S146,ST1,History taking,Communication,EX04,7,20,1
+S146,ST2,Clinical examination,Clinical skill,EX09,8,20,1
+S146,ST3,Procedure: IV access,Procedural skill,EX10,7,20,1
+S146,ST4,Counselling,Communication,EX08,7,20,1
+S146,ST5,Data interpretation,Cognitive,EX05,9,20,1
+S147,ST1,History taking,Communication,EX05,6,20,1
+S147,ST2,Clinical examination,Clinical skill,EX04,8,20,1
+S147,ST3,Procedure: IV access,Procedural skill,EX02,10,20,1
+S147,ST4,Counselling,Communication,EX06,13,20,1
+S147,ST5,Data interpretation,Cognitive,EX05,6,20,1
+S148,ST1,History taking,Communication,EX06,9,20,1
+S148,ST2,Clinical examination,Clinical skill,EX07,10,20,1
+S148,ST3,Procedure: IV access,Procedural skill,EX09,4,20,1
+S148,ST4,Counselling,Communication,EX06,8,20,1
+S148,ST5,Data interpretation,Cognitive,EX04,6,20,1
+S149,ST1,History taking,Communication,EX06,14,20,1
+S149,ST2,Clinical examination,Clinical skill,EX08,5,20,1
+S149,ST3,Procedure: IV access,Procedural skill,EX08,9,20,1
+S149,ST4,Counselling,Communication,EX11,7,20,1
+S149,ST5,Data interpretation,Cognitive,EX04,9,20,1
+S150,ST1,History taking,Communication,EX07,13,20,1
+S150,ST2,Clinical examination,Clinical skill,EX01,9,20,1
+S150,ST3,Procedure: IV access,Procedural skill,EX10,4,20,1
+S150,ST4,Counselling,Communication,EX01,9,20,1
+S150,ST5,Data interpretation,Cognitive,EX04,9,20,1
+S151,ST1,History taking,Communication,EX01,9,20,1
+S151,ST2,Clinical examination,Clinical skill,EX02,7,20,1
+S151,ST3,Procedure: IV access,Procedural skill,EX08,7,20,1
+S151,ST4,Counselling,Communication,EX12,11,20,1
+S151,ST5,Data interpretation,Cognitive,EX07,8,20,1
+S152,ST1,History taking,Communication,EX08,12,20,1
+S152,ST2,Clinical examination,Clinical skill,EX12,6,20,1
+S152,ST3,Procedure: IV access,Procedural skill,EX01,6,20,1
+S152,ST4,Counselling,Communication,EX03,8,20,1
+S152,ST5,Data interpretation,Cognitive,EX06,8,20,1
+S153,ST1,History taking,Communication,EX02,13,20,1
+S153,ST2,Clinical examination,Clinical skill,EX07,11,20,1
+S153,ST3,Procedure: IV access,Procedural skill,EX05,8,20,1
+S153,ST4,Counselling,Communication,EX01,8,20,1
+S153,ST5,Data interpretation,Cognitive,EX06,8,20,1
+S154,ST1,History taking,Communication,EX10,7,20,1
+S154,ST2,Clinical examination,Clinical skill,EX10,6,20,1
+S154,ST3,Procedure: IV access,Procedural skill,EX12,5,20,1
+S154,ST4,Counselling,Communication,EX06,11,20,1
+S154,ST5,Data interpretation,Cognitive,EX09,6,20,1
+S155,ST1,History taking,Communication,EX05,12,20,1
+S155,ST2,Clinical examination,Clinical skill,EX03,13,20,1
+S155,ST3,Procedure: IV access,Procedural skill,EX10,3,20,1
+S155,ST4,Counselling,Communication,EX07,11,20,1
+S155,ST5,Data interpretation,Cognitive,EX03,10,20,1
+S156,ST1,History taking,Communication,EX11,9,20,1
+S156,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S156,ST3,Procedure: IV access,Procedural skill,EX06,5,20,1
+S156,ST4,Counselling,Communication,EX07,7,20,1
+S156,ST5,Data interpretation,Cognitive,EX04,6,20,1
+S157,ST1,History taking,Communication,EX03,11,20,1
+S157,ST2,Clinical examination,Clinical skill,EX03,5,20,1
+S157,ST3,Procedure: IV access,Procedural skill,EX06,4,20,1
+S157,ST4,Counselling,Communication,EX07,6,20,1
+S157,ST5,Data interpretation,Cognitive,EX06,6,20,1
+S158,ST1,History taking,Communication,EX01,6,20,1
+S158,ST2,Clinical examination,Clinical skill,EX01,7,20,1
+S158,ST3,Procedure: IV access,Procedural skill,EX11,3,20,1
+S158,ST4,Counselling,Communication,EX10,10,20,1
+S158,ST5,Data interpretation,Cognitive,EX10,5,20,1
+S159,ST1,History taking,Communication,EX05,12,20,1
+S159,ST2,Clinical examination,Clinical skill,EX08,12,20,1
+S159,ST3,Procedure: IV access,Procedural skill,EX02,10,20,1
+S159,ST4,Counselling,Communication,EX10,9,20,1
+S159,ST5,Data interpretation,Cognitive,EX02,8,20,1
+S160,ST1,History taking,Communication,EX07,9,20,1
+S160,ST2,Clinical examination,Clinical skill,EX04,8,20,1
+S160,ST3,Procedure: IV access,Procedural skill,EX05,7,20,1
+S160,ST4,Counselling,Communication,EX01,9,20,1
+S160,ST5,Data interpretation,Cognitive,EX02,10,20,1
+S161,ST1,History taking,Communication,EX04,6,20,1
+S161,ST2,Clinical examination,Clinical skill,EX03,11,20,1
+S161,ST3,Procedure: IV access,Procedural skill,EX06,5,20,1
+S161,ST4,Counselling,Communication,EX12,9,20,1
+S161,ST5,Data interpretation,Cognitive,EX12,8,20,1
+S162,ST1,History taking,Communication,EX11,9,20,1
+S162,ST2,Clinical examination,Clinical skill,EX01,10,20,1
+S162,ST3,Procedure: IV access,Procedural skill,EX06,6,20,1
+S162,ST4,Counselling,Communication,EX02,8,20,1
+S162,ST5,Data interpretation,Cognitive,EX04,7,20,1
+S163,ST1,History taking,Communication,EX07,8,20,1
+S163,ST2,Clinical examination,Clinical skill,EX04,7,20,1
+S163,ST3,Procedure: IV access,Procedural skill,EX04,7,20,1
+S163,ST4,Counselling,Communication,EX03,9,20,1
+S163,ST5,Data interpretation,Cognitive,EX04,8,20,1
+S164,ST1,History taking,Communication,EX03,9,20,1
+S164,ST2,Clinical examination,Clinical skill,EX12,9,20,1
+S164,ST3,Procedure: IV access,Procedural skill,EX08,13,20,1
+S164,ST4,Counselling,Communication,EX03,10,20,1
+S164,ST5,Data interpretation,Cognitive,EX10,11,20,1
+S165,ST1,History taking,Communication,EX09,7,20,1
+S165,ST2,Clinical examination,Clinical skill,EX03,9,20,1
+S165,ST3,Procedure: IV access,Procedural skill,EX02,3,20,1
+S165,ST4,Counselling,Communication,EX10,6,20,1
+S165,ST5,Data interpretation,Cognitive,EX12,10,20,1
+S166,ST1,History taking,Communication,EX11,9,20,1
+S166,ST2,Clinical examination,Clinical skill,EX08,4,20,1
+S166,ST3,Procedure: IV access,Procedural skill,EX08,8,20,1
+S166,ST4,Counselling,Communication,EX04,11,20,1
+S166,ST5,Data interpretation,Cognitive,EX11,3,20,1
+S167,ST1,History taking,Communication,EX03,13,20,1
+S167,ST2,Clinical examination,Clinical skill,EX08,10,20,1
+S167,ST3,Procedure: IV access,Procedural skill,EX05,9,20,1
+S167,ST4,Counselling,Communication,EX07,11,20,1
+S167,ST5,Data interpretation,Cognitive,EX07,8,20,1
+S168,ST1,History taking,Communication,EX04,10,20,1
+S168,ST2,Clinical examination,Clinical skill,EX06,11,20,1
+S168,ST3,Procedure: IV access,Procedural skill,EX02,7,20,1
+S168,ST4,Counselling,Communication,EX09,10,20,1
+S168,ST5,Data interpretation,Cognitive,EX07,11,20,1
+S169,ST1,History taking,Communication,EX01,7,20,1
+S169,ST2,Clinical examination,Clinical skill,EX11,7,20,1
+S169,ST3,Procedure: IV access,Procedural skill,EX10,2,20,1
+S169,ST4,Counselling,Communication,EX09,7,20,1
+S169,ST5,Data interpretation,Cognitive,EX08,7,20,1
+S170,ST1,History taking,Communication,EX12,11,20,1
+S170,ST2,Clinical examination,Clinical skill,EX01,12,20,1
+S170,ST3,Procedure: IV access,Procedural skill,EX03,9,20,1
+S170,ST4,Counselling,Communication,EX10,9,20,1
+S170,ST5,Data interpretation,Cognitive,EX10,6,20,1
+S171,ST1,History taking,Communication,EX03,12,20,1
+S171,ST2,Clinical examination,Clinical skill,EX04,5,20,1
+S171,ST3,Procedure: IV access,Procedural skill,EX06,8,20,1
+S171,ST4,Counselling,Communication,EX04,9,20,1
+S171,ST5,Data interpretation,Cognitive,EX04,6,20,1
+S172,ST1,History taking,Communication,EX02,8,20,1
+S172,ST2,Clinical examination,Clinical skill,EX12,5,20,1
+S172,ST3,Procedure: IV access,Procedural skill,EX08,6,20,1
+S172,ST4,Counselling,Communication,EX01,15,20,1
+S172,ST5,Data interpretation,Cognitive,EX09,6,20,1
+S173,ST1,History taking,Communication,EX08,5,20,1
+S173,ST2,Clinical examination,Clinical skill,EX06,11,20,1
+S173,ST3,Procedure: IV access,Procedural skill,EX08,8,20,1
+S173,ST4,Counselling,Communication,EX12,4,20,1
+S173,ST5,Data interpretation,Cognitive,EX09,12,20,1
+S174,ST1,History taking,Communication,EX07,10,20,1
+S174,ST2,Clinical examination,Clinical skill,EX02,2,20,1
+S174,ST3,Procedure: IV access,Procedural skill,EX02,4,20,1
+S174,ST4,Counselling,Communication,EX12,6,20,1
+S174,ST5,Data interpretation,Cognitive,EX02,8,20,1
+S175,ST1,History taking,Communication,EX03,10,20,1
+S175,ST2,Clinical examination,Clinical skill,EX04,6,20,1
+S175,ST3,Procedure: IV access,Procedural skill,EX05,5,20,1
+S175,ST4,Counselling,Communication,EX07,9,20,1
+S175,ST5,Data interpretation,Cognitive,EX12,6,20,1
+S176,ST1,History taking,Communication,EX05,10,20,1
+S176,ST2,Clinical examination,Clinical skill,EX10,3,20,1
+S176,ST3,Procedure: IV access,Procedural skill,EX11,4,20,1
+S176,ST4,Counselling,Communication,EX12,6,20,1
+S176,ST5,Data interpretation,Cognitive,EX10,7,20,1
+S177,ST1,History taking,Communication,EX11,7,20,1
+S177,ST2,Clinical examination,Clinical skill,EX01,9,20,1
+S177,ST3,Procedure: IV access,Procedural skill,EX11,8,20,1
+S177,ST4,Counselling,Communication,EX02,11,20,1
+S177,ST5,Data interpretation,Cognitive,EX03,10,20,1
+S178,ST1,History taking,Communication,EX05,4,20,1
+S178,ST2,Clinical examination,Clinical skill,EX06,10,20,1
+S178,ST3,Procedure: IV access,Procedural skill,EX07,4,20,1
+S178,ST4,Counselling,Communication,EX05,10,20,1
+S178,ST5,Data interpretation,Cognitive,EX04,5,20,1
+S179,ST1,History taking,Communication,EX05,6,20,1
+S179,ST2,Clinical examination,Clinical skill,EX02,10,20,1
+S179,ST3,Procedure: IV access,Procedural skill,EX04,7,20,1
+S179,ST4,Counselling,Communication,EX04,6,20,1
+S179,ST5,Data interpretation,Cognitive,EX10,12,20,1
+S180,ST1,History taking,Communication,EX09,9,20,1
+S180,ST2,Clinical examination,Clinical skill,EX09,4,20,1
+S180,ST3,Procedure: IV access,Procedural skill,EX09,7,20,1
+S180,ST4,Counselling,Communication,EX07,5,20,1
+S180,ST5,Data interpretation,Cognitive,EX08,5,20,1
+S181,ST1,History taking,Communication,EX02,9,20,1
+S181,ST2,Clinical examination,Clinical skill,EX08,7,20,1
+S181,ST3,Procedure: IV access,Procedural skill,EX06,6,20,1
+S181,ST4,Counselling,Communication,EX03,10,20,1
+S181,ST5,Data interpretation,Cognitive,EX05,12,20,1
+S182,ST1,History taking,Communication,EX08,9,20,1
+S182,ST2,Clinical examination,Clinical skill,EX11,8,20,1
+S182,ST3,Procedure: IV access,Procedural skill,EX09,7,20,1
+S182,ST4,Counselling,Communication,EX12,8,20,1
+S182,ST5,Data interpretation,Cognitive,EX06,12,20,1
+S183,ST1,History taking,Communication,EX08,12,20,1
+S183,ST2,Clinical examination,Clinical skill,EX07,11,20,1
+S183,ST3,Procedure: IV access,Procedural skill,EX06,9,20,1
+S183,ST4,Counselling,Communication,EX09,10,20,1
+S183,ST5,Data interpretation,Cognitive,EX02,6,20,1
+S184,ST1,History taking,Communication,EX02,10,20,1
+S184,ST2,Clinical examination,Clinical skill,EX01,8,20,1
+S184,ST3,Procedure: IV access,Procedural skill,EX02,1,20,1
+S184,ST4,Counselling,Communication,EX10,10,20,1
+S184,ST5,Data interpretation,Cognitive,EX12,6,20,1
+S185,ST1,History taking,Communication,EX04,4,20,1
+S185,ST2,Clinical examination,Clinical skill,EX02,8,20,1
+S185,ST3,Procedure: IV access,Procedural skill,EX02,5,20,1
+S185,ST4,Counselling,Communication,EX06,5,20,1
+S185,ST5,Data interpretation,Cognitive,EX11,6,20,1
+S186,ST1,History taking,Communication,EX11,7,20,1
+S186,ST2,Clinical examination,Clinical skill,EX06,10,20,1
+S186,ST3,Procedure: IV access,Procedural skill,EX03,12,20,1
+S186,ST4,Counselling,Communication,EX12,9,20,1
+S186,ST5,Data interpretation,Cognitive,EX05,6,20,1
+S187,ST1,History taking,Communication,EX01,6,20,1
+S187,ST2,Clinical examination,Clinical skill,EX03,8,20,1
+S187,ST3,Procedure: IV access,Procedural skill,EX03,10,20,1
+S187,ST4,Counselling,Communication,EX04,8,20,1
+S187,ST5,Data interpretation,Cognitive,EX06,6,20,1
+S188,ST1,History taking,Communication,EX09,10,20,1
+S188,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S188,ST3,Procedure: IV access,Procedural skill,EX07,5,20,1
+S188,ST4,Counselling,Communication,EX11,11,20,1
+S188,ST5,Data interpretation,Cognitive,EX11,6,20,1
+S189,ST1,History taking,Communication,EX12,8,20,1
+S189,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S189,ST3,Procedure: IV access,Procedural skill,EX11,4,20,1
+S189,ST4,Counselling,Communication,EX07,4,20,1
+S189,ST5,Data interpretation,Cognitive,EX03,7,20,1
+S190,ST1,History taking,Communication,EX03,10,20,1
+S190,ST2,Clinical examination,Clinical skill,EX12,7,20,1
+S190,ST3,Procedure: IV access,Procedural skill,EX05,6,20,1
+S190,ST4,Counselling,Communication,EX03,9,20,1
+S190,ST5,Data interpretation,Cognitive,EX03,6,20,1
+S191,ST1,History taking,Communication,EX08,10,20,1
+S191,ST2,Clinical examination,Clinical skill,EX08,7,20,1
+S191,ST3,Procedure: IV access,Procedural skill,EX01,6,20,1
+S191,ST4,Counselling,Communication,EX02,11,20,1
+S191,ST5,Data interpretation,Cognitive,EX10,7,20,1
+S192,ST1,History taking,Communication,EX11,9,20,1
+S192,ST2,Clinical examination,Clinical skill,EX09,10,20,1
+S192,ST3,Procedure: IV access,Procedural skill,EX03,9,20,1
+S192,ST4,Counselling,Communication,EX11,12,20,1
+S192,ST5,Data interpretation,Cognitive,EX02,8,20,1
+S193,ST1,History taking,Communication,EX04,8,20,1
+S193,ST2,Clinical examination,Clinical skill,EX08,7,20,1
+S193,ST3,Procedure: IV access,Procedural skill,EX10,2,20,1
+S193,ST4,Counselling,Communication,EX05,9,20,1
+S193,ST5,Data interpretation,Cognitive,EX04,8,20,1
+S194,ST1,History taking,Communication,EX03,13,20,1
+S194,ST2,Clinical examination,Clinical skill,EX11,6,20,1
+S194,ST3,Procedure: IV access,Procedural skill,EX06,4,20,1
+S194,ST4,Counselling,Communication,EX06,13,20,1
+S194,ST5,Data interpretation,Cognitive,EX02,7,20,1
+S195,ST1,History taking,Communication,EX10,10,20,1
+S195,ST2,Clinical examination,Clinical skill,EX10,6,20,1
+S195,ST3,Procedure: IV access,Procedural skill,EX04,8,20,1
+S195,ST4,Counselling,Communication,EX07,6,20,1
+S195,ST5,Data interpretation,Cognitive,EX12,5,20,1
+S196,ST1,History taking,Communication,EX10,14,20,1
+S196,ST2,Clinical examination,Clinical skill,EX09,7,20,1
+S196,ST3,Procedure: IV access,Procedural skill,EX11,7,20,1
+S196,ST4,Counselling,Communication,EX08,9,20,1
+S196,ST5,Data interpretation,Cognitive,EX03,5,20,1
+S197,ST1,History taking,Communication,EX06,9,20,1
+S197,ST2,Clinical examination,Clinical skill,EX06,6,20,1
+S197,ST3,Procedure: IV access,Procedural skill,EX01,5,20,1
+S197,ST4,Counselling,Communication,EX12,9,20,1
+S197,ST5,Data interpretation,Cognitive,EX07,5,20,1
+S198,ST1,History taking,Communication,EX04,8,20,1
+S198,ST2,Clinical examination,Clinical skill,EX09,8,20,1
+S198,ST3,Procedure: IV access,Procedural skill,EX12,7,20,1
+S198,ST4,Counselling,Communication,EX07,6,20,1
+S198,ST5,Data interpretation,Cognitive,EX03,6,20,1
+S199,ST1,History taking,Communication,EX12,11,20,1
+S199,ST2,Clinical examination,Clinical skill,EX04,8,20,1
+S199,ST3,Procedure: IV access,Procedural skill,EX03,3,20,1
+S199,ST4,Counselling,Communication,EX10,11,20,1
+S199,ST5,Data interpretation,Cognitive,EX12,6,20,1
+S200,ST1,History taking,Communication,EX01,9,20,1
+S200,ST2,Clinical examination,Clinical skill,EX09,7,20,1
+S200,ST3,Procedure: IV access,Procedural skill,EX07,7,20,1
+S200,ST4,Counselling,Communication,EX09,12,20,1
+S200,ST5,Data interpretation,Cognitive,EX10,8,20,1
+S201,ST1,History taking,Communication,EX10,11,20,1
+S201,ST2,Clinical examination,Clinical skill,EX07,7,20,1
+S201,ST3,Procedure: IV access,Procedural skill,EX04,14,20,1
+S201,ST4,Counselling,Communication,EX07,5,20,1
+S201,ST5,Data interpretation,Cognitive,EX06,8,20,1
+S202,ST1,History taking,Communication,EX04,10,20,1
+S202,ST2,Clinical examination,Clinical skill,EX06,9,20,1
+S202,ST3,Procedure: IV access,Procedural skill,EX06,6,20,1
+S202,ST4,Counselling,Communication,EX01,8,20,1
+S202,ST5,Data interpretation,Cognitive,EX01,12,20,1
+S203,ST1,History taking,Communication,EX08,8,20,1
+S203,ST2,Clinical examination,Clinical skill,EX02,7,20,1
+S203,ST3,Procedure: IV access,Procedural skill,EX09,7,20,1
+S203,ST4,Counselling,Communication,EX09,12,20,1
+S203,ST5,Data interpretation,Cognitive,EX03,7,20,1
+S204,ST1,History taking,Communication,EX01,9,20,1
+S204,ST2,Clinical examination,Clinical skill,EX05,10,20,1
+S204,ST3,Procedure: IV access,Procedural skill,EX03,10,20,1
+S204,ST4,Counselling,Communication,EX04,8,20,1
+S204,ST5,Data interpretation,Cognitive,EX01,6,20,1
+S205,ST1,History taking,Communication,EX12,7,20,1
+S205,ST2,Clinical examination,Clinical skill,EX01,8,20,1
+S205,ST3,Procedure: IV access,Procedural skill,EX06,3,20,1
+S205,ST4,Counselling,Communication,EX06,9,20,1
+S205,ST5,Data interpretation,Cognitive,EX05,5,20,1
+S206,ST1,History taking,Communication,EX07,11,20,1
+S206,ST2,Clinical examination,Clinical skill,EX06,11,20,1
+S206,ST3,Procedure: IV access,Procedural skill,EX04,7,20,1
+S206,ST4,Counselling,Communication,EX08,11,20,1
+S206,ST5,Data interpretation,Cognitive,EX01,8,20,1
+S207,ST1,History taking,Communication,EX05,12,20,1
+S207,ST2,Clinical examination,Clinical skill,EX12,11,20,1
+S207,ST3,Procedure: IV access,Procedural skill,EX06,5,20,1
+S207,ST4,Counselling,Communication,EX02,8,20,1
+S207,ST5,Data interpretation,Cognitive,EX08,7,20,1
+S208,ST1,History taking,Communication,EX11,9,20,1
+S208,ST2,Clinical examination,Clinical skill,EX11,7,20,1
+S208,ST3,Procedure: IV access,Procedural skill,EX03,4,20,1
+S208,ST4,Counselling,Communication,EX07,5,20,1
+S208,ST5,Data interpretation,Cognitive,EX09,2,20,1
+S209,ST1,History taking,Communication,EX07,12,20,1
+S209,ST2,Clinical examination,Clinical skill,EX05,9,20,1
+S209,ST3,Procedure: IV access,Procedural skill,EX05,5,20,1
+S209,ST4,Counselling,Communication,EX12,13,20,1
+S209,ST5,Data interpretation,Cognitive,EX03,7,20,1
+S210,ST1,History taking,Communication,EX04,6,20,1
+S210,ST2,Clinical examination,Clinical skill,EX11,6,20,1
+S210,ST3,Procedure: IV access,Procedural skill,EX02,4,20,1
+S210,ST4,Counselling,Communication,EX01,6,20,1
+S210,ST5,Data interpretation,Cognitive,EX03,5,20,1
+S211,ST1,History taking,Communication,EX12,10,20,1
+S211,ST2,Clinical examination,Clinical skill,EX05,7,20,1
+S211,ST3,Procedure: IV access,Procedural skill,EX10,8,20,1
+S211,ST4,Counselling,Communication,EX01,11,20,1
+S211,ST5,Data interpretation,Cognitive,EX10,6,20,1
+S212,ST1,History taking,Communication,EX06,6,20,1
+S212,ST2,Clinical examination,Clinical skill,EX11,10,20,1
+S212,ST3,Procedure: IV access,Procedural skill,EX02,4,20,1
+S212,ST4,Counselling,Communication,EX03,7,20,1
+S212,ST5,Data interpretation,Cognitive,EX07,3,20,1
+S213,ST1,History taking,Communication,EX01,10,20,1
+S213,ST2,Clinical examination,Clinical skill,EX02,7,20,1
+S213,ST3,Procedure: IV access,Procedural skill,EX11,8,20,1
+S213,ST4,Counselling,Communication,EX09,9,20,1
+S213,ST5,Data interpretation,Cognitive,EX04,8,20,1
+S214,ST1,History taking,Communication,EX08,10,20,1
+S214,ST2,Clinical examination,Clinical skill,EX02,9,20,1
+S214,ST3,Procedure: IV access,Procedural skill,EX06,4,20,1
+S214,ST4,Counselling,Communication,EX06,11,20,1
+S214,ST5,Data interpretation,Cognitive,EX03,2,20,1
+S215,ST1,History taking,Communication,EX06,6,20,1
+S215,ST2,Clinical examination,Clinical skill,EX07,7,20,1
+S215,ST3,Procedure: IV access,Procedural skill,EX12,7,20,1
+S215,ST4,Counselling,Communication,EX06,8,20,1
+S215,ST5,Data interpretation,Cognitive,EX03,7,20,1
+S216,ST1,History taking,Communication,EX11,7,20,1
+S216,ST2,Clinical examination,Clinical skill,EX06,9,20,1
+S216,ST3,Procedure: IV access,Procedural skill,EX06,5,20,1
+S216,ST4,Counselling,Communication,EX06,7,20,1
+S216,ST5,Data interpretation,Cognitive,EX01,7,20,1
+S217,ST1,History taking,Communication,EX02,9,20,1
+S217,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S217,ST3,Procedure: IV access,Procedural skill,EX02,6,20,1
+S217,ST4,Counselling,Communication,EX02,6,20,1
+S217,ST5,Data interpretation,Cognitive,EX05,6,20,1
+S218,ST1,History taking,Communication,EX01,6,20,1
+S218,ST2,Clinical examination,Clinical skill,EX01,6,20,1
+S218,ST3,Procedure: IV access,Procedural skill,EX02,4,20,1
+S218,ST4,Counselling,Communication,EX08,6,20,1
+S218,ST5,Data interpretation,Cognitive,EX03,3,20,1
+S219,ST1,History taking,Communication,EX07,9,20,1
+S219,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S219,ST3,Procedure: IV access,Procedural skill,EX05,6,20,1
+S219,ST4,Counselling,Communication,EX03,6,20,1
+S219,ST5,Data interpretation,Cognitive,EX08,4,20,1
+S220,ST1,History taking,Communication,EX03,4,20,1
+S220,ST2,Clinical examination,Clinical skill,EX01,8,20,1
+S220,ST3,Procedure: IV access,Procedural skill,EX07,4,20,1
+S220,ST4,Counselling,Communication,EX07,7,20,1
+S220,ST5,Data interpretation,Cognitive,EX09,2,20,1
+S221,ST1,History taking,Communication,EX01,9,20,1
+S221,ST2,Clinical examination,Clinical skill,EX12,11,20,1
+S221,ST3,Procedure: IV access,Procedural skill,EX08,10,20,1
+S221,ST4,Counselling,Communication,EX01,9,20,1
+S221,ST5,Data interpretation,Cognitive,EX12,7,20,1
+S222,ST1,History taking,Communication,EX06,10,20,1
+S222,ST2,Clinical examination,Clinical skill,EX12,11,20,1
+S222,ST3,Procedure: IV access,Procedural skill,EX09,10,20,1
+S222,ST4,Counselling,Communication,EX04,10,20,1
+S222,ST5,Data interpretation,Cognitive,EX10,10,20,1
+S223,ST1,History taking,Communication,EX05,8,20,1
+S223,ST2,Clinical examination,Clinical skill,EX09,12,20,1
+S223,ST3,Procedure: IV access,Procedural skill,EX01,8,20,1
+S223,ST4,Counselling,Communication,EX06,16,20,1
+S223,ST5,Data interpretation,Cognitive,EX03,4,20,1
+S224,ST1,History taking,Communication,EX01,7,20,1
+S224,ST2,Clinical examination,Clinical skill,EX10,8,20,1
+S224,ST3,Procedure: IV access,Procedural skill,EX10,3,20,1
+S224,ST4,Counselling,Communication,EX10,7,20,1
+S224,ST5,Data interpretation,Cognitive,EX08,7,20,1
+S225,ST1,History taking,Communication,EX02,12,20,1
+S225,ST2,Clinical examination,Clinical skill,EX07,12,20,1
+S225,ST3,Procedure: IV access,Procedural skill,EX01,8,20,1
+S225,ST4,Counselling,Communication,EX04,12,20,1
+S225,ST5,Data interpretation,Cognitive,EX05,9,20,1
+S226,ST1,History taking,Communication,EX10,7,20,1
+S226,ST2,Clinical examination,Clinical skill,EX07,8,20,1
+S226,ST3,Procedure: IV access,Procedural skill,EX01,8,20,1
+S226,ST4,Counselling,Communication,EX04,7,20,1
+S226,ST5,Data interpretation,Cognitive,EX11,11,20,1
+S227,ST1,History taking,Communication,EX04,8,20,1
+S227,ST2,Clinical examination,Clinical skill,EX11,4,20,1
+S227,ST3,Procedure: IV access,Procedural skill,EX10,8,20,1
+S227,ST4,Counselling,Communication,EX07,8,20,1
+S227,ST5,Data interpretation,Cognitive,EX09,8,20,1
+S228,ST1,History taking,Communication,EX09,7,20,1
+S228,ST2,Clinical examination,Clinical skill,EX03,5,20,1
+S228,ST3,Procedure: IV access,Procedural skill,EX10,5,20,1
+S228,ST4,Counselling,Communication,EX04,10,20,1
+S228,ST5,Data interpretation,Cognitive,EX11,7,20,1
+S229,ST1,History taking,Communication,EX08,9,20,1
+S229,ST2,Clinical examination,Clinical skill,EX03,6,20,1
+S229,ST3,Procedure: IV access,Procedural skill,EX09,5,20,1
+S229,ST4,Counselling,Communication,EX07,7,20,1
+S229,ST5,Data interpretation,Cognitive,EX05,8,20,1
+S230,ST1,History taking,Communication,EX06,10,20,1
+S230,ST2,Clinical examination,Clinical skill,EX04,5,20,1
+S230,ST3,Procedure: IV access,Procedural skill,EX04,8,20,1
+S230,ST4,Counselling,Communication,EX05,7,20,1
+S230,ST5,Data interpretation,Cognitive,EX10,10,20,1
+S231,ST1,History taking,Communication,EX04,6,20,1
+S231,ST2,Clinical examination,Clinical skill,EX06,9,20,1
+S231,ST3,Procedure: IV access,Procedural skill,EX11,5,20,1
+S231,ST4,Counselling,Communication,EX04,7,20,1
+S231,ST5,Data interpretation,Cognitive,EX09,2,20,1
+S232,ST1,History taking,Communication,EX08,12,20,1
+S232,ST2,Clinical examination,Clinical skill,EX05,9,20,1
+S232,ST3,Procedure: IV access,Procedural skill,EX10,3,20,1
+S232,ST4,Counselling,Communication,EX01,9,20,1
+S232,ST5,Data interpretation,Cognitive,EX10,10,20,1
+S233,ST1,History taking,Communication,EX12,12,20,1
+S233,ST2,Clinical examination,Clinical skill,EX05,8,20,1
+S233,ST3,Procedure: IV access,Procedural skill,EX01,9,20,1
+S233,ST4,Counselling,Communication,EX07,8,20,1
+S233,ST5,Data interpretation,Cognitive,EX02,7,20,1
+S234,ST1,History taking,Communication,EX09,7,20,1
+S234,ST2,Clinical examination,Clinical skill,EX11,7,20,1
+S234,ST3,Procedure: IV access,Procedural skill,EX06,6,20,1
+S234,ST4,Counselling,Communication,EX09,8,20,1
+S234,ST5,Data interpretation,Cognitive,EX08,9,20,1
+S235,ST1,History taking,Communication,EX12,8,20,1
+S235,ST2,Clinical examination,Clinical skill,EX09,10,20,1
+S235,ST3,Procedure: IV access,Procedural skill,EX05,7,20,1
+S235,ST4,Counselling,Communication,EX08,8,20,1
+S235,ST5,Data interpretation,Cognitive,EX05,6,20,1
+S236,ST1,History taking,Communication,EX07,7,20,1
+S236,ST2,Clinical examination,Clinical skill,EX06,6,20,1
+S236,ST3,Procedure: IV access,Procedural skill,EX09,6,20,1
+S236,ST4,Counselling,Communication,EX05,10,20,1
+S236,ST5,Data interpretation,Cognitive,EX06,12,20,1
+S237,ST1,History taking,Communication,EX02,6,20,1
+S237,ST2,Clinical examination,Clinical skill,EX12,7,20,1
+S237,ST3,Procedure: IV access,Procedural skill,EX06,6,20,1
+S237,ST4,Counselling,Communication,EX07,6,20,1
+S237,ST5,Data interpretation,Cognitive,EX09,9,20,1
+S238,ST1,History taking,Communication,EX07,11,20,1
+S238,ST2,Clinical examination,Clinical skill,EX05,11,20,1
+S238,ST3,Procedure: IV access,Procedural skill,EX04,8,20,1
+S238,ST4,Counselling,Communication,EX02,10,20,1
+S238,ST5,Data interpretation,Cognitive,EX02,7,20,1
+S239,ST1,History taking,Communication,EX10,9,20,1
+S239,ST2,Clinical examination,Clinical skill,EX01,12,20,1
+S239,ST3,Procedure: IV access,Procedural skill,EX03,5,20,1
+S239,ST4,Counselling,Communication,EX05,9,20,1
+S239,ST5,Data interpretation,Cognitive,EX07,6,20,1
+S240,ST1,History taking,Communication,EX02,11,20,1
+S240,ST2,Clinical examination,Clinical skill,EX08,13,20,1
+S240,ST3,Procedure: IV access,Procedural skill,EX01,7,20,1
+S240,ST4,Counselling,Communication,EX02,7,20,1
+S240,ST5,Data interpretation,Cognitive,EX04,11,20,1

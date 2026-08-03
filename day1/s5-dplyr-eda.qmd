@@ -1,0 +1,424 @@
+---
+title: "5 · Working with data"
+subtitle: "dplyr verbs and exploratory data analysis"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Teaching]{.meta-label}[15:30 – 16:15]{.meta-value}
+:::
+::: {.meta-item}
+[Hands-on]{.meta-label}[16:15 – 17:00]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Gurpreet]{.meta-value}
+:::
+::: {.meta-item}
+[Slides]{.meta-label}[[Open deck ↗](../slides/day1/s5-dplyr-eda.html){target="_blank"}]{.meta-value}
+:::
+:::
+
+```{r}
+#| include: false
+library(tidyverse)
+theme_set(theme_minimal(base_size = 12))
+students <- read_csv("data/meded_students.csv", show_col_types = FALSE)
+osce     <- read_csv("data/osce_stations.csv", show_col_types = FALSE)
+```
+
+## Learning objectives
+
+1. Use the six core `dplyr` verbs: `filter`, `select`, `arrange`, `mutate`,
+   `group_by`, `summarise`.
+2. Chain them with `|>` into a readable pipeline.
+3. Handle missing values deliberately rather than by accident.
+4. Join two tables on a shared key.
+5. Run and interpret a basic exploratory analysis before modelling anything.
+
+## Six verbs
+
+Every one takes a data frame as its first argument and returns a data frame.
+That is what makes them chainable.
+
+| Verb | Acts on | Question |
+|---|---|---|
+| `filter()` | rows | Which observations do I want? |
+| `select()` | columns | Which variables do I want? |
+| `arrange()` | rows | In what order? |
+| `mutate()` | columns | What new variable do I need? |
+| `group_by()` | groups | Within which strata? |
+| `summarise()` | rows → 1 | What summary do I want? |
+
+### `filter()` — choose rows
+
+```{r}
+students |>
+  filter(teaching_arm == "Flipped classroom", attendance_pct > 90) |>
+  nrow()
+```
+
+`==` for equality (a single `=` is assignment and will error). Commas mean
+AND; use `|` for OR. `%in%` for a set:
+
+```{r}
+students |>
+  filter(batch %in% c("2023", "2024")) |>
+  nrow()
+```
+
+### `select()` — choose columns
+
+```{r}
+students |>
+  select(student_id, teaching_arm, pretest, posttest, gain) |>
+  head(4)
+```
+
+Helpers worth knowing: `starts_with("q")`, `ends_with("_score")`,
+`contains("test")`, `where(is.numeric)`.
+
+### `mutate()` — create or change columns
+
+```{r}
+students |>
+  mutate(
+    gain_pct  = round(100 * gain / pretest, 1),
+    high_risk = attendance_pct < 75
+  ) |>
+  select(student_id, pretest, gain, gain_pct, high_risk) |>
+  head(4)
+```
+
+`if_else()` and `case_when()` for conditional recoding:
+
+```{r}
+students |>
+  mutate(
+    attendance_band = case_when(
+      attendance_pct >= 90 ~ "High",
+      attendance_pct >= 75 ~ "Adequate",
+      .default = "Below requirement"
+    )
+  ) |>
+  count(attendance_band)
+```
+
+### `group_by()` + `summarise()` — the workhorse
+
+```{r}
+students |>
+  group_by(teaching_arm) |>
+  summarise(
+    n         = n(),
+    n_gain    = sum(!is.na(gain)),
+    mean_gain = mean(gain, na.rm = TRUE),
+    sd_gain   = sd(gain, na.rm = TRUE),
+    median_gain = median(gain, na.rm = TRUE)
+  )
+```
+
+::: {.callout-important}
+## `na.rm = TRUE` is a decision, not a formality
+Without it, `mean(gain)` returns `NA` — R refusing to guess. With it, you
+have silently excluded 11 students. **Both are defensible; neither is
+automatic.** Always report `n` alongside the mean, as above, so the exclusion
+is visible to your reader.
+:::
+
+Group by more than one variable:
+
+```{r}
+students |>
+  group_by(college, teaching_arm) |>
+  summarise(n = n(), mean_gain = round(mean(gain, na.rm = TRUE), 1),
+            .groups = "drop")
+```
+
+`.groups = "drop"` ungroups the result. Without it, the grouping persists and
+your next `mutate()` behaves in ways you did not intend — a bug that produces
+plausible wrong numbers rather than an error.
+
+## Missing data, deliberately
+
+```{r}
+students |>
+  summarise(across(everything(), ~ sum(is.na(.x)))) |>
+  pivot_longer(everything(), names_to = "variable", values_to = "n_missing") |>
+  filter(n_missing > 0)
+```
+
+Three columns have missing values, all traceable to the 11 students without a
+post-test plus 7 without a burnout score. Now you can decide — and document —
+what to do. What you must not do is discover it in a footnote after
+submission.
+
+## Joining tables
+
+Student-level data in one file, station-level in another. Bring them
+together on `student_id`:
+
+```{r}
+osce_summary <- osce |>
+  group_by(student_id) |>
+  summarise(osce_total = sum(score), osce_mean = mean(score), .groups = "drop")
+
+combined <- students |>
+  left_join(osce_summary, by = "student_id")
+
+combined |>
+  select(student_id, teaching_arm, posttest, osce_total) |>
+  head(4)
+```
+
+`left_join()` keeps every row of the left table. Always check the row count
+afterwards:
+
+```{r}
+nrow(students); nrow(combined)
+```
+
+If the second number is larger, your key is not unique and you have silently
+duplicated rows. This is the most common and most damaging error in applied
+data work.
+
+## An honest exploratory analysis
+
+EDA is not a step before the real analysis. It *is* most of the analysis.
+Four questions, in order:
+
+**1. What am I holding?**
+
+```{r}
+#| eval: false
+glimpse(students)
+skimr::skim(students)
+```
+
+**2. How is each variable distributed?**
+
+```{r}
+#| fig-height: 2.8
+students |>
+  select(pretest, posttest, attendance_pct, burnout_score) |>
+  pivot_longer(everything()) |>
+  ggplot(aes(value)) +
+  geom_histogram(bins = 25, fill = "#0f5257") +
+  facet_wrap(~ name, scales = "free")
+```
+
+**3. Are the groups comparable to begin with?**
+
+```{r}
+students |>
+  group_by(teaching_arm) |>
+  summarise(
+    n = n(),
+    mean_pretest    = round(mean(pretest), 1),
+    mean_attendance = round(mean(attendance_pct), 1),
+    pct_female      = round(100 * mean(sex == "Female"), 1),
+    .groups = "drop"
+  )
+```
+
+If the arms differ at baseline, any difference in outcome is confounded, and
+no amount of downstream cleverness fixes it. Check first.
+
+**4. Only now, the comparison.**
+
+```{r}
+students |>
+  group_by(teaching_arm) |>
+  summarise(n = sum(!is.na(gain)),
+            mean_gain = round(mean(gain, na.rm = TRUE), 2),
+            se = round(sd(gain, na.rm = TRUE) / sqrt(n), 2),
+            .groups = "drop")
+```
+
+```{r}
+t.test(gain ~ teaching_arm, data = students)
+```
+
+::: {.callout-warning}
+## Do not go hunting
+Having found one comparison, it is tempting to try every other one. Run
+twenty tests at α = 0.05 and one will be "significant" by construction. If
+you did not pre-specify it, describe it as exploratory and say so in the
+paper. Reproducible tooling makes this *easier* to do dishonestly, and
+therefore more important to do honestly.
+:::
+
+# Hands-on {#hands-on}
+
+**16:15 – 17:00.** Groups. Exercises 1–3 for everyone; 4 if you finish.
+
+::: {.callout-note title="Exercise 1: filter, select, arrange"}
+**Time:** 10 minutes
+
+1. How many students in the 2024 batch attended more than 85%?
+2. Make a table of the ten students with the highest `gain`, showing only
+   `student_id`, `college`, `teaching_arm` and `gain`.
+3. How many students are there per college? (`count()`)
+:::
+
+::: {.callout-tip title="Solution 1" collapse="true"}
+```{r}
+students |>
+  filter(batch == "2024", attendance_pct > 85) |>
+  nrow()
+
+students |>
+  select(student_id, college, teaching_arm, gain) |>
+  arrange(desc(gain)) |>
+  head(10)
+
+students |> count(college)
+```
+
+`arrange(desc(gain))` puts `NA` last regardless of direction — R's sensible
+default, and a good thing to know before you report a "top ten".
+:::
+
+::: {.callout-note title="Exercise 2: group and summarise"}
+**Time:** 15 minutes
+
+1. Mean and SD of `posttest` by `college`, with the *n* contributing to each
+   mean.
+2. Add `rural_background` as a second grouping variable. Are any cells small?
+3. Which college × arm combination has the highest mean gain? Would you
+   report that finding?
+:::
+
+::: {.callout-tip title="Solution 2" collapse="true"}
+```{r}
+students |>
+  group_by(college) |>
+  summarise(n = sum(!is.na(posttest)),
+            mean = round(mean(posttest, na.rm = TRUE), 1),
+            sd   = round(sd(posttest, na.rm = TRUE), 1),
+            .groups = "drop")
+
+students |>
+  group_by(college, rural_background) |>
+  summarise(n = n(), mean_gain = round(mean(gain, na.rm = TRUE), 1),
+            .groups = "drop") |>
+  arrange(n)
+```
+
+Some cells fall to around 25 students. A mean from 25 observations with an SD
+near 8 has a standard error above 1.5 — differences of a point or two between
+such cells are noise.
+
+On the third question: no. With six college × arm cells you are choosing the
+maximum of six noisy estimates, which is guaranteed to overstate the effect.
+Report the pre-specified overall comparison and describe the rest as
+exploratory.
+:::
+
+::: {.callout-note title="Exercise 3: join and analyse"}
+**Time:** 15 minutes
+
+1. From `osce`, compute each student's mean score **per domain**.
+2. Pivot it wider so there is one row per student and one column per domain
+   (`pivot_wider()`).
+3. Join to `students`.
+4. Do flipped-classroom students score higher on the Communication domain?
+   Summarise, then plot.
+:::
+
+::: {.callout-tip title="Solution 3" collapse="true"}
+```{r}
+domain_scores <- osce |>
+  group_by(student_id, domain) |>
+  summarise(mean_score = mean(score), .groups = "drop") |>
+  pivot_wider(names_from = domain, values_from = mean_score) |>
+  janitor::clean_names()
+
+combined <- students |> left_join(domain_scores, by = "student_id")
+
+combined |>
+  group_by(teaching_arm) |>
+  summarise(n = n(),
+            communication = round(mean(communication), 2),
+            cognitive     = round(mean(cognitive), 2),
+            .groups = "drop")
+```
+
+```{r}
+#| fig-height: 3
+combined |>
+  ggplot(aes(x = teaching_arm, y = communication, fill = teaching_arm)) +
+  geom_boxplot(alpha = 0.75) +
+  labs(x = NULL, y = "Mean communication-domain score (0–20)") +
+  theme(legend.position = "none")
+```
+
+There is a small advantage in the communication domain — around 0.9 marks,
+which is how the data were generated. It is real in this dataset and it is
+also small relative to the spread. Reporting the effect size next to the
+p-value, rather than instead of it, is the honest presentation.
+:::
+
+::: {.callout-note title="Exercise 4 (stretch): clean the messy survey"}
+**Time:** 15 minutes
+
+`data/faculty_survey_raw.csv` is a raw form export.
+
+1. Read it and look at `names()`. Fix them with `janitor::clean_names()`.
+2. Remove exact duplicate rows (`distinct()`). How many were there?
+3. `department` has inconsistent spellings and stray whitespace. Standardise
+   it with `str_trim()`, `str_to_title()` and a `case_when()` for
+   Paediatrics/Pediatrics.
+4. `ever_used_r` is coded `Yes/yes/No/no/N/""`. Recode to a clean logical.
+5. Count respondents by department.
+:::
+
+::: {.callout-tip title="Solution 4" collapse="true"}
+```{r}
+faculty <- read_csv("data/faculty_survey_raw.csv", show_col_types = FALSE) |>
+  janitor::clean_names()
+
+names(faculty)
+
+nrow(faculty)
+faculty <- distinct(faculty)
+nrow(faculty)     # 12 duplicates removed
+
+faculty <- faculty |>
+  mutate(
+    department = department |> str_trim() |> str_to_title(),
+    department = case_when(
+      department %in% c("Pediatrics", "Paediatrics") ~ "Paediatrics",
+      .default = department
+    ),
+    ever_used_r = case_when(
+      str_to_lower(str_trim(ever_used_r)) %in% c("yes", "y") ~ TRUE,
+      str_to_lower(str_trim(ever_used_r)) %in% c("no", "n")  ~ FALSE,
+      .default = NA
+    )
+  )
+
+faculty |> count(department, sort = TRUE)
+```
+
+Note the order: clean names first, deduplicate second, recode third. Recoding
+before deduplicating means doing the work twice — and if your recoding is
+imperfect, "duplicates" that differ only in whitespace will survive.
+:::
+
+## Key takeaways
+
+::: {.callout-note appearance="minimal"}
+- Six verbs, one pipe, arbitrarily complex analysis.
+- `na.rm = TRUE` is an exclusion decision. Report `n` beside every mean.
+- Check row counts after every join.
+- `.groups = "drop"` after `summarise()`, unless you meant to stay grouped.
+- Check baseline comparability *before* comparing outcomes.
+- Clean names → deduplicate → recode. In that order.
+:::
+
+## End of Day 1
+
+You have imported, visualised, wrangled and reported. Tomorrow: making it
+publishable, and making it fast.
+
+→ [Day 2](../day2/index.qmd)

@@ -1,0 +1,128 @@
+---
+title: "Generative AI in health research"
+subtitle: "Prompting, pitfalls, ethics · Day 2, Session 8"
+author: "Gurpreet"
+date: 2026-09-10
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: c/t
+    footer: "MedEd Conclave 2026 · R & Reproducible Research"
+    transition: fade
+    center: false
+execute:
+  echo: true
+  warning: false
+---
+
+## What the model does {.section-divider}
+
+Predicts the next token, given the previous ones.
+
+. . .
+
+Optimised for **plausible**, not for **true**.
+
+. . .
+
+Everything useful and everything dangerous follows from that.
+
+::: {.notes}
+⏱️ 4 min. Resist the urge to explain transformers. This one sentence carries
+the whole session.
+:::
+
+## The asymmetry
+
+**Good** where plausible and correct coincide
+: syntax, boilerplate, translation, restructuring
+
+**Unreliable** where they diverge
+: a specific citation, a specific number, a claim about a specific paper
+
+. . .
+
+Wrong answers arrive in the same confident register. **There is no tell.**
+
+## Where it genuinely helps
+
+| Task | Why |
+|---|---|
+| "What does this error mean?" | Well represented in training |
+| SPSS syntax → R | Structural, verifiable |
+| regex, themes, `case_when()` | Fiddly, instantly checkable |
+| Explaining existing code | You hold the ground truth |
+
+. . .
+
+The test: **can you verify it faster than you could write it?**
+
+## Four failure modes
+
+::: {.incremental}
+1. **Fabricated references** — real journals, wrong DOIs
+2. **Code that runs and is wrong** — unpaired t-test, no warning
+3. **Advice without your data** — it cannot see your residuals
+4. **Hallucinated arguments** — `tbl_summary(pretty = TRUE)`
+:::
+
+::: {.notes}
+🎯 Live demo: ask for five papers on flipped classrooms in India, then check
+every DOI on screen. Nothing persuades like watching one fail.
+:::
+
+## The competence trap
+
+::: {.big-number}
+You cannot check code you could not have written.
+:::
+
+Which is why Day 2 comes after Day 1.
+
+## Weak prompt vs strong prompt
+
+**Weak:** "make a plot of my data"
+
+**Strong:** data shape and types → one specific task → constraints (tidyverse,
+`|>`, no `%>%`) → output format → "state your assumptions"
+
+::: {.notes}
+Demo both live on the same task. The difference is visible in five seconds.
+:::
+
+## Never paste
+
+- Patient-identifiable data of any kind
+- Student marks attached to names or roll numbers
+- Collaborators' unpublished data
+- Anything your ethics approval did not anticipate
+
+. . .
+
+**Share the structure. Never the values.**
+
+## The Indian frame
+
+- **DPDP Act 2023** — health data is personal data; you are the fiduciary
+- **ICMR guidelines 2017** — sharing within consent
+- **ICMJE** — AI cannot be an author; disclosure required
+- **IndiaAI Mission / NITI Aayog** — the policy context
+
+## Disclose specifically
+
+> ChatGPT (GPT-4o) was used to draft and debug R code for data visualisation.
+> All code was reviewed, executed and verified by the authors. No AI tool was
+> used to generate data, interpret results, or draft scientific content.
+
+Which tool. Which task. What it was **not** used for.
+
+## Discussion — 10 min {background-color="#0f5257"}
+
+1. Where would AI save you real time this month?
+2. Where would you refuse, and why?
+3. Three rules for your department's PG dissertation AI policy?
+
+::: {.notes}
+📋 One sentence per group. Capture the rules on the whiteboard — they make a
+good deliverable to circulate afterwards.
+:::

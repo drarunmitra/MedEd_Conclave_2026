@@ -1,0 +1,131 @@
+---
+title: "Troubleshooting"
+subtitle: "The errors that cost the most time"
+---
+
+Work down this page before asking. Most problems are in the first section.
+
+## Reading the error at all
+
+R errors are verbose. **The first line is usually the whole story**; the rest
+is the call stack. Read it, then look at the line *above* the one R points at
+— unbalanced brackets are reported one line late.
+
+## "Could not find function"
+
+```
+Error in read_csv(...) : could not find function "read_csv"
+```
+
+The package is not loaded. `library(tidyverse)` at the top of your script,
+every session. Loading is not the same as installing.
+
+## "Object not found"
+
+```
+Error: object 'students' not found
+```
+
+Three possibilities, in order of likelihood:
+
+1. You never ran the line that created it — check the **Environment** pane.
+2. Case. `Students` and `students` are different objects.
+3. You restarted R since creating it. Re-run from the top.
+
+## "Cannot open file / No such file or directory"
+
+The most common failure of Day 1.
+
+```r
+getwd()          # Where am I actually?
+list.files()     # Is there a data/ folder here?
+list.files("data")
+```
+
+Causes, in order:
+
+- You opened the *script* but not the *project*. Close everything, then
+  double-click `meded-conclave-2026.Rproj`.
+- The files are still in `Downloads/`.
+- **Windows hid the extension** and the file is really
+  `meded_students.csv.txt`. Turn on "File name extensions" in Explorer's
+  View menu.
+- You typed a backslash. Use forward slashes: `data/file.csv`.
+
+## "Unexpected symbol" / "unexpected ')'"
+
+A missing comma or an unbalanced bracket. Look at the line before. In
+RStudio, click just after a bracket and its partner highlights.
+
+If the console shows `+` instead of `>`, R is waiting for you to finish an
+expression. Press <kbd>Esc</kbd>.
+
+## `NA` where you expected a number
+
+```r
+mean(students$posttest)      # NA
+mean(students$posttest, na.rm = TRUE)   # 71.4
+```
+
+Not a bug. R refuses to guess. Decide what to do about the missing values,
+then report how many there were.
+
+## The plot is blank or wrong
+
+- Did you use `+` between `ggplot2` layers, and `|>` between data steps?
+  Mixing them is the classic first-day error.
+- Is a constant inside `aes()`? `aes(colour = "blue")` creates a legend
+  entry labelled "blue" and colours everything red. Move it outside:
+  `geom_point(colour = "blue")`.
+- Warning about removed rows? That is missing data, and it is information.
+
+## Quarto will not render
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| `Error: Cannot open output file` | The Word/PDF is open | Close it and render again |
+| Renders in console, fails on Render button | Render runs in a **clean session** | Everything the document needs must be inside it — no objects assumed from your console |
+| `quarto: command not found` | Not on `PATH` | Reinstall Quarto, restart the computer |
+| PDF fails, HTML works | No LaTeX | `tinytex::install_tinytex()` |
+| Chunk output missing | `include: false` or `echo: false` left in | Check the chunk options |
+
+::: {.callout-important}
+## The clean-session trap
+Render does not see your console. If your document works when you run the
+chunks by hand but fails on Render, something it needs was created in the
+console and never written into the document. That is not a Quarto bug — it is
+Quarto catching an irreproducibility in your work.
+:::
+
+## Package installation fails
+
+- Asked "install from sources?" → answer **No** (`n`).
+- Windows: install [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
+- macOS: `xcode-select --install` in Terminal.
+- Corporate network blocking CRAN: try a different mirror, or tether to a
+  phone. Institutional firewalls block CRAN more often than you would expect.
+- `package 'X' is not available for this version of R` → your R is too old.
+
+## Everything is broken and I don't know why
+
+```r
+# 1. Restart R
+#    Ctrl/Cmd + Shift + F10
+# 2. Run from the top of the script
+# 3. Stop at the first error - later errors are usually consequences
+```
+
+This resolves more problems than any other single action, and it is the same
+action that proves your work is reproducible.
+
+## Still stuck
+
+Ask with these four things and you will get an answer in one exchange rather
+than five:
+
+1. What you were trying to do.
+2. The **exact** code — copy it, do not retype it.
+3. The **complete** error message.
+4. `sessionInfo()` output.
+
+Raise a red sticky note. Facilitators are circulating in every hands-on block.

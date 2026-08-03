@@ -1,0 +1,102 @@
+---
+title: "R & Reproducible Research"
+subtitle: "MedEd Conclave 2026 · 9–10 September 2026"
+toc: false
+---
+
+A two-day, hands-on workshop for medical education faculty and researchers.
+You will leave able to import a dataset, explore it, visualise it, tabulate it,
+and wrap the whole thing in a document that regenerates itself — no
+copy-pasting between R, Word and PowerPoint ever again.
+
+::: {.callout-important}
+## Before you arrive
+Install R, RStudio and Quarto, then run the setup check. It takes about
+30 minutes and saves an hour of Day 1.
+→ [**Start here: Prelude**](prelude/index.qmd)
+:::
+
+## What you will be able to do
+
+::: {.card-grid}
+
+::: {.card-tile}
+### Work reproducibly
+Organise a project so that a colleague — or you, six months later — can
+rerun every number in your paper from raw data.
+:::
+
+::: {.card-tile}
+### Visualise data
+Build publication-quality figures with `ggplot2`, layer by layer, from a
+grammar you can reason about rather than a menu you memorise.
+:::
+
+::: {.card-tile}
+### Wrangle and explore
+Use `dplyr` verbs to filter, group and summarise messy education data, and
+run an honest exploratory analysis before you model anything.
+:::
+
+::: {.card-tile}
+### Publish with Quarto
+One `.qmd` source → HTML, Word, PDF, slides. Citations, cross-references and
+figures that update when the data does.
+:::
+
+::: {.card-tile}
+### Tabulate for journals
+`gtsummary` for Table 1, comparisons and regression output that is
+submission-ready in three lines of code.
+:::
+
+::: {.card-tile}
+### Use GenAI honestly
+Prompt engineering that helps rather than hallucinates — plus the ethical
+and disclosure rules that apply to health research in India.
+:::
+
+:::
+
+## Structure of the two days
+
+| | Day 1 — Wed 9 Sep | Day 2 — Thu 10 Sep |
+|---|---|---|
+| **Morning** | Foundations, getting started, R & `ggplot2` | Communicating with Quarto, `gtsummary` |
+| **Afternoon** | Quarto basics, `dplyr` & EDA | Generative AI, live coding, group work |
+
+Every teaching block (45 min) is followed by a hands-on block (45–60 min).
+Roughly two-thirds of your time is spent with your hands on a keyboard.
+
+→ [Full schedule with timings and faculty](schedule.qmd)
+
+## Who this is for
+
+Medical education faculty and researchers who are **new to R**. No prior
+programming assumed. If you have used SPSS, Excel or Stata, you already
+understand most of the statistical ideas — this workshop changes the tools,
+not the statistics.
+
+## Faculty
+
+| Faculty | Sessions |
+|---|---|
+| **Dr Biju Soman** | Fundamentals of reproducible research; live coding |
+| **Dr Arun Mitra** | Data science & AI basics; Quarto; `gtsummary`; live coding |
+| **Dr Gurpreet** | R & `ggplot2`; `dplyr` & EDA; Generative AI in health research |
+| **SET Team** | Registration, groups, pre/post-test, valedictory |
+
+## How to use this site
+
+- **Prelude** — do this *before* the workshop.
+- **Day 1 / Day 2** — one page per session: objectives, slides, worked
+  examples, exercises with collapsible solutions.
+- **Resources** — cheatsheets, troubleshooting, glossary, further reading.
+
+All materials stay online after the workshop. The site is built from a public
+repository; corrections are welcome as issues or pull requests.
+
+::: {.callout-note appearance="simple"}
+Materials are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/);
+code is MIT. Please reuse and adapt with attribution.
+:::

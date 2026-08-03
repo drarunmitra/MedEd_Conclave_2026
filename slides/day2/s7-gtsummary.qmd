@@ -1,0 +1,113 @@
+---
+title: "Publication-ready tables & figures"
+subtitle: "gtsummary · Day 2, Session 7"
+author: "Arun Mitra"
+date: 2026-09-10
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: c/t
+    footer: "MedEd Conclave 2026 · R & Reproducible Research"
+    transition: fade
+    center: false
+execute:
+  echo: true
+  warning: false
+---
+
+```{r}
+#| include: false
+library(tidyverse); library(gtsummary)
+theme_gtsummary_compact()
+students <- read_csv("data/meded_students.csv", show_col_types = FALSE)
+```
+
+## Table 1, in one line {.section-divider}
+
+```{r}
+#| output-location: column
+students |>
+  select(age, sex, rural_background,
+         pretest, burnout_band) |>
+  tbl_summary()
+```
+
+::: {.notes}
+⏱️ 3 min. Let it land in silence. Every person in the room has built this
+table by hand, more than once.
+:::
+
+## Stratified, tested
+
+```{r}
+#| output-location: column
+students |>
+  select(teaching_arm, age, sex,
+         attendance_pct, pretest) |>
+  tbl_summary(by = teaching_arm) |>
+  add_p() |>
+  add_overall() |>
+  bold_labels()
+```
+
+## But: don't p-test baseline
+
+If allocation was random, imbalance **is** chance by definition.
+
+. . .
+
+The test answers a question nobody asked.
+
+Describe the baseline. Test the outcome you pre-specified.
+
+::: {.notes}
+🎯 Altman 1985. Expect pushback — many local journals still demand it. Advice:
+give them the column, and say in the text why it is uninformative.
+:::
+
+## Take control
+
+```r
+tbl_summary(
+  by = teaching_arm,
+  label = list(attendance_pct ~ "Attendance (%)"),
+  statistic = all_continuous() ~ "{mean} ({sd})",
+  digits = all_continuous() ~ 1
+)
+```
+
+`attendance_pct` belongs in your code. Not in your manuscript.
+
+## Models
+
+```{r}
+#| output-location: column
+lm(gain ~ teaching_arm + pretest,
+   data = students) |>
+  tbl_regression() |>
+  add_glance_table(
+    include = c(nobs, r.squared)) |>
+  bold_p()
+```
+
+`exponentiate = TRUE` → odds ratios.
+
+## Into Word
+
+**Option 1** — table lives in the manuscript `.qmd`. Re-render.
+
+**Option 2** — `as_flex_table() |> save_as_docx()`.
+
+. . .
+
+Option 2 re-introduces the manual step you spent two days removing. Use it
+only when a co-author insists.
+
+## Hands-on — 60 min {background-color="#0f5257"}
+
+Your Table 1, your outcome table, your model.
+
+::: {.notes}
+📋 Common: forgetting `by =` is a column not a filter; label lists needing
+`~` not `=`.
+:::

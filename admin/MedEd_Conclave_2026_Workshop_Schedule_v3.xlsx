@@ -1,0 +1,27 @@
+## Sheet: Sheet1
+
+Day	Session	Timing	Topic	Description	Led By
+1	Morning	09:00 - 09:30	Registration and Icebreaker	Pre-Test, Introduction and Groups Allotment	SET Team
+		09:30-10:15	Introduction to the Basics	Ground Rules of the Workshop, Structure, Learning Objectives, Disclaimers, Fundamentals of Reproducible Research	Biju Soman
+		10:15 - 11:00	Getting Started	Common concepts and thumb rules that needs to be understood and practiced including Data Science & AI Basics	Arun Mitra
+		11:00 - 11:15	Tea Break
+		11:15 - 12:00	Introduction to R and  Data Visulization	ggplot2	Gurpreet
+		12:00 - 13:00	Hands On	Exercise on Primers, File and Project Management, Principles of Data visualization
+		13:00 - 14:00	Lunch
+	Afternoon	14:00 - 14:45	Introduction to Quarto	Markdown (15 mins), Adding Images, Citations, Figures, Tables, Rendering Documents into HTML, DOCX, PDF, PPT, REVEALJS 	Arun Mitra
+		14:45 - 15:15	Hands On	Exercise on rendering Quarto Documents and add prose, Images, plots and tables. 
+		15:15 - 15:30 	Tea Break
+		15:30 - 16:15	Working with Data	dplyr, Exploratory Data Analysis	Gurpreet
+		16:15 - 17:00	Hands On	Exercise on creating descriptive summaries and statistics with the provided medical education related datasets
+2	Morning	09:00 - 09:30	Recap and Q&A 
+		09:30-10:15	Communitcating Research Effectively using Quarto	Dynamic Documentation, Journal Articles, Blogs, Webstites, Thesis  (include, shortcodes, documentation)	Arun Mitra
+		10:15 - 11:00	Group Activity	Exerise on creating a dynamic document.
+		11:00 - 11:15	Tea Break
+		11:15 - 12:00	Publication Ready Tables & Figures	gtsummary	Arun Mitra
+		12:00 - 13:00	Hands On	Exercise on creating publication ready tables and plots
+		13:00 - 14:00	Lunch
+	Afternoon	14:00 - 14:45	Generative AI in Health Research	Prompt Engineering Fundamentals, Do's & Don'ts, Common Pitfallsm, AI Ecosystem in India, Ethical Considerations	Gurpreet
+		14:45 - 15:15	Live Code Session	Demonstrating Workflows and Pipelines	Biju Soman + Arun Mitra + Gurpreet
+		15:15 - 16:00 	Group Activity	4 Groups
+		16:00 - 16:15 	Tea Break
+		16:15 - 17:00	Group Presentations, Feedback and Valedictory	Vote of Thanks, Post-Test	SET Team

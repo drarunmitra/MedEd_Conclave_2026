@@ -1,0 +1,88 @@
+---
+title: "Pre-reading"
+subtitle: "Twenty minutes that will make Day 1 make sense"
+---
+
+None of this is compulsory. All of it will make the first morning easier.
+
+## The workshop introduction deck
+
+::: {.callout-note appearance="simple"}
+[**Modern Research & Data Science: Philosophy, Paradigms, and AI-Augmented Reproducibility**](../slides/workshop_intro.html){target="_blank"}
+:::
+
+Four parts: philosophy of knowledge (ontology, epistemology, induction and
+deduction); the frequentist, Bayesian and AI paradigms; methodological
+applications in clinical research; and the modern AI-augmented stack of R,
+Quarto and generative AI.
+
+Skim it. The argument that matters for these two days is the last one: that
+your choice of tools is downstream of a philosophical position about what
+counts as knowledge, and that reproducibility is where that position becomes
+checkable by other people.
+
+## Why reproducibility, specifically
+
+Three short pieces, in increasing order of discomfort:
+
+1. **Peng RD.** [Reproducible research in computational science](https://doi.org/10.1126/science.1213847).
+   *Science* 2011;334:1226–7. Two pages. Introduces the reproducibility
+   spectrum — from "publication only" to "full replication" — that we use to
+   frame Session 1.
+
+2. **Baker M.** [1,500 scientists lift the lid on reproducibility](https://doi.org/10.1038/533452a).
+   *Nature* 2016;533:452–4. The survey where most researchers reported
+   failing to reproduce someone else's experiment — and more than half failed
+   to reproduce their own.
+
+3. **Ziemann M, Eren Y, El-Osta A.** [Gene name errors are widespread in the scientific literature](https://doi.org/10.1186/s13059-016-1044-7).
+   *Genome Biology* 2016;17:177. About a fifth of genomics papers with Excel
+   supplementary files contained gene names silently converted to dates. The
+   most quietly devastating paper on this list, and the best argument for a
+   scripted workflow you will ever read.
+
+## On teaching and learning with data
+
+- **Cook DA, Beckman TJ.** [Current concepts in validity and reliability for psychometric instruments](https://doi.org/10.1016/j.amjmed.2005.10.036).
+  *Am J Med* 2006;119:166.e7–16. Relevant if you plan to bring your own
+  assessment data to the group activity.
+
+- **Wickham H.** [Tidy data](https://doi.org/10.18637/jss.v059.i10).
+  *Journal of Statistical Software* 2014;59(10). The one-sentence version:
+  each variable a column, each observation a row, each type of observational
+  unit a table. Everything `dplyr` does on Day 1 afternoon assumes it.
+
+## On generative AI in research
+
+Read at least one of these before Day 2 afternoon:
+
+- **ICMJE.** [Recommendations: use of AI-assisted technology](https://www.icmje.org/recommendations/).
+  The rule that matters: AI tools cannot be authors, and their use must be
+  disclosed.
+
+- **WHO.** [Ethics and governance of artificial intelligence for health: guidance on large multi-modal models](https://www.who.int/publications/i/item/9789240084759).
+  2024. Skim the governance section.
+
+- **NITI Aayog.** [National Strategy for Artificial Intelligence](https://www.niti.gov.in/national-strategy-artificial-intelligence).
+  Context for the "AI ecosystem in India" part of Session 8.
+
+## Books, if you catch the bug
+
+| | |
+|---|---|
+| [R for Data Science (2e)](https://r4ds.hadley.nz/) | Wickham, Çetinkaya-Rundel & Grolemund. Free online. The default answer to "what should I read next?" |
+| [The Epidemiologist R Handbook](https://epirhandbook.com/) | Task-oriented, health-specific, and free. Excellent for looking things up |
+| [Quarto documentation](https://quarto.org/docs/guide/) | Genuinely good official docs, which is rare |
+| [Telling Stories with Data](https://tellingstorieswithdata.com/) | Alexander. Free online. Strong on the workflow and ethics side |
+
+## A note on how to read all this
+
+You are not expected to absorb it. Skim now, and come back after the
+workshop when the words have referents. The single most useful thing you can
+do before 9 September is finish [the R primer](r-primer.qmd) — a concept you
+have typed once beats a concept you have read three times.
+
+## Next
+
+→ Back to the [Prelude checklist](index.qmd), or straight to
+[Day 1](../day1/index.qmd).

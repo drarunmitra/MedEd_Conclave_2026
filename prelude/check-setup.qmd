@@ -1,0 +1,111 @@
+---
+title: "Check your setup"
+subtitle: "Packages and verification"
+---
+
+## Install the workshop packages
+
+Open your `meded-conclave-2026` project in RStudio. Paste this into the
+**Console** and press <kbd>Enter</kbd>. It will take 10–20 minutes on a first
+run — start it and make tea.
+
+```{r}
+#| eval: false
+pkgs <- c(
+  # Core
+  "tidyverse",     # dplyr, ggplot2, tidyr, readr, stringr, forcats, purrr
+  "here",          # sane file paths
+  "janitor",       # clean_names(), tabyl()
+  # Tables
+  "gtsummary",     # publication-ready tables
+  "gt",            # the table engine underneath
+  "flextable",     # tables for Word output
+  # Reporting
+  "quarto",        # render .qmd from R
+  "knitr",
+  "rmarkdown",
+  # Data and extras
+  "skimr",         # fast data overviews
+  "scales",        # axis formatting
+  "patchwork",     # combine ggplots
+  "palmerpenguins" # a friendly practice dataset
+)
+
+install.packages(setdiff(pkgs, rownames(installed.packages())))
+```
+
+::: {.callout-warning}
+## If you are asked "Do you want to install from sources...?"
+Answer **No** (type `n`, press Enter). Binary packages install in seconds;
+source packages compile for minutes and sometimes fail. You do not need the
+newest possible version for this workshop.
+:::
+
+## Run the verification script
+
+Download [`check_setup.R`](../setup/check_setup.R), put it in your project's
+`R/` folder, then run:
+
+```{r}
+#| eval: false
+source("R/check_setup.R")
+```
+
+The script checks eight things: your R version, the native pipe, RStudio,
+Quarto, all sixteen required packages, whether the core stack loads, whether
+your project folder is writable, and whether Quarto and R can complete an
+end-to-end render together.
+
+## What a healthy result looks like
+
+```
+── MedEd Conclave 2026 · setup check ───────────────────────────
+✔ R version 4.4.1 (2024-06-14) (need >= 4.1.0)
+✔ Native pipe |> works
+✔ RStudio 2024.09.0+375
+✔ Quarto 1.5.57
+✔ All 16 required packages installed
+✔ Core packages load cleanly
+✔ Project directory writable (meded-conclave-2026)
+✔ Test render (HTML) succeeded
+────────────────────────────────────────────────────────────────
+You are ready for 9 September. See you there.
+```
+
+Any line starting with `✖` needs attention before the workshop. Send the
+**whole** output to the SET Team if you cannot resolve it — the individual
+lines tell us exactly what is wrong, which turns five emails into one.
+
+## Test that Quarto renders
+
+The single best proof that everything works end to end:
+
+1. **File → New File → Quarto Document**
+2. Title it `test`, choose **HTML**, click **Create**
+3. Click **Render** (or <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd>)
+
+A browser tab should open with a formatted document containing a plot. If it
+does, your entire toolchain works and nothing on Day 1 can be blocked by
+installation.
+
+::: {.callout-tip}
+## Save the evidence
+Take a screenshot of a successful render and bring it. If something breaks on
+the day, knowing it worked last week narrows the problem down enormously.
+:::
+
+## Common results and what they mean
+
+| Line | Means | Do this |
+|---|---|---|
+| `✖ R version ... too old` | R below 4.1, so the native pipe will not work | Install R 4.4.x from CRAN |
+| `✖ Quarto not found` | Quarto is not on your `PATH` | Reinstall Quarto, **restart the computer**, then `install.packages("quarto")` |
+| `✖ N package(s) missing` | An install silently failed | Re-run the install line the script prints |
+| `✖ Cannot write to ...` | Project is in a restricted or cloud-synced folder | Move it to Desktop or Documents |
+| `✖ Test render failed` | R and Quarto are both present but not co-operating | See [Troubleshooting](../resources/troubleshooting.qmd) |
+| `! Not running inside RStudio` | Not an error | Ignore it if you use another editor |
+
+## Next
+
+→ [R primer](r-primer.qmd) — the 45 minutes of R that Day 1 assumes you have
+already seen.

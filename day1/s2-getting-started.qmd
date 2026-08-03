@@ -1,0 +1,189 @@
+---
+title: "2 · Getting started"
+subtitle: "Concepts, thumb rules, and data science & AI basics"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Time]{.meta-label}[10:15 – 11:00]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Arun Mitra]{.meta-value}
+:::
+::: {.meta-item}
+[Format]{.meta-label}[Demo + lecture]{.meta-value}
+:::
+::: {.meta-item}
+[Slides]{.meta-label}[[Open deck ↗](../slides/day1/s2-getting-started.html){target="_blank"}]{.meta-value}
+:::
+:::
+
+## Learning objectives
+
+1. Navigate the four RStudio panes and know what each is for.
+2. Structure a project folder so that it survives you.
+3. Explain what a data science workflow does, end to end.
+4. Place "AI" correctly relative to statistics, machine learning and
+   generative models — and say what each is *for*.
+
+::: {.callout-important}
+## Opens with a 10-minute project-structure demo
+Day 1 goes to `ggplot2` at 11:15. Before that, everyone needs a working
+project and a data frame on screen. This session starts there. If you did the
+[prelude](../prelude/install.qmd#projects), this is revision — help your
+neighbour.
+:::
+
+## The RStudio window
+
+| Pane | Where | Use it for |
+|---|---|---|
+| **Source** | top left | Your script. The thing you save. |
+| **Console** | bottom left | Throwaway experiments. Nothing here is saved. |
+| **Environment** | top right | What objects currently exist. Your reality check. |
+| **Files / Plots / Help** | bottom right | Browsing, figures, `?function` |
+
+The rule: **anything you would be sad to lose goes in Source.** The console
+is scratch paper.
+
+<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> sends the current line from
+Source to Console. That is the loop you will spend two days in.
+
+## Project structure that survives you
+
+```
+meded-conclave-2026/
+├── meded-conclave-2026.Rproj
+├── data/                  # raw data. READ-ONLY. Never edit these files.
+│   ├── meded_students.csv
+│   └── osce_stations.csv
+├── R/                     # scripts, numbered in run order
+│   ├── 00_generate_datasets.R
+│   ├── 01_clean.R
+│   └── 02_analyse.R
+├── output/                # everything R writes: figures, tables, reports
+└── README.md              # what this is, who made it, how to run it
+```
+
+Three thumb rules:
+
+1. **Raw data is read-only.** If you need to fix a typo in the data, fix it
+   in a *script*, so the fix is visible and repeatable.
+2. **Number your scripts** in the order they must run. `01_`, `02_`. Future
+   you will not remember the order.
+3. **Everything in `output/` must be regenerable.** If you deleted the folder
+   and ran your scripts, it should come back identically. If it would not,
+   something important is only in your head.
+
+::: {.callout-tip}
+## `here::here()`
+Once your project has subfolders, `here::here("data", "meded_students.csv")`
+builds the path correctly on any machine and from any subfolder. Worth
+adopting once you are past the first day.
+:::
+
+## The data science workflow
+
+```
+Import → Tidy → [ Transform ⇄ Visualise ⇄ Model ] → Communicate
+                          ↑____________________|
+                        (the loop where the work is)
+```
+
+After Wickham & Grolemund. Mapped onto these two days:
+
+| Stage | Package | When |
+|---|---|---|
+| Import | `readr` | Today, 11:15 |
+| Tidy | `tidyr`, `janitor` | Today, 15:30 |
+| Transform | `dplyr` | Today, 15:30 |
+| Visualise | `ggplot2` | Today, 11:15 |
+| Model | `stats`, `gtsummary` | Tomorrow, 11:15 |
+| Communicate | `quarto` | Today 14:00, tomorrow 09:30 |
+
+Note what dominates in practice: **import and tidy take most of the time**,
+usually 60–80% of it. Nobody's methods section says so.
+
+## Data science, machine learning, AI — what is what
+
+These words are used interchangeably in seminars and they should not be.
+
+| | Question it answers | Example in med ed |
+|---|---|---|
+| **Statistics** | Is this difference bigger than chance? | Does the flipped arm score higher on the post-test? |
+| **Machine learning** | Can I predict `y` from `x` in new cases? | Predict which students will fail the OSCE |
+| **Generative AI** | Can I produce plausible new text/code/images? | Draft the code for a figure; summarise free-text feedback |
+
+Three distinctions worth holding on to:
+
+- **Explanation vs prediction.** A model that predicts well may explain
+  nothing, and vice versa. Most medical education research wants explanation
+  and reaches for prediction language anyway.
+- **Fitting vs generalising.** Any model can be made to fit the data you have.
+  The question is always what it does on data you have not seen.
+- **Fluency vs truth.** A generative model optimises for *plausible*, not
+  *correct*. That distinction is the entire content of Day 2 afternoon.
+
+::: {.callout-warning}
+## Where AI fits in this workshop
+As an accelerator on top of a workflow you understand — not a substitute for
+understanding it. You cannot check code you could not have written. We return
+to this properly in [Session 8](../day2/s8-genai.qmd).
+:::
+
+## Thumb rules to write on your hand
+
+1. **Restart R often.** <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F10</kbd>.
+   If your code only works in a warm session, it does not work.
+2. **Look at the data.** `glimpse()`, `str()`, `View()`. Before every
+   analysis, and after every step that changes the data.
+3. **Small steps, checked.** Write one pipe step, run it, look at it, then
+   add the next. Not five steps then debug.
+4. **Read the error's first line.** R errors are verbose but the first line is
+   usually the whole story.
+5. **Name things for humans.** `posttest_by_arm`, not `df2`.
+6. **If you did it twice, script it. Three times, write a function.**
+
+## Quick check
+
+::: {.callout-note title="Check your setup: 5 minutes"}
+In your project, run:
+
+```{r}
+#| eval: false
+getwd()                                       # should end in meded-conclave-2026
+list.files("data")                            # should list 4 csv files
+library(tidyverse)
+students <- read_csv("data/meded_students.csv")
+glimpse(students)                             # 240 rows, 17 columns
+```
+
+Red sticky note if any line fails. This is the last moment before we start
+plotting.
+:::
+
+::: {.callout-tip title="If `read_csv()` cannot find the file" collapse="true"}
+```{r}
+#| eval: false
+getwd()          # Are you where you think you are?
+list.files()     # Is there a data/ folder here at all?
+```
+
+Almost always one of: (a) you opened the script but not the *project*, (b)
+the files are in `Downloads/`, not `data/`, or (c) the file is called
+`meded_students.csv.txt` because Windows hid the extension.
+:::
+
+## Key takeaways
+
+::: {.callout-note appearance="minimal"}
+- Source pane for anything you want to keep; console for scratch.
+- Raw data read-only, scripts numbered, `output/` regenerable.
+- Import and tidy are most of the work, whatever the methods section says.
+- Statistics explains, ML predicts, generative AI produces plausible text.
+  Choosing the wrong one is a study design error, not a software error.
+:::
+
+## Next
+
+→ [3 · Introduction to R and data visualisation](s3-ggplot2.qmd)

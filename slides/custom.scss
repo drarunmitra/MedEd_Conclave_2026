@@ -1,0 +1,39 @@
+/*-- scss:defaults --*/
+$body-bg: #ffffff;
+$body-color: #22303c;
+$link-color: #0f5257;
+$presentation-heading-color: #0f5257;
+$presentation-heading-font-weight: 600;
+$presentation-font-size-root: 34px;
+$code-block-bg: #f4f6f6;
+
+/*-- scss:rules --*/
+.reveal .slide-number { background: rgba(15, 82, 87, .75); }
+
+.reveal h1, .reveal h2 { letter-spacing: -0.01em; }
+
+.reveal .section-divider h1 {
+  border-bottom: 3px solid #b8860b;
+  padding-bottom: .3em;
+}
+
+.reveal .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .5em;
+  color: #4a7c7e;
+  font-weight: 700;
+}
+
+.reveal .callout { font-size: .85em; }
+.reveal pre code { max-height: 480px; }
+.reveal .footer { color: #4a7c7e; font-size: .5em; }
+.reveal .small { font-size: .75em; }
+.reveal table { font-size: .7em; }
+
+.reveal .big-number {
+  font-size: 2.4em;
+  font-weight: 700;
+  color: #b8860b;
+  line-height: 1.1;
+}

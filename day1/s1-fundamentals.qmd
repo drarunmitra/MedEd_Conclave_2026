@@ -1,0 +1,162 @@
+---
+title: "1 · Introduction to the basics"
+subtitle: "Ground rules, structure, and the fundamentals of reproducible research"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Time]{.meta-label}[09:30 – 10:15]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Biju Soman]{.meta-value}
+:::
+::: {.meta-item}
+[Format]{.meta-label}[Lecture + discussion]{.meta-value}
+:::
+::: {.meta-item}
+[Slides]{.meta-label}[[Open deck ↗](../slides/day1/s1-fundamentals.html){target="_blank"}]{.meta-value}
+:::
+:::
+
+## Learning objectives
+
+By the end of this session you will be able to:
+
+1. Distinguish **reproducibility**, **replicability** and **generalisability**,
+   and say which one a computational workflow can guarantee.
+2. Locate your own current practice on the reproducibility spectrum.
+3. Name the three most common points at which a medical education analysis
+   becomes irreproducible.
+4. State the workshop's ground rules and learning objectives.
+
+## The problem, stated plainly
+
+You submit a paper. Eight months later a reviewer asks for one more
+subgroup analysis. You open the folder.
+
+```
+📁 Thesis final
+   ├── data_final.xlsx
+   ├── data_final_v2.xlsx
+   ├── data_final_v2_USE THIS.xlsx
+   ├── analysis.spv
+   ├── Table1_edited_sir comments.docx
+   └── Copy of data_final_v2_USE THIS (1).xlsx
+```
+
+Which file produced Table 2? Which row did you exclude, and why? Was the
+outlier dropped before or after the log transformation?
+
+This is not a failure of diligence. It is the predictable outcome of a
+workflow where the *record* of what you did is separate from the *doing* of
+it — where clicks leave no trace.
+
+::: {.callout-note}
+## The core claim of this workshop
+If your analysis is a **script**, the record and the doing are the same
+object. That single change fixes most of the problem, and everything else in
+these two days is a consequence of it.
+:::
+
+## Three words that are not synonyms
+
+| Term | Same data? | Same code? | Question it answers |
+|---|---|---|---|
+| **Reproducibility** | Yes | Yes | Did you do what you said you did? |
+| **Replicability** | No (new data) | Yes/similar | Does the finding hold in a new sample? |
+| **Generalisability** | No | No | Does it hold elsewhere, by other means? |
+
+Reproducibility is the *lowest* bar — and it is entirely within your control.
+It requires no new participants, no funding and no collaborators. It is
+simply the claim that your numbers follow from your data.
+
+::: {.callout-important}
+## Reproducible is not the same as correct
+A reproducible analysis can be reproducibly wrong. What reproducibility buys
+you is that the error is **findable**. That is worth a great deal, and it is
+all it is worth.
+:::
+
+## The reproducibility spectrum
+
+After Peng (2011), from weakest to strongest:
+
+```
+Publication only  →  + Code  →  + Code & data  →  + Linked, executable  →  Full replication
+      ↑                                                    ↑
+  where most                                        where Quarto puts you
+  med-ed papers sit                                    by Thursday
+```
+
+## Where analyses break
+
+Three failure points, in order of how often they bite:
+
+**1. The undocumented manual step.** "I removed the two students who
+withdrew." Nothing in any file records this. Six months later, `n` is 238 and
+you cannot say why.
+
+**2. The absolute path.** `read.csv("C:/Users/Ananya/Desktop/final/data.csv")`
+runs on exactly one machine, until that machine is reformatted.
+
+**3. The stale environment.** Your script works because an object from an
+earlier session is still in memory. On a clean machine it fails. This is why
+we turned off workspace restore in [Setup](../prelude/install.qmd#projects).
+
+::: {.callout-tip}
+## The test
+Restart R (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd>),
+then source your script top to bottom. If every number in your manuscript
+reappears, you are reproducible. If not, you have just found the bug before a
+reviewer did.
+:::
+
+## What we are asking you to change
+
+Not everything at once. In order of return on effort:
+
+1. **One project folder per study.** Raw data in `data/`, never edited.
+2. **A script for every number.** No manual edits to output tables.
+3. **A relative path, always.** `data/students.csv`, never `C:/...`.
+4. **A clean session, always.** Restart before you believe a result.
+5. **Version control**, when you are ready. Not required this week.
+
+Items 1–4 are free. They cost only the decision to do them.
+
+## Discussion
+
+::: {.callout-note title="Discussion: 5 minutes, in your groups"}
+Take the last paper or thesis chapter you completed.
+
+1. Could you, today, regenerate Table 1 from the raw data without asking
+   anyone a question?
+2. If you left the institution tomorrow, could your co-author?
+3. Which of the three failure points above would bite first?
+
+Be honest. Nobody's answer is "yes, yes, none" — that is why you are here.
+:::
+
+## Ground rules for the two days
+
+- Sessions are 45 minutes of teaching, then 45–60 minutes with your hands on
+  the keyboard. The second part is the workshop; the first part is a warm-up.
+- You are in a **group of 5–6** from registration onwards. Groups present on
+  Day 2 afternoon.
+- Facilitators circulate during every hands-on block. Use them.
+- Everything on this website stays online after Thursday.
+
+## Key takeaways
+
+::: {.callout-note appearance="minimal"}
+- Reproducibility means *same data + same code → same result*. It is the
+  weakest of the three claims, and the only one you control alone.
+- Scripts unify the record and the act. Clicks do not.
+- Most irreproducibility comes from undocumented manual steps, absolute
+  paths, and stale environments — all three are free to fix.
+- Restart-and-source is the test. Use it before you submit anything.
+:::
+
+## Next
+
+→ [2 · Getting started](s2-getting-started.qmd) — the concepts and thumb
+rules underneath everything else, plus how data science and AI fit together.

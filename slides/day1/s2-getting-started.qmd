@@ -1,0 +1,104 @@
+---
+title: "Getting started"
+subtitle: "Concepts, thumb rules, data science & AI basics · Day 1, Session 2"
+author: "Arun Mitra"
+date: 2026-09-09
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: c/t
+    footer: "MedEd Conclave 2026 · R & Reproducible Research"
+    transition: fade
+    center: false
+execute:
+  echo: true
+  warning: false
+---
+
+## First: everyone in a project {.section-divider}
+
+[10 minutes, live]{.eyebrow}
+
+::: {.notes}
+⏱️ 10 min, live demo. Do NOT skip this — Session 3 goes straight to ggplot2
+and assumes a data frame is on screen. Walk the room; red stickies up.
+:::
+
+## Four panes
+
+| Pane | Use it for |
+|---|---|
+| **Source** (top left) | Your script. What you keep. |
+| **Console** (bottom left) | Scratch. Nothing saved. |
+| **Environment** (top right) | What exists right now |
+| **Files / Plots / Help** | Browsing, figures, `?fn` |
+
+<kbd>Ctrl/Cmd + Enter</kbd> — Source → Console. That is the loop.
+
+## A project that survives you
+
+```
+meded-conclave-2026/
+├── meded-conclave-2026.Rproj
+├── data/      # READ-ONLY. Never edit.
+├── R/         # 01_clean.R, 02_analyse.R
+├── output/    # everything regenerable
+└── README.md
+```
+
+::: {.notes}
+Three rules: raw data read-only; number the scripts; output/ must be
+deletable without loss.
+:::
+
+## The workflow
+
+```
+Import → Tidy → [ Transform ⇄ Visualise ⇄ Model ] → Communicate
+```
+
+. . .
+
+Import and tidy take **60–80%** of the time.
+
+No methods section has ever said so.
+
+## Three words that are not synonyms
+
+| | Question | Example |
+|---|---|---|
+| **Statistics** | Bigger than chance? | Does the flipped arm score higher? |
+| **Machine learning** | Predict new cases? | Who will fail the OSCE? |
+| **Generative AI** | Produce plausible text? | Draft this figure's code |
+
+::: {.notes}
+⏱️ 8 min. The distinction that matters: fluency ≠ truth. Foreshadow Day 2
+afternoon, don't teach it here.
+:::
+
+## Thumb rules
+
+::: {.incremental}
+1. Restart R often
+2. Look at the data — `glimpse()`, before and after
+3. Small steps, checked
+4. Read the error's first line
+5. Name things for humans
+6. Did it twice? Script it
+:::
+
+## Check your setup — 5 min {background-color="#0f5257"}
+
+```r
+getwd()
+list.files("data")
+library(tidyverse)
+students <- read_csv("data/meded_students.csv")
+glimpse(students)
+```
+
+240 rows, 17 columns. Red sticky if not.
+
+::: {.notes}
+📋 Last moment before plotting. Do not move on with red stickies up.
+:::

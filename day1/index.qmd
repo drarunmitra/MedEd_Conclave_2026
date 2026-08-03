@@ -1,0 +1,64 @@
+---
+title: "Day 1 — Wednesday, 9 September"
+subtitle: "Foundations, visualisation, Quarto, and data wrangling"
+---
+
+By the end of today you will have made a figure, written a document that
+contains its own code, and answered a real question from a dataset — all
+inside one reproducible project.
+
+## Today's arc
+
+| Time | Session | Faculty |
+|---|---|---|
+| 09:00 | Registration, pre-test, groups | SET Team |
+| 09:30 | [1 · Introduction to the basics](s1-fundamentals.qmd) | Biju Soman |
+| 10:15 | [2 · Getting started](s2-getting-started.qmd) | Arun Mitra |
+| 11:15 | [3 · Introduction to R and data visualisation](s3-ggplot2.qmd) | Gurpreet |
+| 12:00 | Hands-on: primers, projects, visualisation | All |
+| 14:00 | [4 · Introduction to Quarto](s4-quarto.qmd) | Arun Mitra |
+| 14:45 | Hands-on: render a Quarto document | All |
+| 15:30 | [5 · Working with data](s5-dplyr-eda.qmd) | Gurpreet |
+| 16:15 | Hands-on: descriptive summaries | All |
+
+## Before the first session
+
+- Open RStudio, and open your `meded-conclave-2026` project (File → Open
+  Project). Do **not** work in an untitled script outside a project.
+- Confirm the datasets are in `data/`. If not, grab them from
+  [Datasets](../prelude/data.qmd).
+- Load the stack:
+
+```{r}
+#| eval: false
+library(tidyverse)
+students <- read_csv("data/meded_students.csv")
+```
+
+If that runs without error, you are ready.
+
+## The question that runs through today
+
+> **Did the flipped classroom improve knowledge gain compared with
+> traditional lectures — and for whom?**
+
+Every session today attacks a piece of it. Session 3 shows you the
+distribution. Session 5 quantifies it. Day 2 tabulates and publishes it.
+
+## Ground rules
+
+- **Ask immediately.** If you are lost for 90 seconds you are lost for the
+  session. Raise a hand; a facilitator will come.
+- **Red / green sticky note** on your laptop lid: green means "I'm following",
+  red means "I'm stuck". We check the room, not individuals.
+- **Type the code.** Copy-paste is faster and teaches you less.
+- **Errors are normal.** Every person in the room, including the faculty,
+  will produce errors today. Read them; they are more informative than they
+  look.
+- **You will not remember the syntax.** Nobody does. You are learning where
+  to look, not what to memorise.
+
+## Cheat sheet for today
+
+Keep [the workshop cheatsheet](../resources/cheatsheet.qmd) open in a second
+tab.

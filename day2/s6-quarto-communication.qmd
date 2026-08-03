@@ -1,0 +1,278 @@
+---
+title: "6 · Communicating research effectively using Quarto"
+subtitle: "Dynamic documentation: articles, blogs, websites, theses"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Teaching]{.meta-label}[09:30 – 10:15]{.meta-value}
+:::
+::: {.meta-item}
+[Group activity]{.meta-label}[10:15 – 11:00]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Arun Mitra]{.meta-value}
+:::
+::: {.meta-item}
+[Slides]{.meta-label}[[Open deck ↗](../slides/day2/s6-quarto-communication.html){target="_blank"}]{.meta-value}
+:::
+:::
+
+## Learning objectives
+
+1. Choose the right Quarto output for a given audience: article, slides,
+   website, thesis.
+2. Split a long document into `include`d child files.
+3. Use shortcodes, callouts and cross-references to structure a document.
+4. Produce a journal-formatted manuscript with a `.bib` bibliography and a
+   CSL style.
+5. Publish a website to GitHub Pages.
+
+## Yesterday you rendered a document. Today, a body of work.
+
+The `.qmd` file you made at 14:45 yesterday scales, unchanged in principle,
+to a thesis. What changes is organisation.
+
+| Output | Format | For |
+|---|---|---|
+| Manuscript | `format: docx` (+ `pdf`) | Journals, co-authors |
+| Slides | `format: revealjs` | Conferences, teaching |
+| Website | `project: type: website` | Course sites, project pages, this site |
+| Book / thesis | `project: type: book` | Long documents with chapters |
+| Blog | `type: website` + `listing:` | Ongoing writing |
+| Dashboard | `format: dashboard` | Monitoring, surveillance |
+
+All from Markdown and R chunks you already know.
+
+## Splitting a long document
+
+A 12,000-word thesis chapter in a single `.qmd` is unmanageable. Break it up:
+
+```
+thesis/
+├── index.qmd            # YAML, abstract
+├── 01-introduction.qmd
+├── 02-methods.qmd
+├── 03-results.qmd
+├── 04-discussion.qmd
+├── references.bib
+└── _quarto.yml
+```
+
+Or, within one document, pull in child files:
+
+```markdown
+{{< include _methods.qmd >}}
+```
+
+Files beginning with an underscore are not rendered on their own — exactly
+what you want for a fragment.
+
+::: {.callout-tip}
+## Why this matters beyond tidiness
+Each file is a unit you can hand to a co-author, track separately in version
+control, and re-render alone while drafting. A 40-second render becomes 4
+seconds, which is the difference between rendering constantly and avoiding it.
+:::
+
+## Shortcodes
+
+Small `{{< >}}` directives that expand at render time:
+
+| Shortcode | Does |
+|---|---|
+| `{{< include _file.qmd >}}` | Insert another file |
+| `{{< video url >}}` | Embed a video |
+| `{{< pagebreak >}}` | Page break in Word/PDF |
+| `{{< meta title >}}` | Reuse a YAML field in the text |
+| `{{< kbd Ctrl-S >}}` | Render a keyboard key |
+
+`{{< meta >}}` is quietly useful: define the study name once in the YAML and
+refer to it everywhere, so a rename is a one-line change.
+
+## Callouts
+
+```markdown
+::: {.callout-note}
+## Ethical approval
+Approved by the Institutional Ethics Committee (IEC/2026/041).
+:::
+```
+
+Five types: `note`, `tip`, `warning`, `important`, `caution`. Add
+`collapse="true"` to fold them — used all over this site for solutions.
+
+## A manuscript that a journal will accept
+
+```yaml
+---
+title: "Flipped classroom teaching and knowledge gain: a multicentre study"
+author:
+  - name: A. Nair
+    orcid: 0000-0002-1825-0097
+    affiliations:
+      - name: Government Medical College, Thrissur
+    email: nair@example.ac.in
+    corresponding: true
+  - name: B. Soman
+    affiliations:
+      - name: SET Team
+abstract: |
+  **Background.** ...
+  **Methods.** ...
+  **Results.** ...
+keywords: [medical education, flipped classroom, reproducible research]
+bibliography: references.bib
+csl: vancouver.csl
+format:
+  docx:
+    reference-doc: journal-template.docx
+    number-sections: true
+  pdf:
+    documentclass: article
+    geometry: margin=1in
+    linenumbers: true
+execute:
+  echo: false
+  warning: false
+---
+```
+
+Three details that save real time:
+
+- **`reference-doc:`** — point it at a Word file styled the way the journal
+  wants, and every render inherits the fonts, margins and heading styles.
+- **`csl:`** — download the journal's style from
+  [zotero.org/styles](https://www.zotero.org/styles). Switching from Vancouver
+  to APA after a rejection becomes a one-line change instead of an evening.
+- **`linenumbers: true`** — most journals require them for review. Two words
+  here, versus a manual pass in Word.
+
+::: {.callout-note}
+## The Quarto manuscript project
+`quarto create project manuscript` scaffolds a project designed for journal
+submission: article, notebooks, and a website version from one source. Worth
+exploring after this workshop. See
+[quarto.org/docs/manuscripts](https://quarto.org/docs/manuscripts/).
+:::
+
+## Publishing a website
+
+This site is a Quarto website. Its entire configuration is one `_quarto.yml`
+with a navbar and a list of pages.
+
+```bash
+quarto publish gh-pages
+```
+
+One command: renders, pushes to a `gh-pages` branch, and gives you a public
+URL. Free for public repositories. For a department page, a study protocol,
+or teaching material, this is the shortest path from "I have a document" to
+"colleagues can read it".
+
+::: {.callout-warning}
+## Before you publish anything
+Rendered output can leak more than you intend: a `glimpse()` of an
+unanonymised dataset, a file path containing a patient identifier, a raw CSV
+sitting in `data/`. Check your `_site/` folder and your `.gitignore` before
+the first push. Assume that anything pushed to a public repository is
+permanent, because it effectively is.
+:::
+
+# Hands-on {#hands-on}
+
+**10:15 – 11:00.** Work in your groups. One laptop drives; rotate every
+15 minutes so everyone types.
+
+::: {.callout-note title="Group exercise: build a dynamic document"}
+**Time:** 45 minutes
+
+Turn yesterday's `report.qmd` into a small structured manuscript.
+
+1. Add a proper YAML header: title, at least two authors with affiliations,
+   an abstract, and `format: html` plus `docx`.
+2. Split it: move your setup chunk and data import into `_setup.qmd` and pull
+   it in with `{{< include _setup.qmd >}}`.
+3. Add sections: Background, Methods, Results, Limitations.
+4. In Methods, state the missing-data decision you made yesterday — in prose,
+   with the count reported through inline code.
+5. Add one callout noting ethical approval (invent a number; this is
+   synthetic data).
+6. Cross-reference your figure with `@fig-gain`.
+7. Render to both HTML and Word.
+:::
+
+::: {.callout-tip title="Skeleton to start from" collapse="true"}
+````markdown
+---
+title: "Flipped classroom teaching and knowledge gain"
+author:
+  - name: "Group 1, Member A"
+    affiliations: [{name: "Government Medical College, Thrissur"}]
+  - name: "Group 1, Member B"
+    affiliations: [{name: "Government Medical College, Kozhikode"}]
+abstract: |
+  Background. Flipped classroom methods are widely advocated but
+  inconsistently evaluated. Methods. We compared knowledge gain in 240
+  students across three colleges. Results. ...
+format:
+  html: {toc: true}
+  docx: default
+execute:
+  echo: false
+  warning: false
+---
+
+{{< include _setup.qmd >}}
+
+## Background
+
+...
+
+## Methods
+
+Data were collected from 240 students across three government medical
+colleges. Post-test scores were unavailable for
+`r knitr::inline_expr("sum(is.na(students$posttest))")` students, who are
+excluded from all analyses of knowledge gain; no imputation was performed.
+
+::: {.callout-note}
+## Ethical approval
+Institutional Ethics Committee approval IEC/2026/041. All data presented
+here are synthetic and generated for training purposes.
+:::
+
+## Results
+
+See @fig-gain.
+
+## Limitations
+
+...
+````
+
+`_setup.qmd` contains only:
+
+````markdown
+```{{r}}
+#| include: false
+library(tidyverse)
+students <- read_csv("data/meded_students.csv")
+```
+````
+:::
+
+## Key takeaways
+
+::: {.callout-note appearance="minimal"}
+- Same source, different `format:` — article, slides, website, thesis.
+- Split long documents; prefix fragments with `_` and pull them in with
+  `{{< include >}}`.
+- `reference-doc:` and `csl:` turn journal reformatting into one line.
+- `quarto publish gh-pages` puts it online in one command.
+- Check what your rendered output reveals before you publish it.
+:::
+
+## Next
+
+→ [7 · Publication-ready tables & figures](s7-gtsummary.qmd)

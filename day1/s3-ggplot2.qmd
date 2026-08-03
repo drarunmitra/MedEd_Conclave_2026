@@ -1,0 +1,324 @@
+---
+title: "3 · Introduction to R and data visualisation"
+subtitle: "The grammar of graphics with ggplot2"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Teaching]{.meta-label}[11:15 – 12:00]{.meta-value}
+:::
+::: {.meta-item}
+[Hands-on]{.meta-label}[12:00 – 13:00]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Gurpreet]{.meta-value}
+:::
+::: {.meta-item}
+[Slides]{.meta-label}[[Open deck ↗](../slides/day1/s3-ggplot2.html){target="_blank"}]{.meta-value}
+:::
+:::
+
+```{r}
+#| include: false
+library(tidyverse)
+theme_set(theme_minimal(base_size = 12))
+students <- read_csv("data/meded_students.csv", show_col_types = FALSE)
+```
+
+## Learning objectives
+
+1. Read a dataset into R and inspect it before touching it.
+2. Explain the three components every `ggplot2` plot needs: data, aesthetic
+   mapping, geometry.
+3. Build histograms, boxplots and scatterplots of medical education data.
+4. Split a plot by a grouping variable with `facet_wrap()`.
+5. Label a figure so that it stands alone in a manuscript.
+
+## Start by looking
+
+```{r}
+library(tidyverse)
+students <- read_csv("data/meded_students.csv")
+```
+
+```{r}
+glimpse(students)
+```
+
+240 rows, 17 columns, one row per student. Note `posttest` is `dbl` with
+missing values — we will meet them shortly.
+
+## The grammar of graphics in one idea
+
+Every plot is the same three things:
+
+> **data** + **a mapping from variables to visual properties** + **a geometry that draws it**
+
+In code:
+
+```{r}
+#| eval: false
+ggplot(data = students, mapping = aes(x = pretest, y = posttest)) +
+  geom_point()
+```
+
+- `ggplot()` opens a canvas and says which data.
+- `aes()` maps *variables* to *visual channels* — x position, y position,
+  colour, size, shape.
+- `geom_*()` chooses how to draw it.
+- Layers are joined with `+`, not `|>`. This is a historical quirk; everyone
+  gets it wrong for the first week.
+
+## One variable: what does the distribution look like?
+
+```{r}
+#| warning: true
+ggplot(students, aes(x = posttest)) +
+  geom_histogram(binwidth = 5, fill = "#0f5257", colour = "white")
+```
+
+::: {.callout-important}
+## That warning is the point
+`Removed 11 rows containing non-finite values`. Eleven students have no
+post-test score. `ggplot2` told you, quietly, in a message most people
+scroll past. Real analyses die here.
+
+Always read the warning. Then decide, explicitly, what to do about the
+missing eleven — and write that decision into your script.
+:::
+
+## Two variables, one categorical: does the arm matter?
+
+```{r}
+ggplot(students, aes(x = teaching_arm, y = posttest, fill = teaching_arm)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = NA) +
+  geom_jitter(width = 0.15, alpha = 0.3, size = 1) +
+  scale_fill_manual(values = c("Flipped classroom" = "#0f5257",
+                               "Traditional lecture" = "#b8860b")) +
+  labs(x = NULL, y = "Post-test score (0–100)") +
+  theme(legend.position = "none")
+```
+
+Boxplot for the summary, jittered points for the raw data. Always show the
+points when *n* is small enough to allow it — a boxplot of 12 observations
+hides more than it reveals.
+
+## Two continuous variables
+
+```{r}
+ggplot(students, aes(x = pretest, y = posttest, colour = teaching_arm)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE, linewidth = 0.8) +
+  scale_colour_manual(values = c("Flipped classroom" = "#0f5257",
+                                 "Traditional lecture" = "#b8860b")) +
+  labs(x = "Pre-test score", y = "Post-test score", colour = "Teaching arm")
+```
+
+Adding `colour = teaching_arm` inside `aes()` splits *everything* downstream —
+points and both fitted lines. That is the grammar doing the work.
+
+::: {.callout-tip}
+## `colour =` inside vs outside `aes()`
+- Inside `aes()`: colour **means** something — it is mapped to a variable.
+- Outside `aes()`: colour is just decoration — `geom_point(colour = "navy")`.
+
+Putting a fixed colour inside `aes()` produces the classic confusing result of
+a legend with one meaningless entry.
+:::
+
+## Small multiples
+
+```{r}
+#| fig-height: 3.2
+ggplot(students, aes(x = gain, fill = teaching_arm)) +
+  geom_density(alpha = 0.6) +
+  facet_wrap(~ college, ncol = 3) +
+  scale_fill_manual(values = c("Flipped classroom" = "#0f5257",
+                               "Traditional lecture" = "#b8860b")) +
+  labs(x = "Knowledge gain (post − pre)", y = "Density", fill = NULL) +
+  theme(legend.position = "bottom")
+```
+
+`facet_wrap()` repeats the same plot across levels of a variable. It is the
+single highest-value function in `ggplot2` for exploratory work: one line,
+and you have checked whether your finding holds across sites.
+
+## Making it publishable
+
+```{r}
+#| fig-height: 4
+ggplot(students, aes(x = teaching_arm, y = gain, fill = teaching_arm)) +
+  geom_boxplot(alpha = 0.75, width = 0.55) +
+  scale_fill_manual(values = c("Flipped classroom" = "#0f5257",
+                               "Traditional lecture" = "#b8860b")) +
+  labs(
+    title    = "Knowledge gain by teaching method",
+    subtitle = "Three government medical colleges, 2026 (n = 229 with complete data)",
+    x        = NULL,
+    y        = "Gain in knowledge score (post − pre)",
+    caption  = "Synthetic data for teaching purposes."
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none",
+        plot.title = element_text(face = "bold"))
+```
+
+Then save it — at a size and resolution a journal will accept:
+
+```{r}
+#| eval: false
+ggsave("output/fig1_gain_by_arm.png",
+       width = 7, height = 4.5, dpi = 300, bg = "white")
+```
+
+::: {.callout-note}
+## Never screenshot a plot
+`ggsave()` writes exactly what you specify, every time you run the script. A
+screenshot is a manual step that has to be repeated by hand whenever the data
+change — and it will be the wrong resolution.
+:::
+
+# Hands-on {#hands-on}
+
+**12:00 – 13:00.** Work in your groups. Facilitators are circulating. Do
+Exercises 1–3; Exercise 4 if you have time.
+
+::: {.callout-note title="Exercise 1: first plot, guaranteed success"}
+**Time:** 10 minutes
+
+1. Load `students` if you have not already.
+2. Make a histogram of `attendance_pct`.
+3. Change the `binwidth` to 2, then to 10. Which tells you more?
+4. Give it an axis label and a title with `labs()`.
+:::
+
+::: {.callout-tip title="Solution 1" collapse="true"}
+```{r}
+#| fig-height: 3
+ggplot(students, aes(x = attendance_pct)) +
+  geom_histogram(binwidth = 2, fill = "#0f5257", colour = "white") +
+  labs(title = "Attendance across the module",
+       x = "Attendance (%)", y = "Number of students")
+```
+
+`binwidth = 2` shows the shape and the left tail; `binwidth = 10` smooths the
+tail away. There is no correct answer, only a decision you should be able to
+defend — which is why the default bin count comes with a warning.
+:::
+
+::: {.callout-note title="Exercise 2: comparison"}
+**Time:** 15 minutes
+
+Does burnout differ by teaching arm?
+
+1. Boxplot of `burnout_score` by `teaching_arm`.
+2. Add the raw points with `geom_jitter()`.
+3. Facet by `sex`.
+4. What do you conclude — and what would you need to check before believing
+   it?
+:::
+
+::: {.callout-tip title="Solution 2" collapse="true"}
+```{r}
+#| fig-height: 3.4
+ggplot(students, aes(x = teaching_arm, y = burnout_score)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = NA, fill = "#4a7c7e") +
+  geom_jitter(width = 0.15, alpha = 0.35, size = 1) +
+  facet_wrap(~ sex) +
+  labs(x = NULL, y = "Burnout score (0–100)")
+```
+
+The distributions overlap almost completely. Burnout was generated from
+attendance, not from the teaching arm — so the honest conclusion is "no
+visible difference". Before believing *any* difference you saw, you would
+check: how many students per cell, how much missingness (7 here), and whether
+the arms differ in attendance to begin with.
+
+That last question is confounding, and no plot will answer it for you.
+:::
+
+::: {.callout-note title="Exercise 3: relationship"}
+**Time:** 15 minutes
+
+1. Scatterplot of `study_hours` (x) against `gain` (y).
+2. Colour the points by `rural_background`.
+3. Add a straight fitted line per group.
+4. Facet by `batch`.
+5. Label everything properly and save it to `output/` with `ggsave()`.
+:::
+
+::: {.callout-tip title="Solution 3" collapse="true"}
+```{r}
+#| fig-height: 3.2
+ggplot(students, aes(x = study_hours, y = gain, colour = rural_background)) +
+  geom_point(alpha = 0.55) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~ batch) +
+  scale_colour_manual(values = c("Rural" = "#0f5257", "Urban" = "#b8860b")) +
+  labs(x = "Self-reported study hours per week",
+       y = "Knowledge gain",
+       colour = "Background")
+```
+
+```{r}
+#| eval: false
+ggsave("output/study_hours_gain.png", width = 8, height = 4, dpi = 300, bg = "white")
+```
+
+The lines are near-flat. `study_hours` was generated independently of `gain` —
+so a flat line is the correct answer, and finding it is a useful experience.
+Most exploratory plots show nothing. Publication bias is partly the habit of
+only remembering the ones that did.
+:::
+
+::: {.callout-note title="Exercise 4 (stretch): the OSCE data"}
+**Time:** 15 minutes
+
+Use `osce_stations.csv` (1,200 rows, five per student).
+
+1. Read it in and `glimpse()` it.
+2. Boxplot of `score` by `station_name`. Rotate the x labels so they are
+   readable — or use `coord_flip()`.
+3. Colour by `domain`.
+4. Which station is hardest? Does that match what you would expect?
+:::
+
+::: {.callout-tip title="Solution 4" collapse="true"}
+```{r}
+#| fig-height: 3.4
+osce <- read_csv("data/osce_stations.csv", show_col_types = FALSE)
+
+osce |>
+  mutate(station_name = fct_reorder(station_name, score)) |>
+  ggplot(aes(x = station_name, y = score, fill = domain)) +
+  geom_boxplot(alpha = 0.8) +
+  coord_flip() +
+  labs(x = NULL, y = "Station score (out of 20)", fill = "Domain")
+```
+
+`fct_reorder()` sorts the stations by median score — always order a
+categorical axis by something meaningful, never alphabetically.
+
+The procedural station (IV access) is hardest, then data interpretation.
+Whether that reflects student ability or examiner stringency is not
+answerable from this plot, and that ambiguity is itself an important
+finding about station-level assessment.
+:::
+
+## Key takeaways
+
+::: {.callout-note appearance="minimal"}
+- Three components: `ggplot(data, aes(...)) + geom_*()`. Everything else is
+  refinement.
+- Inside `aes()` means "mapped to a variable"; outside means "fixed".
+- Layers join with `+`. Pipes join data operations with `|>`.
+- `facet_wrap()` is the cheapest way to check whether a finding holds across
+  subgroups.
+- Read the warnings. `Removed 11 rows` is a finding, not noise.
+- `ggsave()`, never a screenshot.
+:::
+
+## Next
+
+→ [4 · Introduction to Quarto](s4-quarto.qmd) — put these plots inside a
+document that regenerates itself.

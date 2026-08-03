@@ -1,0 +1,80 @@
+---
+title: "Schedule"
+subtitle: "MedEd Conclave 2026 · 9–10 September 2026"
+---
+
+Times are local. Teaching blocks are 45 minutes; hands-on blocks are 45–60
+minutes. This page mirrors the master schedule
+(`MedEd_Conclave_2026_Workshop_Schedule_v3.xlsx`) — if the two ever disagree,
+the spreadsheet wins and this page needs fixing.
+
+## Day 1 — Wednesday, 9 September
+
+: Day 1 schedule {.schedule tbl-colwidths="[16,26,40,18]"}
+
+| Time | Topic | Description | Led by |
+|---|---|---|---|
+| 09:00 – 09:30 | Registration & icebreaker | Pre-test, introductions, group allotment | SET Team |
+| 09:30 – 10:15 | [Introduction to the basics](day1/s1-fundamentals.qmd) | Ground rules, structure, learning objectives, disclaimers, fundamentals of reproducible research | Biju Soman |
+| 10:15 – 11:00 | [Getting started](day1/s2-getting-started.qmd) | Common concepts and thumb rules, including data science & AI basics | Arun Mitra |
+| 11:00 – 11:15 | *Tea break* | | |
+| 11:15 – 12:00 | [Introduction to R and data visualisation](day1/s3-ggplot2.qmd) | `ggplot2` | Gurpreet |
+| 12:00 – 13:00 | [Hands-on](day1/s3-ggplot2.qmd#hands-on) | Primers, file and project management, principles of data visualisation | All |
+| 13:00 – 14:00 | *Lunch* | | |
+| 14:00 – 14:45 | [Introduction to Quarto](day1/s4-quarto.qmd) | Markdown, images, citations, figures, tables; rendering to HTML, DOCX, PDF, PPT, Reveal.js | Arun Mitra |
+| 14:45 – 15:15 | [Hands-on](day1/s4-quarto.qmd#hands-on) | Render a Quarto document; add prose, images, plots and tables | All |
+| 15:15 – 15:30 | *Tea break* | | |
+| 15:30 – 16:15 | [Working with data](day1/s5-dplyr-eda.qmd) | `dplyr`, exploratory data analysis | Gurpreet |
+| 16:15 – 17:00 | [Hands-on](day1/s5-dplyr-eda.qmd#hands-on) | Descriptive summaries and statistics on the provided medical education datasets | All |
+
+## Day 2 — Thursday, 10 September
+
+: Day 2 schedule {.schedule tbl-colwidths="[16,26,40,18]"}
+
+| Time | Topic | Description | Led by |
+|---|---|---|---|
+| 09:00 – 09:30 | Recap and Q&A | Day 1 review, unblocking | All |
+| 09:30 – 10:15 | [Communicating research effectively using Quarto](day2/s6-quarto-communication.qmd) | Dynamic documentation, journal articles, blogs, websites, theses; includes, shortcodes, documentation | Arun Mitra |
+| 10:15 – 11:00 | [Group activity](day2/s6-quarto-communication.qmd#hands-on) | Create a dynamic document | All |
+| 11:00 – 11:15 | *Tea break* | | |
+| 11:15 – 12:00 | [Publication-ready tables & figures](day2/s7-gtsummary.qmd) | `gtsummary` | Arun Mitra |
+| 12:00 – 13:00 | [Hands-on](day2/s7-gtsummary.qmd#hands-on) | Publication-ready tables and plots | All |
+| 13:00 – 14:00 | *Lunch* | | |
+| 14:00 – 14:45 | [Generative AI in health research](day2/s8-genai.qmd) | Prompt engineering fundamentals, do's & don'ts, common pitfalls, AI ecosystem in India, ethical considerations | Gurpreet |
+| 14:45 – 15:15 | [Live code session](day2/s9-live-coding.qmd) | Demonstrating workflows and pipelines | Biju Soman + Arun Mitra + Gurpreet |
+| 15:15 – 16:00 | [Group activity](day2/s10-group-activity.qmd) | Four groups | All |
+| 16:00 – 16:15 | *Tea break* | | |
+| 16:15 – 17:00 | [Group presentations, feedback & valedictory](day2/s10-group-activity.qmd#presentations) | Vote of thanks, post-test | SET Team |
+
+## Notes for faculty
+
+::: {.callout-warning collapse="true"}
+## Two scheduling risks flagged during site build
+
+**1. `ggplot2` before R fundamentals.** On Day 1, the first R teaching block
+(11:15) goes straight to `ggplot2`, but the 12:00 hands-on block also expects
+participants to cover "primers, file and project management" — content that
+no session formally teaches. Beginners will be asked to write
+`ggplot(data, aes(...))` before they know what a data frame or a working
+directory is.
+
+*Mitigation adopted on this site:* the Prelude carries a self-paced
+[R primer](prelude/r-primer.qmd) (objects, vectors, data frames, packages)
+and a [project management](prelude/install.qmd#projects) walkthrough, both
+sent a week ahead. Session 2 (Arun, 10:15) opens with a 10-minute
+project-structure demo so nobody arrives at 11:15 cold.
+
+**2. Day 2 afternoon is tight.** Generative AI (45 min) → live coding
+(30 min) → group activity (45 min) → presentations (45 min) leaves no slack.
+If the group activity is to produce a rendered Quarto document, groups need
+their datasets and a template pre-loaded before lunch, not at 15:15.
+
+*Mitigation adopted:* the [group activity brief](day2/s10-group-activity.qmd)
+and starter `.qmd` are published on this site and should be handed out at the
+Day 2 morning recap.
+:::
+
+## Download
+
+- [Master schedule (XLSX)](admin/MedEd_Conclave_2026_Workshop_Schedule_v3.xlsx)
+- [One-page agenda for participants (PDF)](admin/agenda.pdf) — *to be added*

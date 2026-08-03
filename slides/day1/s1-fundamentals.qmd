@@ -1,0 +1,192 @@
+---
+title: "Introduction to the basics"
+subtitle: "Fundamentals of reproducible research · Day 1, Session 1"
+author: "Biju Soman"
+date: 2026-09-09
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: c/t
+    footer: "MedEd Conclave 2026 · R & Reproducible Research"
+    transition: fade
+    chalkboard: true
+    center: false
+execute:
+  echo: true
+  warning: false
+---
+
+## Welcome {.section-divider}
+
+[09:30 – 10:15]{.eyebrow}
+
+Two days. Six sessions. One habit.
+
+::: {.notes}
+⏱️ 2 min. Names of the three faculty, the SET team, and where the tea is.
+Establish that hands go up early and often.
+:::
+
+## Where we are going
+
+::: {.incremental}
+- **Today**: import → visualise → wrangle → document
+- **Tomorrow**: publish → tabulate → use AI honestly → present
+- **Afterwards**: you have a workflow, not a set of notes
+:::
+
+::: {.notes}
+🎯 Set the arc. Emphasise that Day 2 depends on Day 1 — attendance matters.
+:::
+
+## A folder you have seen
+
+```
+📁 Thesis final
+   ├── data_final.xlsx
+   ├── data_final_v2.xlsx
+   ├── data_final_v2_USE THIS.xlsx
+   ├── analysis.spv
+   ├── Table1_edited_sir comments.docx
+   └── Copy of data_final_v2_USE THIS (1).xlsx
+```
+
+. . .
+
+**Which file produced Table 2?**
+
+::: {.notes}
+⏱️ 4 min. Show of hands: who recognises this folder? Everyone will laugh.
+That laugh is the whole motivation for the workshop — use it.
+:::
+
+## This is not carelessness
+
+It is what happens when the **record** of the analysis is separate from the
+**doing** of it.
+
+. . .
+
+Clicks leave no trace.
+
+::: {.notes}
+Important framing: nobody in the room is being blamed. The workflow is at
+fault, not the researcher.
+:::
+
+## Three words, three claims
+
+| | Same data? | Same code? |
+|---|---|---|
+| **Reproducibility** | Yes | Yes |
+| **Replicability** | No | Yes |
+| **Generalisability** | No | No |
+
+. . .
+
+Only the first is entirely **within your control**.
+
+::: {.notes}
+⏱️ 6 min. Ask which one most people mean when they say "replicate". Usually
+the wrong one. No funding, no new participants, no collaborators needed for
+reproducibility — that is the selling point.
+:::
+
+## Reproducible ≠ correct
+
+A reproducible analysis can be reproducibly wrong.
+
+. . .
+
+What it buys you is that the error is **findable**.
+
+::: {.notes}
+Head off the objection before it is raised. Someone always raises it.
+:::
+
+## The spectrum {.smaller}
+
+```
+Publication only → + Code → + Code & data → + Linked & executable → Replication
+        ↑                                            ↑
+   most med-ed papers                        where you will be
+                                             by Thursday evening
+```
+
+::: {.notes}
+Peng RD, Science 2011. Position the room honestly — most are at the far left,
+and that is normal.
+:::
+
+## Where analyses break
+
+::: {.incremental}
+1. **The undocumented manual step** — "I removed the two who withdrew"
+2. **The absolute path** — `C:/Users/Ananya/Desktop/final/data.csv`
+3. **The stale environment** — works only in a warm session
+:::
+
+::: {.notes}
+⏱️ 8 min. Ask for a show of hands on each. All three cost nothing to fix,
+which is the point of the next slide.
+:::
+
+## The test
+
+::: {.big-number}
+Restart. Source. Compare.
+:::
+
+<kbd>Ctrl/Cmd + Shift + F10</kbd>, then run your script top to bottom.
+
+If every number reappears, you are reproducible.
+
+::: {.notes}
+🎯 The single most portable idea in the session. Have them write it down.
+:::
+
+## What we ask you to change
+
+::: {.incremental}
+1. One project folder per study
+2. A script for every number
+3. Relative paths, always
+4. A clean session, always
+5. Version control — later, not this week
+:::
+
+. . .
+
+Items 1–4 are free.
+
+## Discussion — 5 minutes {background-color="#0f5257"}
+
+In your groups:
+
+1. Could you regenerate Table 1 of your last paper today?
+2. Could a co-author?
+3. Which failure point bites first?
+
+::: {.notes}
+⏱️ 5 min. Walk the room. Collect two honest answers to share aloud —
+volunteering an embarrassing one yourself sets the tone.
+:::
+
+## Ground rules
+
+- 45 min teaching, 45–60 min hands-on. **The second part is the workshop.**
+- Groups of 5–6, from registration to Thursday's presentations
+- Green sticky = following · Red sticky = stuck
+- Errors are expected. Read them.
+- The website stays online
+
+## Next
+
+**Getting started** — Arun Mitra, 10:15
+
+Projects, panes, and where AI actually fits.
+
+::: {.notes}
+Hand over. Remind them to open RStudio during the break so Session 2 starts
+with everyone in a project.
+:::

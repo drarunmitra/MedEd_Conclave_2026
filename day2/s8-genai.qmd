@@ -1,0 +1,222 @@
+---
+title: "8 · Generative AI in health research"
+subtitle: "Prompting, pitfalls, ethics, and the Indian AI ecosystem"
+---
+
+::: {.session-meta}
+::: {.meta-item}
+[Time]{.meta-label}[14:00 – 14:45]{.meta-value}
+:::
+::: {.meta-item}
+[Faculty]{.meta-label}[Gurpreet]{.meta-value}
+:::
+::: {.meta-item}
+[Format]{.meta-label}[Lecture + live demo]{.meta-value}
+:::
+::: {.meta-item}
+[Slides]{.meta-label}[[Open deck ↗](../slides/day2/s8-genai.html){target="_blank"}]{.meta-value}
+:::
+:::
+
+## Learning objectives
+
+1. Describe what a large language model does, and what follows from that.
+2. Write a prompt that produces usable R code, using context, constraints and
+   examples.
+3. Recognise the failure modes: fabricated citations, plausible-but-wrong
+   code, silent statistical errors.
+4. State what you may and may not put into a commercial AI tool under Indian
+   data protection law and institutional policy.
+5. Disclose AI assistance in line with ICMJE recommendations.
+
+## What the model is doing
+
+A large language model predicts the next token given the preceding ones,
+trained on a very large corpus. It is optimised for **plausibility**, not for
+truth. Everything useful and everything dangerous about it follows from that
+one sentence.
+
+::: {.callout-important}
+## The asymmetry that matters
+It is very good at things where plausible and correct coincide — syntax,
+boilerplate, translation, restructuring text. It is unreliable where they come
+apart — a specific citation, a specific p-value, a claim about a specific
+paper. Wrong answers are delivered in exactly the same confident register as
+right ones. There is no tell.
+:::
+
+## Where it genuinely helps
+
+| Task | Why it works |
+|---|---|
+| "What does this error mean?" | Common errors are well represented in training data |
+| Converting SPSS syntax to R | Structural translation; you can verify the output |
+| Regex, `ggplot2` theming, `case_when()` boilerplate | Fiddly, well-documented, instantly checkable |
+| Commenting and explaining existing code | You have the ground truth in front of you |
+| Improving the clarity of your own prose | You remain the author of the content |
+| Drafting a data dictionary from column names | Tedious, low-stakes, easily checked |
+
+The pattern: tasks where **you can verify the answer faster than you could
+produce it**. That is the whole test.
+
+## Where it fails, with examples
+
+**Fabricated references.** Ask for five papers on flipped classrooms in Indian
+medical colleges and you will get five plausible citations — correct-looking
+authors, real journals, wrong or non-existent DOIs. Check every reference
+against PubMed or the DOI resolver. Every one, every time.
+
+**Code that runs and is wrong.** Ask for a paired t-test and you may receive an
+unpaired one. It executes. It produces a p-value. Nothing warns you.
+
+**Statistical advice without your data.** It cannot see whether your residuals
+are normal, whether your clusters are independent, or whether your outcome is
+zero-inflated. Advice given without that information is generic advice, and
+generic advice is how the wrong test gets applied.
+
+**Hallucinated function arguments.** `tbl_summary(pretty = TRUE)` — confident,
+sensible-looking, does not exist. Check against the package documentation.
+
+::: {.callout-warning}
+## The competence trap
+You cannot check code you could not have written. Using AI to work beyond
+your understanding produces output you cannot evaluate — which is precisely
+the situation in which errors survive into publication. This is why Day 2
+comes after Day 1, and not the other way round.
+:::
+
+## Prompting that works
+
+A weak prompt:
+
+> make a plot of my data
+
+A strong prompt:
+
+> I have an R data frame `students` with 240 rows. Columns: `teaching_arm`
+> (character, "Flipped classroom"/"Traditional lecture"), `gain` (numeric,
+> 11 NAs), `college` (character, 3 levels).
+>
+> Write tidyverse code using the native pipe `|>` to produce a ggplot2
+> boxplot of `gain` by `teaching_arm`, faceted by `college`, with jittered
+> points, a colour-blind-safe palette, and publication-quality labels.
+>
+> Use only ggplot2 and dplyr. Explain the missing-value handling in a
+> comment. Do not use `%>%`.
+
+Five ingredients:
+
+1. **Context** — the shape and types of the actual data.
+2. **Task** — one specific thing.
+3. **Constraints** — packages, style, pipe, what to avoid.
+4. **Format** — code with comments, or prose, or a table.
+5. **Verification** — ask it to state its assumptions so you can check them.
+
+::: {.callout-tip}
+## Two habits worth forming
+**Paste the error, not a description of it.** The full message, including the
+line number, is far more informative than "my code doesn't work".
+
+**Ask for the assumptions.** "What is this code assuming about my data?" often
+surfaces the mistake faster than reading the code does.
+:::
+
+## What you must not paste
+
+::: {.callout-important}
+## Non-negotiable
+Never paste into a commercial AI tool:
+
+- Patient-identifiable data of any kind, including dates of birth and
+  hospital numbers
+- Student-identifiable assessment data — marks attached to names or roll
+  numbers
+- Unpublished data belonging to collaborators without their explicit consent
+- Anything your ethics approval did not anticipate leaving the institution
+- Draft manuscripts under embargo or containing others' unpublished results
+:::
+
+Assume that anything you type may be retained and may be used for training
+unless you have an enterprise agreement that says otherwise. Consumer chat
+interfaces and API endpoints have different terms; institutional deployments
+different again. Read yours before, not after.
+
+**The safe pattern:** paste the *structure*, never the *data*.
+
+```{r}
+#| eval: false
+# Share this - column names and types, no values
+str(students)
+
+# Or a synthetic extract with the same shape
+students |> slice_head(n = 3) |> mutate(across(everything(), ~ "..."))
+```
+
+## Legal and ethical frame in India
+
+- **Digital Personal Data Protection Act, 2023** — health data is personal
+  data. Consent, purpose limitation and the obligations of a data fiduciary
+  apply. Pasting identifiable records into an overseas service is a transfer,
+  and your institution, not the vendor, carries the obligation.
+- **ICMR National Ethical Guidelines for Biomedical and Health Research**
+  (2017) — data sharing must fall within what participants consented to.
+- **ICMJE recommendations** — AI cannot be an author. Authors are accountable
+  for all content, including anything AI-assisted. Use must be disclosed in
+  the methods or acknowledgements.
+- **NITI Aayog's National Strategy for AI** and the **IndiaAI Mission** —
+  the policy context: sectoral guidance, compute infrastructure, and an
+  explicit health priority.
+
+Journals differ in the detail. Check the specific instructions to authors
+before you submit; most now have an explicit AI clause.
+
+## How to disclose
+
+A methods sentence that will satisfy most journals:
+
+> Generative AI (ChatGPT, GPT-4o, OpenAI) was used to draft and debug R code
+> for data visualisation. All code was reviewed, executed and verified by the
+> authors. No AI tool was used to generate data, interpret results, or draft
+> the scientific content of this manuscript. The authors take full
+> responsibility for the integrity of the work.
+
+Specific tool, specific use, explicit statement of what it was *not* used for,
+explicit acceptance of responsibility. Vagueness helps nobody.
+
+## Live demo
+
+Watch, do not type. Gurpreet will work through:
+
+1. A weak prompt versus a strong one, on the same task.
+2. A fabricated citation, caught by checking the DOI.
+3. Code that runs and is statistically wrong — and how it was spotted.
+4. Sanitising a dataset before sharing its structure.
+
+## Discussion
+
+::: {.callout-note title="Discussion: 10 minutes, in groups"}
+1. Where in *your* workflow would AI assistance save real time this month?
+2. Where would you refuse to use it, and why?
+3. Your department wants a one-page AI policy for postgraduate dissertations.
+   What are its three rules?
+
+Groups report one sentence each.
+:::
+
+## Key takeaways
+
+::: {.callout-note appearance="minimal"}
+- LLMs optimise for plausibility. Useful where plausible and correct coincide;
+  dangerous where they do not.
+- Use it for tasks you can verify faster than you could do them. That is the
+  entire test.
+- Verify every citation. Check every function argument. Read every line of
+  code you did not write.
+- Never paste identifiable data. Share structure, not values.
+- Disclose specifically: which tool, which task, which responsibility.
+- The skill that makes AI safe is the skill you spent yesterday building.
+:::
+
+## Next
+
+→ [9 · Live code session](s9-live-coding.qmd)

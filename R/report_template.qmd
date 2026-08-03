@@ -1,0 +1,88 @@
+---
+title: "Group N — your question here"
+author: "Member A, Member B, Member C"
+date: today
+format:
+  html:
+    toc: true
+    embed-resources: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(gtsummary)
+theme_set(theme_minimal(base_size = 12))
+
+students <- read_csv("data/meded_students.csv")
+osce     <- read_csv("data/osce_stations.csv")
+```
+
+## Background
+
+Two sentences. What was studied, and why your question matters.
+
+## Methods
+
+Data from 240 students across three government medical colleges (synthetic,
+generated for training). Students were allocated to a flipped classroom or
+traditional lecture arm and assessed before and after with the same knowledge
+test, plus a five-station OSCE.
+
+Post-test scores were unavailable for
+`r sum(is.na(students$posttest))` students, who are excluded from all
+analyses of knowledge gain. No imputation was performed.
+
+## Results
+
+```{r}
+#| label: tbl-main
+#| tbl-cap: "Replace with your caption."
+students |>
+  select(teaching_arm, age, sex, attendance_pct, pretest) |>
+  tbl_summary(
+    by = teaching_arm,
+    label = list(
+      age            ~ "Age (years)",
+      sex            ~ "Sex",
+      attendance_pct ~ "Attendance (%)",
+      pretest        ~ "Pre-test score"
+    )
+  ) |>
+  add_overall() |>
+  bold_labels()
+```
+
+```{r}
+#| label: fig-main
+#| fig-cap: "Replace with your caption."
+students |>
+  filter(!is.na(gain)) |>
+  ggplot(aes(x = teaching_arm, y = gain, fill = teaching_arm)) +
+  geom_boxplot(alpha = 0.75, width = 0.55, outlier.shape = NA) +
+  geom_jitter(width = 0.12, alpha = 0.3, size = 1) +
+  scale_fill_manual(values = c("Flipped classroom" = "#0f5257",
+                               "Traditional lecture" = "#b8860b")) +
+  labs(x = NULL, y = "Knowledge gain (post − pre)") +
+  theme(legend.position = "none")
+```
+
+As shown in @tbl-main and @fig-main, ...
+
+## Limitations
+
+One honest paragraph. What could your design not detect? What would you need
+to answer the question properly?
+
+## AI disclosure
+
+[Tool] was used to [specific task]. All output was reviewed, executed and
+verified by the authors.
+
+*or*
+
+No generative AI tools were used in this analysis.

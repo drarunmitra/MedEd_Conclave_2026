@@ -1,0 +1,98 @@
+---
+title: "Communicating research effectively using Quarto"
+subtitle: "Dynamic documentation · Day 2, Session 6"
+author: "Arun Mitra"
+date: 2026-09-10
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: c/t
+    footer: "MedEd Conclave 2026 · R & Reproducible Research"
+    transition: fade
+    center: false
+execute:
+  echo: true
+  warning: false
+---
+
+## Yesterday: a document. Today: a body of work. {.section-divider}
+
+::: {.notes}
+⏱️ 2 min. Same machinery, different organisation. Nothing new to learn about
+chunks — this session is about structure.
+:::
+
+## Pick your output
+
+| Output | Format | For |
+|---|---|---|
+| Manuscript | `docx` + `pdf` | Journals |
+| Slides | `revealjs` | Conferences |
+| Website | `type: website` | Course sites |
+| Thesis | `type: book` | Chapters |
+| Dashboard | `dashboard` | Surveillance |
+
+Same Markdown. Same chunks.
+
+## Split it up
+
+```
+thesis/
+├── index.qmd
+├── 01-introduction.qmd
+├── 02-methods.qmd
+├── 03-results.qmd
+└── references.bib
+```
+
+Or inline: `{{< include _methods.qmd >}}`
+
+. . .
+
+40-second render → 4-second render. That is the difference between rendering
+constantly and avoiding it.
+
+## Journal-ready YAML
+
+```yaml
+bibliography: references.bib
+csl: vancouver.csl
+format:
+  docx:
+    reference-doc: journal-template.docx
+  pdf:
+    linenumbers: true
+```
+
+. . .
+
+Rejected by one journal, reformatting for the next = **one line**.
+
+::: {.notes}
+🎯 The csl swap is the demo that wins the room. Do it live: Vancouver → APA,
+re-render, references reformat.
+:::
+
+## Publish
+
+```bash
+quarto publish gh-pages
+```
+
+One command. Renders, pushes, gives you a URL.
+
+. . .
+
+**Check what you are publishing.** Raw data in `data/`, a path with a patient
+ID, an unanonymised `glimpse()`. Public is permanent.
+
+## Group activity — 45 min {background-color="#0f5257"}
+
+Turn yesterday's `report.qmd` into a structured manuscript.
+
+Skeleton is on the website.
+
+::: {.notes}
+📋 Rotate the typist every 15 min. Render early — a document that has never
+rendered fails at the deadline.
+:::

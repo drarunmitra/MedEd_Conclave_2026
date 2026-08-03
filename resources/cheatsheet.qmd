@@ -1,0 +1,167 @@
+---
+title: "Cheatsheet"
+subtitle: "Everything you need for these two days, on one page"
+---
+
+Keep this open in a second tab.
+
+## Setup
+
+```r
+library(tidyverse)     # dplyr, ggplot2, readr, tidyr, stringr, forcats
+library(gtsummary)
+
+students <- read_csv("data/meded_students.csv")
+osce     <- read_csv("data/osce_stations.csv")
+```
+
+## Look at your data
+
+| Function | Shows |
+|---|---|
+| `glimpse(df)` | Types and first values — use this most |
+| `str(df)` | Structure, base R version |
+| `head(df, 10)` | First rows |
+| `names(df)` | Column names |
+| `nrow(df)` / `ncol(df)` | Dimensions |
+| `summary(df)` | Descriptives per column |
+| `count(df, var)` | Frequency table |
+| `skimr::skim(df)` | Everything, prettily |
+
+## dplyr
+
+```r
+df |> filter(score > 70, sex == "Female")   # rows; comma = AND
+df |> filter(batch %in% c("2023", "2024"))  # set membership
+df |> select(id, score, arm)                # columns
+df |> select(starts_with("q"))              # helpers
+df |> arrange(desc(score))                  # sort
+df |> mutate(pct = 100 * score / max_score) # new column
+df |> rename(new_name = old_name)
+df |> distinct()                            # drop duplicate rows
+df |> slice_head(n = 5)
+
+df |>
+  group_by(arm) |>
+  summarise(
+    n    = n(),
+    mean = mean(score, na.rm = TRUE),
+    sd   = sd(score,   na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+### Conditional recoding
+
+```r
+df |> mutate(pass = if_else(score >= 50, "Yes", "No"))
+
+df |> mutate(band = case_when(
+  score >= 75 ~ "Distinction",
+  score >= 50 ~ "Pass",
+  .default    = "Fail"
+))
+```
+
+### Joins and reshaping
+
+```r
+left_join(a, b, by = "student_id")     # keep all of a
+inner_join(a, b, by = "student_id")    # keep matches only
+
+long  |> pivot_wider(names_from = domain, values_from = score)
+wide  |> pivot_longer(cols = q1:q5, names_to = "item", values_to = "response")
+```
+
+Always check `nrow()` after a join.
+
+## ggplot2
+
+```r
+ggplot(df, aes(x = var1, y = var2, colour = group)) +
+  geom_point() +
+  facet_wrap(~ site) +
+  labs(title = "...", x = "...", y = "...", colour = "...") +
+  theme_minimal()
+```
+
+| Geom | For |
+|---|---|
+| `geom_histogram(binwidth = 5)` | One continuous variable |
+| `geom_density()` | Smoothed distribution |
+| `geom_boxplot()` | Continuous by category |
+| `geom_jitter(width = .15, alpha = .3)` | Raw points on top of a boxplot |
+| `geom_point()` | Two continuous variables |
+| `geom_smooth(method = "lm")` | Fitted line |
+| `geom_col()` | Bars from values you computed |
+| `geom_bar()` | Bars from counts R computes |
+
+```r
+ggsave("output/fig1.png", width = 7, height = 4.5, dpi = 300, bg = "white")
+```
+
+Remember: **inside `aes()` = mapped to a variable; outside = fixed.**
+
+## gtsummary
+
+```r
+df |>
+  select(arm, age, sex, score) |>
+  tbl_summary(
+    by = arm,
+    label     = list(age ~ "Age (years)"),
+    statistic = all_continuous() ~ "{mean} ({sd})",
+    digits    = all_continuous() ~ 1,
+    missing   = "ifany"
+  ) |>
+  add_p() |>
+  add_overall() |>
+  bold_labels() |>
+  modify_caption("**Table 1.** Characteristics.")
+
+lm(score ~ arm + age, data = df) |>
+  tbl_regression(exponentiate = FALSE) |>
+  add_glance_table(include = c(nobs, r.squared))
+```
+
+## Quarto
+
+````markdown
+---
+title: "My analysis"
+format:
+  html: {toc: true}
+  docx: default
+execute: {echo: false, warning: false}
+---
+
+```{{r}}
+#| label: fig-gain
+#| fig-cap: "Gain by arm."
+#| echo: false
+```
+
+Mean gain was `r knitr::inline_expr("round(mean(df$gain, na.rm = TRUE), 1)")`.
+See @fig-gain.
+````
+
+| Chunk option | Effect |
+|---|---|
+| `echo: false` | Hide code |
+| `eval: false` | Don't run |
+| `include: false` | Run silently |
+| `fig-cap:` / `tbl-cap:` | Captions |
+| `label: fig-x` / `tbl-x` | Cross-references |
+
+## Keyboard shortcuts
+
+| Shortcut | Does |
+|---|---|
+| <kbd>Ctrl/Cmd</kbd> + <kbd>Enter</kbd> | Run current line |
+| <kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd> | Render |
+| <kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd> | Restart R |
+| <kbd>Alt</kbd> + <kbd>-</kbd> | Insert `<-` |
+| <kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> | Insert the native pipe |
+| <kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> | Comment / uncomment |
+| <kbd>Tab</kbd> | Autocomplete |
+| <kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Command palette |

@@ -1,0 +1,55 @@
+---
+title: "Day 2 — Thursday, 10 September"
+subtitle: "Communicating, tabulating, and working with AI"
+---
+
+Yesterday you made things work. Today you make them presentable, and you
+decide where AI belongs in the process.
+
+## Today's arc
+
+| Time | Session | Faculty |
+|---|---|---|
+| 09:00 | Recap and Q&A | All |
+| 09:30 | [6 · Communicating research effectively using Quarto](s6-quarto-communication.qmd) | Arun Mitra |
+| 10:15 | Group activity: build a dynamic document | All |
+| 11:15 | [7 · Publication-ready tables & figures](s7-gtsummary.qmd) | Arun Mitra |
+| 12:00 | Hands-on: `gtsummary` | All |
+| 14:00 | [8 · Generative AI in health research](s8-genai.qmd) | Gurpreet |
+| 14:45 | [9 · Live code session](s9-live-coding.qmd) | Biju Soman + Arun Mitra + Gurpreet |
+| 15:15 | [10 · Group activity](s10-group-activity.qmd) | All groups |
+| 16:15 | Group presentations, feedback, valedictory | SET Team |
+
+## Recap: 09:00 – 09:30
+
+Bring your questions from yesterday. Specifically:
+
+- Did your Quarto document render? If not, bring the error.
+- Is your project structured with `data/`, `R/`, `output/`?
+- Can you produce a boxplot of `gain` by `teaching_arm` from memory, with the
+  cheatsheet open? Try before we start.
+
+::: {.callout-important}
+## Collect your group brief this morning
+The [group activity brief](s10-group-activity.qmd) and starter `.qmd` are
+handed out at the recap, **not** at 15:15. Your group has all day to think
+about it; the 45-minute slot is for building, not deciding.
+:::
+
+## The question that runs through today
+
+> **How do I turn what I found yesterday into something a journal, a
+> department or a funder will accept — without hand-copying a single number?**
+
+## What "done" looks like by 17:00
+
+Each group presents a rendered document containing:
+
+- A Table 1 built with `gtsummary`
+- At least one labelled figure
+- At least one number reported through inline code
+- A one-paragraph honest statement of limitations
+- A sentence disclosing any AI assistance used
+
+That is the shape of a real methods-and-results section, and you will have
+built it in a day.

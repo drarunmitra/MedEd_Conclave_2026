@@ -1,0 +1,122 @@
+---
+title: "Working with data"
+subtitle: "dplyr and exploratory data analysis · Day 1, Session 5"
+author: "Gurpreet"
+date: 2026-09-09
+format:
+  revealjs:
+    theme: [default, ../custom.scss]
+    slide-number: c/t
+    footer: "MedEd Conclave 2026 · R & Reproducible Research"
+    transition: fade
+    center: false
+execute:
+  echo: true
+  warning: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+students <- read_csv("data/meded_students.csv", show_col_types = FALSE)
+osce <- read_csv("data/osce_stations.csv", show_col_types = FALSE)
+```
+
+## Six verbs {.section-divider}
+
+| Verb | Acts on |
+|---|---|
+| `filter()` | rows |
+| `select()` | columns |
+| `arrange()` | order |
+| `mutate()` | new columns |
+| `group_by()` | strata |
+| `summarise()` | rows → one |
+
+Each takes a data frame, returns a data frame. That is why they chain.
+
+## filter + select
+
+```{r}
+#| output-location: fragment
+students |>
+  filter(teaching_arm == "Flipped classroom", attendance_pct > 90) |>
+  select(student_id, college, gain) |>
+  head(3)
+```
+
+`==` not `=`. Comma means AND.
+
+## The workhorse
+
+```{r}
+#| output-location: fragment
+students |>
+  group_by(teaching_arm) |>
+  summarise(
+    n = n(),
+    n_gain = sum(!is.na(gain)),
+    mean_gain = round(mean(gain, na.rm = TRUE), 2),
+    .groups = "drop"
+  )
+```
+
+::: {.notes}
+🎯 Stop on na.rm. It is an exclusion decision, not a formality. Always report
+n beside the mean so the exclusion is visible.
+:::
+
+## `na.rm = TRUE` is a decision
+
+::: {.big-number}
+11 students
+:::
+
+Without it: `NA`. With it: you have silently excluded eleven people.
+
+**Both defensible. Neither automatic.**
+
+## Joins — check the rows
+
+```{r}
+#| output-location: fragment
+osce_summary <- osce |>
+  group_by(student_id) |>
+  summarise(osce_total = sum(score), .groups = "drop")
+
+combined <- left_join(students, osce_summary, by = "student_id")
+c(nrow(students), nrow(combined))
+```
+
+Row count grew? Your key is not unique. Silent, plausible, wrong.
+
+## EDA — four questions, in order
+
+::: {.incremental}
+1. What am I holding? `glimpse()`, `skim()`
+2. How is each variable distributed?
+3. **Are the groups comparable to begin with?**
+4. Only now: the comparison
+:::
+
+::: {.notes}
+Question 3 is the one people skip. If the arms differ at baseline, no
+downstream cleverness fixes it.
+:::
+
+## Don't go hunting
+
+Twenty tests at α = 0.05 → one "significant" by construction.
+
+. . .
+
+Reproducible tooling makes p-hacking *easier*. That is exactly why the
+discipline matters more, not less.
+
+## Hands-on — 45 min {background-color="#0f5257"}
+
+Exercises 1–3. Exercise 4 cleans the messy survey.
+
+::: {.notes}
+📋 Watch for: `=` vs `==`, forgotten `.groups`, and joins that duplicate.
+:::
