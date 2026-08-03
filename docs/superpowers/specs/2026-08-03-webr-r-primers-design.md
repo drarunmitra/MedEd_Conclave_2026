@@ -59,26 +59,54 @@ install.
 | 7 | Graded checks + hints + solutions | Learners work alone at home with no faculty to ask. |
 | 8 | **No gradethis** | Costs 31.6 MB and 53 packages (pulls in shiny) for feedback a plain `#\| check: true` block gives for 0 MB. |
 | 9 | Native quarto-live hint/solution buttons | Deliberate deviation from `CLAUDE.md`; see §6. |
-| 10 | Additive `live-html` format, opt-in per page | Existing pages and the `_freeze/` cache untouched. Reversible: delete five files and one YAML block. |
+| 10 | `live-html` declared in each primer's **front matter**, never in `_quarto.yml` | Existing pages and the `_freeze/` cache untouched. Reversible: delete five files. **Corrected 2026-08-03 after the Task 3 spike — see §4.** |
 | 11 | Primers 04–05 read the real `meded_students.csv` | Continuity with Day 1 s3, and the same relative path works in both places. |
 | 12 | No participant data collection | See §9. |
 | 13 | Drop renv from CI | See §10. |
 
 ## 4. Architecture
 
-Install the extension to `_extensions/r-wasm/live/`. Add a second format to
-`_quarto.yml` beside the existing `html`; only the five new pages opt in.
+Install the extension to `_extensions/r-wasm/live/`. **`_quarto.yml` is not
+modified at all.** Each primer declares `live-html` in its own front matter.
 
 ```
-_quarto.yml
+_quarto.yml     UNCHANGED — no live-html block
+prelude/primer-0N.qmd
+  ---
   format:
-    html:        # unchanged — all 24 existing pages
-    live-html:   # new — inherits theme/toc, carries webr defaults
+    live-html:      # declared per page
+      theme:
+        light: [cosmo, styles.scss]
+  ---
 ```
+
+> **Corrected 2026-08-03 by the Task 3 spike.** The original design put a
+> `live-html:` sibling under `_quarto.yml`'s top-level `format:` map. That is
+> not merely ineffective — it is **destructive**. In a Quarto *website*
+> project the top-level `format:` map is the list of formats *every* input
+> renders to. Only the five `slides/**` decks declare their own `format:`;
+> the other ~28 pages inherit the project list, so adding `live-html` made
+> each render **twice** to the same output path. The build aborts with
+> `NotFound … rename`, `_site` is left with 1 file instead of 35, and 32
+> stray `.html` files plus a root `site_libs/` are scattered into the source
+> tree — none of them gitignored. Verified empirically; do not retry it.
+>
+> Declaring the format in a page's own front matter narrows that page to a
+> single format, which is exactly how the existing slide decks already avoid
+> the problem. With `_quarto.yml` untouched, all 35 existing pages were
+> confirmed **byte-identical by md5** before and after installing the
+> extension. The extension's filter runs only for documents that request a
+> live format, so its mere presence changes nothing.
 
 The render list already globs `prelude/*.qmd`, so new files are picked up with
 no change there. Quarto ignores `_`-prefixed directories, so `_extensions/`
 is not rendered.
+
+**A page whose filename begins with `_` cannot be rendered directly** —
+Quarto excludes it from the project and then resolves `_extensions/` relative
+to the page's own directory, failing with a misleading
+`Unable to read the extension 'live'`. Work-in-progress live pages must not
+use an `_` prefix.
 
 ### Files
 

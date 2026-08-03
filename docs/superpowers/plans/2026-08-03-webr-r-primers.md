@@ -4,7 +4,7 @@
 
 **Goal:** Add five self-paced interactive R primers to the workshop site that run entirely in a participant's browser, requiring no R installation.
 
-**Architecture:** Install the `r-wasm/quarto-live` Quarto extension, register a second `live-html` output format alongside the existing `html`, and add five new opt-in pages under `prelude/`. The 24 existing pages are untouched and keep rendering through the `html` format with their `_freeze/` cache intact. Each primer declares only the R packages it needs, so the WebAssembly payload is paid per page rather than all at once.
+**Architecture:** Install the `r-wasm/quarto-live` Quarto extension and add five new pages under `prelude/`, each declaring the `live-html` format in its **own front matter**. `_quarto.yml`'s `format:` block is never touched. The 24 existing pages are untouched and keep rendering through the `html` format with their `_freeze/` cache intact. Each primer declares only the R packages it needs, so the WebAssembly payload is paid per page rather than all at once.
 
 **Tech Stack:** Quarto 1.5.57 · quarto-live v0.2.0 · webR 0.6.0 (WebAssembly R) · R 4.4.1 · tidyverse (tibble, dplyr, readr, ggplot2) · GitHub Pages
 
@@ -13,6 +13,39 @@
 ## Global Constraints
 
 Every task's requirements implicitly include this section.
+
+- **⚠️ NEVER put `live-html` in `_quarto.yml`'s `format:` block.** Proven destructive by the Task 3 spike: it makes ~28 format-less pages render twice to the same path, aborts the build, empties `_site`, and scatters 32 untracked `.html` files into the source tree. Every primer declares `live-html` in its **own front matter**. `_quarto.yml`'s `format:` block stays exactly as it is.
+- **Never name a work-in-progress live page with a leading `_`.** Quarto then excludes it from the project and cannot resolve `_extensions/`, failing with a misleading `Unable to read the extension 'live'`.
+- **This is the verified per-page front-matter block.** Use it in all five primers, varying only `title`, `subtitle` and the `webr: packages:` list:
+
+```yaml
+---
+title: "..."
+subtitle: "..."
+engine: knitr
+format:
+  live-html:
+    theme:
+      light: [cosmo, styles.scss]
+    toc: true
+    toc-depth: 3
+    toc-title: "On this page"
+    code-copy: true
+    code-overflow: wrap
+    anchor-sections: true
+    link-external-newwindow: true
+    fig-align: center
+    webr:
+      cell-options:
+        persist: true
+        timelimit: 30
+webr:
+  packages:
+    - ...
+---
+```
+
+`styles.scss` resolves project-root-relative even from `prelude/` — no `../` prefix. The nested `webr:` inside the format sets cell defaults; the top-level `webr:` sets the page's packages. Both are needed.
 
 - **R/tidyverse only. Native pipe `|>`, never `%>%`.** (`CLAUDE.md` non-negotiable)
 - **Beginners.** Every concept gets a worked example before an exercise.
