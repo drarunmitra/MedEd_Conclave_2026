@@ -32,19 +32,21 @@ jobs:
           use-public-rspm: true
 
       - name: Install R dependencies
-        uses: r-lib/actions/setup-renv@v2
-        # If you are not using renv, replace the step above with:
-        # uses: r-lib/actions/setup-r-dependencies@v2
-        # with:
-        #   packages: |
-        #     any::tidyverse
-        #     any::gtsummary
-        #     any::janitor
-        #     any::knitr
-        #     any::rmarkdown
-        #     any::skimr
-        #     any::patchwork
-        #     any::flextable
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::tidyverse
+            any::gtsummary
+            any::janitor
+            any::knitr
+            any::rmarkdown
+            any::skimr
+            any::patchwork
+            any::flextable
+            any::scales
+            any::here
+            any::gt
+            any::palmerpenguins
 
       - name: Generate teaching datasets
         run: Rscript R/00_generate_datasets.R
