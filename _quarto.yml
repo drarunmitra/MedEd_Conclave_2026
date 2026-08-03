@@ -59,6 +59,13 @@ website:
         - prelude/install.qmd
         - prelude/check-setup.qmd
         - prelude/r-primer.qmd
+        - section: "Interactive primers"
+          contents:
+            - prelude/primer-01-objects.qmd
+            - prelude/primer-02-tibbles.qmd
+            - prelude/primer-03-packages-pipe.qmd
+            - prelude/primer-04-dplyr-verbs.qmd
+            - prelude/primer-05-first-plot.qmd
         - prelude/data.qmd
         - prelude/pre-reading.qmd
 
