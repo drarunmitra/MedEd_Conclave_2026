@@ -1,6 +1,6 @@
 ---
 title: "Primer 1 · Objects, functions and vectors"
-subtitle: "Interactive primer"
+subtitle: "R in your browser — nothing to install"
 engine: knitr
 format:
   live-html:
@@ -14,8 +14,161 @@ format:
     anchor-sections: true
     link-external-newwindow: true
     fig-align: center
+    webr:
+      cell-options:
+        persist: true
+        timelimit: 30
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
-Stub.
+::: {.callout-important title="If the cells below never become ready"}
+This page runs R inside your browser. It needs about 13 MB on first load,
+and a minute or two on a slow connection. If nothing happens after that, your
+network is probably blocking it — work through
+[the R primer](r-primer.qmd) in RStudio instead. Everything taught here is
+taught there too.
+
+There is no Stop button. If you write a loop that never ends, reload the page.
+:::
+
+Three ideas carry the whole of Day 1: R stores things in **objects**, you do
+things with **functions**, and the commonest object is a **vector**. Run the
+cells, change the numbers, break them on purpose. For the full explanation of
+any of this, see [the R primer](r-primer.qmd).
+
+## Objects
+
+`<-` is the assignment arrow. It puts the thing on its right into the name on
+its left.
+
+```{webr}
+n_students <- 240
+course     <- "Community Medicine"
+
+n_students
+course
+```
+
+Change `240` to your own department's intake and run it again.
+
+## Functions
+
+A function is a verb. It takes arguments in brackets, separated by commas.
+
+```{webr}
+sqrt(64)
+round(3.14159, digits = 2)
+mean(c(72, 68, 81, 90))
+```
+
+Named arguments like `digits = 2` are clearer than positional ones. Prefer them.
+
+## Vectors
+
+`c()` **c**ombines values into a vector — a column of values, all of the same
+type. It is the most-used function in R.
+
+```{webr}
+scores <- c(72, 68, 81, 90, 55)
+
+scores
+length(scores)
+mean(scores)
+```
+
+A comparison returns a logical vector, one `TRUE` or `FALSE` per element:
+
+```{webr}
+scores <- c(72, 68, 81, 90, 55)
+scores > 70
+```
+
+A vector holds **one** type. Mix them and everything is silently converted to
+the most permissive type — a classic source of confusion:
+
+```{webr}
+c(1, 2, "three")
+```
+
+Those quotation marks mean all three are now text. You cannot take the mean of
+that.
+
+::: {.callout-note title="Exercise 1: your first vector"}
+**Time:** 5 minutes
+
+Five students sat an OSCE station and scored 78, 64, 91, 55 and 83.
+Put those marks into a vector called `osce`.
+
+```{webr}
+#| exercise: ex_vector
+osce <- ______
+```
+
+```{webr}
+#| exercise: ex_vector
+#| solution: true
+osce <- c(78, 64, 91, 55, 83)
+```
+
+```{webr}
+#| exercise: ex_vector
+#| check: true
+if (identical(.result, c(78, 64, 91, 55, 83))) {
+  list(correct = TRUE, message = "Correct — that is a numeric vector of five marks.")
+} else if (is.character(.result)) {
+  list(correct = FALSE, message = "Those are text, not numbers. Drop the quotation marks.")
+} else if (length(.result) != 5) {
+  list(correct = FALSE, message = "You need all five marks, in order.")
+} else {
+  list(correct = FALSE, message = "Use c() to combine the five marks: c(78, 64, ...).")
+}
+```
+
+::: {.hint exercise="ex_vector"}
+`c()` combines values. The marks go inside the brackets, separated by commas.
+:::
+:::
+
+::: {.callout-note title="Exercise 2: summarise the marks"}
+**Time:** 5 minutes
+
+How many of those five marks are 70 or above? A comparison gives you `TRUE`
+and `FALSE`, and `sum()` counts `TRUE` as 1.
+
+```{webr}
+#| exercise: ex_count
+osce <- c(78, 64, 91, 55, 83)
+
+sum(______)
+```
+
+```{webr}
+#| exercise: ex_count
+#| solution: true
+osce <- c(78, 64, 91, 55, 83)
+
+sum(osce >= 70)
+```
+
+```{webr}
+#| exercise: ex_count
+#| check: true
+if (identical(as.numeric(.result), 3)) {
+  list(correct = TRUE, message = "Correct — three marks are 70 or above.")
+} else if (identical(as.numeric(.result), 2)) {
+  list(correct = FALSE, message = "Close. You used > 70, which excludes a mark of exactly 70. Use >=.")
+} else {
+  list(correct = FALSE, message = "Compare the whole vector at once: osce >= 70.")
+}
+```
+
+::: {.hint exercise="ex_count"}
+You do not need a loop. `osce >= 70` compares every element at once.
+:::
+:::
+
+## Next
+
+→ [Primer 2 · Tibbles](primer-02-tibbles.qmd) — put those vectors side by side
+into the rectangle you will actually analyse.
