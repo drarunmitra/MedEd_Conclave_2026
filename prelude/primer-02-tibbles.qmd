@@ -1,6 +1,6 @@
 ---
 title: "Primer 2 · Tibbles: the data rectangle"
-subtitle: "Interactive primer"
+subtitle: "Rows are observations, columns are variables"
 engine: knitr
 format:
   live-html:
@@ -14,8 +14,197 @@ format:
     anchor-sections: true
     link-external-newwindow: true
     fig-align: center
+    webr:
+      cell-options:
+        persist: true
+        timelimit: 30
+webr:
+  packages:
+    - tibble
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
-Stub.
+::: {.callout-important title="If the cells below never become ready"}
+This page runs R inside your browser. It needs about 20 MB on first load — the
+R engine, the machinery that runs and marks your code, and the **tibble**
+package — and a minute or two on a slow connection. If nothing happens after
+that, your network is probably blocking it — work through
+[the R primer](r-primer.qmd) in RStudio instead. Everything taught here is
+taught there too.
+
+There is no Stop button. If you write a loop that never ends, reload the page.
+:::
+
+Primer 1 left you with vectors. Stand several equal-length vectors side by side
+and you have the rectangle you will actually analyse: one row per observation —
+a student, a patient, a session — and one column per variable. In the
+tidyverse that rectangle is a **tibble**. For the full explanation, see
+[the R primer](r-primer.qmd).
+
+## Building a tibble
+
+`tibble()` takes named vectors and lines them up as columns. Each one must be
+the same length.
+
+```{webr}
+library(tibble)
+
+students <- tibble(
+  student_id = c("S01", "S02", "S03", "S04"),
+  batch      = c("2023", "2023", "2024", "2024"),
+  attendance = c(88, 72, 95, 64),
+  passed     = c(TRUE, TRUE, TRUE, FALSE)
+)
+
+students
+```
+
+Read the header it prints. `# A tibble: 4 × 4` is four rows by four columns,
+and under each column name sits its type: `<chr>` for text, `<dbl>` for a
+number with decimals, `<lgl>` for `TRUE`/`FALSE`. A plain `data.frame` tells
+you none of that until you ask.
+
+Note that `batch` is `<chr>`, not a number. Years used as labels are text —
+you would never take their mean.
+
+## Looking at one
+
+Four questions cover almost everything you will want to know about a table you
+have just been handed.
+
+```{webr}
+nrow(students)
+ncol(students)
+names(students)
+glimpse(students)
+```
+
+`glimpse()` is the function you will reach for when something goes wrong. It
+turns the table on its side so every column gets one line — name, type, first
+few values — however wide the data. Nine times out of ten the problem is that a
+column is text when you thought it was a number, and `glimpse()` shows you
+that in one look: `$ attendance <dbl>` is a number you can average,
+`$ attendance <chr>` is not.
+
+## Pulling out a column
+
+`$` takes one column out of the rectangle and hands it back as a plain vector —
+exactly the kind of thing Primer 1 taught you to work with.
+
+```{webr}
+students$attendance
+mean(students$attendance)
+```
+
+That is the whole pattern: a tibble is a bundle of vectors, and `$` unwraps
+one.
+
+::: {.callout-note title="Exercise 1: build a tibble"}
+**Time:** 5 minutes
+
+Three viva stations were marked out of 10: History scored 8, Exam scored 7 and
+Counselling scored 9. Put them into a tibble called `viva` with two columns,
+`station` and `marks`.
+
+```{webr}
+#| exercise: ex_tibble
+viva <- tibble(
+  station = ______,
+  marks   = ______
+)
+
+viva
+```
+
+```{webr}
+#| exercise: ex_tibble
+#| solution: true
+viva <- tibble(
+  station = c("History", "Exam", "Counselling"),
+  marks   = c(8, 7, 9)
+)
+
+viva
+```
+
+```{webr}
+#| exercise: ex_tibble
+#| check: true
+expected <- tibble::tibble(
+  station = c("History", "Exam", "Counselling"),
+  marks   = c(8, 7, 9)
+)
+if (isTRUE(all.equal(as.data.frame(.result), as.data.frame(expected)))) {
+  list(correct = TRUE, message = "Correct — three rows, two columns.")
+} else if (!is.data.frame(.result)) {
+  list(correct = FALSE, message = "That is not a table yet. Use tibble() with two named columns.")
+} else if (ncol(.result) != 2) {
+  list(correct = FALSE, message = "You need exactly two columns: station and marks.")
+} else {
+  list(correct = FALSE, message = "Check the spelling and order of the station names.")
+}
+```
+
+::: {.hint exercise="ex_tibble"}
+Each column is a vector, so each one needs its own `c()`. The station names are
+text and go in quotation marks; the marks are numbers and do not.
+:::
+:::
+
+::: {.callout-note title="Exercise 2: average the attendance"}
+**Time:** 5 minutes
+
+Using the `students` tibble from the top of the page, work out the mean
+attendance across the four students. Pull the column out with `$`, then take
+its mean.
+
+```{webr}
+#| exercise: ex_mean
+students <- tibble(
+  student_id = c("S01", "S02", "S03", "S04"),
+  batch      = c("2023", "2023", "2024", "2024"),
+  attendance = c(88, 72, 95, 64),
+  passed     = c(TRUE, TRUE, TRUE, FALSE)
+)
+
+______
+```
+
+```{webr}
+#| exercise: ex_mean
+#| solution: true
+students <- tibble(
+  student_id = c("S01", "S02", "S03", "S04"),
+  batch      = c("2023", "2023", "2024", "2024"),
+  attendance = c(88, 72, 95, 64),
+  passed     = c(TRUE, TRUE, TRUE, FALSE)
+)
+
+mean(students$attendance)
+```
+
+```{webr}
+#| exercise: ex_mean
+#| check: true
+if (isTRUE(all.equal(.result, 79.75))) {
+  list(correct = TRUE, message = "Correct — mean attendance is 79.75%.")
+} else if (!is.numeric(.result) || length(.result) != 1) {
+  list(correct = FALSE, message = "That is the column itself, not its average. Wrap it in mean().")
+} else if (isTRUE(all.equal(.result, 319))) {
+  list(correct = FALSE, message = "That is the total of the four values. mean() divides it by four.")
+} else {
+  list(correct = FALSE, message = "Take the column with students$attendance, then pass it to mean().")
+}
+```
+
+::: {.hint exercise="ex_mean"}
+`students$attendance` gives you a vector of four numbers. `mean()` takes it
+from there.
+:::
+:::
+
+## Next
+
+→ [Primer 3 · Packages and the pipe](primer-03-packages-pipe.qmd) — how to load
+the tools, and how to chain them together.
