@@ -26,7 +26,7 @@ engine: knitr
 format:
   live-html:
     theme:
-      light: [cosmo, styles.scss]
+      light: [cosmo, ../styles.scss]
     toc: true
     toc-depth: 3
     toc-title: "On this page"
@@ -45,7 +45,7 @@ webr:
 ---
 ```
 
-`styles.scss` resolves project-root-relative even from `prelude/` — no `../` prefix. The nested `webr:` inside the format sets cell defaults; the top-level `webr:` sets the page's packages. Both are needed.
+`styles.scss` is document-relative, so pages in `prelude/` need `../styles.scss`. Getting this wrong is silent apart from a `WARN: Theme file not found` line — the page still renders, but in stock Cosmo without the site's branding. The nested `webr:` inside the format sets cell defaults; the top-level `webr:` sets the page's packages. Both are needed.
 
 - **R/tidyverse only. Native pipe `|>`, never `%>%`.** (`CLAUDE.md` non-negotiable)
 - **Beginners.** Every concept gets a worked example before an exercise.

@@ -76,7 +76,7 @@ prelude/primer-0N.qmd
   format:
     live-html:      # declared per page
       theme:
-        light: [cosmo, styles.scss]
+        light: [cosmo, ../styles.scss]
   ---
 ```
 
