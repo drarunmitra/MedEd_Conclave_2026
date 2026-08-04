@@ -113,7 +113,7 @@ use an `_` prefix.
 ```
 prelude/
   r-primer.qmd                  unchanged, static
-  primer-01-objects.qmd         base R           engine only
+  primer-01-objects.qmd         base R           engine + runtime baseline
   primer-02-tibbles.qmd         tibble           small
   primer-03-packages-pipe.qmd   dplyr            + ~6.5 MB
   primer-04-dplyr-verbs.qmd     dplyr, readr     + readr only
@@ -131,14 +131,26 @@ actual `.tgz` sizes):
 | Asset | Size |
 |---|---|
 | webR engine (`R.wasm` + support) | ~13 MB |
+| quarto-live runtime baseline (~10 pkgs) | ~2 MB |
 | dplyr closure (15 pkgs) | 6.5 MB |
 | ggplot2 closure (16 pkgs) | 16.1 MB |
 | A participant completing all five | ~40–45 MB |
 
-quarto-live's `packages:` key is **per document**, so primers 01–03 never
-download ggplot2. Assets are served with `cache-control: max-age=604800`
-(7 days) from a version-pinned URL, so a participant who opens the primers at
-home pays nothing again at the venue.
+**The runtime baseline is unavoidable and is paid by every live page**,
+including primer 01, whatever the page declares. `live-runtime.js` hardcodes
+`https://repo.r-wasm.org`, evaluates every cell through `evaluate::evaluate()`
+and renders every grading message through `knitr::knit_print()`, so webR
+fetches `evaluate`, `knitr`, `xfun`, `highr`, `yaml`, `base64enc`, `digest`,
+`fastmap`, `rlang` and `htmltools` on first load. Primer 01 is therefore
+"engine plus runtime baseline", not "engine only", and its fallback callout
+says ~15 MB rather than ~13 MB. A page that hits the package repository zero
+times does not exist.
+
+quarto-live's `packages:` key is nonetheless **per document**, and that is
+still what keeps primers 01–03 from ever downloading ggplot2: the baseline is
+fixed, and everything above it is paid only where declared. Assets are served
+with `cache-control: max-age=604800` (7 days) from a version-pinned URL, so a
+participant who opens the primers at home pays nothing again at the venue.
 
 ## 5. Page anatomy
 

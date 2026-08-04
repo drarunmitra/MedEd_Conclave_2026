@@ -23,8 +23,9 @@ format:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ::: {.callout-important title="If the cells below never become ready"}
-This page runs R inside your browser. It needs about 13 MB on first load,
-and a minute or two on a slow connection. If nothing happens after that, your
+This page runs R inside your browser. It needs about 15 MB on first load — the
+R engine plus the machinery that runs and marks your code — and a minute or two
+on a slow connection. If nothing happens after that, your
 network is probably blocking it — work through
 [the R primer](r-primer.qmd) in RStudio instead. Everything taught here is
 taught there too.
@@ -97,7 +98,7 @@ that.
 ::: {.callout-note title="Exercise 1: your first vector"}
 **Time:** 5 minutes
 
-Five students sat an OSCE station and scored 78, 64, 91, 55 and 83.
+Five students sat an OSCE station and scored 78, 70, 91, 55 and 83.
 Put those marks into a vector called `osce`.
 
 ```{webr}
@@ -108,20 +109,20 @@ osce <- ______
 ```{webr}
 #| exercise: ex_vector
 #| solution: true
-osce <- c(78, 64, 91, 55, 83)
+osce <- c(78, 70, 91, 55, 83)
 ```
 
 ```{webr}
 #| exercise: ex_vector
 #| check: true
-if (identical(.result, c(78, 64, 91, 55, 83))) {
+if (identical(.result, c(78, 70, 91, 55, 83))) {
   list(correct = TRUE, message = "Correct — that is a numeric vector of five marks.")
 } else if (is.character(.result)) {
   list(correct = FALSE, message = "Those are text, not numbers. Drop the quotation marks.")
 } else if (length(.result) != 5) {
   list(correct = FALSE, message = "You need all five marks, in order.")
 } else {
-  list(correct = FALSE, message = "Use c() to combine the five marks: c(78, 64, ...).")
+  list(correct = FALSE, message = "Use c() to combine the five marks: c(78, 70, ...).")
 }
 ```
 
@@ -138,7 +139,7 @@ and `FALSE`, and `sum()` counts `TRUE` as 1.
 
 ```{webr}
 #| exercise: ex_count
-osce <- c(78, 64, 91, 55, 83)
+osce <- c(78, 70, 91, 55, 83)
 
 sum(______)
 ```
@@ -146,7 +147,7 @@ sum(______)
 ```{webr}
 #| exercise: ex_count
 #| solution: true
-osce <- c(78, 64, 91, 55, 83)
+osce <- c(78, 70, 91, 55, 83)
 
 sum(osce >= 70)
 ```
@@ -154,9 +155,9 @@ sum(osce >= 70)
 ```{webr}
 #| exercise: ex_count
 #| check: true
-if (identical(as.numeric(.result), 3)) {
-  list(correct = TRUE, message = "Correct — three marks are 70 or above.")
-} else if (identical(as.numeric(.result), 2)) {
+if (identical(as.numeric(.result), 4)) {
+  list(correct = TRUE, message = "Correct — four marks are 70 or above.")
+} else if (identical(as.numeric(.result), 3)) {
   list(correct = FALSE, message = "Close. You used > 70, which excludes a mark of exactly 70. Use >=.")
 } else {
   list(correct = FALSE, message = "Compare the whole vector at once: osce >= 70.")

@@ -637,10 +637,13 @@ Verify, and record each result:
 5. Exercise 2: `sum(osce >= 70)` → correct. `sum(osce > 70)` → the ">= " nudge message.
 6. Hint and solution buttons both appear and work.
 
-- [ ] **Step 4: Confirm no package downloads**
+- [ ] **Step 4: Confirm no workshop-package downloads**
 
-In devtools Network, filter for `repo.r-wasm.org`.
-Expected: **zero** requests. This page is base R only; any package request means a stray `webr: packages:` entry.
+In devtools Network, filter for `repo.r-wasm.org` (or read the console's `Downloading webR package:` lines).
+
+Expected: **zero workshop packages** — no `dplyr`, `ggplot2`, `tibble` or `readr`. Any of those means a stray `webr: packages:` entry.
+
+Expected and unavoidable: roughly ten **runtime** packages — `evaluate`, `knitr`, `xfun`, `highr`, `yaml`, `base64enc`, `digest`, `fastmap`, `rlang`, `htmltools`. quarto-live's `live-runtime.js` hardcodes `https://repo.r-wasm.org` and routes every cell through `evaluate::evaluate()` and every grading message through `knitr::knit_print()`, so these are fetched on every live page regardless of what the page declares. Zero total requests is not achievable and is not the bar.
 
 - [ ] **Step 5: Commit**
 
@@ -1504,6 +1507,19 @@ render perfectly and be completely broken. Always serve over HTTP and load it.
 
 **Never open a rendered primer via `file://`.** The WebAssembly worker is
 blocked and you will misdiagnose a working page as broken.
+
+**The Run Code control is an `<a>` element, not a `<button>`.** JavaScript
+`.click()` on it does not fire the exercise-cell handlers — the cell stays
+silent and you will wrongly conclude grading is broken. Browser verification
+needs real mouse clicks through the computer tool. Beware also that the page
+reflows as grades, hints and solutions appear, so re-read element coordinates
+immediately before each click; a stale coordinate typically lands on the page
+body and your keystrokes open Quarto's search overlay instead.
+
+**The WebR payload is fetched inside a Web Worker.** It is invisible to
+main-thread `performance.getEntriesByType('resource')` and to any main-thread
+network reader. Measure it from the devtools Network panel, or count the
+console's `Downloading webR package:` lines.
 
 **If the Task 3 spike shows cells cannot live inside callout divs**, stop and
 revise the page template before writing Tasks 5–9. Do not work around it five
