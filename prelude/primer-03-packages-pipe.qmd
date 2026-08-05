@@ -1,6 +1,6 @@
 ---
 title: "Primer 3 · Packages and the native pipe"
-subtitle: "Interactive primer"
+subtitle: "Loading the tools, and chaining them together"
 engine: knitr
 format:
   live-html:
@@ -14,8 +14,185 @@ format:
     anchor-sections: true
     link-external-newwindow: true
     fig-align: center
+    webr:
+      cell-options:
+        persist: true
+        timelimit: 30
+webr:
+  packages:
+    - dplyr
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
-Stub.
+::: {.callout-important title="If the cells below never become ready"}
+This page runs R inside your browser. It needs about 20 MB on first load — the
+R engine, the machinery that runs and marks your code, and the **dplyr**
+package — and a minute or two on a slow connection. If nothing happens after
+that, your network is probably blocking it — work through
+[the R primer](r-primer.qmd) in RStudio instead. Everything taught here is
+taught there too.
+
+There is no Stop button. If you write a loop that never ends, reload the page.
+:::
+
+`tibble()` in Primer 2 was not part of base R. It arrived in a **package**, and
+a package's functions are out of reach until you ask for them. This page covers
+the two lines of plumbing that every tidyverse script needs: `library()`, which
+puts a package's functions within reach, and `|>`, which chains those functions
+together in the order you think about them. For the full explanation, see
+[the R primer](r-primer.qmd).
+
+::: {.callout-warning title="One way this browser lies to you"}
+This page has already loaded `dplyr` for you before you ran anything. Your own
+RStudio will not. There, every script starts with its `library()` calls, and a
+script that forgets them fails with `could not find function`.
+
+So the `library(dplyr)` line below is a no-op here and essential there. Type it
+anyway — it is the habit that matters.
+:::
+
+## Packages
+
+A package is a bundle of functions somebody else wrote and shared. You install
+it **once, ever**, and load it **every session**.
+
+```r
+install.packages("dplyr")   # once, ever — in the console
+library(dplyr)              # every session, at the top of every script
+```
+
+`library()` takes the package name without quotation marks. Run it, then use a
+function that only exists because of it:
+
+```{webr}
+library(dplyr)
+
+n_distinct(c("MBBS", "MBBS", "MD", "MD", "MD"))
+```
+
+`n_distinct()` counts distinct values: five enrolments there, but only `2`
+distinct qualifications. It comes from dplyr, not from base R. Without
+`library(dplyr)` in your own RStudio, that line stops with `could not find
+function "n_distinct"` — the single most common error a beginner meets.
+
+::: {.callout-warning title="`install.packages()` does not belong in your script"}
+Put `library()` calls at the top of a script; keep `install.packages()` in the
+console. A script that reinstalls its packages on every run is slow, needs an
+internet connection it should not need, and is rude to whoever else runs it.
+:::
+
+## The native pipe `|>`
+
+The pipe passes the thing on its left into the function on its right as that
+function's first argument. These two lines do exactly the same thing:
+
+```{webr}
+round(mean(c(72, 68, 81, 90)), 1)
+
+c(72, 68, 81, 90) |> mean() |> round(1)
+```
+
+Both print `77.8`. The first has to be read from the inside out: find the
+innermost bracket, work outwards, and keep track of which closing bracket
+belongs to what. The second reads left to right, in the order the work actually
+happens — *take these scores, take the mean, round to one decimal*. Once an
+analysis is six steps long, the pipe is the difference between readable and
+unreadable code.
+
+You will meet `%>%` in older code and in most tutorials online. For everything
+in this workshop it behaves the same way, but we use `|>` because it is built
+into R itself and needs no package.
+
+::: {.callout-note title="Exercise 1: unpick the nesting"}
+**Time:** 5 minutes
+
+Four stations were marked out of 100: 16, 25, 36 and 49. Somebody has written
+their root-mean score inside out. Rewrite it using `|>` so that it reads left
+to right: take the vector, take its `mean()`, take the `sqrt()` of that, then
+`round()` to 2 decimal places. The answer is `5.61` either way.
+
+```{webr}
+#| exercise: ex_pipe
+# The nested version, for reference:
+# round(sqrt(mean(c(16, 25, 36, 49))), 2)
+
+c(16, 25, 36, 49) ______
+```
+
+```{webr}
+#| exercise: ex_pipe
+#| solution: true
+c(16, 25, 36, 49) |> mean() |> sqrt() |> round(2)
+```
+
+```{webr}
+#| exercise: ex_pipe
+#| check: true
+# The only check in these primers that reads your code rather than your answer:
+# the pipe is the lesson here, and the value 5.61 alone cannot prove you used it.
+used_pipe <- grepl("|>", .user_code, fixed = TRUE)
+right_answer <- isTRUE(all.equal(as.numeric(.result), 5.61))
+if (right_answer && used_pipe) {
+  list(correct = TRUE, message = "Correct — and it reads left to right.")
+} else if (grepl("%>%", .user_code, fixed = TRUE)) {
+  list(correct = FALSE, message = "Use the native pipe |>, not %>%. We use |> throughout this workshop.")
+} else if (right_answer) {
+  list(correct = FALSE, message = "Right answer, but rewrite it with |> so it reads in the order the work happens.")
+} else {
+  list(correct = FALSE, message = "Start with the vector, then pipe into mean(), then sqrt(), then round(2).")
+}
+```
+
+::: {.hint exercise="ex_pipe"}
+Each step is one `|>` followed by a function with its brackets: `mean()`,
+then `sqrt()`, then `round(2)`. The piped value fills the first argument, so
+`round(2)` sets only the digits.
+:::
+:::
+
+::: {.callout-note title="Exercise 2: mean attendance, piped"}
+**Time:** 5 minutes
+
+Four students attended 88%, 72%, 95% and 64% of sessions. Starting from that
+vector, pipe it into `mean()` and then into `round(1)` to get the mean
+attendance to one decimal place.
+
+```{webr}
+#| exercise: ex_pipe_mean
+c(88, 72, 95, 64) ______
+```
+
+```{webr}
+#| exercise: ex_pipe_mean
+#| solution: true
+c(88, 72, 95, 64) |> mean() |> round(1)
+```
+
+```{webr}
+#| exercise: ex_pipe_mean
+#| check: true
+answer <- suppressWarnings(as.numeric(.result))
+if (length(answer) == 1 && isTRUE(all.equal(answer, 79.8))) {
+  list(correct = TRUE, message = "Correct — mean attendance is 79.8%.")
+} else if (length(answer) != 1 || is.na(answer)) {
+  list(correct = FALSE, message = "That is not a single number yet. Pipe the vector into mean() first.")
+} else if (isTRUE(all.equal(answer, 79.75))) {
+  list(correct = FALSE, message = "That is the mean, unrounded. Pipe it on into round(1).")
+} else if (isTRUE(all.equal(answer, 319))) {
+  list(correct = FALSE, message = "That is the total of the four values. Use mean(), not sum().")
+} else {
+  list(correct = FALSE, message = "Two steps: |> mean() to average the vector, then |> round(1).")
+}
+```
+
+::: {.hint exercise="ex_pipe_mean"}
+The same shape as Exercise 1, one step shorter. `round(1)` means one decimal
+place — the piped value is already the first argument.
+:::
+:::
+
+## Next
+
+→ [Primer 4 · The five dplyr verbs](primer-04-dplyr-verbs.qmd) — the verbs that
+do almost all of the work.
