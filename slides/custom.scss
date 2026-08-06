@@ -10,6 +10,13 @@ $code-block-bg: #f4f6f6;
 /*-- scss:rules --*/
 .reveal .slide-number { background: rgba(15, 82, 87, .75); }
 
+// Same reason as styles.scss: if the presenting machine has a ligature mono
+// installed, `|>` on a projected slide becomes a single arrow glyph.
+.reveal code, .reveal pre, .reveal kbd, .reveal samp {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+}
+
 .reveal h1, .reveal h2 { letter-spacing: -0.01em; }
 
 .reveal .section-divider h1 {

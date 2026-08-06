@@ -108,6 +108,18 @@ div.callout-tip.callout-style-default  > .callout-header { background: rgba(45, 
 
 code { font-size: 0.88em; }
 
+// The monospace stack above may resolve to a ligature font on the reader's own
+// machine — JetBrains Mono, Fira Code and Cascadia Code all ship `|>` as a
+// single arrow glyph. The native pipe is the one thing a beginner has to be
+// able to copy character by character, so ligatures are switched off anywhere
+// code is shown, including the CodeMirror editors in the interactive primers.
+// Disabling the feature is font-independent; reordering the stack would not be.
+code, pre, kbd, samp,
+div.sourceCode, .cm-editor, .cm-content, .cm-line {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+}
+
 // Keyboard shortcut styling for the setup pages
 kbd {
   background: #eceff1;
