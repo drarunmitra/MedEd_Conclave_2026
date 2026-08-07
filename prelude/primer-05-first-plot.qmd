@@ -1,6 +1,6 @@
 ---
 title: "Primer 5 · Your first plot"
-subtitle: "Interactive primer"
+subtitle: "The grammar of graphics, in three lines"
 engine: knitr
 format:
   live-html:
@@ -14,8 +14,296 @@ format:
     anchor-sections: true
     link-external-newwindow: true
     fig-align: center
+    webr:
+      cell-options:
+        persist: true
+        timelimit: 30
+webr:
+  packages:
+    - ggplot2
+    - readr
+  resources:
+    - ../data/meded_students.csv
 ---
 
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
-Stub.
+::: {.callout-important title="If the cells below never become ready"}
+This page runs R inside your browser. It needs about 35 MB on first load — this
+is the heaviest primer, because ggplot2 is a large package — plus the R engine,
+the machinery that runs and marks your code, and the cohort file itself. Give it
+a minute or two. If you are on a slow or shared connection, do this one at home
+rather than at the venue.
+
+If nothing happens after that, your network is probably blocking it — work
+through [the R primer](r-primer.qmd) in RStudio instead. Everything taught here
+is taught there too.
+
+There is no Stop button. If you write a loop that never ends, reload the page.
+:::
+
+Day 1 opens with visualisation at 11:15. Work through this page first and that
+will not be the first `ggplot()` call you have ever written — you will be
+recognising a plot you have already drawn, rather than meeting one cold.
+
+Every ggplot2 plot is built from three parts, and you have to name all three:
+
+1. the **data** — which table,
+2. the **aesthetics** — which column goes on which part of the picture,
+3. the **geom** — what shape to draw.
+
+Miss one and you get a blank panel rather than an error, which is confusing the
+first time. So we will add them one at a time and watch the picture appear. For
+the full explanation of any of this, see [the R primer](r-primer.qmd).
+
+## 1. Data: which table
+
+`ggplot()` on its own gives you a grey rectangle. That is not a failure — it is
+R saying *I have your data and no instructions about what to do with it*.
+
+```{webr}
+library(ggplot2)
+library(readr)
+
+students <- read_csv("data/meded_students.csv", show_col_types = FALSE)
+
+ggplot(students)
+```
+
+That is the same 240-student cohort, read with the same `read_csv()` line, from
+the same `data/meded_students.csv` path you will type on Day 1.
+
+## 2. Aesthetics: which column goes where
+
+`aes()` maps a **column** onto a **feature of the picture** — the x axis, the y
+axis, the colour, the fill. Map `attendance_pct` to x and an axis appears,
+correctly scaled to the range of the data:
+
+```{webr}
+ggplot(students, aes(x = attendance_pct))
+```
+
+Still no bars, because we have not yet said what to draw. But look at the axis:
+ggplot2 has already read the column, found it runs from about 57 to 100, and
+chosen the breaks for you.
+
+## 3. Geom: what shape to draw
+
+`geom_histogram()` cuts a numeric column into bins and draws a bar per bin. It
+is the standard first look at any single number.
+
+```{webr}
+ggplot(students, aes(x = attendance_pct)) +
+  geom_histogram(binwidth = 5)
+```
+
+Attendance clusters around 80%, with a tail of students below 65% — the ones a
+course convenor would want to know about. One line of code and you have seen
+something you could not see in the spreadsheet.
+
+::: {.callout-important title="`+`, not `|>` — the one exception you will meet"}
+Everywhere else in the workshop you join steps with the native pipe `|>`. In
+ggplot2 you join **layers** with `+`.
+
+This is history, not logic: ggplot2 was written in 2007, years before R had a
+pipe, and it already had its own way of stacking one layer onto another. It was
+never changed, because millions of lines of published code use `+`.
+
+The rule that keeps you out of trouble:
+
+- `|>` moves a table from one **verb** to the next — `filter()`, `mutate()`,
+  `summarise()`.
+- `+` adds a **layer or setting** to a plot you have already started with
+  `ggplot()`.
+
+You can use both in the same expression, and often will: pipe the data into
+`ggplot()`, then add layers with `+`.
+
+```r
+students |>
+  filter(batch == 2024) |>
+  ggplot(aes(x = attendance_pct)) +
+  geom_histogram(binwidth = 5)
+```
+
+Getting these the wrong way round produces one of two errors. `ggplot(...) |>
+geom_histogram()` complains about a missing argument; `students + ggplot(...)`
+says *non-numeric argument to binary operator*. Everybody does it once. Now you
+know what the message means.
+:::
+
+## Bin width changes what you see
+
+`binwidth` is not a detail. It decides how much of the shape of the data
+survives. Change the `2` below to `5`, then to `10`, and rerun each time:
+
+```{webr}
+ggplot(students, aes(x = attendance_pct)) +
+  geom_histogram(binwidth = 2)
+```
+
+At 2 the histogram is spiky and you can see individual clumps of students; at 10
+it is smooth and you may have flattened away something real. There is no correct
+answer, which is exactly why you should look at more than one before you decide
+what the data says.
+
+## Comparing two groups
+
+The workshop cohort has two teaching arms, so the obvious question is whether
+they differ. A boxplot puts one box per group side by side: the thick line is
+the median, the box holds the middle half of the students, and the dots beyond
+the whiskers are outliers.
+
+`fill = teaching_arm` maps the group onto the colour of the boxes;
+`scale_fill_manual()` then says which colour each group gets. These are the
+conclave's own two colours.
+
+```{webr}
+ggplot(students, aes(x = teaching_arm, y = burnout_score, fill = teaching_arm)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("Flipped classroom"   = "#0f5257",
+                               "Traditional lecture" = "#b8860b")) +
+  labs(x = NULL, y = "Burnout score", fill = NULL)
+```
+
+Two boxes, and they sit at almost the same height — median burnout is 49.7 in
+the flipped arm against 49.1 in the traditional one. That is a real and useful
+finding: *no visible difference* is a result, and seeing it in ten seconds is
+better than testing for it in ten minutes.
+
+`x = NULL` inside `labs()` removes an axis title that would only repeat the
+group names underneath it. `fill = NULL` removes the legend title for the same
+reason. Deleting labels that say nothing is most of what makes a figure look
+professional.
+
+::: {.callout-warning title="The warning under that plot is not an error"}
+ggplot2 printed something like *Removed 7 rows containing non-finite outside the
+scale range*. Seven students in this cohort have no `burnout_score` — the value
+is `NA`, R's marker for missing — and you cannot draw a box around a value that
+does not exist, so ggplot2 dropped them and told you so.
+
+A **warning** means *I did it, here is something you should know*. An **error**
+means *I could not do it, there is no result*. Beginners often stop at the first
+warning; read it instead, and check the number it gives you is the number of
+missing values you expected.
+:::
+
+```{webr}
+#| setup: true
+#| exercise:
+#|   - ex_hist
+#|   - ex_scatter
+library(ggplot2)
+library(readr)
+
+students <- read_csv("data/meded_students.csv", show_col_types = FALSE)
+```
+
+::: {.callout-note title="Exercise 1: a histogram that explains itself"}
+**Time:** 10 minutes
+
+Draw a histogram of `pretest`, the score every student sat before the course
+began. Then give it a title and readable axis labels with `labs()`, so that
+somebody who has never seen the dataset can understand the figure on its own.
+
+```{webr}
+#| exercise: ex_hist
+ggplot(students, aes(x = ______)) +
+  ______(binwidth = 5) +
+  labs(______)
+```
+
+```{webr}
+#| exercise: ex_hist
+#| solution: true
+ggplot(students, aes(x = pretest)) +
+  geom_histogram(binwidth = 5) +
+  labs(
+    title = "Pre-test scores across the 2023-2025 cohort",
+    x = "Pre-test score (%)",
+    y = "Number of students"
+  )
+```
+
+```{webr}
+#| exercise: ex_hist
+#| check: true
+if (!inherits(.result, "ggplot")) {
+  list(correct = FALSE, message = "That did not produce a plot. If there is a red error above, read that first — a geom you were not asked for, such as geom_point(), needs a y as well as an x. Otherwise, start with ggplot(students, aes(x = pretest)).")
+} else if (!identical(rlang::as_label(.result$mapping$x), "pretest")) {
+  list(correct = FALSE, message = "Map pretest to x inside aes().")
+} else if (!any(vapply(.result$layers, function(l) inherits(l$geom, "GeomBar"), logical(1)))) {
+  list(correct = FALSE, message = "Add geom_histogram() to draw the bars.")
+} else if (is.null(.result$labels$title)) {
+  list(correct = FALSE, message = "Nearly. Add labs(title = ...) so the plot explains itself.")
+} else {
+  list(correct = TRUE, message = "Correct — and it has a title, which most published figures do not.")
+}
+```
+
+::: {.hint exercise="ex_hist"}
+Three blanks, three parts. The column name goes inside `aes(x = )` with no
+quotation marks. The geom is `geom_histogram`. `labs()` takes named arguments
+separated by commas — `title = "..."`, `x = "..."`, `y = "..."` — and the label
+text *is* quoted, because it is ordinary English rather than a column name.
+:::
+:::
+
+::: {.callout-note title="Exercise 2: a scatter plot in three mappings"}
+**Time:** 10 minutes
+
+Do students who study more gain more? Put `study_hours` on the x axis and
+`gain` on the y axis, colour the points by `rural_background`, and draw them
+with `geom_point()`.
+
+This one maps three columns at once, which is the moment `aes()` starts to earn
+its keep. Expect a warning about eleven removed rows: `gain` is missing for the
+eleven students who never sat the post-test.
+
+```{webr}
+#| exercise: ex_scatter
+ggplot(students, aes(x = ______, y = ______, colour = ______)) +
+  ______
+```
+
+```{webr}
+#| exercise: ex_scatter
+#| solution: true
+ggplot(students, aes(x = study_hours, y = gain, colour = rural_background)) +
+  geom_point()
+```
+
+```{webr}
+#| exercise: ex_scatter
+#| check: true
+if (!inherits(.result, "ggplot")) {
+  list(correct = FALSE, message = "That did not produce a plot. If there is a red error above, read that first. Otherwise, start with ggplot(students, aes(...)) and add a geom with +.")
+} else if (!identical(rlang::as_label(.result$mapping$x), "study_hours")) {
+  list(correct = FALSE, message = "Map study_hours to x inside aes().")
+} else if (!identical(rlang::as_label(.result$mapping$y), "gain")) {
+  list(correct = FALSE, message = "Map gain to y inside aes(), next to the x mapping and separated by a comma.")
+} else if (!identical(rlang::as_label(.result$mapping$colour), "rural_background")) {
+  list(correct = FALSE, message = "Map rural_background to colour inside aes(). For points it is colour, not fill — fill colours an area, colour draws a line or a dot.")
+} else if (!any(vapply(.result$layers, function(l) inherits(l$geom, "GeomPoint"), logical(1)))) {
+  list(correct = FALSE, message = "The mappings are right, but nothing is being drawn yet. Add + geom_point().")
+} else {
+  list(correct = TRUE, message = "Correct — and read what it shows: a shapeless cloud. More study hours did not mean more gain in this cohort, and the rural and urban points are mixed right through each other. A scatter plot that shows no relationship has still told you something.")
+}
+```
+
+::: {.hint exercise="ex_scatter"}
+All three mappings go inside the one `aes()`, separated by commas. The last
+blank is a whole layer, so it needs its brackets: `geom_point()`.
+
+If you type `color` rather than `colour`, ggplot2 accepts it and quietly
+converts it to `colour` — both spellings work everywhere in the package.
+:::
+:::
+
+## Next
+
+→ [Datasets](data.qmd) — download the files, ready for Day 1.
+
+You have now written R, built a table and drawn a plot without installing
+anything. Day 1 does all of this again, on your own machine, with the project
+structure that makes it reproducible.
