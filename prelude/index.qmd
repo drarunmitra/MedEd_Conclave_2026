@@ -20,9 +20,19 @@ downloads instead of writing code.
 | ☐ | Install R, RStudio, Quarto | 30 min | [Install the software](install.qmd) |
 | ☐ | Install workshop packages and run the check script | 15 min | [Check your setup](check-setup.qmd) |
 | ☐ | Work through the self-paced R primer | 45 min | [R primer](r-primer.qmd) |
+| ☐ | *Or*, work through the interactive primers instead — they run in your browser, so a laptop whose R install has not succeeded yet is no obstacle | 45 min | [Interactive primers](primer-01-objects.qmd) |
 | ☐ | Download the workshop datasets | 5 min | [Datasets](data.qmd) |
 | ☐ | Skim the pre-reading | 20 min | [Pre-reading](pre-reading.qmd) |
 | ☐ | Complete the online pre-test | 10 min | *link circulated by the SET Team* |
+
+::: {.callout-tip title="Do the interactive primers before you travel"}
+Working through all five pages downloads about 35 MB in total (Primer 5, with
+its plotting engine, accounts for most of that). Your browser caches it for a
+week, so opening them at home makes them instant at the venue — conference
+wifi shared by forty people is not the moment to find out. They need **no
+installation at all**, which makes them a good place to start if your laptop
+setup has not gone smoothly yet — you can keep learning while you sort it out.
+:::
 
 ## What to bring
 
