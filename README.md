@@ -90,6 +90,16 @@ Scenario: three government medical colleges compared a flipped classroom
 against traditional lectures, with pre/post knowledge tests and a
 five-station OSCE.
 
+## Interactive primers
+
+`prelude/` also has five self-paced primers (`primer-01-objects.qmd` through
+`primer-05-first-plot.qmd`) that run R in the browser via
+[webR](https://docs.r-wasm.org/webr/) — no R installation needed. First load
+is roughly 17–37 MB per page depending on which packages it pulls in, cached
+for a week after that. They complement `prelude/r-primer.qmd` rather than
+replace it: same material, either work through it in RStudio or run it
+directly on the page.
+
 ## Editing the material
 
 - **Session pages** live in `day1/` and `day2/`. Each has a `## Hands-on`
