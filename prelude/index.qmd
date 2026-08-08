@@ -26,7 +26,7 @@ downloads instead of writing code.
 | ☐ | Complete the online pre-test | 10 min | *link circulated by the SET Team* |
 
 ::: {.callout-tip title="Do the interactive primers before you travel"}
-Working through all five pages downloads about 35 MB in total (Primer 5, with
+Working through all five pages downloads about 40 MB in total (Primer 5, with
 its plotting engine, accounts for most of that). Your browser caches it for a
 week, so opening them at home makes them instant at the venue — conference
 wifi shared by forty people is not the moment to find out. They need **no

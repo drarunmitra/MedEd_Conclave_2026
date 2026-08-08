@@ -26,7 +26,7 @@ webr:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ::: {.callout-important title="If the cells below never become ready"}
-This page runs R inside your browser. It needs about 20 MB on first load — the
+This page runs R inside your browser. It needs about 21 MB on first load — the
 R engine, the machinery that runs and marks your code, and the **tibble**
 package — and a minute or two on a slow connection. If nothing happens after
 that, your network is probably blocking it — work through

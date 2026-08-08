@@ -29,7 +29,7 @@ webr:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ::: {.callout-important title="If the cells below never become ready"}
-This page runs R inside your browser. It needs about 35 MB on first load — this
+This page runs R inside your browser. It needs about 37 MB on first load — this
 is the heaviest primer, because ggplot2 is a large package — plus the R engine,
 the machinery that runs and marks your code, and the cohort file itself. Give it
 a minute or two. If you are on a slow or shared connection, do this one at home

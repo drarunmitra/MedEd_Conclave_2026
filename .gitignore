@@ -20,4 +20,8 @@
 Thumbs.db
 ~$*
 
+# Stray render output (an aborted project render scatters these into the source tree)
+/site_libs/
+/*.html
+
 **/*.quarto_ipynb

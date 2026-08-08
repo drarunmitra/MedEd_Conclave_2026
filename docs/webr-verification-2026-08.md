@@ -187,11 +187,11 @@ already gzip and do not compress further.
 
 | Page | Pkgs | Site assets | Engine | Packages | **Total (cold)** | Page's own claim |
 |---|---|---|---|---|---|---|
-| primer-01 | 10 | 0.63 MB | 12.52 MB | 2.98 MB | **16.12 MB** | "about 15 MB" |
-| primer-02 | 19 | 0.63 MB | 12.52 MB | 7.02 MB | **20.17 MB** | "about 20 MB" |
-| primer-03 | 24 | 0.63 MB | 12.52 MB | 8.65 MB | **21.79 MB** | "about 20 MB" |
-| primer-04 | 35 | 0.63 MB | 12.52 MB | 11.72 MB | **24.87 MB** | "about 22 MB" |
-| primer-05 | 42 | 0.63 MB | 12.52 MB | 23.34 MB | **36.49 MB** | "about 35 MB" |
+| primer-01 | 10 | 0.63 MB | 12.52 MB | 2.98 MB | **16.12 MB** | "about 17 MB" |
+| primer-02 | 19 | 0.63 MB | 12.52 MB | 7.02 MB | **20.17 MB** | "about 21 MB" |
+| primer-03 | 24 | 0.63 MB | 12.52 MB | 8.65 MB | **21.79 MB** | "about 22 MB" |
+| primer-04 | 35 | 0.63 MB | 12.52 MB | 11.72 MB | **24.87 MB** | "about 25 MB" |
+| primer-05 | 42 | 0.63 MB | 12.52 MB | 23.34 MB | **36.49 MB** | "about 37 MB" |
 
 Time from page load to a cell actually producing output, measured under Edge
 with a fresh profile and an empty cache (see §5 for the full run):
@@ -213,12 +213,14 @@ instrumented Edge numbers above are the ones to trust.
 Primer 5's own callout already warns that it is the heaviest and suggests
 doing it at home rather than at the venue. That advice is well judged.
 
-**Every page's stated size is within about 13% of the measured value and every
-one understates rather than overstates**, which is the safe direction for a
-warning. The loosest is Primer 4 (24.87 MB measured against "about 22 MB");
-if these strings are ever revised, that is the one to adjust. Note that read
-as MiB rather than MB the claims are closer still (Primer 5 measures
-34.8 MiB against its stated 35), so the author appears to have worked in MiB.
+**Originally, every page's stated size understated the measured value** (by up
+to about 13%, on Primer 4: 24.87 MB measured against the then-stated
+"about 22 MB") — the wrong direction for a warning aimed at people on shared
+conference wifi. The callouts have since been corrected to round each measured
+figure **up** to the nearest MB: Primer 1 → "about 17 MB", Primer 2 →
+"about 21 MB", Primer 3 → "about 22 MB", Primer 4 → "about 25 MB", Primer 5 →
+"about 37 MB". Every stated figure is now equal to or greater than the
+measured value.
 
 Correction to the task brief, which expected Primer 1 to make "no
 repo.r-wasm.org hits": it makes **ten**. The knitr/evaluate runtime machinery
@@ -390,16 +392,19 @@ need it.
 | Offline fallback | pass |
 | Link integrity | pass — no new broken links |
 
-**No defect was found that blocks publication.** The open items are a coverage
-gap and three polish points rather than faults:
+**No defect was found that blocks publication.** Two items below have since
+been fixed; the remaining two are a coverage gap and a known pre-publication
+task rather than faults:
 
 1. **Safari is unverified.** Blink and Gecko both pass; WebKit is untested and
    cannot be tested on Windows. Worth one manual pass before the workshop.
 2. `admin/agenda.pdf` is still missing and still linked from `schedule.qmd` —
    already a known pre-publication task.
-3. Primer 4's stated "about 22 MB" is the loosest of the five size warnings
-   against a measured 24.87 MB. Understating is the safe direction, so this is
-   a polish item, not a fault.
-4. `.gitignore` does not cover `/site_libs/` or generated root-level `*.html`,
-   so an interrupted render leaves untracked build debris that could be
-   committed by accident.
+3. **Fixed.** All five primer callouts stated figures that understated the
+   measured payload (Primer 4 was loosest: "about 22 MB" against a measured
+   24.87 MB). Every callout, plus `prelude/index.qmd`'s pre-travel summary, has
+   been corrected to round the measured figure up rather than down.
+4. **Fixed.** `.gitignore` now covers `/site_libs/` and root-level `*.html`, so
+   an interrupted render can no longer leave untracked build debris that could
+   be committed by accident. Confirmed the root-anchored pattern does not
+   affect the tracked `slides/workshop_intro.html`.
