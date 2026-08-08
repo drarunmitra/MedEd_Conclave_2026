@@ -219,7 +219,7 @@ ggplot(students, aes(x = ______)) +
 ggplot(students, aes(x = pretest)) +
   geom_histogram(binwidth = 5) +
   labs(
-    title = "Pre-test scores across the 2023-2025 cohort",
+    title = "Pre-test scores across the 2022–2024 cohort",
     x = "Pre-test score (%)",
     y = "Number of students"
   )
@@ -228,9 +228,17 @@ ggplot(students, aes(x = pretest)) +
 ```{webr}
 #| exercise: ex_hist
 #| check: true
+# aes() is equally valid on the plot or on the layer, so look in both places.
+mapped_x <- function(p) {
+  from_plot <- if (!is.null(p$mapping$x)) rlang::as_label(p$mapping$x) else NULL
+  from_layers <- unlist(lapply(p$layers, function(l) {
+    if (!is.null(l$mapping$x)) rlang::as_label(l$mapping$x) else NULL
+  }))
+  c(from_plot, from_layers)
+}
 if (!inherits(.result, "ggplot")) {
   list(correct = FALSE, message = "That did not produce a plot. If there is a red error above, read that first — a geom you were not asked for, such as geom_point(), needs a y as well as an x. Otherwise, start with ggplot(students, aes(x = pretest)).")
-} else if (!identical(rlang::as_label(.result$mapping$x), "pretest")) {
+} else if (!("pretest" %in% mapped_x(.result))) {
   list(correct = FALSE, message = "Map pretest to x inside aes().")
 } else if (!any(vapply(.result$layers, function(l) inherits(l$geom, "GeomBar"), logical(1)))) {
   list(correct = FALSE, message = "Add geom_histogram() to draw the bars.")
@@ -276,13 +284,21 @@ ggplot(students, aes(x = study_hours, y = gain, colour = rural_background)) +
 ```{webr}
 #| exercise: ex_scatter
 #| check: true
+# aes() is equally valid on the plot or on the layer, so look in both places.
+mapped <- function(p, aesthetic) {
+  from_plot <- if (!is.null(p$mapping[[aesthetic]])) rlang::as_label(p$mapping[[aesthetic]]) else NULL
+  from_layers <- unlist(lapply(p$layers, function(l) {
+    if (!is.null(l$mapping[[aesthetic]])) rlang::as_label(l$mapping[[aesthetic]]) else NULL
+  }))
+  c(from_plot, from_layers)
+}
 if (!inherits(.result, "ggplot")) {
   list(correct = FALSE, message = "That did not produce a plot. If there is a red error above, read that first. Otherwise, start with ggplot(students, aes(...)) and add a geom with +.")
-} else if (!identical(rlang::as_label(.result$mapping$x), "study_hours")) {
+} else if (!("study_hours" %in% mapped(.result, "x"))) {
   list(correct = FALSE, message = "Map study_hours to x inside aes().")
-} else if (!identical(rlang::as_label(.result$mapping$y), "gain")) {
+} else if (!("gain" %in% mapped(.result, "y"))) {
   list(correct = FALSE, message = "Map gain to y inside aes(), next to the x mapping and separated by a comma.")
-} else if (!identical(rlang::as_label(.result$mapping$colour), "rural_background")) {
+} else if (!("rural_background" %in% mapped(.result, "colour"))) {
   list(correct = FALSE, message = "Map rural_background to colour inside aes(). For points it is colour, not fill — fill colours an area, colour draws a line or a dot.")
 } else if (!any(vapply(.result$layers, function(l) inherits(l$geom, "GeomPoint"), logical(1)))) {
   list(correct = FALSE, message = "The mappings are right, but nothing is being drawn yet. Add + geom_point().")

@@ -214,7 +214,7 @@ students |>
 #| exercise: ex_filter
 #| check: true
 expected_ids <- students |>
-  dplyr::filter(batch == "2024", attendance_pct > 85) |>
+  dplyr::filter(batch == 2024, attendance_pct > 85) |>
   dplyr::pull(student_id) |>
   sort()
 if (!is.data.frame(.result)) {
@@ -222,7 +222,7 @@ if (!is.data.frame(.result)) {
 } else if (identical(sort(.result$student_id), expected_ids)) {
   list(correct = TRUE, message = "Correct.")
 } else {
-  list(correct = FALSE, message = "Check both conditions: batch == \"2024\" AND attendance_pct > 85.")
+  list(correct = FALSE, message = "Check both conditions: batch == 2024 AND attendance_pct > 85. batch is a number here, so 2024 needs no quotation marks.")
 }
 ```
 
@@ -273,17 +273,24 @@ if (!is.data.frame(.result)) {
   list(correct = FALSE, message = "Expected one row per teaching arm, and there are two arms. Did you group_by(teaching_arm) before summarising?")
 } else {
   nums <- Filter(is.numeric, as.list(.result))
-  has_n <- any(vapply(nums, function(x) isTRUE(all.equal(sort(as.numeric(x)), c(120, 120))), logical(1)))
+  # A count column, however the missing scores were handled: whole numbers, one
+  # per arm, adding up to somewhere between "every student" (240) and "every
+  # student with a posttest score" (229).
+  looks_like_count <- function(x) {
+    v <- as.numeric(x)
+    !anyNA(v) && all(v == round(v)) && all(v >= 1) && sum(v) >= 200 && sum(v) <= 240
+  }
+  has_n <- any(vapply(nums, looks_like_count, logical(1)))
   right_mean <- any(vapply(nums, function(x) isTRUE(all.equal(sort(as.numeric(x)), target, tolerance = 1e-2)), logical(1)))
   any_na <- any(vapply(nums, function(x) any(is.na(x)), logical(1)))
   if (right_mean && has_n) {
-    list(correct = TRUE, message = "Correct — 76.4 in the flipped arm against 70.7 in the traditional one, 120 students in each. You needed na.rm = TRUE to get there: without it, the eleven missing posttest scores turn both means into NA.")
+    list(correct = TRUE, message = "Correct — 76.4 in the flipped arm against 70.7 in the traditional one. Either route to that answer is right: na.rm = TRUE inside mean(), or dropping the missing rows first with filter(!is.na(posttest)). What you cannot do is ignore them — with neither guard, the eleven missing posttest scores turn both means into NA. The two routes do give different counts (120 per arm if you kept every student, 113 and 116 if you dropped the eleven), so always report the n you actually averaged.")
   } else if (any_na) {
     list(correct = FALSE, message = "You got NA. Eleven students have no posttest score, and mean() of anything containing NA is NA. Add na.rm = TRUE inside mean() to average the students who do have a score.")
   } else if (right_mean) {
-    list(correct = FALSE, message = "The means are right, but the count is missing. Add n = n() inside the same summarise().")
+    list(correct = FALSE, message = "The means are right, but there is no count column. Add n = n() inside the same summarise().")
   } else if (has_n) {
-    list(correct = FALSE, message = "The counts are right, but the means are not. You want mean(posttest, na.rm = TRUE) — check you are averaging posttest and not another column.")
+    list(correct = FALSE, message = "The count is there, but the mean is missing or wrong. You want mean_posttest = mean(posttest, na.rm = TRUE) — check you are averaging posttest and not another column.")
   } else {
     list(correct = FALSE, message = "Two things inside one summarise(): n = n() and mean_posttest = mean(posttest, na.rm = TRUE).")
   }

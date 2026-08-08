@@ -115,14 +115,19 @@ osce <- c(78, 70, 91, 55, 83)
 ```{webr}
 #| exercise: ex_vector
 #| check: true
-if (identical(.result, c(78, 70, 91, 55, 83))) {
-  list(correct = TRUE, message = "Correct — that is a numeric vector of five marks.")
-} else if (is.character(.result)) {
+target <- c(78, 70, 91, 55, 83)
+if (is.character(.result)) {
   list(correct = FALSE, message = "Those are text, not numbers. Drop the quotation marks.")
+} else if (!is.numeric(.result)) {
+  list(correct = FALSE, message = "That is not a numeric vector. Use c() to combine the five marks: c(78, 70, 91, 55, 83).")
 } else if (length(.result) != 5) {
-  list(correct = FALSE, message = "You need all five marks, in order.")
+  list(correct = FALSE, message = "There should be five marks in the vector, one per student: 78, 70, 91, 55 and 83.")
+} else if (isTRUE(all.equal(as.numeric(.result), target))) {
+  list(correct = TRUE, message = "Correct — that is a numeric vector of five marks.")
+} else if (isTRUE(all.equal(sort(as.numeric(.result)), sort(target)))) {
+  list(correct = TRUE, message = "Correct — all five marks are there. You have put them in a different order from the question, which is fine: these are a set of five marks, c() keeps whatever order you give it, and nothing later on this page depends on the order.")
 } else {
-  list(correct = FALSE, message = "Use c() to combine the five marks: c(78, 70, ...).")
+  list(correct = FALSE, message = "Five numbers, but not the five marks asked for. The scores were 78, 70, 91, 55 and 83.")
 }
 ```
 
@@ -156,11 +161,11 @@ sum(osce >= 70)
 #| exercise: ex_count
 #| check: true
 if (identical(as.numeric(.result), 4)) {
-  list(correct = TRUE, message = "Correct — four marks are 70 or above.")
+  list(correct = TRUE, message = "Correct — the answer is 4: the marks 78, 70, 91 and 83 are all 70 or above. One caution, because this check can only see your answer and not your code: other comparisons also happen to give 4 on these five marks, so satisfy yourself that you wrote osce >= 70. The >= is what keeps the student who scored exactly 70.")
 } else if (identical(as.numeric(.result), 3)) {
-  list(correct = FALSE, message = "Close. You used > 70, which excludes a mark of exactly 70. Use >=.")
+  list(correct = FALSE, message = "Not quite — you have 3, and the answer is 4. The usual cause is > where you need >=: osce > 70 drops the student who scored exactly 70.")
 } else {
-  list(correct = FALSE, message = "Compare the whole vector at once: osce >= 70.")
+  list(correct = FALSE, message = "Not the right count. osce >= 70 compares all five marks at once and gives five TRUE/FALSE values; sum() then counts the TRUEs, which should come to 4.")
 }
 ```
 
