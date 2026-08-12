@@ -273,22 +273,39 @@ if (!is.data.frame(.result)) {
   list(correct = FALSE, message = "Expected one row per teaching arm, and there are two arms. Did you group_by(teaching_arm) before summarising?")
 } else {
   nums <- Filter(is.numeric, as.list(.result))
-  # A count column, however the missing scores were handled: whole numbers, one
-  # per arm, adding up to somewhere between "every student" (240) and "every
-  # student with a posttest score" (229).
-  looks_like_count <- function(x) {
+  # A count has to be the number of rows in each arm under one of the routes a
+  # learner might legitimately take: keep everybody, drop the students with no
+  # posttest score, or drop every incomplete row. Any other whole number is not
+  # a group size, so summarise(total = sum(some_condition)) is not mistaken for
+  # n(). Derived from students, not hard-coded.
+  group_sizes <- lapply(
+    list(students,
+         students[!is.na(students$posttest), , drop = FALSE],
+         stats::na.omit(students)),
+    function(d) sort(as.numeric(table(d$teaching_arm)))
+  )
+  is_mean <- vapply(nums, function(x) isTRUE(all.equal(sort(as.numeric(x)), target, tolerance = 1e-2)), logical(1))
+  others <- nums[!is_mean]
+  whole_number <- function(x) {
     v <- as.numeric(x)
-    !anyNA(v) && all(v == round(v)) && all(v >= 1) && sum(v) >= 200 && sum(v) <= 240
+    !anyNA(v) && all(v == round(v)) && all(v >= 1)
   }
-  has_n <- any(vapply(nums, looks_like_count, logical(1)))
-  right_mean <- any(vapply(nums, function(x) isTRUE(all.equal(sort(as.numeric(x)), target, tolerance = 1e-2)), logical(1)))
+  is_group_size <- function(x) {
+    v <- sort(as.numeric(x))
+    whole_number(v) && any(vapply(group_sizes, function(k) isTRUE(all.equal(v, k)), logical(1)))
+  }
+  right_mean <- any(is_mean)
+  has_n <- any(vapply(others, is_group_size, logical(1)))
+  other_whole <- any(vapply(others, whole_number, logical(1)))
   any_na <- any(vapply(nums, function(x) any(is.na(x)), logical(1)))
   if (right_mean && has_n) {
-    list(correct = TRUE, message = "Correct — 76.4 in the flipped arm against 70.7 in the traditional one. Either route to that answer is right: na.rm = TRUE inside mean(), or dropping the missing rows first with filter(!is.na(posttest)). What you cannot do is ignore them — with neither guard, the eleven missing posttest scores turn both means into NA. The two routes do give different counts (120 per arm if you kept every student, 113 and 116 if you dropped the eleven), so always report the n you actually averaged.")
+    list(correct = TRUE, message = "Correct — 76.4 in the flipped arm against 70.7 in the traditional one. Either route to that answer is right: na.rm = TRUE inside mean(), or dropping the students with no posttest score before you summarise. What you cannot do is ignore them — with neither guard, the eleven missing posttest scores turn both means into NA. The routes leave you with different numbers of students, so report the n you actually averaged rather than assuming it is 120.")
   } else if (any_na) {
     list(correct = FALSE, message = "You got NA. Eleven students have no posttest score, and mean() of anything containing NA is NA. Add na.rm = TRUE inside mean() to average the students who do have a score.")
+  } else if (right_mean && other_whole) {
+    list(correct = FALSE, message = "The means are right, and there is a whole-number column beside them, but it is not the number of students in each arm. n = n() counts the rows in the group — check you have not counted something else.")
   } else if (right_mean) {
-    list(correct = FALSE, message = "The means are right, but there is no count column. Add n = n() inside the same summarise().")
+    list(correct = FALSE, message = "The means are right, but there is no count beside them. Add n = n() inside the same summarise().")
   } else if (has_n) {
     list(correct = FALSE, message = "The count is there, but the mean is missing or wrong. You want mean_posttest = mean(posttest, na.rm = TRUE) — check you are averaging posttest and not another column.")
   } else {

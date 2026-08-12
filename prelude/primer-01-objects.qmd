@@ -160,10 +160,21 @@ sum(osce >= 70)
 ```{webr}
 #| exercise: ex_count
 #| check: true
-if (identical(as.numeric(.result), 4)) {
-  list(correct = TRUE, message = "Correct — the answer is 4: the marks 78, 70, 91 and 83 are all 70 or above. One caution, because this check can only see your answer and not your code: other comparisons also happen to give 4 on these five marks, so satisfy yourself that you wrote osce >= 70. The >= is what keeps the student who scored exactly 70.")
-} else if (identical(as.numeric(.result), 3)) {
-  list(correct = FALSE, message = "Not quite — you have 3, and the answer is 4. The usual cause is > where you need >=: osce > 70 drops the student who scored exactly 70.")
+# The second and last check in these primers that reads your code rather than
+# your answer: >= against > is the lesson here, and the value 4 alone cannot
+# prove which you used. fixed = TRUE searches for those two characters as a
+# literal string rather than as a regular expression, so nothing in the
+# pattern can ever be read as a metacharacter.
+used_ge <- any(grepl(">=", .user_code, fixed = TRUE))
+value <- if (is.numeric(.result) || is.logical(.result)) as.numeric(.result) else NA_real_
+if (identical(value, 4) && used_ge) {
+  list(correct = TRUE, message = "Correct — 4. Four of the five marks (78, 70, 91 and 83) are 70 or above, and your code uses >=, which is the comparison that keeps a mark of exactly 70 rather than dropping it.")
+} else if (identical(value, 4)) {
+  list(correct = FALSE, message = "The count is right — 4 — but the comparison is not the one you were asked for: there is no >= anywhere in your code. Several different comparisons happen to give 4 on these five marks, so the number alone does not show you counted the right thing. Count the marks that are 70 or above: sum(osce >= 70).")
+} else if (identical(value, 3) && used_ge) {
+  list(correct = FALSE, message = "Not quite — you have 3, and the answer is 4. You have used >=, so check the number you are comparing against: the bar is 70.")
+} else if (identical(value, 3)) {
+  list(correct = FALSE, message = "Not quite — you have 3, and the answer is 4. There is no >= in your code, and the usual cause is > where you need >=: osce > 70 drops the student who scored exactly 70.")
 } else {
   list(correct = FALSE, message = "Not the right count. osce >= 70 compares all five marks at once and gives five TRUE/FALSE values; sum() then counts the TRUEs, which should come to 4.")
 }
