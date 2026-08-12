@@ -129,8 +129,9 @@ c(16, 25, 36, 49) |> mean() |> sqrt() |> round(2)
 ```{webr}
 #| exercise: ex_pipe
 #| check: true
-# The only check in these primers that reads your code rather than your answer:
-# the pipe is the lesson here, and the value 5.61 alone cannot prove you used it.
+# One of only two checks in these primers that read your code rather than your
+# answer (the other is primer 1's >= exercise): the pipe is the lesson here, and
+# the value 5.61 alone cannot prove you used it.
 used_pipe <- grepl("|>", .user_code, fixed = TRUE)
 right_answer <- isTRUE(all.equal(as.numeric(.result), 5.61))
 if (right_answer && used_pipe) {
