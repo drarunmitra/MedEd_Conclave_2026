@@ -62,7 +62,7 @@ thesis/
 Or, within one document, pull in child files:
 
 ```markdown
-{{< include _methods.qmd >}}
+{{{< include _methods.qmd >}}}
 ```
 
 Files beginning with an underscore are not rendered on their own — exactly
@@ -77,17 +77,17 @@ seconds, which is the difference between rendering constantly and avoiding it.
 
 ## Shortcodes
 
-Small `{{< >}}` directives that expand at render time:
+Small `{{{< >}}}` directives that expand at render time:
 
 | Shortcode | Does |
 |---|---|
-| `{{< include _file.qmd >}}` | Insert another file |
-| `{{< video url >}}` | Embed a video |
-| `{{< pagebreak >}}` | Page break in Word/PDF |
-| `{{< meta title >}}` | Reuse a YAML field in the text |
-| `{{< kbd Ctrl-S >}}` | Render a keyboard key |
+| `{{{< include _file.qmd >}}}` | Insert another file |
+| `{{{< video url >}}}` | Embed a video |
+| `{{{< pagebreak >}}}` | Page break in Word/PDF |
+| `{{{< meta title >}}}` | Reuse a YAML field in the text |
+| `{{{< kbd Ctrl-S >}}}` | Render a keyboard key |
 
-`{{< meta >}}` is quietly useful: define the study name once in the YAML and
+`{{{< meta >}}}` is quietly useful: define the study name once in the YAML and
 refer to it everywhere, so a rename is a one-line change.
 
 ## Callouts
@@ -192,7 +192,7 @@ Turn yesterday's `report.qmd` into a small structured manuscript.
 1. Add a proper YAML header: title, at least two authors with affiliations,
    an abstract, and `format: html` plus `docx`.
 2. Split it: move your setup chunk and data import into `_setup.qmd` and pull
-   it in with `{{< include _setup.qmd >}}`.
+   it in with `{{{< include _setup.qmd >}}}`.
 3. Add sections: Background, Methods, Results, Limitations.
 4. In Methods, state the missing-data decision you made yesterday — in prose,
    with the count reported through inline code.
@@ -223,7 +223,7 @@ execute:
   warning: false
 ---
 
-{{< include _setup.qmd >}}
+{{{< include _setup.qmd >}}}
 
 ## Background
 
@@ -267,7 +267,7 @@ students <- read_csv("data/meded_students.csv")
 ::: {.callout-note appearance="minimal"}
 - Same source, different `format:` — article, slides, website, thesis.
 - Split long documents; prefix fragments with `_` and pull them in with
-  `{{< include >}}`.
+  `{{{< include >}}}`.
 - `reference-doc:` and `csl:` turn journal reformatting into one line.
 - `quarto publish gh-pages` puts it online in one command.
 - Check what your rendered output reveals before you publish it.

@@ -45,7 +45,7 @@ thesis/
 └── references.bib
 ```
 
-Or inline: `{{< include _methods.qmd >}}`
+Or inline: `{{{< include _methods.qmd >}}}`
 
 . . .
 
