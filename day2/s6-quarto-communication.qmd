@@ -25,7 +25,7 @@ subtitle: "Dynamic documentation: articles, blogs, websites, theses"
 2. Split a long document into `include`d child files.
 3. Use shortcodes, callouts and cross-references to structure a document.
 4. Produce a journal-formatted manuscript with a `.bib` bibliography and a
-   CSL style.
+   CSL style, citing sources with `[@key]` as you write.
 5. Publish a website to GitHub Pages.
 
 ## Yesterday you rendered a document. Today, a body of work.
@@ -156,6 +156,66 @@ exploring after this workshop. See
 [quarto.org/docs/manuscripts](https://quarto.org/docs/manuscripts/).
 :::
 
+## Citing as you write
+
+`bibliography:` and `csl:` above are only half of it. The other half is one
+piece of syntax:
+
+```markdown
+Flipped classroom methods improve short-term recall [@prober2013].
+Two trials report no difference at six months [@chen2019; @okoro2021].
+As @prober2013 notes, contact time is the constraint.
+```
+
+Square brackets put the citation in parentheses; without them the author's
+name becomes part of your sentence. Semicolons separate multiple sources.
+
+Each key matches an entry in your `.bib` file:
+
+```bibtex
+@article{prober2013,
+  author  = {Prober, Charles G. and Heath, Chip},
+  title   = {Lecture Halls without Lectures},
+  journal = {New England Journal of Medicine},
+  year    = {2013},
+  volume  = {366},
+  pages   = {1657--1659},
+  doi     = {10.1056/NEJMp1202451}
+}
+```
+
+Zotero and Mendeley both export `.bib` directly, and RStudio autocompletes
+`@` keys once `bibliography:` is set. The reference list assembles itself at
+the end of the document — you never type it, and it only ever contains what
+you actually cited.
+
+::: {.callout-tip}
+## Why this matters more than it sounds
+Reformatting references by hand is the single most wasted evening in medical
+writing. A rejection from a Vancouver journal to an APA one is a `csl:` change
+and a re-render, not a night of retyping full stops.
+:::
+
+## Showing the finding, keeping the code
+
+A clinical reader wants the result. A reviewer, or you in six months, wants
+the code that produced it. `code-fold` gives both from one source:
+
+```yaml
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+```
+
+The output appears; the code sits behind a toggle. Nothing is hidden from
+anyone who wants it, and nothing clutters the page for anyone who does not.
+Use it for anything you circulate to clinical colleagues.
+
+Note this is an HTML idea. In `docx` and `pdf` there is no toggle to click —
+there, `echo: false` is the honest equivalent, with the code available in the
+repository instead.
+
 ## Publishing a website
 
 This site is a Quarto website. Its entire configuration is one `_quarto.yml`
@@ -269,6 +329,10 @@ students <- read_csv("data/meded_students.csv")
 - Split long documents; prefix fragments with `_` and pull them in with
   `{{{< include >}}}`.
 - `reference-doc:` and `csl:` turn journal reformatting into one line.
+- Cite with `[@key]` as you write; the reference list assembles itself and
+  contains only what you actually cited.
+- `code-fold: true` shows a clinical reader the finding and a reviewer the
+  code, from one source.
 - `quarto publish gh-pages` puts it online in one command.
 - Check what your rendered output reveals before you publish it.
 :::
