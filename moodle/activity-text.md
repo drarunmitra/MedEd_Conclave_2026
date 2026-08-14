@@ -11,7 +11,7 @@ Two rules held throughout, both from the design (§3, decision 3):
 - **Every activity says how long it takes**, because the invitation email
   promises "about two hours in total" and participants budget accordingly.
 
-Replace `{{SITE_URL}}`, `{{MOODLE_URL}}`, `{{VENUE}}` and `{{CONTACT_EMAIL}}`
+Replace `https://drarunmitra.github.io/MedEd_Conclave_2026`, `https://setfacilitysaral2.org/course/view.php?id=394`, `{{VENUE}}` and `{{CONTACT_EMAIL}}`
 before publishing.
 
 ---
@@ -83,7 +83,7 @@ before publishing.
 >
 > **Where things live.** This course carries instructions, dates and reminders.
 > The teaching material — every page, dataset, slide and code example — is on the
-> workshop website at {{SITE_URL}}, and it remains there after the workshop.
+> workshop website at https://drarunmitra.github.io/MedEd_Conclave_2026, and it remains there after the workshop.
 > Links in this course open the website in a new tab.
 >
 > **Why the primers run in a separate tab.** The interactive primers run R inside
@@ -103,7 +103,7 @@ before publishing.
 ### URL · The workshop website
 
 *Name:* `The workshop website`
-*URL:* `{{SITE_URL}}/`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/`
 
 *Description:*
 
@@ -141,7 +141,7 @@ people who never log in.
 ### URL · Install R, RStudio and Quarto
 
 *Name:* `Install R, RStudio and Quarto`
-*URL:* `{{SITE_URL}}/prelude/install.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/install.html`
 
 *Description:*
 
@@ -155,7 +155,7 @@ people who never log in.
 ### URL · Install the packages and run the setup check
 
 *Name:* `Install the packages and run the setup check`
-*URL:* `{{SITE_URL}}/prelude/check-setup.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/check-setup.html`
 
 *Description:*
 
@@ -197,7 +197,7 @@ people who never log in.
 > console are welcome.
 >
 > Before posting, it is worth checking
-> [Troubleshooting]({{SITE_URL}}/resources/troubleshooting.html) in Section 4 —
+> [Troubleshooting](https://drarunmitra.github.io/MedEd_Conclave_2026/resources/troubleshooting.html) in Section 4 —
 > it covers the errors behind most installation failures.
 
 ---
@@ -229,7 +229,7 @@ people who never log in.
 ### URL · R primer (RStudio track)
 
 *Name:* `R primer — the RStudio version`
-*URL:* `{{SITE_URL}}/prelude/r-primer.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/r-primer.html`
 
 *Description:*
 
@@ -240,7 +240,7 @@ people who never log in.
 ### URL · Primer 1
 
 *Name:* `Primer 1 · Objects, functions and vectors`
-*URL:* `{{SITE_URL}}/prelude/primer-01-objects.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-01-objects.html`
 
 *Description:*
 
@@ -252,7 +252,7 @@ people who never log in.
 ### URL · Primer 2
 
 *Name:* `Primer 2 · Tibbles: the data rectangle`
-*URL:* `{{SITE_URL}}/prelude/primer-02-tibbles.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-02-tibbles.html`
 
 *Description:*
 
@@ -263,7 +263,7 @@ people who never log in.
 ### URL · Primer 3
 
 *Name:* `Primer 3 · Packages and the native pipe`
-*URL:* `{{SITE_URL}}/prelude/primer-03-packages-pipe.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-03-packages-pipe.html`
 
 *Description:*
 
@@ -275,7 +275,7 @@ people who never log in.
 ### URL · Primer 4
 
 *Name:* `Primer 4 · The five dplyr verbs`
-*URL:* `{{SITE_URL}}/prelude/primer-04-dplyr-verbs.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-04-dplyr-verbs.html`
 
 *Description:*
 
@@ -287,7 +287,7 @@ people who never log in.
 ### URL · Primer 5
 
 *Name:* `Primer 5 · Your first plot`
-*URL:* `{{SITE_URL}}/prelude/primer-05-first-plot.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-05-first-plot.html`
 
 *Description:*
 
@@ -326,7 +326,7 @@ Per-quiz closing line, appended to the above:
 ### URL · Datasets
 
 *Name:* `Download the workshop datasets`
-*URL:* `{{SITE_URL}}/prelude/data.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/data.html`
 
 *Description:*
 
@@ -341,7 +341,7 @@ Per-quiz closing line, appended to the above:
 ### URL · Pre-reading
 
 *Name:* `Pre-reading — twenty minutes`
-*URL:* `{{SITE_URL}}/prelude/pre-reading.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/pre-reading.html`
 
 *Description:*
 
@@ -355,7 +355,7 @@ Per-quiz closing line, appended to the above:
 ### URL · Introduction deck
 
 *Name:* `The workshop introduction deck`
-*URL:* `{{SITE_URL}}/slides/workshop_intro.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/slides/workshop_intro.html`
 
 *Description:*
 
@@ -405,7 +405,7 @@ Per-quiz closing line, appended to the above:
 ### URL · Troubleshooting
 
 *Name:* `Troubleshooting — start here when something breaks`
-*URL:* `{{SITE_URL}}/resources/troubleshooting.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/resources/troubleshooting.html`
 
 *Description:*
 
@@ -416,7 +416,7 @@ Per-quiz closing line, appended to the above:
 ### URL · Cheatsheet
 
 *Name:* `R cheatsheet`
-*URL:* `{{SITE_URL}}/resources/cheatsheet.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/resources/cheatsheet.html`
 
 *Description:*
 
@@ -426,7 +426,7 @@ Per-quiz closing line, appended to the above:
 ### URL · Glossary
 
 *Name:* `Glossary`
-*URL:* `{{SITE_URL}}/resources/glossary.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/resources/glossary.html`
 
 *Description:*
 
@@ -436,7 +436,7 @@ Per-quiz closing line, appended to the above:
 ### URL · Further reading
 
 *Name:* `Further reading`
-*URL:* `{{SITE_URL}}/resources/further-reading.html`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/resources/further-reading.html`
 
 *Description:*
 

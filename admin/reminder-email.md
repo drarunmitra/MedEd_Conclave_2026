@@ -13,7 +13,7 @@ The R & Reproducible Research Workshop begins on **Wednesday 9 September at
 **One request.** If you have not yet run the setup check, please do it this
 week rather than on the morning:
 
-{{SITE_URL}}/prelude/check-setup.html
+https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/check-setup.html
 
 It takes fifteen minutes and prints a clear list of what is and is not
 working. Please upload the output in Section 1 of the prelude course whichever
@@ -22,7 +22,7 @@ diagnose it in a full room on Wednesday. Participants who arrive with an
 unconfigured laptop typically lose the first session to downloads, and there is
 no way for us to make that time up.
 
-**Not yet done the Prelude?** Everything is in the course at {{MOODLE_URL}}.
+**Not yet done the Prelude?** Everything is in the course at https://setfacilitysaral2.org/course/view.php?id=394.
 The parts that matter most, in order:
 
 1. Install R, RStudio and Quarto — 30 minutes

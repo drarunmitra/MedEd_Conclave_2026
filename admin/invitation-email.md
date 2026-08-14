@@ -17,11 +17,11 @@ writing code on your own laptop. No prior programming experience is assumed.
 
 **Everything to do before you arrive is in one place:**
 
-{{MOODLE_URL}}
+https://setfacilitysaral2.org/course/view.php?id=394
 
 You are already enrolled — sign in with your usual institutional credentials.
 That course carries the instructions, the deadlines and one short pre-test. The
-teaching material itself is on the workshop website, {{SITE_URL}}, which stays
+teaching material itself is on the workshop website, https://drarunmitra.github.io/MedEd_Conclave_2026, which stays
 online after the conclave ends.
 
 Budget about two hours in total, spread over a few evenings. Three targets:

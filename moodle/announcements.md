@@ -129,7 +129,7 @@ appeal does not.
 > **One request.** If you have not run the setup check, do it this weekend rather
 > than on the morning:
 >
-> {{SITE_URL}}/prelude/check-setup.html
+> https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/check-setup.html
 >
 > Fifteen minutes, and it prints a clear list of what is and is not working.
 > Upload the output in Section 1 whichever way it comes out. We would much rather

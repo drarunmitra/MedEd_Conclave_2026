@@ -40,6 +40,12 @@ jobs:
           packages: |
             any::tidyverse
             any::gtsummary
+            # gtsummary loads these at run time rather than declaring them as
+            # hard dependencies, so setup-r-dependencies does not pull them in.
+            # Without broom.helpers the s7-gtsummary render dies at
+            # tbl_regression() with 'The package "broom.helpers" is required'.
+            any::broom
+            any::broom.helpers
             any::janitor
             any::knitr
             any::rmarkdown

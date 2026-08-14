@@ -3,24 +3,28 @@
 Build guide for the MedEd Conclave 2026 prelude course. Names and description
 text live in `activity-text.md`; this file is the structure and the settings.
 
-Read `README.md` first — there are three preconditions to check with the Moodle
-admin before you start.
+Read `README.md` first. Its preconditions table records what was verified on
+SARAL 2.0 on 14 August 2026 — including the two findings that change how you
+build: **GIFT, not Moodle XML**, for the question banks, and **In pop-up**, not
+the site-default *Embed*, on every URL resource.
 
 ---
 
 ## §0 Course settings
 
-| Setting | Value |
+The prelude is being built **into the existing SARAL course 394**, not a new
+one. It arrived as an empty shell — General plus four sections named "New
+section", all hidden from students, no activities — which is exactly the shape
+this blueprint needs. Its name and summary stay as the faculty set them.
+
+| Setting | Value on course 394 |
 |---|---|
-| Full name | R & Reproducible Research — Prelude |
-| Short name | MEDED-R-PRELUDE-2026 |
-| Format | **Topics**, 5 sections |
-| Course layout | Show all sections on one page |
-| Course start date | Mon 17 August 2026, 09:00 |
-| Course end date | Tue 8 September 2026, 23:59 |
-| Show gradebook to students | **No** — nothing here is a grade |
-| Completion tracking | **Yes** |
-| Show activity completion conditions | Yes |
+| Full name | Reproducible and AI-Augmented Medical Education Research *(unchanged)* |
+| Category | SET Facility |
+| Format | **Custom sections** — this Moodle's name for Topics ✓ |
+| Course visibility | Show ✓ |
+| Completion tracking | **Yes** ✓ |
+| Show gradebook to students | Set to **No** — nothing here is a grade |
 | Group mode | No groups (groups are allotted at registration, on the day) |
 
 Everything is visible from day one. **No section and no activity is gated on
@@ -30,6 +34,7 @@ instead of fixing their install, which is the opposite of the point.
 Dates below are *targets*, stated in prose and set as the activities' "due" or
 "expect completed on" dates so they appear in each participant's Moodle
 calendar. Nothing closes early.
+
 
 ---
 
@@ -53,7 +58,7 @@ Section summaries are in `activity-text.md` §1.
 |---|---|---|---|
 | 1 | Label | *(orientation text)* | — |
 | 2 | Page | How this course works | — |
-| 3 | URL | The workshop website | `{{SITE_URL}}/` |
+| 3 | URL | The workshop website | `https://drarunmitra.github.io/MedEd_Conclave_2026/` |
 | 4 | Quiz | **Pre-test (10 minutes)** | — |
 | 5 | Forum | Announcements | The default news forum. Do not add a second one. |
 
@@ -88,8 +93,8 @@ to do the pre-test lands on it.
 
 | Order | Type | Name | Points at |
 |---|---|---|---|
-| 1 | URL | Install R, RStudio and Quarto | `{{SITE_URL}}/prelude/install.html` |
-| 2 | URL | Install the packages and run the setup check | `{{SITE_URL}}/prelude/check-setup.html` |
+| 1 | URL | Install R, RStudio and Quarto | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/install.html` |
+| 2 | URL | Install the packages and run the setup check | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/check-setup.html` |
 | 3 | Assignment | **Show us your setup check passed** | — |
 | 4 | Forum | Help desk — stuck on something? | — |
 
@@ -127,25 +132,32 @@ failing run in place instead of starting an email thread.
 | Order | Type | Name | Points at |
 |---|---|---|---|
 | 1 | Label | *(which track to choose)* | — |
-| 2 | URL | R primer — the RStudio version | `{{SITE_URL}}/prelude/r-primer.html` |
-| 3 | URL | Primer 1 · Objects, functions and vectors | `{{SITE_URL}}/prelude/primer-01-objects.html` |
+| 2 | URL | R primer — the RStudio version | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/r-primer.html` |
+| 3 | URL | Primer 1 · Objects, functions and vectors | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-01-objects.html` |
 | 4 | Quiz | Check yourself · Primer 1 | 4 questions |
-| 5 | URL | Primer 2 · Tibbles | `{{SITE_URL}}/prelude/primer-02-tibbles.html` |
+| 5 | URL | Primer 2 · Tibbles | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-02-tibbles.html` |
 | 6 | Quiz | Check yourself · Primer 2 | 4 questions |
-| 7 | URL | Primer 3 · Packages and the pipe | `{{SITE_URL}}/prelude/primer-03-packages-pipe.html` |
+| 7 | URL | Primer 3 · Packages and the pipe | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-03-packages-pipe.html` |
 | 8 | Quiz | Check yourself · Primer 3 | 4 questions |
-| 9 | URL | Primer 4 · The five dplyr verbs | `{{SITE_URL}}/prelude/primer-04-dplyr-verbs.html` |
+| 9 | URL | Primer 4 · The five dplyr verbs | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-04-dplyr-verbs.html` |
 | 10 | Quiz | Check yourself · Primer 4 | 4 questions |
-| 11 | URL | Primer 5 · Your first plot | `{{SITE_URL}}/prelude/primer-05-first-plot.html` |
+| 11 | URL | Primer 5 · Your first plot | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-05-first-plot.html` |
 | 12 | Quiz | Check yourself · Primer 5 | 4 questions |
 
 ### URL settings — every URL resource in the course
 
 | Setting | Value |
 |---|---|
-| Appearance → Display | **Open** with *Open in new window* ticked, or **In pop-up** |
+| Appearance → Display | **In pop-up** |
 | Display description on course page | **Yes** — the one-line instruction should be readable without a click |
 | Completion | *Student must view this activity* |
+
+The URL module has **no "open in new window" checkbox** — the display dropdown
+is the whole control. *In pop-up* is the option that opens a separate top-level
+window, which is what the primers need. *Open* also keeps them top-level but
+replaces the course page in the same tab, so the participant must use Back.
+**The site default is *Embed*, so this must be changed on every single URL
+resource.**
 
 **Do not set Display: Embed.** The primers cost 16–37 MB on first load and
 current browsers partition the HTTP cache by top-level site, so an embedded
@@ -181,9 +193,9 @@ primer?
 
 | Order | Type | Name | Points at |
 |---|---|---|---|
-| 1 | URL | Download the workshop datasets | `{{SITE_URL}}/prelude/data.html` |
-| 2 | URL | Pre-reading — twenty minutes | `{{SITE_URL}}/prelude/pre-reading.html` |
-| 3 | URL | The workshop introduction deck | `{{SITE_URL}}/slides/workshop_intro.html` |
+| 1 | URL | Download the workshop datasets | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/data.html` |
+| 2 | URL | Pre-reading — twenty minutes | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/pre-reading.html` |
+| 3 | URL | The workshop introduction deck | `https://drarunmitra.github.io/MedEd_Conclave_2026/slides/workshop_intro.html` |
 | 4 | Page | What to bring, where to be, when | — |
 
 The logistics Page is the only place in the course that carries information the
@@ -196,10 +208,10 @@ late. It uses `{{VENUE}}` and takes its timings from `schedule.qmd`.
 
 | Order | Type | Name | Points at |
 |---|---|---|---|
-| 1 | URL | Troubleshooting — start here when something breaks | `{{SITE_URL}}/resources/troubleshooting.html` |
-| 2 | URL | R cheatsheet | `{{SITE_URL}}/resources/cheatsheet.html` |
-| 3 | URL | Glossary | `{{SITE_URL}}/resources/glossary.html` |
-| 4 | URL | Further reading | `{{SITE_URL}}/resources/further-reading.html` |
+| 1 | URL | Troubleshooting — start here when something breaks | `https://drarunmitra.github.io/MedEd_Conclave_2026/resources/troubleshooting.html` |
+| 2 | URL | R cheatsheet | `https://drarunmitra.github.io/MedEd_Conclave_2026/resources/cheatsheet.html` |
+| 3 | URL | Glossary | `https://drarunmitra.github.io/MedEd_Conclave_2026/resources/glossary.html` |
+| 4 | URL | Further reading | `https://drarunmitra.github.io/MedEd_Conclave_2026/resources/further-reading.html` |
 | 5 | Label | *(pointer back to the help desk forum)* | — |
 
 Completion tracking on these four: **None**. They are references; ticking them
