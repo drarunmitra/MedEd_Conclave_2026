@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  MedEd Conclave 2026 · Check yourself · Primer 1 — 4 questions.
+  Source page: prelude/primer-01-objects.qmd (objects, functions, vectors).
+  Answerable from that page or from prelude/r-primer.qmd. Nothing needs R to run.
+-->
+<quiz>
+
+  <question type="category">
+    <category>
+      <text>$course$/top/Prelude/Primer 01 · Objects, functions and vectors</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Four questions on Primer 1: the assignment arrow, functions and named arguments, vectors, comparisons and type coercion. Unlimited attempts, immediate feedback, zero weight.</p>]]></text>
+    </info>
+  </question>
+
+  <question type="multichoice">
+    <name><text>P1Q1 Counting with a comparison</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Five students sat an OSCE station and scored 78, 70, 91, 55 and 83.</p><pre><code>osce &lt;- c(78, 70, 91, 55, 83)
+
+sum(osce &gt;= 70)</code></pre><p>What does the second line print?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><code>4</code>. The comparison gives one <code>TRUE</code> or <code>FALSE</code> per student, and <code>sum()</code> counts each <code>TRUE</code> as 1. The bar matters: <code>&gt;=</code> keeps the student who scored exactly 70, <code>&gt;</code> drops them. Whenever a threshold is "70 or above", "at least 40" or "under 5", that single character decides whether a real person is counted.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><code>4</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct — 78, 70, 91 and 83 are all 70 or above.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>3</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That is the answer to <code>sum(osce &gt; 70)</code>, which drops the student who scored exactly 70. <code>&gt;=</code> means "greater than <em>or equal to</em>", so that student is counted and the answer is 4.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>5</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That is how many students there are, which is <code>length(osce)</code>. Only four of them reached 70; the student who scored 55 did not.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>377</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That is the total of the five marks — <code>sum(osce)</code>. Here <code>sum()</code> is being given the <em>comparison</em>, not the marks, so it adds up TRUEs rather than scores.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>P1Q2 Type coercion has consequences</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>You combine three values and R prints this:</p><pre><code>c(1, 2, "three")
+#&gt; [1] "1"     "2"     "three"</code></pre><p>Those quotation marks around <code>1</code> and <code>2</code> matter. What can you no longer do?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A vector holds one type only. Mix them and everything is silently converted to the most permissive type — text — so the numbers stop behaving like numbers. In real data this happens when one cell in a column holds "NA", "-", "&lt;1" or a stray space, and it is why <code>glimpse()</code> showing <code>&lt;chr&gt;</code> where you expected <code>&lt;dbl&gt;</code> is worth a second look.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Anything arithmetic — all three values are now text, so <code>mean()</code> will not work</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct. One piece of text converted the whole vector.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Nothing — R remembers which two were numbers</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>It does not. There is no mixed state: the vector is entirely text now, and <code>"1"</code> is a character that happens to look like a number.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>You can still average the first two, just not the third</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. A vector is all one type by definition, so there are no longer any numbers in it to average. You would have to convert with <code>as.numeric()</code> first, and then decide what to do about <code>"three"</code>.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>You can no longer print it — R errors on mixed types</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>The opposite of the problem. R never errors here; it converts quietly and prints something that looks nearly right, which is exactly why this catches people out.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>P1Q3 What a comparison returns</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p><code>scores</code> holds five marks. What does this line give you?</p><pre><code>scores &gt; 70</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Five <code>TRUE</code>/<code>FALSE</code> values — one per element. R applies the comparison to the whole vector at once, which is why you never need a loop to ask a question of every row. That vector is what <code>sum()</code> counts and what <code>filter()</code> uses to decide which rows to keep.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A vector of five <code>TRUE</code>/<code>FALSE</code> values, one per mark</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct — and that is the building block of everything you will do with <code>filter()</code> on Day 1.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A single <code>TRUE</code> or <code>FALSE</code> for the vector as a whole</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. The comparison is applied element by element, so you get one answer per mark. Collapsing five answers into one takes a further step — <code>any()</code>, <code>all()</code> or <code>sum()</code>.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The marks that are above 70</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Not by itself, though you are one step away: <code>scores[scores &gt; 70]</code> uses those TRUEs and FALSEs to pull out the values. The comparison alone returns the TRUEs and FALSEs, not the marks.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The number of marks above 70</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That is <code>sum(scores &gt; 70)</code>. The comparison produces the TRUEs and FALSEs; <code>sum()</code> is what turns them into a count.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>P1Q4 Named arguments</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does this print?</p><pre><code>round(3.14159, digits = 2)</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><code>3.14</code>. A function takes its arguments in brackets, separated by commas, and naming them — <code>digits = 2</code> rather than just <code>2</code> — makes the line readable to somebody who does not remember the argument order. Prefer named arguments; your reader, including future you, will not have the help page open.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><code>3.14</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct — two decimal places.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>3.142</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That is <code>digits = 3</code>. The argument counts decimal places, not significant figures — for significant figures you want <code>signif()</code>.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>3</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That is <code>round(3.14159)</code>, with no <code>digits</code> at all — the default is zero decimal places.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>2</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No — <code>digits = 2</code> is an instruction about <em>how</em> to round, not the value returned. The function still hands back a rounded version of 3.14159.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+</quiz>

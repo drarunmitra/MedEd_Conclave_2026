@@ -75,9 +75,22 @@ resolve `_extensions/`, failing with a misleading
 Never open a rendered primer via `file://` — the WebAssembly worker is
 blocked. Use `quarto preview`.
 
+## The `moodle/` directory
+Build kit for the pre-workshop Moodle course: blueprint, activity copy,
+announcements and six Moodle XML question banks. **Never move it under
+`admin/`** — `_quarto.yml` publishes `admin/**` as a site resource, which would
+serve the quiz answers publicly. `moodle/` is in neither the render list nor the
+resources list, which is the point. Design record:
+`docs/superpowers/specs/2026-08-14-moodle-prelude-course-design.md`.
+
 ## Placeholders to replace before publishing
-- `SET-TEAM` in `site-url` and `repo-url` (`_quarto.yml`, README)
-- `{{VENUE}}`, `{{SITE_URL}}`, `{{PRETEST_URL}}`, `{{CONTACT_EMAIL}}`,
-  `{{FIRST_NAME}}` in `admin/*.md`
+- ~~`SET-TEAM`~~ — resolved 2026-08-14. The repo is
+  <https://github.com/drarunmitra/MedEd_Conclave_2026> and the site publishes to
+  <https://drarunmitra.github.io/MedEd_Conclave_2026/> via GitHub Actions
+  (`.github/workflows/publish.yml`, Pages source must be "GitHub Actions").
+- `{{VENUE}}`, `{{SITE_URL}}`, `{{PRETEST_URL}}`, `{{MOODLE_URL}}`,
+  `{{CONTACT_EMAIL}}`, `{{FIRST_NAME}}` in `admin/*.md` and `moodle/*.md`
+  (`{{PRETEST_URL}}` is now the pre-test quiz inside the Moodle course; the
+  `moodle/questions/*.xml` banks carry no placeholders and import as they are)
 - Faculty full names/titles and any ORCIDs
 - `admin/agenda.pdf` (linked from schedule.qmd, not yet created)

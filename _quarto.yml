@@ -21,8 +21,8 @@ project:
 website:
   title: "R & Reproducible Research"
   description: "MedEd Conclave 2026 — a two-day hands-on workshop for medical education faculty and researchers."
-  site-url: "https://SET-TEAM.github.io/meded-conclave-2026/"
-  repo-url: "https://github.com/SET-TEAM/meded-conclave-2026"
+  site-url: "https://drarunmitra.github.io/MedEd_Conclave_2026/"
+  repo-url: "https://github.com/drarunmitra/MedEd_Conclave_2026"
   repo-actions: [issue]
   page-navigation: true
   back-to-top-navigation: true
@@ -46,7 +46,7 @@ website:
         href: resources/index.qmd
     right:
       - icon: github
-        href: https://github.com/SET-TEAM/meded-conclave-2026
+        href: https://github.com/drarunmitra/MedEd_Conclave_2026
         aria-label: GitHub repository
 
   sidebar:

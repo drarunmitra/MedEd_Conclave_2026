@@ -23,7 +23,13 @@ downloads instead of writing code.
 | ☐ | *Or*, work through the interactive primers instead — they run in your browser, so a laptop whose R install has not succeeded yet is no obstacle | 45 min | [Interactive primers](primer-01-objects.qmd) |
 | ☐ | Download the workshop datasets | 5 min | [Datasets](data.qmd) |
 | ☐ | Skim the pre-reading | 20 min | [Pre-reading](pre-reading.qmd) |
-| ☐ | Complete the online pre-test | 10 min | *link circulated by the SET Team* |
+| ☐ | Upload your setup-check output, so we know your laptop is ready | 2 min | *Moodle prelude course* |
+| ☐ | Complete the online pre-test | 10 min | *Moodle prelude course* |
+
+The last two happen in the **Moodle prelude course**, whose link the SET Team
+circulates with your invitation. It also carries the weekly targets, five short
+check quizzes and a help-desk forum. Everything else on this checklist lives
+here, on this site, and stays here after the workshop.
 
 ::: {.callout-tip title="Do the interactive primers before you travel"}
 Working through all five pages downloads about 40 MB in total (Primer 5, with

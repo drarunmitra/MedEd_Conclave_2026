@@ -16,15 +16,18 @@ week rather than on the morning:
 {{SITE_URL}}/prelude/check-setup.html
 
 It takes fifteen minutes and prints a clear list of what is and is not
-working. Participants who arrive with an unconfigured laptop typically lose
-the first session to downloads, and there is no way for us to make that time
-up.
+working. Please upload the output in Section 1 of the prelude course whichever
+way it comes out — we would much rather read a failure this weekend than
+diagnose it in a full room on Wednesday. Participants who arrive with an
+unconfigured laptop typically lose the first session to downloads, and there is
+no way for us to make that time up.
 
-**Not yet done the Prelude?** The parts that matter most, in order:
+**Not yet done the Prelude?** Everything is in the course at {{MOODLE_URL}}.
+The parts that matter most, in order:
 
 1. Install R, RStudio and Quarto — 30 minutes
 2. Install the workshop packages and run `check_setup.R` — 15 minutes
-3. Work through the R primer — 45 minutes
+3. Work through the R primers — 45 minutes, in your browser or in RStudio
 
 **Still stuck?** Reply with (a) your operating system, (b) the exact error,
 and (c) the full output of the setup check. We will sort it out before

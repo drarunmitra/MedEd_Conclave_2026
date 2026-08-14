@@ -22,9 +22,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Quarto
+        # Pinned to the version the site and the WebR primers were verified on
+        # (docs/webr-verification-2026-08.md). The extension and _freeze cache
+        # were built with it; a different CI version is an untested render.
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: 1.5.57
+          version: 1.9.36
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2

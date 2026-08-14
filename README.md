@@ -5,7 +5,7 @@ faculty and researchers, **9–10 September 2026**.
 
 Built with [Quarto](https://quarto.org), published to GitHub Pages.
 
-Live site: <https://SET-TEAM.github.io/meded-conclave-2026/>
+Live site: <https://drarunmitra.github.io/MedEd_Conclave_2026/>
 
 ## Faculty
 
@@ -21,7 +21,7 @@ Live site: <https://SET-TEAM.github.io/meded-conclave-2026/>
 Requires R ≥ 4.1 and Quarto ≥ 1.4.
 
 ```bash
-git clone https://github.com/SET-TEAM/meded-conclave-2026.git
+git clone https://github.com/drarunmitra/MedEd_Conclave_2026.git
 cd meded-conclave-2026
 
 # 1. Install the R packages

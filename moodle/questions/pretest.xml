@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  MedEd Conclave 2026 · R & Reproducible Research
+  Pre-test question bank — 10 questions.
+
+  Baseline measurement, taken before any teaching. Deliberately spans the whole
+  workshop, so most of the cohort will not know the later answers: that is the
+  measurement, not a fault. Deferred feedback, one attempt, zero weight.
+
+  No placeholders — this file imports as it is.
+-->
+<quiz>
+
+  <question type="category">
+    <category>
+      <text>$course$/top/Prelude/Pre-test</text>
+    </category>
+    <info format="html">
+      <text><![CDATA[<p>Baseline pre-test, sat before the workshop. Ten questions spanning reproducibility, R fundamentals, tidy data, missing values, dplyr and ggplot2. Not graded; used to pitch Day 1 and to compare against the Day 2 post-test.</p>]]></text>
+    </info>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE01 What reproducible means</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>A colleague sends you the dataset and the R script behind a published paper. You run the script on your own computer and get every number in the paper exactly.</p><p>In the terms used in this workshop, that analysis is:</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Reproducible means the same data and the same code give the same result in someone else's hands. Replication is a stronger and different claim: new data, collected independently, pointing the same way. Session 1 on Day 1 places both on Peng's reproducibility spectrum.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Reproducible — the same data and the same code give the same result</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Replicable — the finding has been confirmed</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Not quite. Replication means an independent team collects new data and reaches the same conclusion. Here the data are the same file, so nothing has been independently confirmed — only recomputed.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Not reproducible, because you did not collect the data yourself</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. Reproducibility is a property of the analysis, not of who gathered the data. Re-running someone else's analysis on their data is exactly what the word describes.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Generalisable — the result would hold in another population</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. Generalisability is about whether the finding transfers to a different population, which running a script cannot tell you anything about.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE02 Why scripted analysis</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>About a fifth of published genomics papers with Excel supplementary files were found to contain gene names silently converted into dates — <em>SEPT2</em> becoming 2-Sep, and so on.</p><p>What is the strongest argument that failure makes?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The damage was done by an invisible, automatic edit that left no record. A script records every step, so the edit either does not happen or is visible in the code. Ziemann et al. (2016) is in the pre-reading; it is the best argument for a scripted workflow you will read.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Analysis steps should be written down as code that can be re-run and inspected</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct. The problem was not the mistake; it was that the mistake left no trace. Code leaves a trace.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Researchers should check their spreadsheets more carefully</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Understandable, but it does not work. The conversion is silent and happens on opening the file, so there is no prompt to catch and nothing to notice in a sheet of thousands of rows. Vigilance does not scale; a script does.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A newer version of Excel would not do this</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. The behaviour persisted across versions for years, and in any case an analysis whose correctness depends on which build of a spreadsheet you opened it in is not one anybody can check.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Gene names should be renamed to avoid the problem</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That treats one symptom. The same silent coercion hits dates, leading zeros in patient IDs and long numbers — the general fix is a workflow that does not edit your data invisibly.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE03 Assignment</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does this line of R do?</p><pre><code>n_students &lt;- 240</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><code>&lt;-</code> is the assignment arrow: it puts the thing on its right into the name on its left. Taught in Primer 1.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Stores the value 240 in an object called <code>n_students</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Tests whether <code>n_students</code> is less than 240</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No — that would be <code>n_students &lt; 240</code>, without the dash. The arrow <code>&lt;-</code> is one symbol made of two characters, and it assigns rather than compares.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Prints 240 to the console</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. Assignment is silent — nothing is printed. Type the object's name on its own line afterwards to see what is in it.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Creates a function called <code>n_students</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. It creates an object holding a single number. Functions are made with <code>function()</code> and are used with brackets, as in <code>mean(x)</code>.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE04 Vector type coercion</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>You mean to record three attendance figures, but one of them is typed with quotation marks by mistake:</p><pre><code>c(12, 15, "18")</code></pre><p>What do you get?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>A vector holds one type only. Mix them and everything is silently converted to the most permissive type, which is text — so <code>mean()</code> then fails on data that looks fine. Primer 1 covers this; it is a classic source of confusion.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>A vector of three <strong>text</strong> values: <code>"12" "15" "18"</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct — and note that R does not warn you. You find out later, when an arithmetic function refuses to work.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A vector of three numbers — R converts <code>"18"</code> for you</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>The wrong way round. R converts towards the more permissive type, not the more useful one, so the two numbers become text rather than the text becoming a number.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An error, because the types do not match</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No, and that is the problem — an error would be kinder. R converts silently and the result looks almost right.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A vector holding two numbers and one piece of text</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. A vector is all one type by definition; that is what distinguishes it from a list.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="truefalse">
+    <name><text>PRE05 Tidy data</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>In a <strong>tidy</strong> dataset, each column is a variable and each row is an observation.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>True. Wickham's three rules: each variable a column, each observation a row, each type of observational unit its own table. Everything <code>dplyr</code> and <code>ggplot2</code> do assumes it.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>1.0000000</penalty>
+    <hidden>0</hidden>
+    <answer fraction="100" format="moodle_auto_format">
+      <text>true</text>
+      <feedback format="html"><text><![CDATA[<p>Correct.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="moodle_auto_format">
+      <text>false</text>
+      <feedback format="html"><text><![CDATA[<p>It is true, and it is the single most useful sentence about data structure in this workshop. A spreadsheet with one column per month, or one row per variable, is not tidy — and the tidyverse will fight you until it is.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE06 What belongs in a script</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>You are writing an analysis script that a colleague will also run, on their own computer. Which line belongs at the top of it?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><code>library()</code> goes in the script, every session. <code>install.packages()</code> stays in the console — once, ever. Primer 3 covers both, and the difference is what makes a script runnable on somebody else's machine.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><code>library(tidyverse)</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct. Every session needs it, and it tells your reader immediately which tools the script depends on.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>install.packages("tidyverse")</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. A script that reinstalls its packages on every run is slow, needs an internet connection it should not need, and is rude to whoever else runs it. Install once in the console; load every session in the script.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>setwd("C:/Users/arun/Desktop/analysis")</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>This is the line that guarantees the script fails on your colleague's computer — that path exists on exactly one machine. Day 1 replaces it with an RStudio project and relative paths such as <code>data/meded_students.csv</code>.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>rm(list = ls())</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>A common habit, and a weak substitute for the real thing: it clears your objects but leaves attached packages and changed options behind, so it does not give you the clean session it appears to. Restarting R does.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE07 What the pipe does</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>What does the native pipe do in this line?</p><pre><code>c(88, 72, 95, 64) |&gt; mean()</code></pre>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>The pipe passes the value on its left into the function on its right as that function's first argument, so the line means <code>mean(c(88, 72, 95, 64))</code> — and reads in the order the work happens. Primer 3.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Passes the vector into <code>mean()</code> as its first argument</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct — identical to <code>mean(c(88, 72, 95, 64))</code>, but readable left to right once the pipeline is six steps long.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Assigns the vector to an object called <code>mean</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No — assignment is <code>&lt;-</code>. The pipe moves a value along a chain of functions; it never creates a name.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Compares the vector with the mean</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. Comparison uses <code>==</code>, <code>&gt;</code> or <code>&lt;</code>. Nothing is being compared here.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Adds <code>mean()</code> as a layer, the way a plot is built up</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Layers are joined with <code>+</code>, and only in ggplot2. Keeping those two straight — <code>|&gt;</code> between verbs, <code>+</code> between plot layers — saves a lot of confusion on Day 1.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE08 Missing values in a mean</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>A cohort of 240 students has a <code>posttest</code> column in which 11 values are missing — recorded as <code>NA</code>. You run:</p><pre><code>mean(students$posttest)</code></pre><p>What comes back?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code> — R's way of refusing to guess. <code>mean(posttest, na.rm = TRUE)</code> averages the 229 students who do have a score. Primer 4 and the datasets page both cover this.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><code>NA</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct, and it is deliberate rather than unhelpful: R will not quietly decide which students to drop on your behalf.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The mean of the 229 students who have a score</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That is what <code>mean(students$posttest, na.rm = TRUE)</code> gives. Without <code>na.rm = TRUE</code> you get <code>NA</code> — R makes you ask for the exclusion explicitly, so that dropping 11 people is a decision you took rather than one that happened to you.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The mean, treating the missing values as zero</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No, thankfully. Treating a missing post-test as a score of zero would drag the mean down badly, and no statistical software should do that silently.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>An error, and no result at all</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Close but not the same thing. You get a <em>result</em>, <code>NA</code>, with no error and no warning — which is why it catches people out. An error stops; <code>NA</code> propagates quietly through the rest of your analysis.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE09 Keeping rows</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>You have a table of 240 students and want to work with only those in the 2024 batch. Which <code>dplyr</code> verb keeps only the rows where a condition is true?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p><code>filter()</code> for rows, <code>select()</code> for columns. Those two plus <code>arrange()</code>, <code>mutate()</code> and <code>summarise()</code> do almost all data work — Primer 4 and Day 1 afternoon.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p><code>filter()</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>select()</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>That is the columns one. The pair is worth memorising together: <code>filter()</code> keeps rows, <code>select()</code> keeps columns.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>arrange()</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p><code>arrange()</code> sorts the rows. It reorders everything and removes nothing.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p><code>mutate()</code></p>]]></text>
+      <feedback format="html"><text><![CDATA[<p><code>mutate()</code> adds a new column computed from existing ones. It never removes anything.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+  <question type="multichoice">
+    <name><text>PRE10 The three parts of a plot</text></name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Every <code>ggplot2</code> plot is built from three parts, and you have to name all three before anything is drawn. Which three?</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>Data, aesthetics, geom. Miss one and you get a blank grey panel rather than an error, which is confusing the first time — Primer 5 adds them one at a time so you can watch the picture appear.</p>]]></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>The <strong>data</strong>, the <strong>aesthetics</strong> (which column goes where) and the <strong>geom</strong> (what shape to draw)</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>A title, axis labels and a legend</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>These make a figure publishable, not visible. All three are optional, and ggplot2 will draw a perfectly good plot without any of them.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The data, a statistical test and a p-value</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>No. ggplot2 draws; it does not test. Keeping the picture and the inference separate is deliberate — often, as with the two teaching arms in the workshop cohort, the picture is enough to see there is nothing to test.</p>]]></text></feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>The data, the colours and the file format to save as</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Colours are one of many aesthetics you may map, and saving happens afterwards with <code>ggsave()</code>. Neither is required to draw the plot.</p>]]></text></feedback>
+    </answer>
+  </question>
+
+</quiz>
