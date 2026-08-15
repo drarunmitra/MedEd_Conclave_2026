@@ -34,16 +34,19 @@ jobs:
         with:
           use-public-rspm: true
 
+      # broom and broom.helpers are loaded by gtsummary at run time rather than
+      # declared as hard dependencies, so setup-r-dependencies will not pull
+      # them in on its own. Without broom.helpers the s7-gtsummary render dies
+      # at tbl_regression() with 'The package "broom.helpers" is required'.
+      # Do NOT put comments inside the packages block below: it is a literal
+      # block scalar, so every line in it is handed to R as a package spec and
+      # a '#' line fails the step with 'Error: unexpected symbol'.
       - name: Install R dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
             any::tidyverse
             any::gtsummary
-            # gtsummary loads these at run time rather than declaring them as
-            # hard dependencies, so setup-r-dependencies does not pull them in.
-            # Without broom.helpers the s7-gtsummary render dies at
-            # tbl_regression() with 'The package "broom.helpers" is required'.
             any::broom
             any::broom.helpers
             any::janitor

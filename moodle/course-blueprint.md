@@ -200,7 +200,7 @@ primer?
 
 The logistics Page is the only place in the course that carries information the
 website does not: venue, room, registration time, and what happens if you are
-late. It uses `{{VENUE}}` and takes its timings from `schedule.qmd`.
+late. It uses `AIIMS Bibinagar, Hyderabad` and takes its timings from `schedule.qmd`.
 
 ---
 

@@ -141,12 +141,12 @@ Steps 1, 2 and 4 are done. The rest need a student account.
 
 ## Placeholders
 
-| Placeholder | Status |
+| Value | Status |
 |---|---|
 | Site URL | **Resolved** — `https://drarunmitra.github.io/MedEd_Conclave_2026` |
 | Course URL | **Resolved** — `https://setfacilitysaral2.org/course/view.php?id=394` |
-| `{{PRETEST_URL}}` | Outstanding — the pre-test quiz's own URL, once the quiz exists |
-| `{{VENUE}}` | Outstanding — needed by the logistics page |
-| `{{CONTACT_EMAIL}}` | Outstanding — SET Team address, needed by two activity descriptions |
+| Venue | **Resolved** — AIIMS Bibinagar, Hyderabad |
+| Contact email | **Resolved** — dr.arunmitra@gmail.com |
+| Pre-test URL | Outstanding — the pre-test quiz's own URL, once the quiz exists |
 
 The GIFT and XML banks carry no placeholders and import as they are.

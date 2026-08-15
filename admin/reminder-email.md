@@ -8,7 +8,7 @@
 Dear Dr {{FIRST_NAME}},
 
 The R & Reproducible Research Workshop begins on **Wednesday 9 September at
-09:00**, at {{VENUE}}.
+09:00**, at AIIMS Bibinagar, Hyderabad.
 
 **One request.** If you have not yet run the setup check, please do it this
 week rather than on the morning:
@@ -44,4 +44,4 @@ Wednesday.
 See you on Wednesday.
 
 **The SET Team**
-{{CONTACT_EMAIL}}
+dr.arunmitra@gmail.com

@@ -10,7 +10,7 @@ Dear Dr {{FIRST_NAME}},
 
 You are confirmed for the **R & Reproducible Research Workshop** at MedEd
 Conclave 2026, on **Wednesday 9 and Thursday 10 September 2026**, at
-{{VENUE}}. Both days run 09:00–17:00, with registration from 09:00 on Day 1.
+AIIMS Bibinagar, Hyderabad. Both days run 09:00–17:00, with registration from 09:00 on Day 1.
 
 This is a hands-on workshop. You will spend roughly two-thirds of the two days
 writing code on your own laptop. No prior programming experience is assumed.
@@ -57,4 +57,4 @@ Warm regards,
 
 **The SET Team**
 MedEd Conclave 2026
-{{CONTACT_EMAIL}}
+dr.arunmitra@gmail.com

@@ -11,7 +11,7 @@ Two rules held throughout, both from the design (§3, decision 3):
 - **Every activity says how long it takes**, because the invitation email
   promises "about two hours in total" and participants budget accordingly.
 
-Replace `https://drarunmitra.github.io/MedEd_Conclave_2026`, `https://setfacilitysaral2.org/course/view.php?id=394`, `{{VENUE}}` and `{{CONTACT_EMAIL}}`
+Replace `https://drarunmitra.github.io/MedEd_Conclave_2026`, `https://setfacilitysaral2.org/course/view.php?id=394`, `AIIMS Bibinagar, Hyderabad` and `dr.arunmitra@gmail.com`
 before publishing.
 
 ---
@@ -149,7 +149,7 @@ people who never log in.
 > bringing. You need administrator rights and about 5 GB free.
 >
 > If your institution locks down software installation, email
-> {{CONTACT_EMAIL}} **at least a week before** the workshop — we can arrange a
+> dr.arunmitra@gmail.com **at least a week before** the workshop — we can arrange a
 > cloud fallback, but a local install is much better for your work afterwards.
 
 ### URL · Install the packages and run the setup check
@@ -375,7 +375,7 @@ Per-quiz closing line, appended to the above:
 > you arrive at 09:30 you will have missed the group you present with on
 > Thursday afternoon.
 >
-> **Where.** {{VENUE}}.
+> **Where.** AIIMS Bibinagar, Hyderabad.
 >
 > **Bring**
 >
