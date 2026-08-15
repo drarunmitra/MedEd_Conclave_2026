@@ -312,7 +312,7 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>The <strong>data</strong>, the <strong>aesthetics</strong> (which column goes where) and the <strong>geom</strong> (what shape to draw)</p>]]></text>
+      <text><![CDATA[<p>The data, the aesthetics, and the geom</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>Correct.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
