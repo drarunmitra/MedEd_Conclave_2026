@@ -34,7 +34,7 @@ before publishing.
 
 > Day 1 starts drawing plots at 11:15. This section is how you arrive having
 > already written R rather than meeting it cold. Pick either track — in your
-> browser or in RStudio — and do the four short check quizzes as you go.
+> browser or in RStudio — and do the five short check quizzes as you go.
 
 **Section 3 · Data and reading** — *target: Sunday 6 September*
 
