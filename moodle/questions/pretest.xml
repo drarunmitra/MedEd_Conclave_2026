@@ -55,10 +55,10 @@
   <question type="multichoice">
     <name><text>PRE02 Why scripted analysis</text></name>
     <questiontext format="html">
-      <text><![CDATA[<p>About a fifth of published genomics papers with Excel supplementary files were found to contain gene names silently converted into dates — <em>SEPT2</em> becoming 2-Sep, and so on.</p><p>What is the strongest argument that failure makes?</p>]]></text>
+      <text><![CDATA[<p>You clean a dataset by hand in a spreadsheet: you delete three duplicated rows, correct four misspelled department names, and recode a column. You save, and carry on.</p><p>Six months later a reviewer asks exactly what you changed. What can you show them?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The damage was done by an invisible, automatic edit that left no record. A script records every step, so the edit either does not happen or is visible in the code. Ziemann et al. (2016) is in the pre-reading; it is the best argument for a scripted workflow you will read.</p>]]></text>
+      <text><![CDATA[<p>Nothing, unless you recorded the steps somewhere other than the file itself. Once a manual edit is saved it is indistinguishable from data that arrived that way. This is the argument for a scripted workflow, and it is not an argument that researchers are careless: it is that hand edits leave no trace. A script is the instruction and the record at the same time — run it again and you can see, and prove, every change it makes.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -67,20 +67,20 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Analysis steps should be written down as code that can be re-run and inspected</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Correct. The problem was not the mistake; it was that the mistake left no trace. Code leaves a trace.</p>]]></text></feedback>
+      <text><![CDATA[<p>Nothing — unless you wrote the steps down separately, the edits left no record</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Correct, and this is the whole argument. The cleaned file cannot tell anyone which rows were dropped or which names were changed, so neither can you.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Researchers should check their spreadsheets more carefully</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Understandable, but it does not work. The conversion is silent and happens on opening the file, so there is no prompt to catch and nothing to notice in a sheet of thousands of rows. Vigilance does not scale; a script does.</p>]]></text></feedback>
+      <text><![CDATA[<p>The file's version history, which lists the cells that changed</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Cloud version history can show that a file changed and roughly when, but not which cells or why — and it is lost the moment the file is emailed, copied or moved. It is a backup, not an audit trail of an analysis.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A newer version of Excel would not do this</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>No. The behaviour persisted across versions for years, and in any case an analysis whose correctness depends on which build of a spreadsheet you opened it in is not one anybody can check.</p>]]></text></feedback>
+      <text><![CDATA[<p>The undo history, which is stored inside the saved file</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Undo lives in the open session, not in the file. Close the spreadsheet and it is gone — which is why it can rescue you from a slip in the next ten seconds but never from a question six months later.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Gene names should be renamed to avoid the problem</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>That treats one symptom. The same silent coercion hits dates, leading zeros in patient IDs and long numbers — the general fix is a workflow that does not edit your data invisibly.</p>]]></text></feedback>
+      <text><![CDATA[<p>The original data, by comparing it with the cleaned version</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Only if you kept an untouched copy of the raw file — a genuinely good habit, and one Day 1 teaches. Here you saved over it. Even with both files, a diff shows you <em>what</em> differs and never <em>why</em>, so a reviewer still cannot tell a deliberate recode from a typo.</p>]]></text></feedback>
     </answer>
   </question>
 
