@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  MedEd Conclave 2026 · Check yourself · Primer 4 — 4 questions.
+  MedEd Conclave 2026 · Check yourself · Primer 4, 4 questions.
   Source page: prelude/primer-04-dplyr-verbs.qmd (the five verbs, on the real
   240-student cohort in data/meded_students.csv).
 -->
@@ -31,18 +31,18 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<p>Comparison needs <code>==</code>; a single <code>=</code> assigns rather than asks</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Correct — <code>filter(batch == 2024)</code>.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Correct. Use <code>filter(batch == 2024)</code>.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>2024</code> needs quotation marks, as <code>"2024"</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Not in this dataset. <code>read_csv()</code> read <code>batch</code> as a number, so <code>2024</code> is written without quotation marks. Worth checking with <code>glimpse()</code> though — <code>&lt;dbl&gt;</code> means no quotation marks, <code>&lt;chr&gt;</code> means quotation marks.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Not in this dataset. <code>read_csv()</code> read <code>batch</code> as a number, so <code>2024</code> is written without quotation marks. Worth checking with <code>glimpse()</code> though: <code>&lt;dbl&gt;</code> means no quotation marks, <code>&lt;chr&gt;</code> means quotation marks.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>filter()</code> works on columns, so this should be <code>select()</code></p>]]></text>
       <feedback format="html"><text><![CDATA[<p>The other way round: <code>filter()</code> keeps <em>rows</em>, <code>select()</code> keeps <em>columns</em>. Keeping only some students is a row operation.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>The pipe is wrong — it should be <code>students + filter(...)</code></p>]]></text>
+      <text><![CDATA[<p>The pipe is wrong; it should be <code>students + filter(...)</code></p>]]></text>
       <feedback format="html"><text><![CDATA[<p>No. <code>|&gt;</code> is right between verbs; <code>+</code> belongs only in ggplot2, between plot layers. Primer 5 covers that distinction.</p>]]></text></feedback>
     </answer>
   </question>
@@ -53,7 +53,7 @@
       <text><![CDATA[<p>What does this return?</p><pre><code>students |&gt; filter(batch == 2024, attendance_pct &gt; 85)</code></pre>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A comma inside <code>filter()</code> means <strong>and</strong>: a row is kept only if every condition holds. If you want <em>or</em>, you have to say so explicitly with <code>|</code>, as in <code>filter(batch == 2024 | attendance_pct &gt; 85)</code> — and those two questions have very different answers, so it is worth being deliberate about which you meant.</p>]]></text>
+      <text><![CDATA[<p>A comma inside <code>filter()</code> means <strong>and</strong>: a row is kept only if every condition holds. If you want <em>or</em>, you have to say so explicitly with <code>|</code>, as in <code>filter(batch == 2024 | attendance_pct &gt; 85)</code>, and those two questions have very different answers, so it is worth being deliberate about which you meant.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -63,7 +63,7 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<p>Students who are in the 2024 batch <strong>and</strong> have attendance above 85</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Correct — both conditions must hold.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Correct, both conditions must hold.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Students who are in the 2024 batch <strong>or</strong> have attendance above 85</p>]]></text>
@@ -71,10 +71,10 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Two columns, <code>batch</code> and <code>attendance_pct</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>That would be <code>select(batch, attendance_pct)</code>. <code>filter()</code> never changes which columns you have — it only decides which rows survive, and all 17 columns come back.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>That would be <code>select(batch, attendance_pct)</code>. <code>filter()</code> never changes which columns you have: it only decides which rows survive, and all 17 columns come back.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>An error — <code>filter()</code> takes only one condition</p>]]></text>
+      <text><![CDATA[<p>An error, because <code>filter()</code> takes only one condition</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>It takes as many as you like, separated by commas. Splitting a complicated condition across several commas is usually easier to read than joining them with <code>&amp;</code>.</p>]]></text></feedback>
     </answer>
   </question>
@@ -85,7 +85,7 @@
       <text><![CDATA[<p>You want one row per <code>teaching_arm</code>, showing the number of students and their mean <code>posttest</code> score. Eleven of the 240 students have no post-test score.</p><p>Which of these gives you what you asked for?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p><code>group_by()</code> then <code>summarise()</code>, with <code>na.rm = TRUE</code> so the eleven students without a post-test do not turn both means into <code>NA</code>. Always report <code>n</code> beside a mean: your reader needs to know whether it rests on 8 students or 80 — and here the two routes to the answer (excluding inside <code>mean()</code>, or dropping those rows first) leave you with different <em>n</em>, so the number is not decoration.</p>]]></text>
+      <text><![CDATA[<p><code>group_by()</code> then <code>summarise()</code>, with <code>na.rm = TRUE</code> so the eleven students without a post-test do not turn both means into <code>NA</code>. Always report <code>n</code> beside a mean: your reader needs to know whether it rests on 8 students or 80, and here the two routes to the answer (excluding inside <code>mean()</code>, or dropping those rows first) leave you with different <em>n</em>, so the number is not decoration.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -97,7 +97,7 @@
       <text><![CDATA[<pre><code>students |&gt;
   group_by(teaching_arm) |&gt;
   summarise(n = n(), mean_posttest = mean(posttest, na.rm = TRUE))</code></pre>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Correct — 76.4 in the flipped arm against 70.7 in the traditional one.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Correct, 76.4 in the flipped arm against 70.7 in the traditional one.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<pre><code>students |&gt;
@@ -108,13 +108,13 @@
     <answer fraction="0" format="html">
       <text><![CDATA[<pre><code>students |&gt;
   summarise(n = n(), mean_posttest = mean(posttest, na.rm = TRUE))</code></pre>]]></text>
-      <feedback format="html"><text><![CDATA[<p>This gives one row for the whole cohort, not one per arm — which hides the very comparison you wanted. <code>summarise()</code> collapses everything unless <code>group_by()</code> has told it what the groups are.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>This gives one row for the whole cohort, not one per arm, which hides the very comparison you wanted. <code>summarise()</code> collapses everything unless <code>group_by()</code> has told it what the groups are.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<pre><code>students |&gt;
   filter(teaching_arm) |&gt;
   summarise(n = n(), mean_posttest = mean(posttest, na.rm = TRUE))</code></pre>]]></text>
-      <feedback format="html"><text><![CDATA[<p><code>filter()</code> needs a condition — something that is <code>TRUE</code> or <code>FALSE</code> — and a column of text is neither, so this stops with an error. Splitting a table into groups is <code>group_by()</code>'s job, not <code>filter()</code>'s.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p><code>filter()</code> needs a condition, something that is <code>TRUE</code> or <code>FALSE</code>, and a column of text is neither, so this stops with an error. Splitting a table into groups is <code>group_by()</code>'s job, not <code>filter()</code>'s.</p>]]></text></feedback>
     </answer>
   </question>
 
@@ -133,11 +133,11 @@
     <hidden>0</hidden>
     <answer fraction="0" format="moodle_auto_format">
       <text>true</text>
-      <feedback format="html"><text><![CDATA[<p>No — the verbs never edit the table you started from. <code>students</code> still holds all 240 rows; the filtered version was printed and then discarded, because it was not assigned to anything.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>No, the verbs never edit the table you started from. <code>students</code> still holds all 240 rows; the filtered version was printed and then discarded, because it was not assigned to anything.</p>]]></text></feedback>
     </answer>
     <answer fraction="100" format="moodle_auto_format">
       <text>false</text>
-      <feedback format="html"><text><![CDATA[<p>Correct. <code>students</code> is unchanged — which is also why you must assign the result if you want to keep it.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Correct. <code>students</code> is unchanged, which is also why you must assign the result if you want to keep it.</p>]]></text></feedback>
     </answer>
   </question>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  MedEd Conclave 2026 · Check yourself · Primer 2 — 4 questions.
+  MedEd Conclave 2026 · Check yourself · Primer 2, 4 questions.
   Source page: prelude/primer-02-tibbles.qmd (tibbles, types, glimpse, $).
 -->
 <quiz>
@@ -20,7 +20,7 @@
       <text><![CDATA[<p>You read the workshop cohort into R and it prints this first line:</p><pre><code># A tibble: 240 × 17</code></pre><p>What does that tell you?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>240 rows and 17 columns — rows first, always. One row per observation (here, one per student) and one column per variable. Checking that number against what you expect is the cheapest data check there is: if you were handed data on 240 students and the tibble says 239, stop and find out why before analysing anything.</p>]]></text>
+      <text><![CDATA[<p>240 rows and 17 columns. Rows first, always. One row per observation (here, one per student) and one column per variable. Checking that number against what you expect is the cheapest data check there is: if you were handed data on 240 students and the tibble says 239, stop and find out why before analysing anything.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -29,12 +29,12 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>240 rows and 17 columns — 240 students, 17 things recorded about each</p>]]></text>
+      <text><![CDATA[<p>240 rows and 17 columns: 240 students, 17 things recorded about each</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>Correct.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>240 columns and 17 rows</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>The wrong way round. R states dimensions rows first, columns second — the same order as <code>dim()</code>, <code>nrow()</code> before <code>ncol()</code>, and matrix notation <code>[row, column]</code>.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>The wrong way round. R states dimensions rows first, columns second, which is the same order as <code>dim()</code>, <code>nrow()</code> before <code>ncol()</code>, and matrix notation <code>[row, column]</code>.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>240 values in total, spread across 17 variables</p>]]></text>
@@ -42,7 +42,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>The file is 240 kilobytes and has 17 sheets</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>No — this line describes the table now in R's memory, not the file it came from. A tibble has no sheets; if your data arrived as a spreadsheet with several sheets, each one is read separately.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>No, this line describes the table now in R's memory, not the file it came from. A tibble has no sheets; if your data arrived as a spreadsheet with several sheets, each one is read separately.</p>]]></text></feedback>
     </answer>
   </question>
 
@@ -52,7 +52,7 @@
       <text><![CDATA[<p><code>glimpse()</code> prints a type tag beside every column name. Which tag tells you the column is a number you could take the mean of?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p><code>&lt;dbl&gt;</code> is a number with decimals; <code>&lt;chr&gt;</code> is text; <code>&lt;lgl&gt;</code> is <code>TRUE</code>/<code>FALSE</code>. Nine times out of ten, when something goes unexpectedly wrong the cause is that a column is text where you assumed it was a number — and <code>glimpse()</code> shows you that in one look. <code>$ attendance &lt;dbl&gt;</code> is a number you can average; <code>$ attendance &lt;chr&gt;</code> is not.</p>]]></text>
+      <text><![CDATA[<p><code>&lt;dbl&gt;</code> is a number with decimals; <code>&lt;chr&gt;</code> is text; <code>&lt;lgl&gt;</code> is <code>TRUE</code>/<code>FALSE</code>. Nine times out of ten, when something goes unexpectedly wrong the cause is that a column is text where you assumed it was a number, and <code>glimpse()</code> shows you that in one look. <code>$ attendance &lt;dbl&gt;</code> is a number you can average; <code>$ attendance &lt;chr&gt;</code> is not.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -62,15 +62,15 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<p><code>&lt;dbl&gt;</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Correct — short for "double", R's name for a number that can carry decimals.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Correct. Short for "double", R's name for a number that can carry decimals.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>&lt;chr&gt;</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>That is a text ("character") column. Averaging it is exactly what fails — and seeing <code>&lt;chr&gt;</code> where you expected a number is the single most useful early warning <code>glimpse()</code> gives you.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>That is a text ("character") column. Averaging it is exactly what fails, and seeing <code>&lt;chr&gt;</code> where you expected a number is the single most useful early warning <code>glimpse()</code> gives you.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>&lt;lgl&gt;</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>That is a logical column of <code>TRUE</code> and <code>FALSE</code>. You can in fact average one — it gives you the proportion that are <code>TRUE</code>, which is often useful — but it is not the numeric type this question asks about.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>That is a logical column of <code>TRUE</code> and <code>FALSE</code>. You can in fact average one: it gives you the proportion that are <code>TRUE</code>, which is often useful, but it is not the numeric type this question asks about.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>&lt;NA&gt;</code></p>]]></text>
@@ -81,7 +81,7 @@
   <question type="multichoice">
     <name><text>P2Q3 The first thing to run on new data</text></name>
     <questiontext format="html">
-      <text><![CDATA[<p>Somebody hands you a 17-column table you have never seen. Which function turns it on its side so that every column gets one line — name, type and first few values — however wide the data is?</p>]]></text>
+      <text><![CDATA[<p>Somebody hands you a 17-column table you have never seen. Which function turns it on its side so that every column gets one line, name, type and first few values, however wide the data is?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p><code>glimpse()</code>. It is the function to reach for both when meeting a dataset and when something goes wrong, because 17 columns printed the normal way do not fit on a screen and you end up squinting at a fragment of your data.</p>]]></text>
@@ -98,7 +98,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>names(students)</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>That gives you the column names and nothing else — no types and no values. Useful, but it will not tell you that <code>attendance</code> arrived as text.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>That gives you the column names and nothing else, with no types and no values. Useful, but it will not tell you that <code>attendance</code> arrived as text.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>nrow(students)</code></p>]]></text>
@@ -106,7 +106,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>students</code> on its own line</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>This does print the tibble, with its dimensions and type tags, and it is a reasonable first move. But with 17 columns it shows only as many as fit the width of your console and hides the rest — which is precisely the problem <code>glimpse()</code> solves.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>This does print the tibble, with its dimensions and type tags, and it is a reasonable first move. But with 17 columns it shows only as many as fit the width of your console and hides the rest, which is precisely the problem <code>glimpse()</code> solves.</p>]]></text></feedback>
     </answer>
   </question>
 
@@ -116,7 +116,7 @@
       <text><![CDATA[<p>A tibble called <code>students</code> has an <code>attendance</code> column holding 88, 72, 95 and 64.</p><pre><code>mean(students$attendance)</code></pre><p>What does that print?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p><code>79.75</code>. That is the whole pattern of this primer: a tibble is a bundle of vectors, <code>$</code> unwraps one, and any function that works on a vector then works on it.</p>]]></text>
+      <text><![CDATA[<p><code>79.75</code>. That is the whole pattern of this primer: a tibble is a bundle of vectors; <code>$</code> unwraps one, and any function that works on a vector then works on it.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -126,18 +126,18 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<p><code>79.75</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Correct — mean attendance is 79.75%.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Correct, mean attendance is 79.75%.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>319</code></p>]]></text>
       <feedback format="html"><text><![CDATA[<p>That is the total of the four values, which is <code>sum()</code>. <code>mean()</code> divides it by four.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p><code>88 72 95 64</code> — the four values</p>]]></text>
+      <text><![CDATA[<p><code>88 72 95 64</code>, the four values</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>That is what <code>students$attendance</code> gives on its own. Wrapping it in <code>mean()</code> collapses those four numbers into one.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>An error — you cannot use <code>$</code> on a tibble</p>]]></text>
+      <text><![CDATA[<p>An error, you cannot use <code>$</code> on a tibble</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>You can. <code>$</code> takes one column out of the rectangle and hands it back as a plain vector, which is exactly what <code>mean()</code> wants.</p>]]></text></feedback>
     </answer>
   </question>

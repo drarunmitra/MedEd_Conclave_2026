@@ -7,32 +7,32 @@ $CATEGORY: $course$/top/Prelude/Primer 03 · Packages and the pipe
 ::P3Q1 Reading a pipeline::[html]<p>Four stations were marked out of 100\: 16, 25, 36 and 49.</p><pre><code>c(16, 25, 36, 49) |&gt; mean() |&gt; sqrt() |&gt; round(2)</code></pre><p>What does that print?</p>{
 =[html]<p><code>5.61</code></p>#[html]<p>Correct.</p>
 ~[html]<p><code>31.5</code></p>#[html]<p>That is the mean, which is only the first step. The value then continues along the pipeline into <code>sqrt()</code> and <code>round(2)</code>.</p>
-~[html]<p><code>5.6124</code></p>#[html]<p>That is the answer one step early — <code>round(2)</code> has not been applied. It means two decimal places, so 5.6124… becomes 5.61.</p>
-~[html]<p>An error — you cannot chain three functions in one line</p>#[html]<p>You can, and that is the point of the pipe. Each step hands its result to the next one; a real analysis is often six or seven steps long.</p>
-####[html]<p><code>5.61</code>. Read it left to right, in the order the work happens\: take these four marks, take the mean (31.5), take the square root (5.6124…), round to two decimal places. The nested version — <code>round(sqrt(mean(c(16, 25, 36, 49))), 2)</code> — gives the same answer but has to be read from the inside out.</p>
+~[html]<p><code>5.6124</code></p>#[html]<p>That is the answer one step early, <code>round(2)</code> has not been applied. It means two decimal places, so 5.6124… becomes 5.61.</p>
+~[html]<p>An error, you cannot chain three functions in one line</p>#[html]<p>You can, and that is the point of the pipe. Each step hands its result to the next one; a real analysis is often six or seven steps long.</p>
+####[html]<p><code>5.61</code>. Read it left to right, in the order the work happens\: take these four marks, take the mean (31.5), take the square root (5.6124…), round to two decimal places. The nested version, <code>round(sqrt(mean(c(16, 25, 36, 49))), 2)</code>, gives the same answer but has to be read from the inside out.</p>
 }
 
 // question: 2
 ::P3Q2 could not find function::[html]<p>In RStudio you run a script that begins with <code>n_distinct(qualifications)</code> and R answers\:</p><pre><code>Error in n_distinct(qualifications) \:<br>  could not find function "n_distinct"</code></pre><p>You installed dplyr last week and it worked then. What is the most likely cause?</p>{
 =[html]<p>The script never ran <code>library(dplyr)</code> in this session</p>#[html]<p>Correct. Put <code>library(dplyr)</code> at the top of the script, not just in the console once.</p>
-~[html]<p>dplyr is not installed</p>#[html]<p>Then <code>library(dplyr)</code> itself would have stopped with a different message — <code>there is no package called 'dplyr'</code>. Reading which of those two messages you got tells you whether to install or to load, so it is worth the ten seconds.</p>
+~[html]<p>dplyr is not installed</p>#[html]<p>Then <code>library(dplyr)</code> itself would have stopped with a different message, <code>there is no package called 'dplyr'</code>. Reading which of those two messages you got tells you whether to install or to load, so it is worth the ten seconds.</p>
 ~[html]<p>The function has to be written <code>dplyr.n_distinct()</code></p>#[html]<p>Not R's syntax. You can write <code>dplyr\:\:n_distinct()</code> with two colons to call a function without attaching the package, which is a genuinely useful trick, but the dot form does not exist.</p>
-~[html]<p>The object <code>qualifications</code> does not exist</p>#[html]<p>That is a real error, but a different one\: it reads <code>object 'qualifications' not found</code>. Here R is complaining about the <em>function</em>, so read the message carefully — it names which of the two is missing.</p>
+~[html]<p>The object <code>qualifications</code> does not exist</p>#[html]<p>That is a real error, but a different one\: it reads <code>object 'qualifications' not found</code>. Here R is complaining about the <em>function</em>, so read the message carefully\: it names which of the two is missing.</p>
 ####[html]<p>You install a package <strong>once, ever</strong>; you load it <strong>every session</strong>. Restarting R clears the loaded packages, so a script that worked yesterday fails today unless <code>library(dplyr)</code> is written into the script itself. This is the most common error a beginner meets in R, and its fix is always the same.</p>
 }
 
 // question: 3
 ::P3Q3 The other pipe::[html]<p>Searching online for help, you find an answer written like this\:</p><pre><code>students %&gt;% filter(batch \=\= 2024)</code></pre><p>What should you make of <code>%&gt;%</code>?</p>{
-=[html]<p>It is an older pipe that behaves the same way here; you can read the answer and rewrite it with <code>|&gt;</code></p>#[html]<p>Correct — and you will meet it constantly, because most tutorials online were written before <code>|&gt;</code> existed.</p>
-~[html]<p>It is a typo and the code will not run</p>#[html]<p>No — it is valid R, provided a package such as dplyr or magrittr is loaded to supply it. Dismissing every answer written with <code>%&gt;%</code> would cut you off from most of the R help online.</p>
+=[html]<p>It is an older pipe that behaves the same way here; you can read the answer and rewrite it with <code>|&gt;</code></p>#[html]<p>Correct, and you will meet it constantly, because most tutorials online were written before <code>|&gt;</code> existed.</p>
+~[html]<p>It is a typo and the code will not run</p>#[html]<p>No. It is valid R, provided a package such as dplyr or magrittr is loaded to supply it. Dismissing every answer written with <code>%&gt;%</code> would cut you off from most of the R help online.</p>
 ~[html]<p>It does something different\: it assigns the result back into <code>students</code></p>#[html]<p>No. That would be <code>%&lt;&gt;%</code>, a rarely used magrittr operator. A plain <code>%&gt;%</code> passes the value along and changes nothing.</p>
-~[html]<p>It only works inside RStudio</p>#[html]<p>No — it comes from a package, not from the editor. It is <code>|&gt;</code> that has the wider reach, because it is part of R itself (from version 4.1) and needs nothing loaded at all.</p>
-####[html]<p><code>%&gt;%</code> is the magrittr pipe, which predates R's own. For everything in this workshop the two behave the same way, so online answers written with it are still useful to you. We use <code>|&gt;</code> because it is built into R and needs no package — a script using it runs anywhere, with nothing loaded.</p>
+~[html]<p>It only works inside RStudio</p>#[html]<p>No. It comes from a package, not from the editor. It is <code>|&gt;</code> that has the wider reach, because it is part of R itself (from version 4.1) and needs nothing loaded at all.</p>
+####[html]<p><code>%&gt;%</code> is the magrittr pipe, which predates R's own. For everything in this workshop the two behave the same way, so online answers written with it are still useful to you. We use <code>|&gt;</code> because it is built into R and needs no package, a script using it runs anywhere, with nothing loaded.</p>
 }
 
 // question: 4
 ::P3Q4 What the browser does for you::[html]<p>The primer pages load dplyr for you before you run anything, so <code>library(dplyr)</code> is not really needed.</p><p><strong>Therefore</strong> you can leave <code>library()</code> calls out of the scripts you write in RStudio too.</p>{
-~[html]<p>False</p>#[html]<p>No — this is the trap the primer warns about. The browser page attaches the packages for you; your own RStudio will not. Every script you write needs its <code>library()</code> calls at the top, in every session.</p>
+~[html]<p>False</p>#[html]<p>No. This is the trap the primer warns about. The browser page attaches the packages for you; your own RStudio will not. Every script you write needs its <code>library()</code> calls at the top, in every session.</p>
 =[html]<p>False</p>#[html]<p>Correct. The browser is the exception, not the rule.</p>
-####[html]<p>False, and this is the one way the browser primers actively mislead you. Those pages attach their packages before the first cell runs, so <code>library(dplyr)</code> is a no-op there and essential in RStudio. Type it anyway on the primer page — it is the habit that matters, and a script that forgets it fails with <code>could not find function</code>.</p>
+####[html]<p>False, and this is the one way the browser primers actively mislead you. Those pages attach their packages before the first cell runs, so <code>library(dplyr)</code> is a no-op there and essential in RStudio. Type it anyway on the primer page. It is the habit that matters, and a script that forgets it fails with <code>could not find function</code>.</p>
 }

@@ -5,44 +5,44 @@ $CATEGORY: $course$/top/Prelude/Pre-test
 
 // question: 1
 ::PRE01 What reproducible means::[html]<p>A colleague sends you the dataset and the R script behind a published paper. You run the script on your own computer and get every number in the paper exactly.</p><p>In the terms used in this workshop, that analysis is\:</p>{
-=[html]<p>Reproducible — the same data and the same code give the same result</p>#[html]<p>Correct.</p>
-~[html]<p>Replicable — the finding has been confirmed</p>#[html]<p>Not quite. Replication means an independent team collects new data and reaches the same conclusion. Here the data are the same file, so nothing has been independently confirmed — only recomputed.</p>
+=[html]<p>Reproducible\: the same data and the same code give the same result</p>#[html]<p>Correct.</p>
+~[html]<p>Replicable\: the finding has been confirmed</p>#[html]<p>Not quite. Replication means an independent team collects new data and reaches the same conclusion. Here the data are the same file, so nothing has been independently confirmed, only recomputed.</p>
 ~[html]<p>Not reproducible, because you did not collect the data yourself</p>#[html]<p>No. Reproducibility is a property of the analysis, not of who gathered the data. Re-running someone else's analysis on their data is exactly what the word describes.</p>
-~[html]<p>Generalisable — the result would hold in another population</p>#[html]<p>No. Generalisability is about whether the finding transfers to a different population, which running a script cannot tell you anything about.</p>
+~[html]<p>Generalisable\: the result would hold in another population</p>#[html]<p>No. Generalisability is about whether the finding transfers to a different population, which running a script cannot tell you anything about.</p>
 ####[html]<p>Reproducible means the same data and the same code give the same result in someone else's hands. Replication is a stronger and different claim\: new data, collected independently, pointing the same way. Session 1 on Day 1 places both on Peng's reproducibility spectrum.</p>
 }
 
 // question: 2
 ::PRE02 Why scripted analysis::[html]<p>You clean a dataset by hand in a spreadsheet\: you delete three duplicated rows, correct four misspelled department names, and recode a column. You save, and carry on.</p><p>Six months later a reviewer asks exactly what you changed. What can you show them?</p>{
-=[html]<p>Nothing — unless you wrote the steps down separately, the edits left no record</p>#[html]<p>Correct, and this is the whole argument. The cleaned file cannot tell anyone which rows were dropped or which names were changed, so neither can you.</p>
-~[html]<p>The file's version history, which lists the cells that changed</p>#[html]<p>Cloud version history can show that a file changed and roughly when, but not which cells or why — and it is lost the moment the file is emailed, copied or moved. It is a backup, not an audit trail of an analysis.</p>
-~[html]<p>The undo history, which is stored inside the saved file</p>#[html]<p>Undo lives in the open session, not in the file. Close the spreadsheet and it is gone — which is why it can rescue you from a slip in the next ten seconds but never from a question six months later.</p>
-~[html]<p>The original data, by comparing it with the cleaned version</p>#[html]<p>Only if you kept an untouched copy of the raw file — a genuinely good habit, and one Day 1 teaches. Here you saved over it. Even with both files, a diff shows you <em>what</em> differs and never <em>why</em>, so a reviewer still cannot tell a deliberate recode from a typo.</p>
-####[html]<p>Nothing, unless you recorded the steps somewhere other than the file itself. Once a manual edit is saved it is indistinguishable from data that arrived that way. This is the argument for a scripted workflow, and it is not an argument that researchers are careless\: it is that hand edits leave no trace. A script is the instruction and the record at the same time — run it again and you can see, and prove, every change it makes.</p>
+=[html]<p>Nothing\: unless you wrote the steps down separately, the edits left no record</p>#[html]<p>Correct, and this is the whole argument. The cleaned file cannot tell anyone which rows were dropped or which names were changed, so neither can you.</p>
+~[html]<p>The file's version history, which lists the cells that changed</p>#[html]<p>Cloud version history can show that a file changed and roughly when, but not which cells or why, and it is lost the moment the file is emailed, copied or moved. It is a backup, not an audit trail of an analysis.</p>
+~[html]<p>The undo history, which is stored inside the saved file</p>#[html]<p>Undo lives in the open session, not in the file. Close the spreadsheet and it is gone, which is why it can rescue you from a slip in the next ten seconds but never from a question six months later.</p>
+~[html]<p>The original data, by comparing it with the cleaned version</p>#[html]<p>Only if you kept an untouched copy of the raw file, a genuinely good habit, and one Day 1 teaches. Here you saved over it. Even with both files, a diff shows you <em>what</em> differs and never <em>why</em>, so a reviewer still cannot tell a deliberate recode from a typo.</p>
+####[html]<p>Nothing, unless you recorded the steps somewhere other than the file itself. Once a manual edit is saved it is indistinguishable from data that arrived that way. This is the argument for a scripted workflow, and it is not an argument that researchers are careless\: it is that hand edits leave no trace. A script is the instruction and the record at the same time, run it again and you can see, and prove, every change it makes.</p>
 }
 
 // question: 3
 ::PRE03 Assignment::[html]<p>What does this line of R do?</p><pre><code>n_students &lt;- 240</code></pre>{
 =[html]<p>Stores the value 240 in an object called <code>n_students</code></p>#[html]<p>Correct.</p>
-~[html]<p>Tests whether <code>n_students</code> is less than 240</p>#[html]<p>No — that would be <code>n_students &lt; 240</code>, without the dash. The arrow <code>&lt;-</code> is one symbol made of two characters, and it assigns rather than compares.</p>
-~[html]<p>Prints 240 to the console</p>#[html]<p>No. Assignment is silent — nothing is printed. Type the object's name on its own line afterwards to see what is in it.</p>
+~[html]<p>Tests whether <code>n_students</code> is less than 240</p>#[html]<p>No, that would be <code>n_students &lt; 240</code>, without the dash. The arrow <code>&lt;-</code> is one symbol made of two characters, and it assigns rather than compares.</p>
+~[html]<p>Prints 240 to the console</p>#[html]<p>No. Assignment is silent; nothing is printed. Type the object's name on its own line afterwards to see what is in it.</p>
 ~[html]<p>Creates a function called <code>n_students</code></p>#[html]<p>No. It creates an object holding a single number. Functions are made with <code>function()</code> and are used with brackets, as in <code>mean(x)</code>.</p>
 ####[html]<p><code>&lt;-</code> is the assignment arrow\: it puts the thing on its right into the name on its left. Taught in Primer 1.</p>
 }
 
 // question: 4
 ::PRE04 Vector type coercion::[html]<p>You mean to record three attendance figures, but one of them is typed with quotation marks by mistake\:</p><pre><code>c(12, 15, "18")</code></pre><p>What do you get?</p>{
-=[html]<p>A vector of three <strong>text</strong> values\: <code>"12" "15" "18"</code></p>#[html]<p>Correct — and note that R does not warn you. You find out later, when an arithmetic function refuses to work.</p>
-~[html]<p>A vector of three numbers — R converts <code>"18"</code> for you</p>#[html]<p>The wrong way round. R converts towards the more permissive type, not the more useful one, so the two numbers become text rather than the text becoming a number.</p>
-~[html]<p>An error, because the types do not match</p>#[html]<p>No, and that is the problem — an error would be kinder. R converts silently and the result looks almost right.</p>
+=[html]<p>A vector of three <strong>text</strong> values\: <code>"12" "15" "18"</code></p>#[html]<p>Correct, and note that R does not warn you. You find out later, when an arithmetic function refuses to work.</p>
+~[html]<p>A vector of three numbers, R converts <code>"18"</code> for you</p>#[html]<p>The wrong way round. R converts towards the more permissive type, not the more useful one, so the two numbers become text rather than the text becoming a number.</p>
+~[html]<p>An error, because the types do not match</p>#[html]<p>No, and that is the problem. An error would be kinder. R converts silently and the result looks almost right.</p>
 ~[html]<p>A vector holding two numbers and one piece of text</p>#[html]<p>No. A vector is all one type by definition; that is what distinguishes it from a list.</p>
-####[html]<p>A vector holds one type only. Mix them and everything is silently converted to the most permissive type, which is text — so <code>mean()</code> then fails on data that looks fine. Primer 1 covers this; it is a classic source of confusion.</p>
+####[html]<p>A vector holds one type only. Mix them and everything is silently converted to the most permissive type, which is text, so <code>mean()</code> then fails on data that looks fine. Primer 1 covers this; it is a classic source of confusion.</p>
 }
 
 // question: 5
 ::PRE05 Tidy data::[html]<p>In a <strong>tidy</strong> dataset, each column is a variable and each row is an observation.</p>{
 =[html]<p>False</p>#[html]<p>Correct.</p>
-~[html]<p>False</p>#[html]<p>It is true, and it is the single most useful sentence about data structure in this workshop. A spreadsheet with one column per month, or one row per variable, is not tidy — and the tidyverse will fight you until it is.</p>
+~[html]<p>False</p>#[html]<p>It is true, and it is the single most useful sentence about data structure in this workshop. A spreadsheet with one column per month, or one row per variable, is not tidy, and the tidyverse will fight you until it is.</p>
 ####[html]<p>True. Wickham's three rules\: each variable a column, each observation a row, each type of observational unit its own table. Everything <code>dplyr</code> and <code>ggplot2</code> do assumes it.</p>
 }
 
@@ -50,27 +50,27 @@ $CATEGORY: $course$/top/Prelude/Pre-test
 ::PRE06 What belongs in a script::[html]<p>You are writing an analysis script that a colleague will also run, on their own computer. Which line belongs at the top of it?</p>{
 =[html]<p><code>library(tidyverse)</code></p>#[html]<p>Correct. Every session needs it, and it tells your reader immediately which tools the script depends on.</p>
 ~[html]<p><code>install.packages("tidyverse")</code></p>#[html]<p>No. A script that reinstalls its packages on every run is slow, needs an internet connection it should not need, and is rude to whoever else runs it. Install once in the console; load every session in the script.</p>
-~[html]<p><code>setwd("C\:/Users/arun/Desktop/analysis")</code></p>#[html]<p>This is the line that guarantees the script fails on your colleague's computer — that path exists on exactly one machine. Day 1 replaces it with an RStudio project and relative paths such as <code>data/meded_students.csv</code>.</p>
+~[html]<p><code>setwd("C\:/Users/arun/Desktop/analysis")</code></p>#[html]<p>This is the line that guarantees the script fails on your colleague's computer, that path exists on exactly one machine. Day 1 replaces it with an RStudio project and relative paths such as <code>data/meded_students.csv</code>.</p>
 ~[html]<p><code>rm(list \= ls())</code></p>#[html]<p>A common habit, and a weak substitute for the real thing\: it clears your objects but leaves attached packages and changed options behind, so it does not give you the clean session it appears to. Restarting R does.</p>
-####[html]<p><code>library()</code> goes in the script, every session. <code>install.packages()</code> stays in the console — once, ever. Primer 3 covers both, and the difference is what makes a script runnable on somebody else's machine.</p>
+####[html]<p><code>library()</code> goes in the script, every session. <code>install.packages()</code> stays in the console\: once, ever. Primer 3 covers both, and the difference is what makes a script runnable on somebody else's machine.</p>
 }
 
 // question: 7
 ::PRE07 What the pipe does::[html]<p>What does the native pipe do in this line?</p><pre><code>c(88, 72, 95, 64) |&gt; mean()</code></pre>{
-=[html]<p>Passes the vector into <code>mean()</code> as its first argument</p>#[html]<p>Correct — identical to <code>mean(c(88, 72, 95, 64))</code>, but readable left to right once the pipeline is six steps long.</p>
-~[html]<p>Assigns the vector to an object called <code>mean</code></p>#[html]<p>No — assignment is <code>&lt;-</code>. The pipe moves a value along a chain of functions; it never creates a name.</p>
+=[html]<p>Passes the vector into <code>mean()</code> as its first argument</p>#[html]<p>Correct, identical to <code>mean(c(88, 72, 95, 64))</code>, but readable left to right once the pipeline is six steps long.</p>
+~[html]<p>Assigns the vector to an object called <code>mean</code></p>#[html]<p>No, assignment is <code>&lt;-</code>. The pipe moves a value along a chain of functions; it never creates a name.</p>
 ~[html]<p>Compares the vector with the mean</p>#[html]<p>No. Comparison uses <code>\=\=</code>, <code>&gt;</code> or <code>&lt;</code>. Nothing is being compared here.</p>
-~[html]<p>Adds <code>mean()</code> as a layer, the way a plot is built up</p>#[html]<p>Layers are joined with <code>+</code>, and only in ggplot2. Keeping those two straight — <code>|&gt;</code> between verbs, <code>+</code> between plot layers — saves a lot of confusion on Day 1.</p>
-####[html]<p>The pipe passes the value on its left into the function on its right as that function's first argument, so the line means <code>mean(c(88, 72, 95, 64))</code> — and reads in the order the work happens. Primer 3.</p>
+~[html]<p>Adds <code>mean()</code> as a layer, the way a plot is built up</p>#[html]<p>Layers are joined with <code>+</code>, and only in ggplot2. Keeping those two straight (<code>|&gt;</code> between verbs, <code>+</code> between plot layers) saves a lot of confusion on Day 1.</p>
+####[html]<p>The pipe passes the value on its left into the function on its right as that function's first argument, so the line means <code>mean(c(88, 72, 95, 64))</code>, and reads in the order the work happens. Primer 3.</p>
 }
 
 // question: 8
-::PRE08 Missing values in a mean::[html]<p>A cohort of 240 students has a <code>posttest</code> column in which 11 values are missing — recorded as <code>NA</code>. You run\:</p><pre><code>mean(students$posttest)</code></pre><p>What comes back?</p>{
+::PRE08 Missing values in a mean::[html]<p>A cohort of 240 students has a <code>posttest</code> column in which 11 values are missing, recorded as <code>NA</code>. You run\:</p><pre><code>mean(students$posttest)</code></pre><p>What comes back?</p>{
 =[html]<p><code>NA</code></p>#[html]<p>Correct, and it is deliberate rather than unhelpful\: R will not quietly decide which students to drop on your behalf.</p>
-~[html]<p>The mean of the 229 students who have a score</p>#[html]<p>That is what <code>mean(students$posttest, na.rm \= TRUE)</code> gives. Without <code>na.rm \= TRUE</code> you get <code>NA</code> — R makes you ask for the exclusion explicitly, so that dropping 11 people is a decision you took rather than one that happened to you.</p>
+~[html]<p>The mean of the 229 students who have a score</p>#[html]<p>That is what <code>mean(students$posttest, na.rm \= TRUE)</code> gives. Without <code>na.rm \= TRUE</code> you get <code>NA</code>, R makes you ask for the exclusion explicitly, so that dropping 11 people is a decision you took rather than one that happened to you.</p>
 ~[html]<p>The mean, treating the missing values as zero</p>#[html]<p>No, thankfully. Treating a missing post-test as a score of zero would drag the mean down badly, and no statistical software should do that silently.</p>
-~[html]<p>An error, and no result at all</p>#[html]<p>Close but not the same thing. You get a <em>result</em>, <code>NA</code>, with no error and no warning — which is why it catches people out. An error stops; <code>NA</code> propagates quietly through the rest of your analysis.</p>
-####[html]<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code> — R's way of refusing to guess. <code>mean(posttest, na.rm \= TRUE)</code> averages the 229 students who do have a score. Primer 4 and the datasets page both cover this.</p>
+~[html]<p>An error, and no result at all</p>#[html]<p>Close but not the same thing. You get a <em>result</em>, <code>NA</code>, with no error and no warning, which is why it catches people out. An error stops; <code>NA</code> propagates quietly through the rest of your analysis.</p>
+####[html]<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code>, R's way of refusing to guess. <code>mean(posttest, na.rm \= TRUE)</code> averages the 229 students who do have a score. Primer 4 and the datasets page both cover this.</p>
 }
 
 // question: 9
@@ -79,14 +79,14 @@ $CATEGORY: $course$/top/Prelude/Pre-test
 ~[html]<p><code>select()</code></p>#[html]<p>That is the columns one. The pair is worth memorising together\: <code>filter()</code> keeps rows, <code>select()</code> keeps columns.</p>
 ~[html]<p><code>arrange()</code></p>#[html]<p><code>arrange()</code> sorts the rows. It reorders everything and removes nothing.</p>
 ~[html]<p><code>mutate()</code></p>#[html]<p><code>mutate()</code> adds a new column computed from existing ones. It never removes anything.</p>
-####[html]<p><code>filter()</code> for rows, <code>select()</code> for columns. Those two plus <code>arrange()</code>, <code>mutate()</code> and <code>summarise()</code> do almost all data work — Primer 4 and Day 1 afternoon.</p>
+####[html]<p><code>filter()</code> for rows, <code>select()</code> for columns. Those two plus <code>arrange()</code>, <code>mutate()</code> and <code>summarise()</code> do almost all data work, Primer 4 and Day 1 afternoon.</p>
 }
 
 // question: 10
 ::PRE10 The three parts of a plot::[html]<p>Every <code>ggplot2</code> plot is built from three parts, and you have to name all three before anything is drawn. Which three?</p>{
 =[html]<p>The data, the aesthetics, and the geom</p>#[html]<p>Correct.</p>
 ~[html]<p>A title, axis labels and a legend</p>#[html]<p>These make a figure publishable, not visible. All three are optional, and ggplot2 will draw a perfectly good plot without any of them.</p>
-~[html]<p>The data, a statistical test and a p-value</p>#[html]<p>No. ggplot2 draws; it does not test. Keeping the picture and the inference separate is deliberate — often, as with the two teaching arms in the workshop cohort, the picture is enough to see there is nothing to test.</p>
+~[html]<p>The data, a statistical test and a p-value</p>#[html]<p>No. ggplot2 draws; it does not test. Keeping the picture and the inference separate is deliberate. Often, as with the two teaching arms in the workshop cohort, the picture is enough to see there is nothing to test.</p>
 ~[html]<p>The data, the colours and the file format to save as</p>#[html]<p>Colours are one of many aesthetics you may map, and saving happens afterwards with <code>ggsave()</code>. Neither is required to draw the plot.</p>
-####[html]<p>Data, aesthetics, geom. Miss one and you get a blank grey panel rather than an error, which is confusing the first time — Primer 5 adds them one at a time so you can watch the picture appear.</p>
+####[html]<p>Data, aesthetics, geom. Miss one and you get a blank grey panel rather than an error, which is confusing the first time, Primer 5 adds them one at a time so you can watch the picture appear.</p>
 }

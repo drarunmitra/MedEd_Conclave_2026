@@ -1,28 +1,28 @@
 # Announcements
 
 Four posts to the course Announcements forum. Posting there emails every
-enrolled participant, which is the point — most of the cohort will not log in
-unprompted.
+enrolled participant, which is the point, because most of the cohort will not
+log in unprompted.
 
 Announcement 4 lands on the same day as `admin/reminder-email.md` (≈ 4
 September). Send one or the other, not both, unless the reminder email is going
 to people who never enrolled.
 
 Before each post, open *Reports → Activity completion* and fill in the numbers.
-Naming a real count — "eleven of you have not yet" — moves people; a general
+Naming a real count, "eleven of you have not yet", moves people; a general
 appeal does not.
 
 ---
 
-## 1 · Monday 17 August — the course is open
+## 1 · Monday 17 August, the course is open
 
-**Subject:** Your prelude starts today — about two hours, spread over three weeks
+**Subject:** Your prelude starts today, about two hours spread over three weeks
 
 > Dear all,
 >
 > Welcome, and thank you for taking one of the places on the R & Reproducible
-> Research workshop at MedEd Conclave 2026, on **Wednesday 9 and Thursday 10
-> September**.
+> Research workshop at MedEd Conclave 2026, on Wednesday 9 and Thursday 10
+> September.
 >
 > This course is the part you do at home. It is about two hours of work in total
 > and it is not optional: two days is short, and the difference between a
@@ -31,15 +31,15 @@ appeal does not.
 >
 > **Three targets, one per week.**
 >
-> 1. **By Sunday 23 August** — install R, RStudio and Quarto, run the setup
+> 1. **By Sunday 23 August.** Install R, RStudio and Quarto, run the setup
 >    check, and upload the result. This is the one that cannot wait.
-> 2. **By Sunday 30 August** — work through the R primers and the five short
+> 2. **By Sunday 30 August.** Work through the R primers and the five short
 >    check quizzes. Either track: in your browser with nothing to install, or in
 >    RStudio.
-> 3. **By Sunday 6 September** — download the datasets and skim the pre-reading.
+> 3. **By Sunday 6 September.** Download the datasets and skim the pre-reading.
 >
-> There is also a **ten-minute pre-test** in Section 0. Please do it before you
-> start the primers. It measures the workshop rather than you — we use it to
+> There is also a ten-minute pre-test in Section 0. Please do it before you
+> start the primers. It measures the workshop rather than you: we use it to
 > pitch Day 1 at the room that actually turns up.
 >
 > Nothing locks, nothing is graded, and no deadline shuts you out. The dates are
@@ -56,13 +56,13 @@ appeal does not.
 
 ---
 
-## 2 · Monday 24 August — primer week
+## 2 · Monday 24 August, primer week
 
 **Subject:** This week: the R primers. And a nudge if your setup check is still outstanding
 
 > Dear all,
 >
-> **This week's target is Section 2** — the R primers, and the five four-question
+> **This week's target is Section 2**, the R primers and the five four-question
 > check quizzes beside them. Budget 45 minutes; you can do it in three sittings.
 >
 > Day 1 begins drawing plots at 11:15 on Wednesday morning. Participants who have
@@ -71,23 +71,23 @@ appeal does not.
 > cold, in a room of forty people, at speed. The primers exist to make sure you
 > are in the first group.
 >
-> If your install is not working yet, **do the browser primers instead of
-> waiting**. They run R inside the page — nothing to install, nothing that can go
-> wrong with your setup — so you can keep learning while we sort the install out
-> separately. Open them at home rather than at the venue: each one downloads
-> 16–37 MB the first time.
+> If your install is not working yet, do the browser primers instead of waiting.
+> They run R inside the page, so there is nothing to install and nothing that can
+> go wrong with your setup, and you can keep learning while we sort the install
+> out separately. Open them at home rather than at the venue, because each one
+> downloads 16 to 37 MB the first time.
 >
 > **Setup check.** [N] of you have uploaded a setup-check result so far. If you
-> are not one of them, please run it this week — and send the output **even if it
-> failed**. Every `✖` line names something we can usually fix by email in a day.
+> are not one of them, please run it this week, and send the output even if it
+> failed. Every `✖` line names something we can usually fix by email in a day.
 >
 > The SET Team
 
 ---
 
-## 3 · Monday 31 August — data, reading, and the last full week
+## 3 · Monday 31 August, data, reading, and the last full week
 
-**Subject:** Last full week — datasets, pre-reading, and where we stand
+**Subject:** Last full week: datasets, pre-reading, and where we stand
 
 > Dear all,
 >
@@ -96,16 +96,16 @@ appeal does not.
 > together are about 25 minutes, and the reading is optional.
 >
 > The datasets matter more than they look. Every code example across both days
-> reads `data/meded_students.csv` from that exact relative path — so if the file
+> reads `data/meded_students.csv` from that exact relative path, so if the file
 > is in your Downloads folder on Wednesday morning, none of the examples will run
 > for you.
 >
 > **Where we stand**, out of [N] participants:
 >
-> - Setup check uploaded: **[N]**
-> - Started the primers: **[N]**
-> - Finished Primer 5: **[N]**
-> - Pre-test done: **[N]**
+> - Setup check uploaded: [N]
+> - Started the primers: [N]
+> - Finished Primer 5: [N]
+> - Pre-test done: [N]
 >
 > If you are missing from the first line, this is the week. A failing setup check
 > that reaches us on 31 August is a solved problem; the same one on 9 September at
@@ -115,14 +115,14 @@ appeal does not.
 
 ---
 
-## 4 · Friday 4 September — five days to go
+## 4 · Friday 4 September, five days to go
 
-**Subject:** Five days to go — please check your laptop is ready
+**Subject:** Five days to go, please check your laptop is ready
 
 > Dear all,
 >
-> The workshop begins at **09:00 on Wednesday 9 September**. Registration, the
-> icebreaker and group allotment run 09:00–09:30 on Day 1 — please be there for
+> The workshop begins at 09:00 on Wednesday 9 September. Registration, the
+> icebreaker and group allotment run 09:00 to 09:30 on Day 1. Please be there for
 > it, because that is where you meet the group you present with on Thursday
 > afternoon.
 >
@@ -137,10 +137,10 @@ appeal does not.
 >
 > **Outstanding, in order of how much it will cost you on the day:**
 >
-> 1. Setup check not run, or run and failed — this costs you the first session
-> 2. Primers not started — Day 1 will move fast from 11:15
-> 3. Datasets not downloaded into your project's `data/` folder
-> 4. Pre-test not done — ten minutes, and it shapes how we pitch Day 1
+> 1. Setup check not run, or run and failed. This costs you the first session.
+> 2. Primers not started. Day 1 will move fast from 11:15.
+> 3. Datasets not downloaded into your project's `data/` folder.
+> 4. Pre-test not done. Ten minutes, and it shapes how we pitch Day 1.
 >
 > **Bring:** the laptop you did all this on, its charger (outlets are limited),
 > and 5 GB of free space. Tea and lunch are provided on both days.

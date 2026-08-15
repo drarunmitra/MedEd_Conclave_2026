@@ -2,15 +2,16 @@
 
 **Send:** four weeks before (≈ 12 August 2026)
 **To:** confirmed participants
-**Subject:** MedEd Conclave 2026 — R & Reproducible Research Workshop, 9–10 September
+**Subject:** MedEd Conclave 2026, R & Reproducible Research Workshop, 9 to 10 September
 
 ---
 
 Dear Dr {{FIRST_NAME}},
 
-You are confirmed for the **R & Reproducible Research Workshop** at MedEd
-Conclave 2026, on **Wednesday 9 and Thursday 10 September 2026**, at
-AIIMS Bibinagar, Hyderabad. Both days run 09:00–17:00, with registration from 09:00 on Day 1.
+You are confirmed for the R & Reproducible Research Workshop at MedEd
+Conclave 2026, on Wednesday 9 and Thursday 10 September 2026, at
+AIIMS Bibinagar, Hyderabad. Both days run 09:00 to 17:00, with registration from
+09:00 on Day 1.
 
 This is a hands-on workshop. You will spend roughly two-thirds of the two days
 writing code on your own laptop. No prior programming experience is assumed.
@@ -19,29 +20,31 @@ writing code on your own laptop. No prior programming experience is assumed.
 
 https://setfacilitysaral2.org/course/view.php?id=394
 
-You are already enrolled — sign in with your usual institutional credentials.
+You are already enrolled, so sign in with your usual institutional credentials.
 That course carries the instructions, the deadlines and one short pre-test. The
-teaching material itself is on the workshop website, https://drarunmitra.github.io/MedEd_Conclave_2026, which stays
-online after the conclave ends.
+teaching material itself is on the workshop website,
+https://drarunmitra.github.io/MedEd_Conclave_2026, which stays online after the
+conclave ends.
 
 Budget about two hours in total, spread over a few evenings. Three targets:
 
-1. **By Sunday 23 August** — install R, RStudio and Quarto, run the setup check,
+1. **By Sunday 23 August.** Install R, RStudio and Quarto, run the setup check,
    and upload the result so we know your laptop is ready.
-2. **By Sunday 30 August** — work through the R primers and the five short check
+2. **By Sunday 30 August.** Work through the R primers and the five short check
    quizzes. One track runs entirely in your browser, so you can start before
    your install is finished.
-3. **By Sunday 6 September** — download the workshop datasets and skim the
+3. **By Sunday 6 September.** Download the workshop datasets and skim the
    pre-reading.
 
-**Please also complete the pre-test** (https://setfacilitysaral2.org/mod/quiz/view.php?id=3475, 10 minutes) *before* you
-start the primers. It measures the workshop rather than you — we use it to pitch
+Please also complete the pre-test
+(https://setfacilitysaral2.org/mod/quiz/view.php?id=3475, 10 minutes) before you
+start the primers. It measures the workshop rather than you: we use it to pitch
 Day 1 at the room that actually turns up.
 
 **What to bring**
 
 - A laptop you have administrator rights on (Windows, macOS or Linux)
-- A charger — power outlets are limited
+- A charger, because power outlets are limited
 - At least 5 GB of free disk space
 
 **If your institution restricts software installation,** reply to this email

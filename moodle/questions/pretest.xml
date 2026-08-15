@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   MedEd Conclave 2026 · R & Reproducible Research
-  Pre-test question bank — 10 questions.
+  Pre-test question bank, 10 questions.
 
   Baseline measurement, taken before any teaching. Deliberately spans the whole
   workshop, so most of the cohort will not know the later answers: that is the
   measurement, not a fault. Deferred feedback, one attempt, zero weight.
 
-  No placeholders — this file imports as it is.
+  No placeholders; this file imports as it is.
 -->
 <quiz>
 
@@ -35,19 +35,19 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Reproducible — the same data and the same code give the same result</p>]]></text>
+      <text><![CDATA[<p>Reproducible: the same data and the same code give the same result</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>Correct.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Replicable — the finding has been confirmed</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Not quite. Replication means an independent team collects new data and reaches the same conclusion. Here the data are the same file, so nothing has been independently confirmed — only recomputed.</p>]]></text></feedback>
+      <text><![CDATA[<p>Replicable: the finding has been confirmed</p>]]></text>
+      <feedback format="html"><text><![CDATA[<p>Not quite. Replication means an independent team collects new data and reaches the same conclusion. Here the data are the same file, so nothing has been independently confirmed, only recomputed.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Not reproducible, because you did not collect the data yourself</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>No. Reproducibility is a property of the analysis, not of who gathered the data. Re-running someone else's analysis on their data is exactly what the word describes.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>Generalisable — the result would hold in another population</p>]]></text>
+      <text><![CDATA[<p>Generalisable: the result would hold in another population</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>No. Generalisability is about whether the finding transfers to a different population, which running a script cannot tell you anything about.</p>]]></text></feedback>
     </answer>
   </question>
@@ -58,7 +58,7 @@
       <text><![CDATA[<p>You clean a dataset by hand in a spreadsheet: you delete three duplicated rows, correct four misspelled department names, and recode a column. You save, and carry on.</p><p>Six months later a reviewer asks exactly what you changed. What can you show them?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Nothing, unless you recorded the steps somewhere other than the file itself. Once a manual edit is saved it is indistinguishable from data that arrived that way. This is the argument for a scripted workflow, and it is not an argument that researchers are careless: it is that hand edits leave no trace. A script is the instruction and the record at the same time — run it again and you can see, and prove, every change it makes.</p>]]></text>
+      <text><![CDATA[<p>Nothing, unless you recorded the steps somewhere other than the file itself. Once a manual edit is saved it is indistinguishable from data that arrived that way. This is the argument for a scripted workflow, and it is not an argument that researchers are careless: it is that hand edits leave no trace. A script is the instruction and the record at the same time, run it again and you can see, and prove, every change it makes.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -67,20 +67,20 @@
     <shuffleanswers>true</shuffleanswers>
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
-      <text><![CDATA[<p>Nothing — unless you wrote the steps down separately, the edits left no record</p>]]></text>
+      <text><![CDATA[<p>Nothing: unless you wrote the steps down separately, the edits left no record</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>Correct, and this is the whole argument. The cleaned file cannot tell anyone which rows were dropped or which names were changed, so neither can you.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>The file's version history, which lists the cells that changed</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Cloud version history can show that a file changed and roughly when, but not which cells or why — and it is lost the moment the file is emailed, copied or moved. It is a backup, not an audit trail of an analysis.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Cloud version history can show that a file changed and roughly when, but not which cells or why, and it is lost the moment the file is emailed, copied or moved. It is a backup, not an audit trail of an analysis.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>The undo history, which is stored inside the saved file</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Undo lives in the open session, not in the file. Close the spreadsheet and it is gone — which is why it can rescue you from a slip in the next ten seconds but never from a question six months later.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Undo lives in the open session, not in the file. Close the spreadsheet and it is gone, which is why it can rescue you from a slip in the next ten seconds but never from a question six months later.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>The original data, by comparing it with the cleaned version</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Only if you kept an untouched copy of the raw file — a genuinely good habit, and one Day 1 teaches. Here you saved over it. Even with both files, a diff shows you <em>what</em> differs and never <em>why</em>, so a reviewer still cannot tell a deliberate recode from a typo.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Only if you kept an untouched copy of the raw file, a genuinely good habit, and one Day 1 teaches. Here you saved over it. Even with both files, a diff shows you <em>what</em> differs and never <em>why</em>, so a reviewer still cannot tell a deliberate recode from a typo.</p>]]></text></feedback>
     </answer>
   </question>
 
@@ -104,11 +104,11 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Tests whether <code>n_students</code> is less than 240</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>No — that would be <code>n_students &lt; 240</code>, without the dash. The arrow <code>&lt;-</code> is one symbol made of two characters, and it assigns rather than compares.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>No, that would be <code>n_students &lt; 240</code>, without the dash. The arrow <code>&lt;-</code> is one symbol made of two characters, and it assigns rather than compares.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Prints 240 to the console</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>No. Assignment is silent — nothing is printed. Type the object's name on its own line afterwards to see what is in it.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>No. Assignment is silent; nothing is printed. Type the object's name on its own line afterwards to see what is in it.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Creates a function called <code>n_students</code></p>]]></text>
@@ -122,7 +122,7 @@
       <text><![CDATA[<p>You mean to record three attendance figures, but one of them is typed with quotation marks by mistake:</p><pre><code>c(12, 15, "18")</code></pre><p>What do you get?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>A vector holds one type only. Mix them and everything is silently converted to the most permissive type, which is text — so <code>mean()</code> then fails on data that looks fine. Primer 1 covers this; it is a classic source of confusion.</p>]]></text>
+      <text><![CDATA[<p>A vector holds one type only. Mix them and everything is silently converted to the most permissive type, which is text, so <code>mean()</code> then fails on data that looks fine. Primer 1 covers this; it is a classic source of confusion.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -132,15 +132,15 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<p>A vector of three <strong>text</strong> values: <code>"12" "15" "18"</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Correct — and note that R does not warn you. You find out later, when an arithmetic function refuses to work.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Correct, and note that R does not warn you. You find out later, when an arithmetic function refuses to work.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
-      <text><![CDATA[<p>A vector of three numbers — R converts <code>"18"</code> for you</p>]]></text>
+      <text><![CDATA[<p>A vector of three numbers, R converts <code>"18"</code> for you</p>]]></text>
       <feedback format="html"><text><![CDATA[<p>The wrong way round. R converts towards the more permissive type, not the more useful one, so the two numbers become text rather than the text becoming a number.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>An error, because the types do not match</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>No, and that is the problem — an error would be kinder. R converts silently and the result looks almost right.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>No, and that is the problem. An error would be kinder. R converts silently and the result looks almost right.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>A vector holding two numbers and one piece of text</p>]]></text>
@@ -165,7 +165,7 @@
     </answer>
     <answer fraction="0" format="moodle_auto_format">
       <text>false</text>
-      <feedback format="html"><text><![CDATA[<p>It is true, and it is the single most useful sentence about data structure in this workshop. A spreadsheet with one column per month, or one row per variable, is not tidy — and the tidyverse will fight you until it is.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>It is true, and it is the single most useful sentence about data structure in this workshop. A spreadsheet with one column per month, or one row per variable, is not tidy, and the tidyverse will fight you until it is.</p>]]></text></feedback>
     </answer>
   </question>
 
@@ -175,7 +175,7 @@
       <text><![CDATA[<p>You are writing an analysis script that a colleague will also run, on their own computer. Which line belongs at the top of it?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p><code>library()</code> goes in the script, every session. <code>install.packages()</code> stays in the console — once, ever. Primer 3 covers both, and the difference is what makes a script runnable on somebody else's machine.</p>]]></text>
+      <text><![CDATA[<p><code>library()</code> goes in the script, every session. <code>install.packages()</code> stays in the console: once, ever. Primer 3 covers both, and the difference is what makes a script runnable on somebody else's machine.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -193,7 +193,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>setwd("C:/Users/arun/Desktop/analysis")</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>This is the line that guarantees the script fails on your colleague's computer — that path exists on exactly one machine. Day 1 replaces it with an RStudio project and relative paths such as <code>data/meded_students.csv</code>.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>This is the line that guarantees the script fails on your colleague's computer, that path exists on exactly one machine. Day 1 replaces it with an RStudio project and relative paths such as <code>data/meded_students.csv</code>.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>rm(list = ls())</code></p>]]></text>
@@ -207,7 +207,7 @@
       <text><![CDATA[<p>What does the native pipe do in this line?</p><pre><code>c(88, 72, 95, 64) |&gt; mean()</code></pre>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>The pipe passes the value on its left into the function on its right as that function's first argument, so the line means <code>mean(c(88, 72, 95, 64))</code> — and reads in the order the work happens. Primer 3.</p>]]></text>
+      <text><![CDATA[<p>The pipe passes the value on its left into the function on its right as that function's first argument, so the line means <code>mean(c(88, 72, 95, 64))</code>, and reads in the order the work happens. Primer 3.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -217,11 +217,11 @@
     <answernumbering>abc</answernumbering>
     <answer fraction="100" format="html">
       <text><![CDATA[<p>Passes the vector into <code>mean()</code> as its first argument</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Correct — identical to <code>mean(c(88, 72, 95, 64))</code>, but readable left to right once the pipeline is six steps long.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Correct, identical to <code>mean(c(88, 72, 95, 64))</code>, but readable left to right once the pipeline is six steps long.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Assigns the vector to an object called <code>mean</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>No — assignment is <code>&lt;-</code>. The pipe moves a value along a chain of functions; it never creates a name.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>No, assignment is <code>&lt;-</code>. The pipe moves a value along a chain of functions; it never creates a name.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Compares the vector with the mean</p>]]></text>
@@ -229,17 +229,17 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>Adds <code>mean()</code> as a layer, the way a plot is built up</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Layers are joined with <code>+</code>, and only in ggplot2. Keeping those two straight — <code>|&gt;</code> between verbs, <code>+</code> between plot layers — saves a lot of confusion on Day 1.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Layers are joined with <code>+</code>, and only in ggplot2. Keeping those two straight (<code>|&gt;</code> between verbs, <code>+</code> between plot layers) saves a lot of confusion on Day 1.</p>]]></text></feedback>
     </answer>
   </question>
 
   <question type="multichoice">
     <name><text>PRE08 Missing values in a mean</text></name>
     <questiontext format="html">
-      <text><![CDATA[<p>A cohort of 240 students has a <code>posttest</code> column in which 11 values are missing — recorded as <code>NA</code>. You run:</p><pre><code>mean(students$posttest)</code></pre><p>What comes back?</p>]]></text>
+      <text><![CDATA[<p>A cohort of 240 students has a <code>posttest</code> column in which 11 values are missing, recorded as <code>NA</code>. You run:</p><pre><code>mean(students$posttest)</code></pre><p>What comes back?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code> — R's way of refusing to guess. <code>mean(posttest, na.rm = TRUE)</code> averages the 229 students who do have a score. Primer 4 and the datasets page both cover this.</p>]]></text>
+      <text><![CDATA[<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code>, R's way of refusing to guess. <code>mean(posttest, na.rm = TRUE)</code> averages the 229 students who do have a score. Primer 4 and the datasets page both cover this.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -253,7 +253,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>The mean of the 229 students who have a score</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>That is what <code>mean(students$posttest, na.rm = TRUE)</code> gives. Without <code>na.rm = TRUE</code> you get <code>NA</code> — R makes you ask for the exclusion explicitly, so that dropping 11 people is a decision you took rather than one that happened to you.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>That is what <code>mean(students$posttest, na.rm = TRUE)</code> gives. Without <code>na.rm = TRUE</code> you get <code>NA</code>, R makes you ask for the exclusion explicitly, so that dropping 11 people is a decision you took rather than one that happened to you.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>The mean, treating the missing values as zero</p>]]></text>
@@ -261,7 +261,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>An error, and no result at all</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>Close but not the same thing. You get a <em>result</em>, <code>NA</code>, with no error and no warning — which is why it catches people out. An error stops; <code>NA</code> propagates quietly through the rest of your analysis.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>Close but not the same thing. You get a <em>result</em>, <code>NA</code>, with no error and no warning, which is why it catches people out. An error stops; <code>NA</code> propagates quietly through the rest of your analysis.</p>]]></text></feedback>
     </answer>
   </question>
 
@@ -271,7 +271,7 @@
       <text><![CDATA[<p>You have a table of 240 students and want to work with only those in the 2024 batch. Which <code>dplyr</code> verb keeps only the rows where a condition is true?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p><code>filter()</code> for rows, <code>select()</code> for columns. Those two plus <code>arrange()</code>, <code>mutate()</code> and <code>summarise()</code> do almost all data work — Primer 4 and Day 1 afternoon.</p>]]></text>
+      <text><![CDATA[<p><code>filter()</code> for rows, <code>select()</code> for columns. Those two plus <code>arrange()</code>, <code>mutate()</code> and <code>summarise()</code> do almost all data work, Primer 4 and Day 1 afternoon.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -303,7 +303,7 @@
       <text><![CDATA[<p>Every <code>ggplot2</code> plot is built from three parts, and you have to name all three before anything is drawn. Which three?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p>Data, aesthetics, geom. Miss one and you get a blank grey panel rather than an error, which is confusing the first time — Primer 5 adds them one at a time so you can watch the picture appear.</p>]]></text>
+      <text><![CDATA[<p>Data, aesthetics, geom. Miss one and you get a blank grey panel rather than an error, which is confusing the first time, Primer 5 adds them one at a time so you can watch the picture appear.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>
@@ -321,7 +321,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>The data, a statistical test and a p-value</p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>No. ggplot2 draws; it does not test. Keeping the picture and the inference separate is deliberate — often, as with the two teaching arms in the workshop cohort, the picture is enough to see there is nothing to test.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>No. ggplot2 draws; it does not test. Keeping the picture and the inference separate is deliberate. Often, as with the two teaching arms in the workshop cohort, the picture is enough to see there is nothing to test.</p>]]></text></feedback>
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p>The data, the colours and the file format to save as</p>]]></text>
