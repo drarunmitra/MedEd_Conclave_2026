@@ -126,13 +126,18 @@ Steps 1, 2 and 4 are done. The rest need a student account.
       watch the Network panel for the worker's requests;
       `performance.getEntriesByType('resource')` will not show them (see
       `docs/webr-verification-2026-08.md` §4).
-- [ ] **6. Student dry run** on a real test account, not *Switch role to*:
-      - every URL resource opens in its own window and lands on the right page;
-      - one primer reaches ready and runs a cell **from the Moodle link**;
-      - for each quiz, the intended answer scores 100% **and** one plausible
-        wrong answer returns its specific message, not a generic one — this is
-        the check that the GIFT conversion kept the per-distractor feedback;
-      - the Assignment accepts pasted console text and a PNG screenshot.
+- [~] **6. Student dry run.** Partly done from the teacher preview on
+      15 August 2026; the rest needs a real student account, not *Switch role to*.
+      - [x] **The GIFT conversion kept the per-distractor feedback.** Previewed
+            *Check yourself · Primer 1*, answered `3` (the `>` mistake) and got
+            *Incorrect*, the authored message — "That is the answer to
+            `sum(osce > 70)`, which drops the student who scored exactly 70…" —
+            and the general feedback, with the right answer **not** revealed.
+            Code blocks, `<-` and `>=` all render correctly.
+      - [ ] every URL resource opens in its own window and lands on the right page;
+      - [ ] one primer reaches ready and runs a cell **from the Moodle link**;
+      - [ ] the remaining four quizzes spot-checked the same way;
+      - [ ] the Assignment accepts pasted console text and a PNG screenshot.
 - [ ] **7. Readiness report.** With the test account's work done,
       *Reports → Activity completion* shows the expected ticks and the
       Assignment submission list is scannable at cohort size.

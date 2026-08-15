@@ -148,8 +148,14 @@ failing run in place instead of starting an email thread.
 
 ## §4 Section 2 — Learn just enough R (target Sun 30 August)
 
-Built and verified on course 394, 15 August 2026 — items 1 to 9 exist; the five
-quizzes do not yet.
+**Built on course 394, 15 August 2026 — all 14 items exist.** Quiz module ids:
+Primer 1 → 3457, Primer 2 → 3458, Primer 3 → 3459, Primer 4 → 3460,
+Primer 5 → 3461 (`…/mod/quiz/view.php?id=NNNN`).
+
+The quizzes were created after the links, so they sit at the bottom of the
+section rather than each one beneath its primer. Interleaving them is a drag or
+a *Move* per quiz — worth doing before the course opens, but nothing breaks
+either way.
 
 | Order | Type | Name | Points at |
 |---|---|---|---|
