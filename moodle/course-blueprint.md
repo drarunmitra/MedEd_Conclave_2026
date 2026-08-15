@@ -10,6 +10,40 @@ the site-default *Embed*, on every URL resource.
 
 ---
 
+## As built on course 394 — 15 August 2026
+
+All five sections and **25 activities** exist. Everything is **hidden from
+students**; the four numbered sections are hidden at section level, and the
+three new items in section 0 are hidden individually because Moodle cannot hide
+the General section.
+
+| Section | Items |
+|---|---|
+| 0 · Welcome! | Announcements (pre-existing) · text panel *How this course works* · URL → site home · **Pre-test (10 minutes)**, 10 questions, cmid 3475 |
+| 1 · Get your laptop ready | **Assignment** *Show us your setup check passed* · **Forum** *Help desk* |
+| 2 · Basics of R | Text panel *What is R? What is RStudio?* · 2 install URLs · R primer URL · 5 primer URLs · **5 check quizzes**, cmids 3457–3461 |
+| 3 · Data and reading | 3 URLs · **Page** *What to bring, where to be, when* |
+| 4 · Reference | 4 URLs · closing text panel |
+
+Departures from the plan above, all deliberate:
+
+- **Section 0's "How this course works" is a text panel, not a Page.** It reads
+  on the course page without a click, which suits an orientation note.
+- **The five check quizzes sit below the primers**, not interleaved. Moodle
+  appends; interleaving is one *Move* per quiz.
+- **The assignment kept Moodle's default dates** — opens 15 Aug, due 22 Aug —
+  rather than the 23 Aug in this blueprint. A day early; change it if it matters.
+- **Reference URLs have completion tracking off**, as specified. Every other
+  URL completes on view.
+- The workshop lead rewrote the section 0, 1 and 2 summaries on the live course.
+  Those are theirs.
+
+**Still to do before the course opens:** enrol the cohort, unhide everything,
+and run the student dry run in `README.md` step 6. The pre-test URL is already
+filled into both admin emails.
+
+---
+
 ## §0 Course settings
 
 The prelude is being built **into the existing SARAL course 394**, not a new

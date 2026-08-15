@@ -39,7 +39,7 @@ Wednesday.
 - Tea and lunch provided both days
 - Groups are allotted at registration; you will present with your group on
   Thursday afternoon
-- Pre-test link, if not yet completed: {{PRETEST_URL}}
+- Pre-test link, if not yet completed: https://setfacilitysaral2.org/mod/quiz/view.php?id=3475
 
 See you on Wednesday.
 

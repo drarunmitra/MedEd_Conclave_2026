@@ -34,7 +34,7 @@ Budget about two hours in total, spread over a few evenings. Three targets:
 3. **By Sunday 6 September** — download the workshop datasets and skim the
    pre-reading.
 
-**Please also complete the pre-test** ({{PRETEST_URL}}, 10 minutes) *before* you
+**Please also complete the pre-test** (https://setfacilitysaral2.org/mod/quiz/view.php?id=3475, 10 minutes) *before* you
 start the primers. It measures the workshop rather than you — we use it to pitch
 Day 1 at the room that actually turns up.
 
