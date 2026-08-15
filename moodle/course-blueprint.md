@@ -40,15 +40,34 @@ calendar. Nothing closes early.
 
 ## §1 Sections
 
-| # | Section name | Target date |
+| # | Section name as built | Target date |
 |---|---|---|
-| 0 | Start here | — |
+| 0 | Welcome! | — |
 | 1 | 1 · Get your laptop ready | Sun 23 August |
-| 2 | 2 · Learn just enough R | Sun 30 August |
+| 2 | 2 · Basics of R | Sun 30 August |
 | 3 | 3 · Data and reading | Sun 6 September |
 | 4 | Reference — open all the time | — |
 
-Section summaries are in `activity-text.md` §1.
+Sections 0 and 2 were renamed by the workshop lead after the first build, and
+section 2's summary rewritten. Those titles are theirs; do not revert them to
+the names in `activity-text.md` §1.
+
+### Installation lives in Section 2, not Section 1
+
+**Changed 2026-08-15 at the workshop lead's request.** Section 2 now opens with
+the R/RStudio explainer and both install links, so a participant who starts
+there has a complete path — *what these tools are → install them → learn some R*
+— without needing to know that Section 1 exists.
+
+That leaves Section 1 holding the **evidence** rather than the instructions:
+the setup-check upload and the help-desk forum. Its name still reads "Get your
+laptop ready", which now overlaps Section 2's opening. Worth renaming to
+something like "Show us your laptop is ready" — a decision for the lead, not
+made here.
+
+The install links appear **once**, in Section 2. Do not duplicate them into
+Section 1; two copies of an instruction is exactly the drift this build kit
+exists to avoid.
 
 ---
 
@@ -129,11 +148,16 @@ failing run in place instead of starting an email thread.
 
 ## §4 Section 2 — Learn just enough R (target Sun 30 August)
 
+Built and verified on course 394, 15 August 2026 — items 1 to 9 exist; the five
+quizzes do not yet.
+
 | Order | Type | Name | Points at |
 |---|---|---|---|
-| 1 | Label | *(which track to choose)* | — |
-| 2 | URL | R primer — the RStudio version | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/r-primer.html` |
-| 3 | URL | Primer 1 · Objects, functions and vectors | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-01-objects.html` |
+| 1 | Label | **What is R? What is RStudio?** — three tools, three jobs, install order | — |
+| 2 | URL | Install R, RStudio and Quarto | `…/prelude/install.html` |
+| 3 | URL | Install the packages and run the setup check | `…/prelude/check-setup.html` |
+| 4 | URL | R primer — the RStudio version | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/r-primer.html` |
+| 5 | URL | Primer 1 · Objects, functions and vectors | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-01-objects.html` |
 | 4 | Quiz | Check yourself · Primer 1 | 4 questions |
 | 5 | URL | Primer 2 · Tibbles | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-02-tibbles.html` |
 | 6 | Quiz | Check yourself · Primer 2 | 4 questions |
