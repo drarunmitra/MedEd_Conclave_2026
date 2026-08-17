@@ -49,7 +49,7 @@ outlier dropped before or after the log transformation?
 
 This is not a failure of diligence. It is the predictable outcome of a
 workflow where the *record* of what you did is separate from the *doing* of
-it — where clicks leave no trace.
+it, where clicks leave no trace.
 
 ::: {.callout-note}
 ## The core claim of this workshop
@@ -66,7 +66,7 @@ these two days is a consequence of it.
 | **Replicability** | No (new data) | Yes/similar | Does the finding hold in a new sample? |
 | **Generalisability** | No | No | Does it hold elsewhere, by other means? |
 
-Reproducibility is the *lowest* bar — and it is entirely within your control.
+Reproducibility is the *lowest* bar, and it is entirely within your control.
 It requires no new participants, no funding and no collaborators. It is
 simply the claim that your numbers follow from your data.
 
@@ -133,7 +133,7 @@ Take the last paper or thesis chapter you completed.
 2. If you left the institution tomorrow, could your co-author?
 3. Which of the three failure points above would bite first?
 
-Be honest. Nobody's answer is "yes, yes, none" — that is why you are here.
+Be honest. Nobody's answer is "yes, yes, none". That is why you are here.
 :::
 
 ## Ground rules for the two days
@@ -152,11 +152,11 @@ Be honest. Nobody's answer is "yes, yes, none" — that is why you are here.
   weakest of the three claims, and the only one you control alone.
 - Scripts unify the record and the act. Clicks do not.
 - Most irreproducibility comes from undocumented manual steps, absolute
-  paths, and stale environments — all three are free to fix.
+  paths, and stale environments. All three are free to fix.
 - Restart-and-source is the test. Use it before you submit anything.
 :::
 
 ## Next
 
-→ [2 · Getting started](s2-getting-started.qmd) — the concepts and thumb
+→ [2 · Getting started](s2-getting-started.qmd): the concepts and thumb
 rules underneath everything else, plus how data science and AI fit together.

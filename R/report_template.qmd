@@ -1,5 +1,5 @@
 ---
-title: "Group N — your question here"
+title: "Group N: your question here"
 author: "Member A, Member B, Member C"
 date: today
 format:

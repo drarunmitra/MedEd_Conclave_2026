@@ -112,7 +112,7 @@ The pieces:
 
 | Argument | Controls |
 |---|---|
-| `label =` | Human-readable variable names. Do this always — `attendance_pct` is not acceptable in a manuscript |
+| `label =` | Human-readable variable names. Do this always. `attendance_pct` is not acceptable in a manuscript |
 | `statistic =` | `{mean} ({sd})` vs the default `{median} ({p25}, {p75})` |
 | `digits =` | Decimal places |
 | `missing =` | `"ifany"` (default), `"no"`, `"always"` |
@@ -121,7 +121,7 @@ The pieces:
 ::: {.callout-tip}
 ## Report the statistic your data deserve
 The default is median and IQR because it is the safer choice for skewed
-data. Switching to mean and SD is a claim about your distribution — check
+data. Switching to mean and SD is a claim about your distribution, so check
 it with a histogram before you make it. `study_hours` in this dataset is
 right-skewed; `pretest` is not.
 :::
@@ -170,7 +170,7 @@ tbl_merge(list(t1, t2),
           tab_spanner = c("**Descriptive**", "**Unadjusted model**"))
 ```
 
-`tbl_stack()` does the same vertically — useful for reporting the same model
+`tbl_stack()` does the same vertically, useful for reporting the same model
 across several outcomes.
 
 ## Getting it into Word
@@ -182,9 +182,9 @@ tbl <- students |>
   tbl_summary(by = teaching_arm) |>
   add_p()
 
-# Option 1 — inside a Quarto document rendering to docx: just print it.
+# Option 1, inside a Quarto document rendering to docx: just print it.
 
-# Option 2 — a standalone Word file
+# Option 2: a standalone Word file
 tbl |>
   as_flex_table() |>
   flextable::save_as_docx(path = "output/table1.docx")
@@ -256,7 +256,7 @@ students |>
   modify_caption("**Table.** Knowledge scores by teaching arm.")
 ```
 
-The `pretest` row should show no meaningful difference — the arms were
+The `pretest` row should show no meaningful difference. The arms were
 allocated alternately, so they start comparable. That is what licenses reading
 the `gain` difference as an effect of teaching method rather than of who
 ended up in which arm. Had the pre-test differed substantially, the gain
@@ -289,7 +289,7 @@ lm(posttest ~ teaching_arm + pretest + attendance_pct, data = students) |>
 Interpretation: *adjusting for pre-test score and attendance, students taught
 by flipped classroom scored about 5 points higher on the post-test than those
 taught by traditional lecture.* Note the two things that sentence contains
-which a bare p-value does not — the size of the effect, and what it is
+which a bare p-value does not: the size of the effect, and what it is
 adjusted for.
 :::
 
@@ -319,7 +319,7 @@ tbl_merge(list(t1, t2),
 
 What still needs manual work: journal-specific fonts and table borders, and
 sometimes the footnote wording. Set those once in a `reference-doc` Word
-template rather than fixing them after every render — see
+template rather than fixing them after every render, see
 [Session 6](s6-quarto-communication.qmd).
 :::
 

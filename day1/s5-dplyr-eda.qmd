@@ -119,7 +119,7 @@ students |>
 
 ::: {.callout-important}
 ## `na.rm = TRUE` is a decision, not a formality
-Without it, `mean(gain)` returns `NA` — R refusing to guess. With it, you
+Without it, `mean(gain)` returns `NA`, R refusing to guess. With it, you
 have silently excluded 11 students. **Both are defensible; neither is
 automatic.** Always report `n` alongside the mean, as above, so the exclusion
 is visible to your reader.
@@ -135,7 +135,7 @@ students |>
 ```
 
 `.groups = "drop"` ungroups the result. Without it, the grouping persists and
-your next `mutate()` behaves in ways you did not intend — a bug that produces
+your next `mutate()` behaves in ways you did not intend: a bug that produces
 plausible wrong numbers rather than an error.
 
 ## Missing data, deliberately
@@ -148,7 +148,7 @@ students |>
 ```
 
 Three columns have missing values, all traceable to the 11 students without a
-post-test plus 7 without a burnout score. Now you can decide — and document —
+post-test plus 7 without a burnout score. Now you can decide (and document)
 what to do. What you must not do is discover it in a footnote after
 submission.
 
@@ -274,7 +274,7 @@ students |>
 students |> count(college)
 ```
 
-`arrange(desc(gain))` puts `NA` last regardless of direction — R's sensible
+`arrange(desc(gain))` puts `NA` last regardless of direction, R's sensible
 default, and a good thing to know before you report a "top ten".
 :::
 
@@ -305,7 +305,7 @@ students |>
 ```
 
 Some cells fall to around 25 students. A mean from 25 observations with an SD
-near 8 has a standard error above 1.5 — differences of a point or two between
+near 8 has a standard error above 1.5: differences of a point or two between
 such cells are noise.
 
 On the third question: no. With six college × arm cells you are choosing the
@@ -352,7 +352,7 @@ combined |>
   theme(legend.position = "none")
 ```
 
-There is a small advantage in the communication domain — around 0.9 marks,
+There is a small advantage in the communication domain, around 0.9 marks,
 which is how the data were generated. It is real in this dataset and it is
 also small relative to the spread. Reporting the effect size next to the
 p-value, rather than instead of it, is the honest presentation.
@@ -401,7 +401,7 @@ faculty |> count(department, sort = TRUE)
 ```
 
 Note the order: clean names first, deduplicate second, recode third. Recoding
-before deduplicating means doing the work twice — and if your recoding is
+before deduplicating means doing the work twice, and if your recoding is
 imperfect, "duplicates" that differ only in whitespace will survive.
 :::
 

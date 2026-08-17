@@ -38,9 +38,9 @@ one sentence.
 
 ::: {.callout-important}
 ## The asymmetry that matters
-It is very good at things where plausible and correct coincide — syntax,
+It is very good at things where plausible and correct coincide: syntax,
 boilerplate, translation, restructuring text. It is unreliable where they come
-apart — a specific citation, a specific p-value, a claim about a specific
+apart: a specific citation, a specific p-value, a claim about a specific
 paper. Wrong answers are delivered in exactly the same confident register as
 right ones. There is no tell.
 :::
@@ -62,7 +62,7 @@ produce it**. That is the whole test.
 ## Where it fails, with examples
 
 **Fabricated references.** Ask for five papers on flipped classrooms in Indian
-medical colleges and you will get five plausible citations — correct-looking
+medical colleges and you will get five plausible citations: correct-looking
 authors, real journals, wrong or non-existent DOIs. Check every reference
 against PubMed or the DOI resolver. Every one, every time.
 
@@ -74,13 +74,13 @@ are normal, whether your clusters are independent, or whether your outcome is
 zero-inflated. Advice given without that information is generic advice, and
 generic advice is how the wrong test gets applied.
 
-**Hallucinated function arguments.** `tbl_summary(pretty = TRUE)` — confident,
+**Hallucinated function arguments.** `tbl_summary(pretty = TRUE)`, confident,
 sensible-looking, does not exist. Check against the package documentation.
 
 ::: {.callout-warning}
 ## The competence trap
 You cannot check code you could not have written. Using AI to work beyond
-your understanding produces output you cannot evaluate — which is precisely
+your understanding produces output you cannot evaluate, which is precisely
 the situation in which errors survive into publication. This is why Day 2
 comes after Day 1, and not the other way round.
 :::
@@ -106,11 +106,11 @@ A strong prompt:
 
 Five ingredients:
 
-1. **Context** — the shape and types of the actual data.
-2. **Task** — one specific thing.
-3. **Constraints** — packages, style, pipe, what to avoid.
-4. **Format** — code with comments, or prose, or a table.
-5. **Verification** — ask it to state its assumptions so you can check them.
+1. **Context**: the shape and types of the actual data.
+2. **Task**: one specific thing.
+3. **Constraints**: packages, style, pipe, what to avoid.
+4. **Format**: code with comments, or prose, or a table.
+5. **Verification**: ask it to state its assumptions so you can check them.
 
 ::: {.callout-tip}
 ## Two habits worth forming
@@ -129,7 +129,7 @@ Never paste into a commercial AI tool:
 
 - Patient-identifiable data of any kind, including dates of birth and
   hospital numbers
-- Student-identifiable assessment data — marks attached to names or roll
+- Student-identifiable assessment data: marks attached to names or roll
   numbers
 - Unpublished data belonging to collaborators without their explicit consent
 - Anything your ethics approval did not anticipate leaving the institution
@@ -159,11 +159,11 @@ students |> slice_head(n = 3) |> mutate(across(everything(), ~ "..."))
   apply. Pasting identifiable records into an overseas service is a transfer,
   and your institution, not the vendor, carries the obligation.
 - **ICMR National Ethical Guidelines for Biomedical and Health Research**
-  (2017) — data sharing must fall within what participants consented to.
+  (2017). Data sharing must fall within what participants consented to.
 - **ICMJE recommendations**: AI cannot be an author. Authors are accountable
   for all content, including anything AI-assisted. Use must be disclosed in
   the methods or acknowledgements.
-- **NITI Aayog's National Strategy for AI** and the **IndiaAI Mission** —
+- **NITI Aayog's National Strategy for AI** and the **IndiaAI Mission**:
   the policy context: sectoral guidance, compute infrastructure, and an
   explicit health priority.
 
@@ -189,7 +189,7 @@ Watch, do not type. Gurpreet will work through:
 
 1. A weak prompt versus a strong one, on the same task.
 2. A fabricated citation, caught by checking the DOI.
-3. Code that runs and is statistically wrong — and how it was spotted.
+3. Code that runs and is statistically wrong, and how it was spotted.
 4. Sanitising a dataset before sharing its structure.
 
 ## Discussion

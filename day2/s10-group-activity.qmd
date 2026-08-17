@@ -84,7 +84,7 @@ students and which do not.
 
 For each station, compute the mean, SD, and the correlation between station
 score and OSCE total. A station that correlates poorly with the total is
-measuring something else — or nothing.
+measuring something else, or nothing.
 
 *Verbs you will need:* `group_by()`, `summarise()`, `left_join()`, `cor()`,
 `ggplot2` with `fct_reorder()`.
@@ -157,7 +157,7 @@ Download [`report_template.qmd`](../R/report_template.qmd), or copy this:
 
 ````markdown
 ---
-title: "Group N — your question here"
+title: "Group N: your question here"
 author: "Member A, Member B, Member C"
 date: today
 format:
@@ -214,7 +214,7 @@ One honest paragraph.
 the authors. / No generative AI tools were used in this analysis.
 ````
 
-`embed-resources: true` bundles images into a single HTML file — you can email
+`embed-resources: true` bundles images into a single HTML file. You can email
 it, and it still works.
 
 ## How to split 45 minutes across a group of six
@@ -251,7 +251,7 @@ Cover, in order:
 
 1. Your question, in one sentence.
 2. Your answer, in one sentence.
-3. Your table or figure — on screen, from your rendered document.
+3. Your table or figure, on screen, from your rendered document.
 4. What surprised you, or what you could not do.
 
 ::: {.callout-note}
@@ -277,7 +277,7 @@ cohort inherits your answers.
 
 - Everything on this site stays online.
 - The repository is public. Fork it, adapt it, run it in your own department.
-- Bring your own data to the follow-up session — details circulated by email.
+- Bring your own data to the follow-up session: details circulated by email.
 
 ::: {.callout-note appearance="minimal"}
 ## The one thing to take away

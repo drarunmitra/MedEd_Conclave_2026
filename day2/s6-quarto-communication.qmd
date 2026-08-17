@@ -65,7 +65,7 @@ Or, within one document, pull in child files:
 {{{< include _methods.qmd >}}}
 ```
 
-Files beginning with an underscore are not rendered on their own — exactly
+Files beginning with an underscore are not rendered on their own, exactly
 what you want for a fragment.
 
 ::: {.callout-tip}
@@ -100,7 +100,7 @@ Approved by the Institutional Ethics Committee (IEC/2026/041).
 ```
 
 Five types: `note`, `tip`, `warning`, `important`, `caution`. Add
-`collapse="true"` to fold them — used all over this site for solutions.
+`collapse="true"` to fold them, used all over this site for solutions.
 
 ## A manuscript that a journal will accept
 
@@ -186,7 +186,7 @@ Each key matches an entry in your `.bib` file:
 
 Zotero and Mendeley both export `.bib` directly, and RStudio autocompletes
 `@` keys once `bibliography:` is set. The reference list assembles itself at
-the end of the document — you never type it, and it only ever contains what
+the end of the document. You never type it, and it only ever contains what
 you actually cited.
 
 ::: {.callout-tip}
@@ -212,7 +212,7 @@ The output appears; the code sits behind a toggle. Nothing is hidden from
 anyone who wants it, and nothing clutters the page for anyone who does not.
 Use it for anything you circulate to clinical colleagues.
 
-Note this is an HTML idea. In `docx` and `pdf` there is no toggle to click —
+Note this is an HTML idea. In `docx` and `pdf` there is no toggle to click.
 there, `echo: false` is the honest equivalent, with the code available in the
 repository instead.
 
@@ -254,7 +254,7 @@ Turn yesterday's `report.qmd` into a small structured manuscript.
 2. Split it: move your setup chunk and data import into `_setup.qmd` and pull
    it in with `{{{< include _setup.qmd >}}}`.
 3. Add sections: Background, Methods, Results, Limitations.
-4. In Methods, state the missing-data decision you made yesterday — in prose,
+4. In Methods, state the missing-data decision you made yesterday, in prose,
    with the count reported through inline code.
 5. Add one callout noting ethical approval (invent a number; this is
    synthetic data).
@@ -325,7 +325,7 @@ students <- read_csv("data/meded_students.csv")
 ## Key takeaways
 
 ::: {.callout-note appearance="minimal"}
-- Same source, different `format:` — article, slides, website, thesis.
+- Same source, different `format:`: article, slides, website, thesis.
 - Split long documents; prefix fragments with `_` and pull them in with
   `{{{< include >}}}`.
 - `reference-doc:` and `csl:` turn journal reformatting into one line.

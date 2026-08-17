@@ -57,8 +57,8 @@ the data, render again, and every number updates. Nothing is copied by hand.
 
 ::: {.callout-important}
 ## This is the whole idea
-The alternative — run the analysis, copy the number, paste into Word, format
-the table — breaks silently the moment anything changes. And something always
+The alternative (run the analysis, copy the number, paste into Word, format
+the table) breaks silently the moment anything changes. And something always
 changes: a duplicate is found, an exclusion criterion shifts, a reviewer asks
 for a subgroup.
 :::
@@ -167,7 +167,7 @@ Reproducibility is the minimum standard [@peng2011].
 
 Quarto builds the reference list, in the style you name, from only the
 citations you actually used. Zotero exports `.bib` directly (Better BibTeX
-keeps the keys stable — worth installing).
+keeps the keys stable, worth installing).
 
 ## One source, many outputs
 
@@ -193,7 +193,7 @@ Or click **Render** in RStudio, using the dropdown to pick a format.
 ## The Word workflow that actually survives co-authors
 Render to `docx`. Send it. Co-authors track-change the Word file. You read
 their changes and make the corresponding edits **in the `.qmd`**, then
-re-render. Yes, that is a manual step — but the source of truth stays
+re-render. Yes, that is a manual step, but the source of truth stays
 singular. The alternative, editing the Word file directly, forks your project
 permanently.
 :::
@@ -206,7 +206,7 @@ containing prose, a table and a figure.
 ::: {.callout-note title="Exercise 1: your first rendered document"}
 **Time:** 10 minutes
 
-1. **File → New File → Quarto Document**. Title: "Knowledge gain — first
+1. **File → New File → Quarto Document**. Title: "Knowledge gain: first
    look". Format: HTML.
 2. Delete everything below the YAML header.
 3. Add a `## Background` heading and two sentences about the flipped
@@ -219,7 +219,7 @@ containing prose, a table and a figure.
 ::: {.callout-tip title="Solution 1" collapse="true"}
 ````markdown
 ---
-title: "Knowledge gain — first look"
+title: "Knowledge gain: first look"
 author: "Your name"
 date: today
 format: html
@@ -238,7 +238,7 @@ students <- read_csv("data/meded_students.csv")
 ```
 ````
 
-`include: false` runs the chunk but shows neither code nor output — exactly
+`include: false` runs the chunk but shows neither code nor output, exactly
 what you want for loading packages and data.
 :::
 
@@ -250,7 +250,7 @@ Extend `report.qmd`:
 1. A `## Results` section.
 2. A code chunk producing your boxplot of `gain` by `teaching_arm`, with
    `#| label: fig-gain`, a `fig-cap`, and `echo: false`.
-3. A small summary table — count and mean gain per arm — printed with
+3. A small summary table (count and mean gain per arm) printed with
    `knitr::kable()`.
 4. One sentence in the prose that reports the overall mean gain using
    **inline code**, not a typed number.
@@ -313,11 +313,11 @@ format:
 :::
 
 ::: {.callout-tip title="Solution 3" collapse="true"}
-Nothing more to write — that is the point of the exercise. If `docx` fails,
+Nothing more to write. That is the point of the exercise. If `docx` fails,
 close any open Word document with the same name; Word locks the file and
 Quarto cannot overwrite it. This will happen to you at least twice.
 
-For PDF you also need `tinytex::install_tinytex()` — see
+For PDF you also need `tinytex::install_tinytex()`, see
 [Setup](../prelude/install.qmd).
 :::
 
@@ -334,5 +334,5 @@ For PDF you also need `tinytex::install_tinytex()` — see
 
 ## Next
 
-→ [5 · Working with data](s5-dplyr-eda.qmd) — the verbs that produce the
+→ [5 · Working with data](s5-dplyr-eda.qmd): the verbs that produce the
 numbers you just embedded.

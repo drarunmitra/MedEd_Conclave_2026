@@ -6,7 +6,7 @@ toc: false
 
 A two-day, hands-on workshop for medical education faculty and researchers.
 You will leave able to import a dataset, explore it, visualise it, tabulate it,
-and wrap the whole thing in a document that regenerates itself — no
+and wrap the whole thing in a document that regenerates itself: no
 copy-pasting between R, Word and PowerPoint ever again.
 
 ::: {.callout-important}
@@ -22,7 +22,7 @@ Install R, RStudio and Quarto, then run the setup check. It takes about
 
 ::: {.card-tile}
 ### Work reproducibly
-Organise a project so that a colleague — or you, six months later — can
+Organise a project so that a colleague (or you, six months later) can
 rerun every number in your paper from raw data.
 :::
 
@@ -52,7 +52,7 @@ submission-ready in three lines of code.
 
 ::: {.card-tile}
 ### Use GenAI honestly
-Prompt engineering that helps rather than hallucinates — plus the ethical
+Prompt engineering that helps rather than hallucinates, plus the ethical
 and disclosure rules that apply to health research in India.
 :::
 
@@ -60,7 +60,7 @@ and disclosure rules that apply to health research in India.
 
 ## Structure of the two days
 
-| | Day 1 — Wed 9 Sep | Day 2 — Thu 10 Sep |
+| | Day 1, Wed 9 Sep | Day 2, Thu 10 Sep |
 |---|---|---|
 | **Morning** | Foundations, getting started, R & `ggplot2` | Communicating with Quarto, `gtsummary` |
 | **Afternoon** | Quarto basics, `dplyr` & EDA | Generative AI, live coding, group work |
@@ -74,7 +74,7 @@ Roughly two-thirds of your time is spent with your hands on a keyboard.
 
 Medical education faculty and researchers who are **new to R**. No prior
 programming assumed. If you have used SPSS, Excel or Stata, you already
-understand most of the statistical ideas — this workshop changes the tools,
+understand most of the statistical ideas. This workshop changes the tools,
 not the statistics.
 
 ## Faculty

@@ -5,7 +5,7 @@ subtitle: "MedEd Conclave 2026 · 9–10 September 2026"
 
 Times are local. Teaching blocks are 45 minutes; hands-on blocks are 45–60
 minutes. This page mirrors the master schedule
-(`MedEd_Conclave_2026_Workshop_Schedule_v3.xlsx`) — if the two ever disagree,
+(`MedEd_Conclave_2026_Workshop_Schedule_v3.xlsx`). If the two ever disagree,
 the spreadsheet wins and this page needs fixing.
 
 ## Day 1: Wednesday, 9 September
@@ -53,7 +53,7 @@ the spreadsheet wins and this page needs fixing.
 
 **1. `ggplot2` before R fundamentals.** On Day 1, the first R teaching block
 (11:15) goes straight to `ggplot2`, but the 12:00 hands-on block also expects
-participants to cover "primers, file and project management" — content that
+participants to cover "primers, file and project management", content that
 no session formally teaches. Beginners will be asked to write
 `ggplot(data, aes(...))` before they know what a data frame or a working
 directory is.

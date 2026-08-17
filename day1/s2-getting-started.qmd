@@ -24,13 +24,13 @@ subtitle: "Concepts, thumb rules, and data science & AI basics"
 2. Structure a project folder so that it survives you.
 3. Explain what a data science workflow does, end to end.
 4. Place "AI" correctly relative to statistics, machine learning and
-   generative models — and say what each is *for*.
+   generative models, and say what each is *for*.
 
 ::: {.callout-important}
 ## Opens with a 10-minute project-structure demo
 Day 1 goes to `ggplot2` at 11:15. Before that, everyone needs a working
 project and a data frame on screen. This session starts there. If you did the
-[prelude](../prelude/install.qmd#projects), this is revision — help your
+[prelude](../prelude/install.qmd#projects), this is revision. Help your
 neighbour.
 :::
 
@@ -126,7 +126,7 @@ Three distinctions worth holding on to:
 
 ::: {.callout-warning}
 ## Where AI fits in this workshop
-As an accelerator on top of a workflow you understand — not a substitute for
+As an accelerator on top of a workflow you understand, not a substitute for
 understanding it. You cannot check code you could not have written. We return
 to this properly in [Session 8](../day2/s8-genai.qmd).
 :::

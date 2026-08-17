@@ -1,10 +1,10 @@
 ---
-title: "Day 1 — Wednesday, 9 September"
+title: "Day 1: Wednesday, 9 September"
 subtitle: "Foundations, visualisation, Quarto, and data wrangling"
 ---
 
 By the end of today you will have made a figure, written a document that
-contains its own code, and answered a real question from a dataset — all
+contains its own code, and answered a real question from a dataset, all
 inside one reproducible project.
 
 ## Today's arc
@@ -40,7 +40,7 @@ If that runs without error, you are ready.
 ## The question that runs through today
 
 > **Did the flipped classroom improve knowledge gain compared with
-> traditional lectures — and for whom?**
+> traditional lectures, and for whom?**
 
 Every session today attacks a piece of it. Session 3 shows you the
 distribution. Session 5 quantifies it. Day 2 tabulates and publishes it.

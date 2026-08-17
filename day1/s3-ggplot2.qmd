@@ -46,7 +46,7 @@ glimpse(students)
 ```
 
 240 rows, 17 columns, one row per student. Note `posttest` is `dbl` with
-missing values — we will meet them shortly.
+missing values. We will meet them shortly.
 
 ## The grammar of graphics in one idea
 
@@ -63,7 +63,7 @@ ggplot(data = students, mapping = aes(x = pretest, y = posttest)) +
 ```
 
 - `ggplot()` opens a canvas and says which data.
-- `aes()` maps *variables* to *visual channels* — x position, y position,
+- `aes()` maps *variables* to *visual channels*: x position, y position,
   colour, size, shape.
 - `geom_*()` chooses how to draw it.
 - Layers are joined with `+`, not `|>`. This is a historical quirk; everyone
@@ -84,7 +84,7 @@ post-test score. `ggplot2` told you, quietly, in a message most people
 scroll past. Real analyses die here.
 
 Always read the warning. Then decide, explicitly, what to do about the
-missing eleven — and write that decision into your script.
+missing eleven, and write that decision into your script.
 :::
 
 ## Two variables, one categorical: does the arm matter?
@@ -100,7 +100,7 @@ ggplot(students, aes(x = teaching_arm, y = posttest, fill = teaching_arm)) +
 ```
 
 Boxplot for the summary, jittered points for the raw data. Always show the
-points when *n* is small enough to allow it — a boxplot of 12 observations
+points when *n* is small enough to allow it: a boxplot of 12 observations
 hides more than it reveals.
 
 ## Two continuous variables
@@ -114,13 +114,13 @@ ggplot(students, aes(x = pretest, y = posttest, colour = teaching_arm)) +
   labs(x = "Pre-test score", y = "Post-test score", colour = "Teaching arm")
 ```
 
-Adding `colour = teaching_arm` inside `aes()` splits *everything* downstream —
+Adding `colour = teaching_arm` inside `aes()` splits *everything* downstream:
 points and both fitted lines. That is the grammar doing the work.
 
 ::: {.callout-tip}
 ## `colour =` inside vs outside `aes()`
-- Inside `aes()`: colour **means** something — it is mapped to a variable.
-- Outside `aes()`: colour is just decoration — `geom_point(colour = "navy")`.
+- Inside `aes()`: colour **means** something: it is mapped to a variable.
+- Outside `aes()`: colour is just decoration: `geom_point(colour = "navy")`.
 
 Putting a fixed colour inside `aes()` produces the classic confusing result of
 a legend with one meaningless entry.
@@ -163,7 +163,7 @@ ggplot(students, aes(x = teaching_arm, y = gain, fill = teaching_arm)) +
         plot.title = element_text(face = "bold"))
 ```
 
-Then save it — at a size and resolution a journal will accept:
+Then save it, at a size and resolution a journal will accept:
 
 ```{r}
 #| eval: false
@@ -175,7 +175,7 @@ ggsave("output/fig1_gain_by_arm.png",
 ## Never screenshot a plot
 `ggsave()` writes exactly what you specify, every time you run the script. A
 screenshot is a manual step that has to be repeated by hand whenever the data
-change — and it will be the wrong resolution.
+change, and it will be the wrong resolution.
 :::
 
 # Hands-on {#hands-on}
@@ -203,7 +203,7 @@ ggplot(students, aes(x = attendance_pct)) +
 
 `binwidth = 2` shows the shape and the left tail; `binwidth = 10` smooths the
 tail away. There is no correct answer, only a decision you should be able to
-defend — which is why the default bin count comes with a warning.
+defend, which is why the default bin count comes with a warning.
 :::
 
 ::: {.callout-note title="Exercise 2: comparison"}
@@ -214,7 +214,7 @@ Does burnout differ by teaching arm?
 1. Boxplot of `burnout_score` by `teaching_arm`.
 2. Add the raw points with `geom_jitter()`.
 3. Facet by `sex`.
-4. What do you conclude — and what would you need to check before believing
+4. What do you conclude, and what would you need to check before believing
    it?
 :::
 
@@ -229,7 +229,7 @@ ggplot(students, aes(x = teaching_arm, y = burnout_score)) +
 ```
 
 The distributions overlap almost completely. Burnout was generated from
-attendance, not from the teaching arm — so the honest conclusion is "no
+attendance, not from the teaching arm, so the honest conclusion is "no
 visible difference". Before believing *any* difference you saw, you would
 check: how many students per cell, how much missingness (7 here), and whether
 the arms differ in attendance to begin with.
@@ -265,7 +265,7 @@ ggplot(students, aes(x = study_hours, y = gain, colour = rural_background)) +
 ggsave("output/study_hours_gain.png", width = 8, height = 4, dpi = 300, bg = "white")
 ```
 
-The lines are near-flat. `study_hours` was generated independently of `gain` —
+The lines are near-flat. `study_hours` was generated independently of `gain`,
 so a flat line is the correct answer, and finding it is a useful experience.
 Most exploratory plots show nothing. Publication bias is partly the habit of
 only remembering the ones that did.
@@ -278,7 +278,7 @@ Use `osce_stations.csv` (1,200 rows, five per student).
 
 1. Read it in and `glimpse()` it.
 2. Boxplot of `score` by `station_name`. Rotate the x labels so they are
-   readable — or use `coord_flip()`.
+   readable, or use `coord_flip()`.
 3. Colour by `domain`.
 4. Which station is hardest? Does that match what you would expect?
 :::
@@ -296,7 +296,7 @@ osce |>
   labs(x = NULL, y = "Station score (out of 20)", fill = "Domain")
 ```
 
-`fct_reorder()` sorts the stations by median score — always order a
+`fct_reorder()` sorts the stations by median score. Always order a
 categorical axis by something meaningful, never alphabetically.
 
 The procedural station (IV access) is hardest, then data interpretation.
@@ -320,5 +320,5 @@ finding about station-level assessment.
 
 ## Next
 
-→ [4 · Introduction to Quarto](s4-quarto.qmd) — put these plots inside a
+→ [4 · Introduction to Quarto](s4-quarto.qmd): put these plots inside a
 document that regenerates itself.

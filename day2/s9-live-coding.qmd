@@ -11,14 +11,14 @@ subtitle: "One dataset to one rendered report, start to finish"
 [Faculty]{.meta-label}[Biju Soman · Arun Mitra · Gurpreet]{.meta-value}
 :::
 ::: {.meta-item}
-[Format]{.meta-label}[Demonstration — watch, don't type]{.meta-value}
+[Format]{.meta-label}[Demonstration: watch, don't type]{.meta-value}
 :::
 :::
 
 ::: {.callout-important}
 ## Watch. Do not type.
 Thirty minutes, three faculty, one complete workflow. The full script is on
-this page — you will have it afterwards. Watching how someone experienced
+this page. You will have it afterwards. Watching how someone experienced
 moves between console, script and document is the point; transcribing it is
 not.
 :::
@@ -138,7 +138,7 @@ tbl2 <- tbl_regression(
 
 **`stopifnot()` after every join and import.** It costs one line and turns a
 silent wrong answer into a loud stop. The `n_stations == 5` check catches a
-duplicated station before it inflates every OSCE total — an error that would
+duplicated station before it inflates every OSCE total, an error that would
 otherwise survive to publication looking entirely plausible.
 
 **`factor(levels = ...)` set explicitly.** R orders factors alphabetically, so
@@ -148,7 +148,7 @@ question you meant to ask.
 
 **The figure and the table are objects.** `fig1` and `tbl1` are created in the
 script and referenced from the `.qmd`. Nothing is copied. Change the data,
-re-source, re-render — every number and every figure updates together.
+re-source, re-render, and every number and every figure updates together.
 
 ## The reproducibility test, live
 
@@ -159,7 +159,7 @@ At minute 28, faculty will:
 3. Source `01_analysis.R`, then render `report.qmd`.
 4. Show that everything comes back, identically.
 
-If your own project cannot survive that, it is not yet reproducible — and now
+If your own project cannot survive that, it is not yet reproducible, and now
 you know exactly how to find out.
 
 ## Downloads

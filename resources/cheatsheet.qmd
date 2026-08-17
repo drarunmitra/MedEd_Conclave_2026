@@ -19,7 +19,7 @@ osce     <- read_csv("data/osce_stations.csv")
 
 | Function | Shows |
 |---|---|
-| `glimpse(df)` | Types and first values — use this most |
+| `glimpse(df)` | Types and first values, use this most |
 | `str(df)` | Structure, base R version |
 | `head(df, 10)` | First rows |
 | `names(df)` | Column names |

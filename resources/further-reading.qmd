@@ -36,7 +36,7 @@ title: "Further reading"
 ## Writing and publishing
 
 - [Quarto manuscripts](https://quarto.org/docs/manuscripts/)
-- [Zotero](https://www.zotero.org/) + [Better BibTeX](https://retorque.re/zotero-better-bibtex/) — reference management that plays well with Quarto
+- [Zotero](https://www.zotero.org/) + [Better BibTeX](https://retorque.re/zotero-better-bibtex/): reference management that plays well with Quarto
 - [CSL style repository](https://www.zotero.org/styles): your journal's citation style
 - [EQUATOR Network](https://www.equator-network.org/): reporting guidelines. Find yours before you write, not after.
 

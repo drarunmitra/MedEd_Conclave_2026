@@ -48,13 +48,13 @@ slide overview, <kbd>E</kbd> for print view (then print to PDF), and
 ## After the workshop
 
 - [Further reading](further-reading.qmd)
-- The [repository](https://github.com/drarunmitra/MedEd_Conclave_2026) — fork it and run this in your own department
+- The [repository](https://github.com/drarunmitra/MedEd_Conclave_2026): fork it and run this in your own department
 - Follow-up session: bring your own data. Details by email.
 
 ## Feedback {#feedback}
 
 The feedback form is circulated by the SET Team and stays open for one week.
-Please include the parts that did not work — the next cohort inherits your
+Please include the parts that did not work. The next cohort inherits your
 answers.
 
 ## Licence

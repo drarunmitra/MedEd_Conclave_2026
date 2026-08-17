@@ -8,8 +8,8 @@ Work down this page before asking. Most problems are in the first section.
 ## Reading the error at all
 
 R errors are verbose. **The first line is usually the whole story**; the rest
-is the call stack. Read it, then look at the line *above* the one R points at
-— unbalanced brackets are reported one line late.
+is the call stack. Read it, then look at the line *above* the one R points at.
+Unbalanced brackets are reported one line late.
 
 ## "Could not find function"
 
@@ -28,7 +28,7 @@ Error: object 'students' not found
 
 Three possibilities, in order of likelihood:
 
-1. You never ran the line that created it — check the **Environment** pane.
+1. You never ran the line that created it, so check the **Environment** pane.
 2. Case. `Students` and `students` are different objects.
 3. You restarted R since creating it. Re-run from the top.
 
@@ -84,7 +84,7 @@ then report how many there were.
 | Symptom | Cause | Fix |
 |---|---|---|
 | `Error: Cannot open output file` | The Word/PDF is open | Close it and render again |
-| Renders in console, fails on Render button | Render runs in a **clean session** | Everything the document needs must be inside it — no objects assumed from your console |
+| Renders in console, fails on Render button | Render runs in a **clean session** | Everything the document needs must be inside it, with no objects assumed from your console |
 | `quarto: command not found` | Not on `PATH` | Reinstall Quarto, restart the computer |
 | PDF fails, HTML works | No LaTeX | `tinytex::install_tinytex()` |
 | Chunk output missing | `include: false` or `echo: false` left in | Check the chunk options |
@@ -93,7 +93,7 @@ then report how many there were.
 ## The clean-session trap
 Render does not see your console. If your document works when you run the
 chunks by hand but fails on Render, something it needs was created in the
-console and never written into the document. That is not a Quarto bug — it is
+console and never written into the document. That is not a Quarto bug. It is
 Quarto catching an irreproducibility in your work.
 :::
 
@@ -124,7 +124,7 @@ Ask with these four things and you will get an answer in one exchange rather
 than five:
 
 1. What you were trying to do.
-2. The **exact** code — copy it, do not retype it.
+2. The **exact** code. Copy it, do not retype it.
 3. The **complete** error message.
 4. `sessionInfo()` output.
 
