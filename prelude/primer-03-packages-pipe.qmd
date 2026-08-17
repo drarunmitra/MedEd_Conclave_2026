@@ -26,10 +26,10 @@ webr:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ::: {.callout-important title="If the cells below never become ready"}
-This page runs R inside your browser. It needs about 22 MB on first load — the
+This page runs R inside your browser. It needs about 22 MB on first load (the
 R engine, the machinery that runs and marks your code, and the **dplyr**
-package — and a minute or two on a slow connection. If nothing happens after
-that, your network is probably blocking it — work through
+package) and a minute or two on a slow connection. If nothing happens after
+that, your network is probably blocking it. Work through
 [the R primer](r-primer.qmd) in RStudio instead. Everything taught here is
 taught there too.
 
@@ -49,7 +49,7 @@ RStudio will not. There, every script starts with its `library()` calls, and a
 script that forgets them fails with `could not find function`.
 
 So the `library(dplyr)` line below is a no-op here and essential there. Type it
-anyway — it is the habit that matters.
+anyway. It is the habit that matters.
 :::
 
 ## Packages
@@ -58,7 +58,7 @@ A package is a bundle of functions somebody else wrote and shared. You install
 it **once, ever**, and load it **every session**.
 
 ```r
-install.packages("dplyr")   # once, ever — in the console
+install.packages("dplyr")   # once, ever, in the console
 library(dplyr)              # every session, at the top of every script
 ```
 
@@ -74,7 +74,7 @@ n_distinct(c("MBBS", "MBBS", "MD", "MD", "MD"))
 `n_distinct()` counts distinct values: five enrolments there, but only `2`
 distinct qualifications. It comes from dplyr, not from base R. Without
 `library(dplyr)` in your own RStudio, that line stops with `could not find
-function "n_distinct"` — the single most common error a beginner meets.
+function "n_distinct"`, the single most common error a beginner meets.
 
 ::: {.callout-warning title="`install.packages()` does not belong in your script"}
 Put `library()` calls at the top of a script; keep `install.packages()` in the
@@ -96,7 +96,7 @@ c(72, 68, 81, 90) |> mean() |> round(1)
 Both print `77.8`. The first has to be read from the inside out: find the
 innermost bracket, work outwards, and keep track of which closing bracket
 belongs to what. The second reads left to right, in the order the work actually
-happens — *take these scores, take the mean, round to one decimal*. Once an
+happens: *take these scores, take the mean, round to one decimal*. Once an
 analysis is six steps long, the pipe is the difference between readable and
 unreadable code.
 
@@ -135,7 +135,7 @@ c(16, 25, 36, 49) |> mean() |> sqrt() |> round(2)
 used_pipe <- grepl("|>", .user_code, fixed = TRUE)
 right_answer <- isTRUE(all.equal(as.numeric(.result), 5.61))
 if (right_answer && used_pipe) {
-  list(correct = TRUE, message = "Correct — and it reads left to right.")
+  list(correct = TRUE, message = "Correct, and it reads left to right.")
 } else if (grepl("%>%", .user_code, fixed = TRUE)) {
   list(correct = FALSE, message = "Use the native pipe |>, not %>%. We use |> throughout this workshop.")
 } else if (right_answer) {
@@ -175,7 +175,7 @@ c(88, 72, 95, 64) |> mean() |> round(1)
 #| check: true
 answer <- suppressWarnings(as.numeric(.result))
 if (length(answer) == 1 && isTRUE(all.equal(answer, 79.8))) {
-  list(correct = TRUE, message = "Correct — mean attendance is 79.8%.")
+  list(correct = TRUE, message = "Correct. Mean attendance is 79.8%.")
 } else if (length(answer) != 1 || is.na(answer)) {
   list(correct = FALSE, message = "That is not a single number yet. Pipe the vector into mean() first.")
 } else if (isTRUE(all.equal(answer, 79.75))) {
@@ -189,11 +189,11 @@ if (length(answer) == 1 && isTRUE(all.equal(answer, 79.8))) {
 
 ::: {.hint exercise="ex_pipe_mean"}
 The same shape as Exercise 1, one step shorter. `round(1)` means one decimal
-place — the piped value is already the first argument.
+place. The piped value is already the first argument.
 :::
 :::
 
 ## Next
 
-→ [Primer 4 · The five dplyr verbs](primer-04-dplyr-verbs.qmd) — the verbs that
+→ [Primer 4 · The five dplyr verbs](primer-04-dplyr-verbs.qmd): the verbs that
 do almost all of the work.

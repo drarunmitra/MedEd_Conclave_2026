@@ -29,13 +29,13 @@ webr:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ::: {.callout-important title="If the cells below never become ready"}
-This page runs R inside your browser. It needs about 37 MB on first load — this
-is the heaviest primer, because ggplot2 is a large package — plus the R engine,
+This page runs R inside your browser. It needs about 37 MB on first load (this
+is the heaviest primer, because ggplot2 is a large package) plus the R engine,
 the machinery that runs and marks your code, and the cohort file itself. Give it
 a minute or two. If you are on a slow or shared connection, do this one at home
 rather than at the venue.
 
-If nothing happens after that, your network is probably blocking it — work
+If nothing happens after that, your network is probably blocking it. Work
 through [the R primer](r-primer.qmd) in RStudio instead. Everything taught here
 is taught there too.
 
@@ -43,14 +43,14 @@ There is no Stop button. If you write a loop that never ends, reload the page.
 :::
 
 Day 1 opens with visualisation at 11:15. Work through this page first and that
-will not be the first `ggplot()` call you have ever written — you will be
+will not be the first `ggplot()` call you have ever written. You will be
 recognising a plot you have already drawn, rather than meeting one cold.
 
 Every ggplot2 plot is built from three parts, and you have to name all three:
 
-1. the **data** — which table,
-2. the **aesthetics** — which column goes on which part of the picture,
-3. the **geom** — what shape to draw.
+1. the **data**: which table,
+2. the **aesthetics**: which column goes on which part of the picture,
+3. the **geom**: what shape to draw.
 
 Miss one and you get a blank panel rather than an error, which is confusing the
 first time. So we will add them one at a time and watch the picture appear. For
@@ -58,7 +58,7 @@ the full explanation of any of this, see [the R primer](r-primer.qmd).
 
 ## 1. Data: which table
 
-`ggplot()` on its own gives you a grey rectangle. That is not a failure — it is
+`ggplot()` on its own gives you a grey rectangle. That is not a failure. It is
 R saying *I have your data and no instructions about what to do with it*.
 
 ```{webr}
@@ -75,7 +75,7 @@ the same `data/meded_students.csv` path you will type on Day 1.
 
 ## 2. Aesthetics: which column goes where
 
-`aes()` maps a **column** onto a **feature of the picture** — the x axis, the y
+`aes()` maps a **column** onto a **feature of the picture**: the x axis, the y
 axis, the colour, the fill. Map `attendance_pct` to x and an axis appears,
 correctly scaled to the range of the data:
 
@@ -97,11 +97,11 @@ ggplot(students, aes(x = attendance_pct)) +
   geom_histogram(binwidth = 5)
 ```
 
-Attendance clusters around 80%, with a tail of students below 65% — the ones a
+Attendance clusters around 80%, with a tail of students below 65%, the ones a
 course convenor would want to know about. One line of code and you have seen
 something you could not see in the spreadsheet.
 
-::: {.callout-important title="`+`, not `|>` — the one exception you will meet"}
+::: {.callout-important title="`+`, not `|>`: the one exception you will meet"}
 Everywhere else in the workshop you join steps with the native pipe `|>`. In
 ggplot2 you join **layers** with `+`.
 
@@ -111,7 +111,7 @@ never changed, because millions of lines of published code use `+`.
 
 The rule that keeps you out of trouble:
 
-- `|>` moves a table from one **verb** to the next — `filter()`, `mutate()`,
+- `|>` moves a table from one **verb** to the next: `filter()`, `mutate()`,
   `summarise()`.
 - `+` adds a **layer or setting** to a plot you have already started with
   `ggplot()`.
@@ -166,7 +166,7 @@ ggplot(students, aes(x = teaching_arm, y = burnout_score, fill = teaching_arm)) 
   labs(x = NULL, y = "Burnout score", fill = NULL)
 ```
 
-Two boxes, and they sit at almost the same height — median burnout is 49.7 in
+Two boxes, and they sit at almost the same height: median burnout is 49.7 in
 the flipped arm against 49.1 in the traditional one. That is a real and useful
 finding: *no visible difference* is a result, and seeing it in ten seconds is
 better than testing for it in ten minutes.
@@ -178,8 +178,8 @@ professional.
 
 ::: {.callout-warning title="The warning under that plot is not an error"}
 ggplot2 printed something like *Removed 7 rows containing non-finite outside the
-scale range*. Seven students in this cohort have no `burnout_score` — the value
-is `NA`, R's marker for missing — and you cannot draw a box around a value that
+scale range*. Seven students in this cohort have no `burnout_score`: the value
+is `NA`, R's marker for missing, and you cannot draw a box around a value that
 does not exist, so ggplot2 dropped them and told you so.
 
 A **warning** means *I did it, here is something you should know*. An **error**
@@ -237,7 +237,7 @@ mapped_x <- function(p) {
   c(from_plot, from_layers)
 }
 if (!inherits(.result, "ggplot")) {
-  list(correct = FALSE, message = "That did not produce a plot. If there is a red error above, read that first — a geom you were not asked for, such as geom_point(), needs a y as well as an x. Otherwise, start with ggplot(students, aes(x = pretest)).")
+  list(correct = FALSE, message = "That did not produce a plot. If there is a red error above, read that first: a geom you were not asked for, such as geom_point(), needs a y as well as an x. Otherwise, start with ggplot(students, aes(x = pretest)).")
 } else if (!("pretest" %in% mapped_x(.result))) {
   list(correct = FALSE, message = "Map pretest to x inside aes().")
 } else if (!any(vapply(.result$layers, function(l) inherits(l$geom, "GeomBar"), logical(1)))) {
@@ -245,14 +245,14 @@ if (!inherits(.result, "ggplot")) {
 } else if (is.null(.result$labels$title)) {
   list(correct = FALSE, message = "Nearly. Add labs(title = ...) so the plot explains itself.")
 } else {
-  list(correct = TRUE, message = "Correct — and it has a title, which most published figures do not.")
+  list(correct = TRUE, message = "Correct, and it has a title, which most published figures do not.")
 }
 ```
 
 ::: {.hint exercise="ex_hist"}
 Three blanks, three parts. The column name goes inside `aes(x = )` with no
 quotation marks. The geom is `geom_histogram`. `labs()` takes named arguments
-separated by commas — `title = "..."`, `x = "..."`, `y = "..."` — and the label
+separated by commas (`title = "..."`, `x = "..."`, `y = "..."`) and the label
 text *is* quoted, because it is ordinary English rather than a column name.
 :::
 :::
@@ -299,11 +299,11 @@ if (!inherits(.result, "ggplot")) {
 } else if (!("gain" %in% mapped(.result, "y"))) {
   list(correct = FALSE, message = "Map gain to y inside aes(), next to the x mapping and separated by a comma.")
 } else if (!("rural_background" %in% mapped(.result, "colour"))) {
-  list(correct = FALSE, message = "Map rural_background to colour inside aes(). For points it is colour, not fill — fill colours an area, colour draws a line or a dot.")
+  list(correct = FALSE, message = "Map rural_background to colour inside aes(). For points it is colour, not fill: fill colours an area, colour draws a line or a dot.")
 } else if (!any(vapply(.result$layers, function(l) inherits(l$geom, "GeomPoint"), logical(1)))) {
   list(correct = FALSE, message = "The mappings are right, but nothing is being drawn yet. Add + geom_point().")
 } else {
-  list(correct = TRUE, message = "Correct — and read what it shows: a shapeless cloud. More study hours did not mean more gain in this cohort, and the rural and urban points are mixed right through each other. A scatter plot that shows no relationship has still told you something.")
+  list(correct = TRUE, message = "Correct, and read what it shows: a shapeless cloud. More study hours did not mean more gain in this cohort, and the rural and urban points are mixed right through each other. A scatter plot that shows no relationship has still told you something.")
 }
 ```
 
@@ -312,13 +312,13 @@ All three mappings go inside the one `aes()`, separated by commas. The last
 blank is a whole layer, so it needs its brackets: `geom_point()`.
 
 If you type `color` rather than `colour`, ggplot2 accepts it and quietly
-converts it to `colour` — both spellings work everywhere in the package.
+converts it to `colour`, and both spellings work everywhere in the package.
 :::
 :::
 
 ## Next
 
-→ [Datasets](data.qmd) — download the files, ready for Day 1.
+→ [Datasets](data.qmd): download the files, ready for Day 1.
 
 You have now written R, built a table and drawn a plot without installing
 anything. Day 1 does all of this again, on your own machine, with the project

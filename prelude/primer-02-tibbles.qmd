@@ -26,10 +26,10 @@ webr:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ::: {.callout-important title="If the cells below never become ready"}
-This page runs R inside your browser. It needs about 21 MB on first load — the
+This page runs R inside your browser. It needs about 21 MB on first load (the
 R engine, the machinery that runs and marks your code, and the **tibble**
-package — and a minute or two on a slow connection. If nothing happens after
-that, your network is probably blocking it — work through
+package) and a minute or two on a slow connection. If nothing happens after
+that, your network is probably blocking it. Work through
 [the R primer](r-primer.qmd) in RStudio instead. Everything taught here is
 taught there too.
 
@@ -37,8 +37,8 @@ There is no Stop button. If you write a loop that never ends, reload the page.
 :::
 
 Primer 1 left you with vectors. Stand several equal-length vectors side by side
-and you have the rectangle you will actually analyse: one row per observation —
-a student, a patient, a session — and one column per variable. In the
+and you have the rectangle you will actually analyse: one row per observation
+(a student, a patient, a session) and one column per variable. In the
 tidyverse that rectangle is a **tibble**. For the full explanation, see
 [the R primer](r-primer.qmd).
 
@@ -65,8 +65,8 @@ and under each column name sits its type: `<chr>` for text, `<dbl>` for a
 number with decimals, `<lgl>` for `TRUE`/`FALSE`. A plain `data.frame` tells
 you none of that until you ask.
 
-Note that `batch` is `<chr>`, not a number. Years used as labels are text —
-you would never take their mean.
+Note that `batch` is `<chr>`, not a number. Years used as labels are text.
+You would never take their mean.
 
 ## Looking at one
 
@@ -81,15 +81,15 @@ glimpse(students)
 ```
 
 `glimpse()` is the function you will reach for when something goes wrong. It
-turns the table on its side so every column gets one line — name, type, first
-few values — however wide the data. Nine times out of ten the problem is that a
+turns the table on its side so every column gets one line (name, type, first
+few values) however wide the data. Nine times out of ten the problem is that a
 column is text when you thought it was a number, and `glimpse()` shows you
 that in one look: `$ attendance <dbl>` is a number you can average,
 `$ attendance <chr>` is not.
 
 ## Pulling out a column
 
-`$` takes one column out of the rectangle and hands it back as a plain vector —
+`$` takes one column out of the rectangle and hands it back as a plain vector,
 exactly the kind of thing Primer 1 taught you to work with.
 
 ```{webr}
@@ -136,7 +136,7 @@ expected <- tibble::tibble(
   marks   = c(8, 7, 9)
 )
 if (isTRUE(all.equal(as.data.frame(.result), as.data.frame(expected)))) {
-  list(correct = TRUE, message = "Correct — three rows, two columns.")
+  list(correct = TRUE, message = "Correct: three rows, two columns.")
 } else if (!is.data.frame(.result)) {
   list(correct = FALSE, message = "That is not a table yet. Use tibble() with two named columns.")
 } else if (ncol(.result) != 2) {
@@ -188,7 +188,7 @@ mean(students$attendance)
 #| exercise: ex_mean
 #| check: true
 if (isTRUE(all.equal(.result, 79.75))) {
-  list(correct = TRUE, message = "Correct — mean attendance is 79.75%.")
+  list(correct = TRUE, message = "Correct. Mean attendance is 79.75%.")
 } else if (!is.numeric(.result) || length(.result) != 1) {
   list(correct = FALSE, message = "That is the column itself, not its average. Wrap it in mean().")
 } else if (isTRUE(all.equal(.result, 319))) {
@@ -206,5 +206,5 @@ from there.
 
 ## Next
 
-→ [Primer 3 · Packages and the pipe](primer-03-packages-pipe.qmd) — how to load
+→ [Primer 3 · Packages and the pipe](primer-03-packages-pipe.qmd): how to load
 the tools, and how to chain them together.

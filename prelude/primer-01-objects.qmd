@@ -1,6 +1,6 @@
 ---
 title: "Primer 1 · Objects, functions and vectors"
-subtitle: "R in your browser — nothing to install"
+subtitle: "R in your browser, nothing to install"
 engine: knitr
 format:
   live-html:
@@ -23,10 +23,10 @@ format:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ::: {.callout-important title="If the cells below never become ready"}
-This page runs R inside your browser. It needs about 17 MB on first load — the
-R engine plus the machinery that runs and marks your code — and a minute or two
+This page runs R inside your browser. It needs about 17 MB on first load (the
+R engine plus the machinery that runs and marks your code) and a minute or two
 on a slow connection. If nothing happens after that, your
-network is probably blocking it — work through
+network is probably blocking it. Work through
 [the R primer](r-primer.qmd) in RStudio instead. Everything taught here is
 taught there too.
 
@@ -67,7 +67,7 @@ Named arguments like `digits = 2` are clearer than positional ones. Prefer them.
 
 ## Vectors
 
-`c()` **c**ombines values into a vector — a column of values, all of the same
+`c()` **c**ombines values into a vector: a column of values, all of the same
 type. It is the most-used function in R.
 
 ```{webr}
@@ -86,7 +86,7 @@ scores > 70
 ```
 
 A vector holds **one** type. Mix them and everything is silently converted to
-the most permissive type — a classic source of confusion:
+the most permissive type, a classic source of confusion:
 
 ```{webr}
 c(1, 2, "three")
@@ -123,9 +123,9 @@ if (is.character(.result)) {
 } else if (length(.result) != 5) {
   list(correct = FALSE, message = "There should be five marks in the vector, one per student: 78, 70, 91, 55 and 83.")
 } else if (isTRUE(all.equal(as.numeric(.result), target))) {
-  list(correct = TRUE, message = "Correct — that is a numeric vector of five marks.")
+  list(correct = TRUE, message = "Correct. That is a numeric vector of five marks.")
 } else if (isTRUE(all.equal(sort(as.numeric(.result)), sort(target)))) {
-  list(correct = TRUE, message = "Correct — all five marks are there. You have put them in a different order from the question, which is fine: these are a set of five marks, c() keeps whatever order you give it, and nothing later on this page depends on the order.")
+  list(correct = TRUE, message = "Correct. All five marks are there. You have put them in a different order from the question, which is fine: these are a set of five marks, c() keeps whatever order you give it, and nothing later on this page depends on the order.")
 } else {
   list(correct = FALSE, message = "Five numbers, but not the five marks asked for. The scores were 78, 70, 91, 55 and 83.")
 }
@@ -168,13 +168,13 @@ sum(osce >= 70)
 used_ge <- any(grepl(">=", .user_code, fixed = TRUE))
 value <- if (is.numeric(.result) || is.logical(.result)) as.numeric(.result) else NA_real_
 if (identical(value, 4) && used_ge) {
-  list(correct = TRUE, message = "Correct — 4. Four of the five marks (78, 70, 91 and 83) are 70 or above, and your code uses >=, which is the comparison that keeps a mark of exactly 70 rather than dropping it.")
+  list(correct = TRUE, message = "Correct, 4. Four of the five marks (78, 70, 91 and 83) are 70 or above, and your code uses >=, which is the comparison that keeps a mark of exactly 70 rather than dropping it.")
 } else if (identical(value, 4)) {
-  list(correct = FALSE, message = "The count is right — 4 — but the comparison is not the one you were asked for: there is no >= anywhere in your code. Several different comparisons happen to give 4 on these five marks, so the number alone does not show you counted the right thing. Count the marks that are 70 or above: sum(osce >= 70).")
+  list(correct = FALSE, message = "The count is right (4) but the comparison is not the one you were asked for: there is no >= anywhere in your code. Several different comparisons happen to give 4 on these five marks, so the number alone does not show you counted the right thing. Count the marks that are 70 or above: sum(osce >= 70).")
 } else if (identical(value, 3) && used_ge) {
-  list(correct = FALSE, message = "Not quite — you have 3, and the answer is 4. You have used >=, so check the number you are comparing against: the bar is 70.")
+  list(correct = FALSE, message = "Not quite. You have 3, and the answer is 4. You have used >=, so check the number you are comparing against: the bar is 70.")
 } else if (identical(value, 3)) {
-  list(correct = FALSE, message = "Not quite — you have 3, and the answer is 4. There is no >= in your code, and the usual cause is > where you need >=: osce > 70 drops the student who scored exactly 70.")
+  list(correct = FALSE, message = "Not quite. You have 3, and the answer is 4. There is no >= in your code, and the usual cause is > where you need >=: osce > 70 drops the student who scored exactly 70.")
 } else {
   list(correct = FALSE, message = "Not the right count. osce >= 70 compares all five marks at once and gives five TRUE/FALSE values; sum() then counts the TRUEs, which should come to 4.")
 }
@@ -187,5 +187,5 @@ You do not need a loop. `osce >= 70` compares every element at once.
 
 ## Next
 
-→ [Primer 2 · Tibbles](primer-02-tibbles.qmd) — put those vectors side by side
+→ [Primer 2 · Tibbles](primer-02-tibbles.qmd): put those vectors side by side
 into the rectangle you will actually analyse.

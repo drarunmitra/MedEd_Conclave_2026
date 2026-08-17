@@ -29,11 +29,11 @@ webr:
 {{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
 
 ::: {.callout-important title="If the cells below never become ready"}
-This page runs R inside your browser. It needs about 25 MB on first load — the
+This page runs R inside your browser. It needs about 25 MB on first load (the
 R engine, the machinery that runs and marks your code, the **dplyr** and
-**readr** packages, and the cohort file itself — and a minute or two on a slow
+**readr** packages, and the cohort file itself) and a minute or two on a slow
 connection. If nothing happens after that, your network is probably blocking
-it — work through [the R primer](r-primer.qmd) in RStudio instead. Everything
+it. Work through [the R primer](r-primer.qmd) in RStudio instead. Everything
 taught here is taught there too.
 
 There is no Stop button. If you write a loop that never ends, reload the page.
@@ -44,7 +44,7 @@ some **rows** (`filter()`), keep some **columns** (`select()`), reorder rows
 (`arrange()`), add a column (`mutate()`), and collapse many rows into a summary
 (`summarise()`). Learn these five and you can do real work.
 
-From here on you are working with the actual workshop cohort — the same 240
+From here on you are working with the actual workshop cohort, the same 240
 synthetic students the 11:15 session on Day 1 uses. By the time you sit down in
 the room, this file will already be familiar. For the full explanation of any of
 this, see [the R primer](r-primer.qmd).
@@ -53,7 +53,7 @@ this, see [the R primer](r-primer.qmd).
 
 `read_csv()` comes from **readr**. It takes a path to a file and gives you back
 a tibble. `glimpse()` from dplyr turns that tibble on its side so you can see
-every column at once — the right first move with any new dataset.
+every column at once, the right first move with any new dataset.
 
 ```{webr}
 library(dplyr)
@@ -65,7 +65,7 @@ glimpse(students)
 ```
 
 240 rows, 17 columns. Read the type tags down the left: `<chr>` is text,
-`<dbl>` is a number with decimals. Note that `batch` is a `<dbl>` — R read
+`<dbl>` is a number with decimals. Note that `batch` is a `<dbl>`: R read
 `2024` as a number, not as a label, so you write `batch == 2024` without
 quotation marks.
 
@@ -75,13 +75,13 @@ have a `data/` folder holding the same file. That is the whole point of the
 computer, so the script runs on anyone's machine.
 
 ::: {.callout-warning title="One way this browser lies to you"}
-The file arrived here by magic — this page downloaded it for you. In RStudio
+The file arrived here by magic: this page downloaded it for you. In RStudio
 you will put the file in your project's `data/` folder yourself. The
 `library()` calls are the same magic in reverse: already run for you here,
 essential at the top of every script there. Type them anyway.
 :::
 
-## `filter()` — keep some rows
+## `filter()`: keep some rows
 
 `filter()` keeps the rows where a condition is `TRUE` and drops the rest.
 
@@ -94,7 +94,7 @@ students |>
 `=` assigns a value. Using `=` here is one of the two or three most common
 beginner errors in R.
 
-## `select()` — keep some columns
+## `select()`: keep some columns
 
 `select()` does for columns what `filter()` does for rows. Name the ones you
 want, in the order you want them.
@@ -107,7 +107,7 @@ students |>
 Seventeen columns is more than you can read at once. Selecting five of them is
 often the difference between seeing your data and squinting at it.
 
-## `arrange()` — reorder the rows
+## `arrange()`: reorder the rows
 
 `arrange()` sorts. It sorts ascending by default; wrap the column in `desc()`
 for descending.
@@ -119,10 +119,10 @@ students |>
 ```
 
 Student S133 has the highest burnout score at 87.5. Sorting is how you find the
-extremes — the highest, the lowest, the implausible value that turns out to be a
+extremes: the highest, the lowest, the implausible value that turns out to be a
 data-entry slip.
 
-## `mutate()` — add a column
+## `mutate()`: add a column
 
 `mutate()` adds a new column computed from existing ones. It never removes
 anything.
@@ -136,15 +136,15 @@ students |>
 `gain_check` reproduces the `gain` column, which is a cheap way to confirm you
 have understood what a column means.
 
-Look at row 3. `posttest` is `NA` — R's marker for *missing* — and so
+Look at row 3. `posttest` is `NA` (R's marker for *missing*) and so
 `gain_check` is `NA` too. Arithmetic on an unknown value gives an unknown
 answer. Eleven students in this cohort have no posttest score, which is exactly
 what real data looks like, and it will bite you in Exercise 2.
 
-## `summarise()` — collapse rows into a summary
+## `summarise()`: collapse rows into a summary
 
 `summarise()` reduces many rows to one. Paired with `group_by()`, it reduces
-many rows to one **per group** — which is most of what a results table is.
+many rows to one **per group**, which is most of what a results table is.
 
 ```{webr}
 students |>
@@ -159,13 +159,13 @@ Three batches, three rows. `n()` counts the rows in each group; always report it
 alongside a mean, so your reader knows whether that mean rests on 8 students or
 80.
 
-We spell it `summarise`. dplyr also accepts `summarize` — the two are the same
+We spell it `summarise`. dplyr also accepts `summarize`, and the two are the same
 function, so use whichever spelling you prefer and be consistent.
 
 ## Putting them together
 
 The verbs are designed to be chained. This is where Primer 3's pipe pays off:
-read it as a sentence — *take the students, keep the 2024 batch, keep four
+read it as a sentence: *take the students, keep the 2024 batch, keep four
 columns, sort by attendance, highest first*.
 
 ```{webr}
@@ -176,7 +176,7 @@ students |>
 ```
 
 Each verb does one small thing. The pipeline does something useful. Note that
-`students` itself is untouched — dplyr verbs return a new table rather than
+`students` itself is untouched: dplyr verbs return a new table rather than
 editing the old one, so you can experiment freely.
 
 ```{webr}
@@ -227,7 +227,7 @@ if (!is.data.frame(.result)) {
 ```
 
 ::: {.hint exercise="ex_filter"}
-One `filter()`, two conditions, separated by a comma — a comma inside
+One `filter()`, two conditions, separated by a comma. A comma inside
 `filter()` means AND. `batch` is a number here, so no quotation marks are
 needed around `2024`.
 :::
@@ -240,7 +240,7 @@ Produce one row per `teaching_arm` showing the number of students and their
 mean `posttest` score. Call the columns `n` and `mean_posttest`.
 
 Remember the eleven missing posttest scores. `mean()` of anything containing an
-`NA` is `NA` — try it without a guard first and see what comes back.
+`NA` is `NA`. Try it without a guard first and see what comes back.
 
 ```{webr}
 #| exercise: ex_group
@@ -299,15 +299,15 @@ if (!is.data.frame(.result)) {
   other_whole <- any(vapply(others, whole_number, logical(1)))
   any_na <- any(vapply(nums, function(x) any(is.na(x)), logical(1)))
   if (right_mean && has_n) {
-    list(correct = TRUE, message = "Correct — 76.4 in the flipped arm against 70.7 in the traditional one. Either route to that answer is right: na.rm = TRUE inside mean(), or dropping the students with no posttest score before you summarise. What you cannot do is ignore them — with neither guard, the eleven missing posttest scores turn both means into NA. The routes leave you with different numbers of students, so report the n you actually averaged rather than assuming it is 120.")
+    list(correct = TRUE, message = "Correct: 76.4 in the flipped arm against 70.7 in the traditional one. Either route to that answer is right: na.rm = TRUE inside mean(), or dropping the students with no posttest score before you summarise. What you cannot do is ignore them. With neither guard, the eleven missing posttest scores turn both means into NA. The routes leave you with different numbers of students, so report the n you actually averaged rather than assuming it is 120.")
   } else if (any_na) {
     list(correct = FALSE, message = "You got NA. Eleven students have no posttest score, and mean() of anything containing NA is NA. Add na.rm = TRUE inside mean() to average the students who do have a score.")
   } else if (right_mean && other_whole) {
-    list(correct = FALSE, message = "The means are right, and there is a whole-number column beside them, but it is not the number of students in each arm. n = n() counts the rows in the group — check you have not counted something else.")
+    list(correct = FALSE, message = "The means are right, and there is a whole-number column beside them, but it is not the number of students in each arm. n = n() counts the rows in the group, so check you have not counted something else.")
   } else if (right_mean) {
     list(correct = FALSE, message = "The means are right, but there is no count beside them. Add n = n() inside the same summarise().")
   } else if (has_n) {
-    list(correct = FALSE, message = "The count is there, but the mean is missing or wrong. You want mean_posttest = mean(posttest, na.rm = TRUE) — check you are averaging posttest and not another column.")
+    list(correct = FALSE, message = "The count is there, but the mean is missing or wrong. You want mean_posttest = mean(posttest, na.rm = TRUE), so check you are averaging posttest and not another column.")
   } else {
     list(correct = FALSE, message = "Two things inside one summarise(): n = n() and mean_posttest = mean(posttest, na.rm = TRUE).")
   }
@@ -359,7 +359,7 @@ if (!is.data.frame(.result)) {
   nums <- Filter(is.numeric, as.list(.result))
   counts <- if (length(nums) > 0) as.numeric(nums[[1]]) else numeric(0)
   if (identical(counts, c(89, 87, 64))) {
-    list(correct = TRUE, message = "Correct — Thrissur 89, Kozhikode 87, Alappuzha 64, commonest first.")
+    list(correct = TRUE, message = "Correct: Thrissur 89, Kozhikode 87, Alappuzha 64, commonest first.")
   } else if (setequal(counts, c(89, 87, 64))) {
     list(correct = FALSE, message = "The counts are right but the order is not: you want the commonest first. Add sort = TRUE to count(), or pipe on into arrange(desc(n)).")
   } else {
@@ -377,5 +377,5 @@ colleges in alphabetical order.
 
 ## Next
 
-→ [Primer 5 · Your first plot](primer-05-first-plot.qmd) — turn that table into
+→ [Primer 5 · Your first plot](primer-05-first-plot.qmd): turn that table into
 a picture.
