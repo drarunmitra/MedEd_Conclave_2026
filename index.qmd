@@ -88,10 +88,10 @@ not the statistics.
 
 ## How to use this site
 
-- **Prelude** — do this *before* the workshop.
-- **Day 1 / Day 2** — one page per session: objectives, slides, worked
+- **Prelude**: do this *before* the workshop.
+- **Day 1 / Day 2**: one page per session: objectives, slides, worked
   examples, exercises with collapsible solutions.
-- **Resources** — cheatsheets, troubleshooting, glossary, further reading.
+- **Resources**: cheatsheets, troubleshooting, glossary, further reading.
 
 All materials stay online after the workshop. The site is built from a public
 repository; corrections are welcome as issues or pull requests.

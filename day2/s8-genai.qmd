@@ -154,13 +154,13 @@ students |> slice_head(n = 3) |> mutate(across(everything(), ~ "..."))
 
 ## Legal and ethical frame in India
 
-- **Digital Personal Data Protection Act, 2023** — health data is personal
+- **Digital Personal Data Protection Act, 2023**: health data is personal
   data. Consent, purpose limitation and the obligations of a data fiduciary
   apply. Pasting identifiable records into an overseas service is a transfer,
   and your institution, not the vendor, carries the obligation.
 - **ICMR National Ethical Guidelines for Biomedical and Health Research**
   (2017) — data sharing must fall within what participants consented to.
-- **ICMJE recommendations** — AI cannot be an author. Authors are accountable
+- **ICMJE recommendations**: AI cannot be an author. Authors are accountable
   for all content, including anything AI-assisted. Use must be disclosed in
   the methods or acknowledgements.
 - **NITI Aayog's National Strategy for AI** and the **IndiaAI Mission** —

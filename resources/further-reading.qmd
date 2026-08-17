@@ -13,10 +13,10 @@ title: "Further reading"
 
 ## Visualisation
 
-- [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/) — Wickham. Free.
-- [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) — Wilke. On what to plot, not how.
-- [Data Visualization: A Practical Introduction](https://socviz.co/) — Healy. Social-science framing, R throughout.
-- [R Graph Gallery](https://r-graph-gallery.com/) — find a chart, take its code.
+- [ggplot2: Elegant Graphics for Data Analysis (3e)](https://ggplot2-book.org/): Wickham. Free.
+- [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/): Wilke. On what to plot, not how.
+- [Data Visualization: A Practical Introduction](https://socviz.co/): Healy. Social-science framing, R throughout.
+- [R Graph Gallery](https://r-graph-gallery.com/): find a chart, take its code.
 
 ## Reproducibility
 
@@ -24,7 +24,7 @@ title: "Further reading"
 - Baker M. [1,500 scientists lift the lid on reproducibility](https://doi.org/10.1038/533452a). *Nature* 2016.
 - Ziemann M et al. [Gene name errors are widespread](https://doi.org/10.1186/s13059-016-1044-7). *Genome Biol* 2016.
 - Wickham H. [Tidy data](https://doi.org/10.18637/jss.v059.i10). *JSS* 2014.
-- [The Turing Way](https://the-turing-way.netlify.app/) — the most complete free handbook on reproducible research.
+- [The Turing Way](https://the-turing-way.netlify.app/): the most complete free handbook on reproducible research.
 
 ## Statistics for medical education
 
@@ -37,12 +37,12 @@ title: "Further reading"
 
 - [Quarto manuscripts](https://quarto.org/docs/manuscripts/)
 - [Zotero](https://www.zotero.org/) + [Better BibTeX](https://retorque.re/zotero-better-bibtex/) — reference management that plays well with Quarto
-- [CSL style repository](https://www.zotero.org/styles) — your journal's citation style
-- [EQUATOR Network](https://www.equator-network.org/) — reporting guidelines. Find yours before you write, not after.
+- [CSL style repository](https://www.zotero.org/styles): your journal's citation style
+- [EQUATOR Network](https://www.equator-network.org/): reporting guidelines. Find yours before you write, not after.
 
 ## Generative AI in research
 
-- [ICMJE Recommendations](https://www.icmje.org/recommendations/) — the AI clause
+- [ICMJE Recommendations](https://www.icmje.org/recommendations/): the AI clause
 - WHO. [Ethics and governance of AI for health: large multi-modal models](https://www.who.int/publications/i/item/9789240084759), 2024
 - [Digital Personal Data Protection Act, 2023](https://www.meity.gov.in/data-protection-framework)
 - [ICMR National Ethical Guidelines](https://ethics.ncdirindia.org/)
@@ -50,14 +50,14 @@ title: "Further reading"
 
 ## Going further with R
 
-- [Advanced R (2e)](https://adv-r.hadley.nz/) — how R actually works
-- [R Packages (2e)](https://r-pkgs.org/) — when your functions outgrow a script
-- [Happy Git and GitHub for the useR](https://happygitwithr.com/) — the gentlest route into version control
-- [Geocomputation with R](https://r.geocompx.org/) — if your data have coordinates
-- [Targets user manual](https://books.ropensci.org/targets/) — pipelines that only re-run what changed
+- [Advanced R (2e)](https://adv-r.hadley.nz/): how R actually works
+- [R Packages (2e)](https://r-pkgs.org/): when your functions outgrow a script
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/): the gentlest route into version control
+- [Geocomputation with R](https://r.geocompx.org/): if your data have coordinates
+- [Targets user manual](https://books.ropensci.org/targets/): pipelines that only re-run what changed
 
 ## Communities
 
-- [R-Ladies](https://rladies.org/) — chapters in several Indian cities
-- [Posit Community](https://forum.posit.co/) — friendlier than Stack Overflow for beginners
-- [TidyTuesday](https://github.com/rfordatascience/tidytuesday) — a new dataset every week, no stakes
+- [R-Ladies](https://rladies.org/): chapters in several Indian cities
+- [Posit Community](https://forum.posit.co/): friendlier than Stack Overflow for beginners
+- [TidyTuesday](https://github.com/rfordatascience/tidytuesday): a new dataset every week, no stakes

@@ -164,8 +164,8 @@ you know exactly how to find out.
 
 ## Downloads
 
-- [`01_analysis.R`](../R/01_analysis.R) — the complete script above
-- [`report_template.qmd`](../R/report_template.qmd) — the starter document for
+- [`01_analysis.R`](../R/01_analysis.R): the complete script above
+- [`report_template.qmd`](../R/report_template.qmd): the starter document for
   the group activity
 
 ## Next

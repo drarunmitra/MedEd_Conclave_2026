@@ -104,7 +104,7 @@ After Wickham & Grolemund. Mapped onto these two days:
 Note what dominates in practice: **import and tidy take most of the time**,
 usually 60–80% of it. Nobody's methods section says so.
 
-## Data science, machine learning, AI — what is what
+## Data science, machine learning, AI: what is what
 
 These words are used interchangeably in seminars and they should not be.
 

@@ -125,7 +125,7 @@ execute:
 ```
 :::
 
-## Inline code — where the magic actually lives
+## Inline code: where the magic actually lives
 
 ```markdown
 The mean knowledge gain was `r knitr::inline_expr("round(mean(students$gain, na.rm = TRUE), 1)")` points.

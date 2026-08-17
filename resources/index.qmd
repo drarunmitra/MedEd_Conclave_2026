@@ -6,9 +6,9 @@ Everything here stays online after the workshop.
 
 ## During the workshop
 
-- [Cheatsheet](cheatsheet.qmd) — the functions you will use in these two days, on one page
-- [Troubleshooting](troubleshooting.qmd) — the errors that account for most lost time
-- [Glossary](glossary.qmd) — plain-English definitions
+- [Cheatsheet](cheatsheet.qmd): the functions you will use in these two days, on one page
+- [Troubleshooting](troubleshooting.qmd): the errors that account for most lost time
+- [Glossary](glossary.qmd): plain-English definitions
 
 ## Materials
 

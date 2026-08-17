@@ -65,7 +65,7 @@ below 0.05 in the fourth subgroup they tried.
 ## Group questions
 
 ::: {.callout-note}
-## Group 1 — Does attendance explain the effect?
+## Group 1: Does attendance explain the effect?
 The flipped classroom arm gains more. Is that because of the teaching method,
 or because those students attended more?
 
@@ -78,7 +78,7 @@ estimates in one table.
 :::
 
 ::: {.callout-note}
-## Group 2 — Which OSCE stations discriminate?
+## Group 2: Which OSCE stations discriminate?
 Using `osce_stations.csv`, find which stations separate strong from weak
 students and which do not.
 
@@ -91,7 +91,7 @@ measuring something else — or nothing.
 :::
 
 ::: {.callout-note}
-## Group 3 — Is burnout related to performance?
+## Group 3: Is burnout related to performance?
 Examine the relationship between `burnout_score`, `attendance_pct` and
 `posttest`.
 
@@ -104,7 +104,7 @@ which direction you can and cannot support with these cross-sectional data.
 :::
 
 ::: {.callout-note}
-## Group 4 — What do faculty say they need?
+## Group 4: What do faculty say they need?
 Clean `faculty_survey_raw.csv` and describe what it shows about faculty
 research practice.
 
@@ -117,7 +117,7 @@ how many you ended with, and why.
 :::
 
 ::: {.callout-note}
-## Group 5 — Do the three colleges differ?
+## Group 5: Do the three colleges differ?
 The students come from three government medical colleges, in unequal numbers.
 Does the college a student attends explain any of the gain, and does it explain
 the difference between the two teaching arms?
@@ -135,7 +135,7 @@ document how confident you are, and why.
 :::
 
 ::: {.callout-note}
-## Group 6 — Do the students who study more do better?
+## Group 6: Do the students who study more do better?
 `study_hours` records self-reported weekly study time. Does it predict `gain`,
 and does it still predict it once `attendance_pct` is accounted for?
 
@@ -267,7 +267,7 @@ and it is the only way to find out.
 
 ## Then
 
-**Post-test, feedback and valedictory** — SET Team.
+**Post-test, feedback and valedictory**: SET Team.
 
 The [feedback form](../resources/index.qmd#feedback) stays open for a week.
 Please fill it in honestly, including the parts that did not work. The next

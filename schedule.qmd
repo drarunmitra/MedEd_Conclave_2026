@@ -8,7 +8,7 @@ minutes. This page mirrors the master schedule
 (`MedEd_Conclave_2026_Workshop_Schedule_v3.xlsx`) — if the two ever disagree,
 the spreadsheet wins and this page needs fixing.
 
-## Day 1 — Wednesday, 9 September
+## Day 1: Wednesday, 9 September
 
 : Day 1 schedule {.schedule tbl-colwidths="[16,26,40,18]"}
 
@@ -27,7 +27,7 @@ the spreadsheet wins and this page needs fixing.
 | 15:30 – 16:15 | [Working with data](day1/s5-dplyr-eda.qmd) | `dplyr`, exploratory data analysis | Gurpreet |
 | 16:15 – 17:00 | [Hands-on](day1/s5-dplyr-eda.qmd#hands-on) | Descriptive summaries and statistics on the provided medical education datasets | All |
 
-## Day 2 — Thursday, 10 September
+## Day 2: Thursday, 10 September
 
 : Day 2 schedule {.schedule tbl-colwidths="[16,26,40,18]"}
 
@@ -77,4 +77,4 @@ Day 2 morning recap.
 ## Download
 
 - [Master schedule (XLSX)](admin/MedEd_Conclave_2026_Workshop_Schedule_v3.xlsx)
-- [One-page agenda for participants (PDF)](admin/agenda.pdf) — *to be added*
+- [One-page agenda for participants (PDF)](admin/agenda.pdf): *to be added*
