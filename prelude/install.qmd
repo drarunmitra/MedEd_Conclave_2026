@@ -12,9 +12,9 @@ R is the language and the engine. It has almost no user interface of its own.
 
 | Platform | Download | Notes |
 |---|---|---|
-| Windows | [CRAN Windows](https://cran.r-project.org/bin/windows/base/) | Also install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) — needed to compile some packages |
+| Windows | [CRAN Windows](https://cran.r-project.org/bin/windows/base/) | Also install [Rtools](https://cran.r-project.org/bin/windows/Rtools/), needed to compile some packages |
 | macOS | [CRAN macOS](https://cran.r-project.org/bin/macosx/) | Pick the **arm64** build for Apple silicon (M1–M4), **x86_64** for Intel |
-| Linux | [CRAN Linux](https://cran.r-project.org/bin/linux/) | Use the CRAN repository, not your distribution's default — distro versions lag badly |
+| Linux | [CRAN Linux](https://cran.r-project.org/bin/linux/) | Use the CRAN repository, not your distribution's default: distro versions lag badly |
 
 We will use **R 4.4.0 or newer**. Older versions will mostly work but the
 native pipe `|>` requires 4.1+, and we use it everywhere.
@@ -53,7 +53,7 @@ tinytex::install_tinytex()
 ```
 
 This installs a ~200 MB LaTeX that Quarto knows how to use. HTML and Word
-output need none of this — skip it if you are short on time or disk.
+output need none of this. Skip it if you are short on time or disk.
 
 ## 5. Confirm everything is talking to everything
 
@@ -72,7 +72,7 @@ quarto::quarto_version()
 ```
 
 If `quarto::quarto_version()` errors, run `install.packages("quarto")` first.
-If it still fails, RStudio cannot see Quarto on your `PATH` — restart your
+If it still fails, RStudio cannot see Quarto on your `PATH`. Restart your
 computer (genuinely, this fixes it most of the time), then see
 [Troubleshooting](../resources/troubleshooting.qmd).
 
@@ -84,7 +84,7 @@ is the root of the world".
 
 1. **File → New Project → New Directory → New Project**
 2. Directory name: `meded-conclave-2026`
-3. Put it somewhere you can find it — Desktop or Documents, **not** inside a
+3. Put it somewhere you can find it: Desktop or Documents, **not** inside a
    folder synced to OneDrive/Google Drive if you can avoid it (sync conflicts
    corrupt R sessions).
 4. Tick *Open in new session*. Click **Create Project**.
@@ -126,10 +126,10 @@ Because you opened a project, R's working directory is already the project
 folder. Refer to files with paths relative to it:
 
 ```r
-# Good — works on any machine
+# Good: works on any machine
 readr::read_csv("data/meded_students.csv")
 
-# Bad — works only on your laptop, on Tuesdays
+# Bad: works only on your laptop, on Tuesdays
 setwd("C:/Users/Priya/Desktop/stuff")
 readr::read_csv("meded_students.csv")
 ```
@@ -139,5 +139,5 @@ does not.
 
 ## Next
 
-→ [Check your setup](check-setup.qmd) — install the packages and run the
+→ [Check your setup](check-setup.qmd): install the packages and run the
 verification script.

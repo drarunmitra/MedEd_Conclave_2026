@@ -7,7 +7,7 @@ Day 1 starts with data *visualisation* at 11:15, which means you will be
 handed a data frame and asked to plot it. This page makes sure the words
 "data frame", "vector" and "package" mean something to you by then.
 
-Work through it in RStudio. Type the code — do not copy-paste. Typing is
+Work through it in RStudio. Type the code. Do not copy-paste. Typing is
 slower, and that is the point: you notice the brackets.
 
 ## Objects: everything has a name
@@ -39,7 +39,7 @@ mean(c(72, 68, 81, 90))
 
 `c()` is the most-used function in R: it **c**ombines values into a vector.
 Arguments in brackets, separated by commas. Named arguments (`digits = 2`)
-are clearer than positional ones — prefer them.
+are clearer than positional ones. Prefer them.
 
 If you do not know what a function does, ask R:
 
@@ -69,7 +69,7 @@ The four types you will meet:
 | `factor` | `Female` | Categories with fixed levels |
 
 A vector holds **one** type. Mixing them silently converts everything to the
-most permissive type — a classic source of confusion:
+most permissive type, a classic source of confusion:
 
 ```{r}
 c(1, 2, "three")     # all become character
@@ -171,7 +171,7 @@ Relative path, because you are working inside an RStudio project. See
 
 1. Create a vector `osce` with the marks 78, 64, 91, 55, 83.
 2. Find its mean and its highest value (`max()`).
-3. How many of those marks are 70 or above? *Hint:* `sum(osce >= 70)` —
+3. How many of those marks are 70 or above? *Hint:* `sum(osce >= 70)`.
    `TRUE` counts as 1.
 4. Build a data frame `viva` with two columns: `station`
    (`"History"`, `"Exam"`, `"Counselling"`) and `marks` (`8`, `7`, `9`).
@@ -194,7 +194,7 @@ viva <- data.frame(
 str(viva)
 ```
 
-Note that `station` is a character column and `marks` is numeric — exactly
+Note that `station` is a character column and `marks` is numeric, exactly
 what `str()` tells you.
 :::
 
@@ -208,14 +208,14 @@ what `str()` tells you.
 | `+` in the console instead of `>` | R is waiting for you to finish an expression | Press <kbd>Esc</kbd> and retype |
 
 R is case sensitive. `Students` and `students` are different objects. So are
-`TRUE` and `True` — the second is an error.
+`TRUE` and `True`. The second is an error.
 
 ## Where to go if you want more
 
-- [R for Data Science (2e), chapters 2–4](https://r4ds.hadley.nz/) — free online, the standard reference
-- [Posit primers](https://posit.cloud/learn/primers) — interactive, browser-based, no installation
-- [Swirl](https://swirlstats.com/) — learn R inside R: `install.packages("swirl"); library(swirl); swirl()`
+- [R for Data Science (2e), chapters 2–4](https://r4ds.hadley.nz/): free online, the standard reference
+- [Posit primers](https://posit.cloud/learn/primers): interactive, browser-based, no installation
+- [Swirl](https://swirlstats.com/): learn R inside R, `install.packages("swirl"); library(swirl); swirl()`
 
 ## Next
 
-→ [Datasets](data.qmd) — get the files we will use on both days.
+→ [Datasets](data.qmd): get the files we will use on both days.

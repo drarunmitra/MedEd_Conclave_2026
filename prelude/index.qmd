@@ -20,7 +20,7 @@ downloads instead of writing code.
 | ☐ | Install R, RStudio, Quarto | 30 min | [Install the software](install.qmd) |
 | ☐ | Install workshop packages and run the check script | 15 min | [Check your setup](check-setup.qmd) |
 | ☐ | Work through the self-paced R primer | 45 min | [R primer](r-primer.qmd) |
-| ☐ | *Or*, work through the interactive primers instead — they run in your browser, so a laptop whose R install has not succeeded yet is no obstacle | 45 min | [Interactive primers](primer-01-objects.qmd) |
+| ☐ | *Or*, work through the interactive primers instead: they run in your browser, so a laptop whose R install has not succeeded yet is no obstacle | 45 min | [Interactive primers](primer-01-objects.qmd) |
 | ☐ | Download the workshop datasets | 5 min | [Datasets](data.qmd) |
 | ☐ | Skim the pre-reading | 20 min | [Pre-reading](pre-reading.qmd) |
 | ☐ | Upload your setup-check output, so we know your laptop is ready | 2 min | *Moodle prelude course* |
@@ -34,10 +34,10 @@ here, on this site, and stays here after the workshop.
 ::: {.callout-tip title="Do the interactive primers before you travel"}
 Working through all five pages downloads about 40 MB in total (Primer 5, with
 its plotting engine, accounts for most of that). Your browser caches it for a
-week, so opening them at home makes them instant at the venue — conference
+week, so opening them at home makes them instant at the venue. Conference
 wifi shared by forty people is not the moment to find out. They need **no
 installation at all**, which makes them a good place to start if your laptop
-setup has not gone smoothly yet — you can keep learning while you sort it out.
+setup has not gone smoothly yet. You can keep learning while you sort it out.
 :::
 
 ## What to bring
@@ -53,7 +53,7 @@ setup has not gone smoothly yet — you can keep learning while you sort it out.
 If your IT department locks down installation, contact the SET Team **at
 least one week before** the workshop. A cloud fallback
 ([Posit Cloud](https://posit.cloud), free tier) can be arranged, but a local
-installation is strongly preferred — that is what you will use afterwards.
+installation is strongly preferred. That is what you will use afterwards.
 :::
 
 ## What you do *not* need
@@ -66,14 +66,14 @@ installation is strongly preferred — that is what you will use afterwards.
 ## Why a prelude at all
 
 Two days is short. Installation problems, "what is a working directory?", and
-"why does my file not open?" can eat half of Day 1 — and they are exactly the
+"why does my file not open?" can eat half of Day 1, and they are exactly the
 problems that are easiest to solve alone, in advance, without an audience.
 Doing the prelude buys us the time to spend Day 1 on ideas instead of
 plumbing.
 
 ::: {.callout-note}
 ## Stuck?
-Work through [Troubleshooting](../resources/troubleshooting.qmd) first — it
+Work through [Troubleshooting](../resources/troubleshooting.qmd) first. It
 covers the errors that account for most installation failures. If that does
 not help, email the SET Team with (a) your operating system and version,
 (b) the exact error message, and (c) the output of `sessionInfo()`.

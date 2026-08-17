@@ -27,12 +27,12 @@ Three short pieces, in increasing order of discomfort:
 
 1. **Peng RD.** [Reproducible research in computational science](https://doi.org/10.1126/science.1213847).
    *Science* 2011;334:1226–7. Two pages. Introduces the reproducibility
-   spectrum — from "publication only" to "full replication" — that we use to
+   spectrum (from "publication only" to "full replication") that we use to
    frame Session 1.
 
 2. **Baker M.** [1,500 scientists lift the lid on reproducibility](https://doi.org/10.1038/533452a).
    *Nature* 2016;533:452–4. The survey where most researchers reported
-   failing to reproduce someone else's experiment — and more than half failed
+   failing to reproduce someone else's experiment, and more than half failed
    to reproduce their own.
 
 3. **Ziemann M, Eren Y, El-Osta A.** [Gene name errors are widespread in the scientific literature](https://doi.org/10.1186/s13059-016-1044-7).
@@ -79,7 +79,7 @@ Read at least one of these before Day 2 afternoon:
 
 You are not expected to absorb it. Skim now, and come back after the
 workshop when the words have referents. The single most useful thing you can
-do before 9 September is finish [the R primer](r-primer.qmd) — a concept you
+do before 9 September is finish [the R primer](r-primer.qmd): a concept you
 have typed once beats a concept you have read three times.
 
 ## Next

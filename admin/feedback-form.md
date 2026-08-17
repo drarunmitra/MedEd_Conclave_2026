@@ -4,7 +4,7 @@
 
 ---
 
-## Workshop feedback — MedEd Conclave 2026
+## Workshop feedback: MedEd Conclave 2026
 
 Your answers shape the next iteration. Please be specific, especially about
 what did not work. Responses are anonymous.

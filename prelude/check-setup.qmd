@@ -7,7 +7,7 @@ subtitle: "Packages and verification"
 
 Open your `meded-conclave-2026` project in RStudio. Paste this into the
 **Console** and press <kbd>Enter</kbd>. It will take 10–20 minutes on a first
-run — start it and make tea.
+run. Start it and make tea.
 
 ```{r}
 #| eval: false
@@ -73,7 +73,7 @@ You are ready for 9 September. See you there.
 ```
 
 Any line starting with `✖` needs attention before the workshop. Send the
-**whole** output to the SET Team if you cannot resolve it — the individual
+**whole** output to the SET Team if you cannot resolve it. The individual
 lines tell us exactly what is wrong, which turns five emails into one.
 
 ## Test that Quarto renders
@@ -107,5 +107,5 @@ the day, knowing it worked last week narrows the problem down enormously.
 
 ## Next
 
-→ [R primer](r-primer.qmd) — the 45 minutes of R that Day 1 assumes you have
+→ [R primer](r-primer.qmd): the 45 minutes of R that Day 1 assumes you have
 already seen.
