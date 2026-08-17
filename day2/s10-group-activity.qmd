@@ -1,6 +1,6 @@
 ---
 title: "10 · Group activity"
-subtitle: "Four groups, one question each, one rendered document"
+subtitle: "Six groups, one question each, one rendered document"
 ---
 
 ::: {.session-meta}
@@ -25,20 +25,42 @@ ready to type.
 ## The task
 
 In 45 minutes, produce **one rendered Quarto document** (HTML or Word)
-answering your group's question, containing:
+answering your group's question.
 
-| | Requirement |
-|---|---|
-| ☐ | A title, your names, and a two-sentence background |
-| ☐ | A `gtsummary` table, properly labelled |
-| ☐ | One labelled figure, saved with `ggsave()` |
-| ☐ | At least one number reported through **inline code** |
-| ☐ | A statement of how missing data were handled, with the count |
-| ☐ | One honest limitation |
-| ☐ | An AI disclosure sentence, or a statement that none was used |
-
-Then present it in **four minutes**. Not the code — the finding, and one thing
+Then present it in **four minutes**. Not the code, the finding, and one thing
 that surprised you.
+
+## What your document must do
+
+These are the criteria. You are told them now, not afterwards, so you can check
+your own work before 16:15.
+
+Met or not met. Nothing is scored, nothing is ranked, and no group is compared
+with another.
+
+| | Criterion |
+|---|---|
+| ☐ | **It renders on someone else's machine.** A facilitator will open your folder and render it. No absolute paths, no files that only exist on your laptop |
+| ☐ | **Every number in the prose comes from inline code**, not from typing. At least one visible `` `r ...` `` |
+| ☐ | **Missing data are handled deliberately**, with the count stated in the Methods prose |
+| ☐ | **One labelled figure**, with a caption that stands alone, and one line saying why that geometry rather than another |
+| ☐ | **One `gtsummary` table**, labelled, with one line justifying the comparison you chose |
+| ☐ | **Cross-references resolve.** `@tbl-main` and `@fig-main` render as numbers, not as literal text |
+| ☐ | **One honest limitation**, naming something these data cannot show |
+| ☐ | **An AI disclosure sentence**, or a statement that none was used |
+
+Plus the obvious: a title, your names, and a two-sentence background.
+
+::: {.callout-note}
+## What we are not looking at
+Statistical sophistication, elegance of code, and whether you found a
+significant result. None of those are criteria, so do not spend your 45 minutes
+on them.
+
+A group that reports "we found nothing, and here is why our design could not
+have detected it" is doing better science than a group that found a p-value
+below 0.05 in the fourth subgroup they tried.
+:::
 
 ## Group questions
 
@@ -92,6 +114,41 @@ how many you ended with, and why.
 
 *Verbs you will need:* `janitor::clean_names()`, `distinct()`, `str_trim()`,
 `str_to_title()`, `case_when()`, `count()`, `tbl_summary()`.
+:::
+
+::: {.callout-note}
+## Group 5 — Do the three colleges differ?
+The students come from three government medical colleges, in unequal numbers.
+Does the college a student attends explain any of the gain, and does it explain
+the difference between the two teaching arms?
+
+Start by describing the three colleges: how many students, and are they
+comparable at baseline on `admission_score` and `pretest`? Then look at whether
+the arm effect holds within each college.
+
+Watch the group sizes. One college contributes fewer students than the others,
+and a difference computed on a small stratum is easy to over-read. Say in your
+document how confident you are, and why.
+
+*Verbs you will need:* `count()`, `group_by()`, `summarise()`,
+`tbl_summary(by = college)`, `ggplot2` with `facet_wrap()`.
+:::
+
+::: {.callout-note}
+## Group 6 — Do the students who study more do better?
+`study_hours` records self-reported weekly study time. Does it predict `gain`,
+and does it still predict it once `attendance_pct` is accounted for?
+
+Look at the distribution of `study_hours` before you model anything. It is not
+symmetric, and the mean is not a good summary of it. Decide what to do about
+that and say what you decided.
+
+Be ready for the answer to be no. A variable that ought to matter and does not
+is a real finding, and reporting it honestly is worth more than finding
+something in the fourth thing you tried.
+
+*Verbs you will need:* `ggplot2` with `geom_histogram()`, `mutate()`,
+`summarise()`, `lm()`, `tbl_regression()`.
 :::
 
 ## Starter document
@@ -162,13 +219,17 @@ it, and it still works.
 
 ## How to split 45 minutes across a group of six
 
+Three pairs, one keyboard each.
+
 | Minutes | Everyone |
 |---|---|
-| 0–5 | Agree the answer you expect. Write it down. Compare later. |
-| 5–20 | Two people write the analysis code; two draft the prose; two build the table |
-| 20–30 | Merge into one `.qmd`. This always takes longer than expected |
+| 0–5 | Agree the answer you expect. Write it down. Compare later |
+| 5–20 | Pair A writes the analysis code; pair B drafts the prose; pair C builds the table and figure |
+| 20–30 | Merge into one `.qmd`. This always takes longer than expected. Nominate who owns the merge before you start, not at minute 20 |
 | 30–40 | Render. Fix. Render again |
-| 40–45 | Decide who presents and rehearse the four minutes once |
+| 40–45 | Check the eight criteria, decide who presents, rehearse the four minutes once |
+
+The merge is the bottleneck, not the analysis. Give it a person and a deadline.
 
 ::: {.callout-tip}
 ## Render early, render often
@@ -181,6 +242,11 @@ will fail at 15:58, and the failure will be a missing bracket.
 
 **16:15 – 17:00.** Four minutes per group, two minutes of questions.
 
+Six groups at six minutes is 36 minutes of the 45. Changeover between groups
+eats most of what is left, so the four minutes is a real limit, not a target.
+Have your document already open on screen before the group ahead of you
+finishes.
+
 Cover, in order:
 
 1. Your question, in one sentence.
@@ -189,17 +255,14 @@ Cover, in order:
 4. What surprised you, or what you could not do.
 
 ::: {.callout-note}
-## What we are assessing — and what we are not
-**We are not assessing** statistical sophistication, elegance of code, or
-whether you found a "significant" result.
+## Before you present
+Run back through [the eight criteria](#what-your-document-must-do). The one
+that catches most groups is the first: your document renders beautifully on
+your own laptop and fails on anyone else's, usually because of an absolute path
+or a file that was never in the project folder.
 
-**We are assessing** whether the document regenerates itself, whether the
-numbers in the prose come from the data rather than from typing, and whether
-you have been honest about what you do not know.
-
-A group that reports "we found nothing, and here is why our design could not
-have detected it" is doing better science than a group that found a p-value
-below 0.05 in the fourth subgroup they tried.
+Swap laptops with another group and render each other's document. Two minutes,
+and it is the only way to find out.
 :::
 
 ## Then

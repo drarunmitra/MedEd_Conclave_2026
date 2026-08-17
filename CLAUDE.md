@@ -83,6 +83,14 @@ serve the quiz answers publicly. `moodle/` is in neither the render list nor the
 resources list, which is the point. Design record:
 `docs/superpowers/specs/2026-08-14-moodle-prelude-course-design.md`.
 
+## The `private/` directory
+Working files that must never be published: real datasets, drafts, anything from
+a third party. It is in neither the render list nor the resources list, and it is
+git-ignored apart from its README. Note that `data/**` and `admin/**` **are**
+both in `resources:`, so anything dropped in either is copied into `_site` and
+served publicly. CI will not upload an untracked file, but a local
+`quarto publish` will, which makes that exposure intermittent and easy to miss.
+
 ## Placeholders to replace before publishing
 - ~~`SET-TEAM`~~ — resolved 2026-08-14. The repo is
   <https://github.com/drarunmitra/MedEd_Conclave_2026> and the site publishes to

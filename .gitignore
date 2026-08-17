@@ -15,6 +15,13 @@
 /output/
 !/output/.gitkeep
 
+# Working files that must never reach the published site.
+# data/ and admin/ are both listed under resources: in _quarto.yml, so anything
+# dropped in either is copied into _site verbatim and served publicly. private/
+# is in neither the render list nor resources:, which is the point.
+/private/*
+!/private/README.md
+
 # OS
 .DS_Store
 Thumbs.db

@@ -42,7 +42,7 @@ the spreadsheet wins and this page needs fixing.
 | 13:00 – 14:00 | *Lunch* | | |
 | 14:00 – 14:45 | [Generative AI in health research](day2/s8-genai.qmd) | Prompt engineering fundamentals, do's & don'ts, common pitfalls, AI ecosystem in India, ethical considerations | Gurpreet |
 | 14:45 – 15:15 | [Live code session](day2/s9-live-coding.qmd) | Demonstrating workflows and pipelines | Biju Soman + Arun Mitra + Gurpreet |
-| 15:15 – 16:00 | [Group activity](day2/s10-group-activity.qmd) | Four groups | All |
+| 15:15 – 16:00 | [Group activity](day2/s10-group-activity.qmd) | Six groups | All |
 | 16:00 – 16:15 | *Tea break* | | |
 | 16:15 – 17:00 | [Group presentations, feedback & valedictory](day2/s10-group-activity.qmd#presentations) | Vote of thanks, post-test | SET Team |
 
