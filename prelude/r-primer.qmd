@@ -1,11 +1,9 @@
 ---
-title: "R primer"
-subtitle: "The 45 minutes of R that Day 1 assumes"
+title: "R Primer"
+subtitle: "The Basics of R so that you are ready for the Workshop!"
 ---
 
-Day 1 starts with data *visualisation* at 11:15, which means you will be
-handed a data frame and asked to plot it. This page makes sure the words
-"data frame", "vector" and "package" mean something to you by then.
+The workshop assumes you are all sensitized to R and RStudio. Though it starts with the concepts, it would be immensely helpful for you if you are familiar with them. This page makes sure the words "data frame", "vector" and "package" mean something to you by then.
 
 Work through it in RStudio. Type the code. Do not copy-paste. Typing is
 slower, and that is the point: you notice the brackets.
@@ -33,7 +31,9 @@ your wrists will thank you.
 
 ```{r}
 sqrt(64)
+
 round(3.14159, digits = 2)
+
 mean(c(72, 68, 81, 90))
 ```
 
@@ -68,14 +68,13 @@ The four types you will meet:
 | `logical` | `TRUE` | Pass/fail flags |
 | `factor` | `Female` | Categories with fixed levels |
 
-A vector holds **one** type. Mixing them silently converts everything to the
-most permissive type, a classic source of confusion:
+A vector holds only **one** type. Mixing them silently converts everything to the most permissive type, a classic source of confusion:
 
 ```{r}
 c(1, 2, "three")     # all become character
 ```
 
-## Data frames: the rectangle you actually analyse
+## Data frames: the Excel/spreadsheets you actually analyse
 
 A data frame is a set of equal-length vectors side by side: rows are
 observations (students, patients, sessions), columns are variables.
@@ -95,9 +94,13 @@ Ways to look at one:
 
 ```{r}
 nrow(students)     # rows
+
 ncol(students)     # columns
+
 names(students)    # variable names
+
 str(students)      # structure: types and first values
+
 summary(students)  # quick descriptives
 ```
 
@@ -157,8 +160,10 @@ same. We use `|>` because it needs no package.
 
 ```{r}
 #| eval: false
-library(readr)
-students <- read_csv("data/meded_students.csv")
+library(tidyverse)
+library(here)
+
+students <- read_csv(here("data","meded_students.csv"))
 ```
 
 Relative path, because you are working inside an RStudio project. See
@@ -171,8 +176,7 @@ Relative path, because you are working inside an RStudio project. See
 
 1. Create a vector `osce` with the marks 78, 64, 91, 55, 83.
 2. Find its mean and its highest value (`max()`).
-3. How many of those marks are 70 or above? *Hint:* `sum(osce >= 70)`.
-   `TRUE` counts as 1.
+3. Which of those marks are 70 or above? *Hint:* `which(osce >= 70)`.
 4. Build a data frame `viva` with two columns: `station`
    (`"History"`, `"Exam"`, `"Counselling"`) and `marks` (`8`, `7`, `9`).
 5. Print the structure of `viva`.
@@ -184,7 +188,7 @@ osce <- c(78, 64, 91, 55, 83)
 
 mean(osce)
 max(osce)
-sum(osce >= 70)
+which(osce >= 70)
 
 viva <- data.frame(
   station = c("History", "Exam", "Counselling"),
@@ -202,13 +206,12 @@ what `str()` tells you.
 
 | Message | Cause | Fix |
 |---|---|---|
-| `could not find function "read_csv"` | Package not loaded | `library(readr)` |
-| `object 'students' not found` | Typo, or you never ran the line that created it | Re-run the earlier line; check spelling and case |
+| `could not find function "read_csv"` | Package not loaded | `library(readr)` <br> Part of the larger `tidyverse` package |
+| `object 'viva' not found` | Typo, or you never ran the line that created it | Re-run the earlier line; check spelling and case |
 | `unexpected symbol` / `unexpected ')'` | Missing comma or unbalanced bracket | Look at the line *above* the one flagged |
 | `+` in the console instead of `>` | R is waiting for you to finish an expression | Press <kbd>Esc</kbd> and retype |
 
-R is case sensitive. `Students` and `students` are different objects. So are
-`TRUE` and `True`. The second is an error.
+R is case sensitive, so be attentive when typing
 
 ## Where to go if you want more
 
@@ -216,6 +219,10 @@ R is case sensitive. `Students` and `students` are different objects. So are
 - [Posit primers](https://posit.cloud/learn/primers): interactive, browser-based, no installation
 - [Swirl](https://swirlstats.com/): learn R inside R, `install.packages("swirl"); library(swirl); swirl()`
 
+<!-- ## Next -->
+
+<!-- → [Datasets](data.qmd): get the files we will use on both days. -->
+
 ## Next
 
-→ [Datasets](data.qmd): get the files we will use on both days.
+→ [Pre-reading](pre-reading.qmd)

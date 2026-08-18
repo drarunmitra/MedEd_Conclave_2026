@@ -1,16 +1,15 @@
 ---
 title: "Prelude"
-subtitle: "What to do before 9 September"
+subtitle: "What to do before you come to the Pre-Conference Workshop"
 ---
 
 Everything on this page is designed to be done **on your own laptop, before
-the workshop**. Budget about two hours in total, spread over a few evenings.
+the workshop**.
 
 ::: {.callout-important}
 ## The one thing that must be done
 Install R, RStudio and Quarto, and run the setup check. If your laptop is not
-ready on the morning of Day 1, you will spend the first session watching
-downloads instead of writing code.
+ready on the morning of workshop, you will miss out on many concepts and will spend most of your time playing catch-up! So, ensure you do this before you come for the workshop.
 :::
 
 ## Checklist
@@ -20,41 +19,19 @@ downloads instead of writing code.
 | ☐ | Install R, RStudio, Quarto | 30 min | [Install the software](install.qmd) |
 | ☐ | Install workshop packages and run the check script | 15 min | [Check your setup](check-setup.qmd) |
 | ☐ | Work through the self-paced R primer | 45 min | [R primer](r-primer.qmd) |
-| ☐ | *Or*, work through the interactive primers instead: they run in your browser, so a laptop whose R install has not succeeded yet is no obstacle | 45 min | [Interactive primers](primer-01-objects.qmd) |
-| ☐ | Download the workshop datasets | 5 min | [Datasets](data.qmd) |
-| ☐ | Skim the pre-reading | 20 min | [Pre-reading](pre-reading.qmd) |
-| ☐ | Upload your setup-check output, so we know your laptop is ready | 2 min | *Moodle prelude course* |
-| ☐ | Complete the online pre-test | 10 min | *Moodle prelude course* |
+| ☐ | Go through the pre-reading | 20 min | [Pre-reading](pre-reading.qmd) |
+| ☐ | Upload your setup-check output, so we know your laptop is ready | 2 min | *Moodle Course* |
+| ☐ | Complete the online pre-test | 10 min | *Moodle Course* |
 
-The last two happen in the **Moodle prelude course**, whose link the SET Team
-circulates with your invitation. It also carries the weekly targets, five short
-check quizzes and a help-desk forum. Everything else on this checklist lives
-here, on this site, and stays here after the workshop.
+The [**Moodle Course**](https://setfacilitysaral2.org/course/view.php?id=394) contains five short check quizzes and a help-desk forum.
 
-::: {.callout-tip title="Do the interactive primers before you travel"}
-Working through all five pages downloads about 40 MB in total (Primer 5, with
-its plotting engine, accounts for most of that). Your browser caches it for a
-week, so opening them at home makes them instant at the venue. Conference
-wifi shared by forty people is not the moment to find out. They need **no
-installation at all**, which makes them a good place to start if your laptop
-setup has not gone smoothly yet. You can keep learning while you sort it out.
-:::
 
 ## What to bring
 
-- A laptop you have **administrator rights on** (you will be installing
-  software). Windows, macOS and Linux are all fine.
-- A charger. Power outlets are limited; arrive charged.
-- At least **5 GB free disk space**.
-- Your institutional email, for the R and Quarto ecosystems that ask for one.
+- A laptop in good working condition. Windows, macOS and Linux are all fine. Preferably 16 GB RAM.
+- A charger. Power outlets are limited; arrive fully-charged.
+- The toolsets installed. R, RStudio and Quarto.
 
-::: {.callout-tip}
-## Institutional laptops
-If your IT department locks down installation, contact the SET Team **at
-least one week before** the workshop. A cloud fallback
-([Posit Cloud](https://posit.cloud), free tier) can be arranged, but a local
-installation is strongly preferred. That is what you will use afterwards.
-:::
 
 ## What you do *not* need
 
@@ -63,18 +40,16 @@ installation is strongly preferred. That is what you will use afterwards.
 - A paid licence for anything. Every tool in this workshop is free and
   open source.
 
-## Why a prelude at all
+## Why a prelude to the workshop
 
-Two days is short. Installation problems, "what is a working directory?", and
-"why does my file not open?" can eat half of Day 1, and they are exactly the
-problems that are easiest to solve alone, in advance, without an audience.
-Doing the prelude buys us the time to spend Day 1 on ideas instead of
-plumbing.
+Two days is a short time. Installation problems, "what is a working directory?", and "why does my file not open?" can eat most of the time we have.
+
+Doing the prelude buys us the time to spend on the more important concepts rather than troubleshooting.
 
 ::: {.callout-note}
 ## Stuck?
 Work through [Troubleshooting](../resources/troubleshooting.qmd) first. It
 covers the errors that account for most installation failures. If that does
-not help, email the SET Team with (a) your operating system and version,
+not help, email us (a) your operating system and version,
 (b) the exact error message, and (c) the output of `sessionInfo()`.
 :::

@@ -11,7 +11,7 @@ pkgs <- c(
   # Reporting
   "quarto", "knitr", "rmarkdown",
   # Data and extras
-  "skimr", "scales", "patchwork", "palmerpenguins"
+  "skimr", "scales", "patchwork", "MASS"
 )
 
 missing <- setdiff(pkgs, rownames(installed.packages()))

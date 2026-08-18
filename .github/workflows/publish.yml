@@ -58,7 +58,7 @@ jobs:
             any::scales
             any::here
             any::gt
-            any::palmerpenguins
+            any::MASS
 
       - name: Generate teaching datasets
         run: Rscript R/00_generate_datasets.R

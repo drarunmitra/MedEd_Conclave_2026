@@ -12,27 +12,39 @@ run. Start it and make tea.
 ```{r}
 #| eval: false
 pkgs <- c(
+  
   # Core
-  "tidyverse",     # dplyr, ggplot2, tidyr, readr, stringr, forcats, purrr
+  "tidyverse",     # dplyr, ggplot2, tidyr, readr, stringr, forcats
   "here",          # sane file paths
   "janitor",       # clean_names(), tabyl()
+  
   # Tables
   "gtsummary",     # publication-ready tables
   "gt",            # the table engine underneath
   "flextable",     # tables for Word output
+  
   # Reporting
   "quarto",        # render .qmd from R
   "knitr",
   "rmarkdown",
+  
   # Data and extras
   "skimr",         # fast data overviews
   "scales",        # axis formatting
   "patchwork",     # combine ggplots
-  "palmerpenguins" # a friendly practice dataset
+  "MASS"           # classic datasets from Venables & Ripley
 )
 
 install.packages(setdiff(pkgs, rownames(installed.packages())))
 ```
+
+::: {.callout-warning}
+## One thing to know about `MASS`
+`MASS` has its own `select()`, so loading it *after* dplyr silently replaces
+the dplyr one and `select(students, batch)` starts failing with a confusing
+error. Load `MASS` first, or leave it unloaded and reach for a dataset with
+`MASS::Boston`. If `select()` ever stops behaving, run `conflicts()`.
+:::
 
 ::: {.callout-warning}
 ## If you are asked "Do you want to install from sources...?"
@@ -60,10 +72,10 @@ end-to-end render together.
 
 ```
 ── MedEd Conclave 2026 · setup check ───────────────────────────
-✔ R version 4.4.1 (2024-06-14) (need >= 4.1.0)
+✔ R version 4.6.1 (2026-06-24) (need >= 4.1.0)
 ✔ Native pipe |> works
-✔ RStudio 2024.09.0+375
-✔ Quarto 1.5.57
+✔ RStudio 2026.08.0
+✔ Quarto 1.10.18
 ✔ All 16 required packages installed
 ✔ Core packages load cleanly
 ✔ Project directory writable (meded-conclave-2026)
@@ -107,5 +119,4 @@ the day, knowing it worked last week narrows the problem down enormously.
 
 ## Next
 
-→ [R primer](r-primer.qmd): the 45 minutes of R that Day 1 assumes you have
-already seen.
+→ [R primer](r-primer.qmd): The Basics of R so that you are ready for Day 1!!
