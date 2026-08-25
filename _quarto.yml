@@ -66,7 +66,6 @@ website:
             - prelude/primer-03-packages-pipe.qmd
             - prelude/primer-04-dplyr-verbs.qmd
             - prelude/primer-05-first-plot.qmd
-        - prelude/data.qmd
         - prelude/pre-reading.qmd
 
     - id: day1
