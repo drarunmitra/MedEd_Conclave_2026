@@ -24,6 +24,12 @@ Everything here stays online after the workshop.
 
 - [Modern Research & Data Science: Philosophy, Paradigms, and AI-Augmented Reproducibility](../slides/workshop_intro.html){target="_blank"}
 
+The Day 1 and Day 2 decks go up as each session is delivered.
+
+<!-- Day 1 and Day 2 decks are not rendered while slides/day1 and slides/day2
+     are commented out of the render list in _quarto.yml. Uncomment both
+     together, or these links 404.
+
 **Day 1**
 
 - [1 · Introduction to the basics](../slides/day1/s1-fundamentals.html){target="_blank"}
@@ -37,6 +43,8 @@ Everything here stays online after the workshop.
 - [6 · Communicating with Quarto](../slides/day2/s6-quarto-communication.html){target="_blank"}
 - [7 · Publication-ready tables](../slides/day2/s7-gtsummary.html){target="_blank"}
 - [8 · Generative AI in health research](../slides/day2/s8-genai.html){target="_blank"}
+-->
+
 
 ::: {.callout-tip}
 ## Speaker notes

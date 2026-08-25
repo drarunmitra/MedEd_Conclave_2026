@@ -34,20 +34,40 @@ if (isTRUE(pipe_ok)) ok("Native pipe |> works") else
   bad("Native pipe |> not available - your R is older than 4.1.0")
 
 # 3. RStudio ------------------------------------------------------------------
-if (requireNamespace("rstudioapi", quietly = TRUE) &&
-    rstudioapi::isAvailable()) {
+# A missing rstudioapi looks exactly like "not in RStudio" unless we say so.
+if (!requireNamespace("rstudioapi", quietly = TRUE)) {
+  warn("Cannot read the RStudio version - run install.packages('rstudioapi')")
+} else if (rstudioapi::isAvailable()) {
   ok(paste("RStudio", rstudioapi::versionInfo()$version))
 } else {
   warn("Not running inside RStudio (fine if you use another editor)")
 }
 
 # 4. Quarto -------------------------------------------------------------------
-quarto_ver <- tryCatch(
-  as.character(quarto::quarto_version()),
-  error = function(e) NA_character_
-)
-if (!is.na(quarto_ver)) {
+# quarto::quarto_version() fails when the quarto R package is missing, even
+# though Quarto itself is installed. Ask the command line before saying so.
+quarto_pkg <- requireNamespace("quarto", quietly = TRUE)
+
+quarto_ver <- if (quarto_pkg) {
+  tryCatch(as.character(quarto::quarto_version()), error = function(e) NA_character_)
+} else {
+  NA_character_
+}
+
+if (is.na(quarto_ver)) {
+  quarto_ver <- tryCatch({
+    v <- suppressWarnings(
+      system("quarto --version", intern = TRUE, ignore.stderr = TRUE)
+    )
+    if (length(v) > 0 && nzchar(v[[1]])) trimws(v[[1]]) else NA_character_
+  }, error = function(e) NA_character_)
+}
+
+if (!is.na(quarto_ver) && quarto_pkg) {
   ok(paste("Quarto", quarto_ver))
+} else if (!is.na(quarto_ver)) {
+  bad(sprintf("Quarto %s is installed, but the quarto R package is not.
+    Run install.packages('quarto')", quarto_ver))
 } else {
   bad("Quarto not found. Install from https://quarto.org/docs/get-started/ ,
     then restart your computer, then run install.packages('quarto')")
@@ -96,7 +116,7 @@ if (write_ok) {
 
 # 8. End-to-end render --------------------------------------------------------
 render_ok <- FALSE
-if (!is.na(quarto_ver)) {
+if (!is.na(quarto_ver) && quarto_pkg) {
   render_ok <- tryCatch({
     tmpdir <- tempfile("qtest"); dir.create(tmpdir)
     qmd <- file.path(tmpdir, "test.qmd")

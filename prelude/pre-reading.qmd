@@ -47,5 +47,10 @@ have typed once beats a concept you have read three times.
 
 ## Next
 
+→ Back to the [Prelude checklist](index.qmd).
+
+<!-- day1/ is commented out of the render list in _quarto.yml, so this link
+     404s until it is restored:
 → Back to the [Prelude checklist](index.qmd), or straight to
 [Day 1](../day1/index.qmd).
+-->

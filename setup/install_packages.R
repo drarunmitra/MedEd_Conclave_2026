@@ -9,7 +9,7 @@ pkgs <- c(
   # Tables
   "gtsummary", "gt", "flextable",
   # Reporting
-  "quarto", "knitr", "rmarkdown",
+  "quarto", "knitr", "rmarkdown", "rstudioapi",
   # Data and extras
   "skimr", "scales", "patchwork", "MASS"
 )

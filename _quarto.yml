@@ -4,13 +4,13 @@ project:
   execute-dir: project
   render:
     - "index.qmd"
-    - "schedule.qmd"
+    # - "schedule.qmd"
     - "prelude/*.qmd"
-    - "day1/*.qmd"
-    - "day2/*.qmd"
+    # - "day1/*.qmd"
+    # - "day2/*.qmd"
     - "resources/*.qmd"
-    - "slides/day1/*.qmd"
-    - "slides/day2/*.qmd"
+    # - "slides/day1/*.qmd"
+    # - "slides/day2/*.qmd"
   resources:
     - "data/**"
     - "R/**"
@@ -100,15 +100,15 @@ website:
     #         - day2/s9-live-coding.qmd
     #         - day2/s10-group-activity.qmd
 
-    # - id: resources
-    #   title: "Resources"
-    #   style: floating
-    #   contents:
-    #     - resources/index.qmd
-    #     - resources/cheatsheet.qmd
-    #     - resources/troubleshooting.qmd
-    #     - resources/glossary.qmd
-    #     - resources/further-reading.qmd
+    - id: resources
+      title: "Resources"
+      style: floating
+      contents:
+        - resources/index.qmd
+        - resources/cheatsheet.qmd
+        - resources/troubleshooting.qmd
+        - resources/glossary.qmd
+        - resources/further-reading.qmd
 
   page-footer:
     background: light

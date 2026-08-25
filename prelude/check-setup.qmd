@@ -27,7 +27,8 @@ pkgs <- c(
   "quarto",        # render .qmd from R
   "knitr",
   "rmarkdown",
-  
+  "rstudioapi",    # lets the setup check read your RStudio version
+
   # Data and extras
   "skimr",         # fast data overviews
   "scales",        # axis formatting
@@ -112,10 +113,28 @@ the day, knowing it worked last week narrows the problem down enormously.
 |---|---|---|
 | `✖ R version ... too old` | R below 4.1, so the native pipe will not work | Install R 4.4.x from CRAN |
 | `✖ Quarto not found` | Quarto is not on your `PATH` | Reinstall Quarto, **restart the computer**, then `install.packages("quarto")` |
+| `✖ Quarto X is installed, but the quarto R package is not` | Quarto itself is fine; R just cannot talk to it | `install.packages("quarto")` |
 | `✖ N package(s) missing` | An install silently failed | Re-run the install line the script prints |
 | `✖ Cannot write to ...` | Project is in a restricted or cloud-synced folder | Move it to Desktop or Documents |
 | `✖ Test render failed` | R and Quarto are both present but not co-operating | See [Troubleshooting](../resources/troubleshooting.qmd) |
+| `! Cannot read the RStudio version` | The `rstudioapi` package is missing | `install.packages("rstudioapi")` |
 | `! Not running inside RStudio` | Not an error | Ignore it if you use another editor |
+
+## Send us your result
+
+Do this even if every line passed. It is how we know who is ready and who
+needs help before 9 September.
+
+1. Select the **whole** setup-check output in the Console and copy it, or take
+   a screenshot of it.
+2. Go to the [Moodle course](https://setfacilitysaral2.org/course/view.php?id=394),
+   open **Get your laptop ready → Show us your setup check passed**.
+3. Paste the output in the text box, or attach the screenshot. Then submit.
+
+Something failed and you cannot fix it? Submit it anyway, exactly as it is,
+and add one line saying which operating system you are on. A failed check we
+can see on 25 August is a five-minute fix. The same failure discovered at
+09:15 on 9 September costs you the first session.
 
 ## Next
 

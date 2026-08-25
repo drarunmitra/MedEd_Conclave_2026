@@ -65,7 +65,13 @@ console).
 
 ![RStudio Console](console.jpg)
 
-In the **Console** pane (bottom left), type each line and press <kbd>Enter</kbd>:
+Two of the three checks below ask R about a program outside R, and each needs a small helper package that a fresh RStudio does not ship with. Install both first. In the **Console** pane (bottom left), type this and press <kbd>Enter</kbd>:
+
+``` r
+install.packages(c("rstudioapi", "quarto"))
+```
+
+Then type each line and press <kbd>Enter</kbd>:
 
 ``` r
 R.version.string
@@ -78,7 +84,18 @@ quarto::quarto_version()
 #> '1.10.18'
 ```
 
-If `quarto::quarto_version()` errors, run `install.packages("quarto")` first. If it still fails, RStudio cannot see Quarto on your `PATH`. Restart your computer (genuinely, this fixes it most of the time), then see [Troubleshooting](../resources/troubleshooting.qmd).
+::: {.callout-important}
+## `there is no package called 'rstudioapi'` or `'quarto'`
+You skipped the `install.packages()` line above. Run it, then try again. The error is about the helper package, not about RStudio or Quarto themselves.
+:::
+
+If `quarto::quarto_version()` still errors after installing the package, RStudio cannot see Quarto on your `PATH`. Restart your computer (genuinely, this fixes it most of the time). If it survives a restart, check whether Quarto is installed at all by asking the command line instead:
+
+``` r
+system("quarto --version")
+```
+
+A version number means Quarto is installed and only R cannot find it: see [Troubleshooting](../resources/troubleshooting.qmd). No version number means Quarto is not installed: go back to step 3.
 
 ## 6. Set up an RStudio project {#projects}
 
