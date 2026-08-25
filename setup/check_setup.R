@@ -21,7 +21,7 @@ r_ok <- getRversion() >= "4.1.0"
 if (r_ok) {
   ok(sprintf("%s (need >= 4.1.0)", R.version.string))
 } else {
-  bad(sprintf("%s is too old. Install R 4.4.x from https://cran.r-project.org",
+  bad(sprintf("%s is too old. Install R 4.6.x from https://cran.r-project.org",
               R.version.string))
 }
 

@@ -111,7 +111,7 @@ the day, knowing it worked last week narrows the problem down enormously.
 
 | Line | Means | Do this |
 |---|---|---|
-| `✖ R version ... too old` | R below 4.1, so the native pipe will not work | Install R 4.4.x from CRAN |
+| `✖ R version ... too old` | R below 4.1, so the native pipe will not work | Install R 4.6.x from CRAN |
 | `✖ Quarto not found` | Quarto is not on your `PATH` | Reinstall Quarto, **restart the computer**, then `install.packages("quarto")` |
 | `✖ Quarto X is installed, but the quarto R package is not` | Quarto itself is fine; R just cannot talk to it | `install.packages("quarto")` |
 | `✖ N package(s) missing` | An install silently failed | Re-run the install line the script prints |

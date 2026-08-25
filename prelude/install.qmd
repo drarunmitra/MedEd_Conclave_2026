@@ -15,7 +15,9 @@ R is the language and the engine. It has almost no user interface of its own.
 | macOS | [CRAN macOS](https://cran.r-project.org/bin/macosx/) | Pick the **arm64** build for Apple silicon (M1–M4), **x86_64** for Intel |
 | Linux | [CRAN Linux](https://cran.r-project.org/bin/linux/) | Use the CRAN repository, not your distribution's default: distro versions lag badly |
 
-We will use **R 4.4.0 or newer**. Older versions will mostly work but the native pipe `|>` requires 4.1+, and we use it everywhere.
+Install the **current release, 4.6.x**. The interactive primers run R 4.6 in your browser, so a matching local version means the same code behaves the same way in both places.
+
+The hard floor is **4.1**: below that the native pipe `|>` does not exist, and we use it everywhere. Anything from 4.1 up will get you through the two days, so do not let an upgrade block you if you are short of time or admin rights.
 
 ## 2. RStudio
 
