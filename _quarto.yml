@@ -36,12 +36,12 @@ website:
         href: index.qmd
       - text: "Prelude"
         href: prelude/index.qmd
-      - text: "Day 1"
-        href: day1/index.qmd
-      - text: "Day 2"
-        href: day2/index.qmd
-      - text: "Schedule"
-        href: schedule.qmd
+      # - text: "Day 1"
+      #   href: day1/index.qmd
+      # - text: "Day 2"
+      #   href: day2/index.qmd
+      # - text: "Schedule"
+      #   href: schedule.qmd
       - text: "Resources"
         href: resources/index.qmd
     right:
@@ -68,47 +68,47 @@ website:
             - prelude/primer-05-first-plot.qmd
         - prelude/pre-reading.qmd
 
-    - id: day1
-      title: "Day 1, Wed 9 Sep"
-      style: floating
-      collapse-level: 2
-      contents:
-        - day1/index.qmd
-        - section: "Morning"
-          contents:
-            - day1/s1-fundamentals.qmd
-            - day1/s2-getting-started.qmd
-            - day1/s3-ggplot2.qmd
-        - section: "Afternoon"
-          contents:
-            - day1/s4-quarto.qmd
-            - day1/s5-dplyr-eda.qmd
+    # - id: day1
+    #   title: "Day 1, Wed 9 Sep"
+    #   style: floating
+    #   collapse-level: 2
+    #   contents:
+    #     - day1/index.qmd
+    #     - section: "Morning"
+    #       contents:
+    #         - day1/s1-fundamentals.qmd
+    #         - day1/s2-getting-started.qmd
+    #         - day1/s3-ggplot2.qmd
+    #     - section: "Afternoon"
+    #       contents:
+    #         - day1/s4-quarto.qmd
+    #         - day1/s5-dplyr-eda.qmd
+    # 
+    # - id: day2
+    #   title: "Day 2, Thu 10 Sep"
+    #   style: floating
+    #   collapse-level: 2
+    #   contents:
+    #     - day2/index.qmd
+    #     - section: "Morning"
+    #       contents:
+    #         - day2/s6-quarto-communication.qmd
+    #         - day2/s7-gtsummary.qmd
+    #     - section: "Afternoon"
+    #       contents:
+    #         - day2/s8-genai.qmd
+    #         - day2/s9-live-coding.qmd
+    #         - day2/s10-group-activity.qmd
 
-    - id: day2
-      title: "Day 2, Thu 10 Sep"
-      style: floating
-      collapse-level: 2
-      contents:
-        - day2/index.qmd
-        - section: "Morning"
-          contents:
-            - day2/s6-quarto-communication.qmd
-            - day2/s7-gtsummary.qmd
-        - section: "Afternoon"
-          contents:
-            - day2/s8-genai.qmd
-            - day2/s9-live-coding.qmd
-            - day2/s10-group-activity.qmd
-
-    - id: resources
-      title: "Resources"
-      style: floating
-      contents:
-        - resources/index.qmd
-        - resources/cheatsheet.qmd
-        - resources/troubleshooting.qmd
-        - resources/glossary.qmd
-        - resources/further-reading.qmd
+    # - id: resources
+    #   title: "Resources"
+    #   style: floating
+    #   contents:
+    #     - resources/index.qmd
+    #     - resources/cheatsheet.qmd
+    #     - resources/troubleshooting.qmd
+    #     - resources/glossary.qmd
+    #     - resources/further-reading.qmd
 
   page-footer:
     background: light

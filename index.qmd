@@ -68,7 +68,7 @@ and disclosure rules that apply to health research in India.
 Every teaching block (45 min) is followed by a hands-on block (45–60 min).
 Roughly two-thirds of your time is spent with your hands on a keyboard.
 
-→ [Full schedule with timings and faculty](schedule.qmd)
+<!-- → [Full schedule with timings and faculty](schedule.qmd) -->
 
 ## Who this is for
 
