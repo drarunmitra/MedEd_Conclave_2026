@@ -41,17 +41,17 @@ $CATEGORY: $course$/top/Prelude/Pre-test
 
 // question: 5
 ::PRE05 Tidy data::[html]<p>In a <strong>tidy</strong> dataset, each column is a variable and each row is an observation.</p>{
-=[html]<p>False</p>#[html]<p>Correct.</p>
+=[html]<p>True</p>#[html]<p>Correct.</p>
 ~[html]<p>False</p>#[html]<p>It is true, and it is the single most useful sentence about data structure in this workshop. A spreadsheet with one column per month, or one row per variable, is not tidy, and the tidyverse will fight you until it is.</p>
 ####[html]<p>True. Wickham's three rules\: each variable a column, each observation a row, each type of observational unit its own table. Everything <code>dplyr</code> and <code>ggplot2</code> do assumes it.</p>
 }
 
 // question: 6
-::PRE06 What belongs in a script::[html]<p>You are writing an analysis script that a colleague will also run, on their own computer. Which line belongs at the top of it?</p>{
+::PRE06 What belongs in a script::[html]<p>You have already installed the tidyverse on your own laptop. You now write an analysis script and email it to a colleague, who will run it on their computer.</p><p>Exactly one of these lines should be <strong>inside the script</strong>. Which one?</p>{
 =[html]<p><code>library(tidyverse)</code></p>#[html]<p>Correct. Every session needs it, and it tells your reader immediately which tools the script depends on.</p>
 ~[html]<p><code>install.packages("tidyverse")</code></p>#[html]<p>No. A script that reinstalls its packages on every run is slow, needs an internet connection it should not need, and is rude to whoever else runs it. Install once in the console; load every session in the script.</p>
 ~[html]<p><code>setwd("C\:/Users/arun/Desktop/analysis")</code></p>#[html]<p>This is the line that guarantees the script fails on your colleague's computer, that path exists on exactly one machine. Day 1 replaces it with an RStudio project and relative paths such as <code>data/meded_students.csv</code>.</p>
-~[html]<p><code>rm(list \= ls())</code></p>#[html]<p>A common habit, and a weak substitute for the real thing\: it clears your objects but leaves attached packages and changed options behind, so it does not give you the clean session it appears to. Restarting R does.</p>
+~[html]<p><code>rm(list \= ls())</code></p>#[html]<p>A common habit, and a weak substitute for the real thing\: it clears your objects but leaves attached packages and changed options behind, so it does not give you the clean session it appears to. Restarting R does. It also does nothing to help your colleague run the script.</p>
 ####[html]<p><code>library()</code> goes in the script, every session. <code>install.packages()</code> stays in the console\: once, ever. Primer 3 covers both, and the difference is what makes a script runnable on somebody else's machine.</p>
 }
 
@@ -70,7 +70,7 @@ $CATEGORY: $course$/top/Prelude/Pre-test
 ~[html]<p>The mean of the 229 students who have a score</p>#[html]<p>That is what <code>mean(students$posttest, na.rm \= TRUE)</code> gives. Without <code>na.rm \= TRUE</code> you get <code>NA</code>, R makes you ask for the exclusion explicitly, so that dropping 11 people is a decision you took rather than one that happened to you.</p>
 ~[html]<p>The mean, treating the missing values as zero</p>#[html]<p>No, thankfully. Treating a missing post-test as a score of zero would drag the mean down badly, and no statistical software should do that silently.</p>
 ~[html]<p>An error, and no result at all</p>#[html]<p>Close but not the same thing. You get a <em>result</em>, <code>NA</code>, with no error and no warning, which is why it catches people out. An error stops; <code>NA</code> propagates quietly through the rest of your analysis.</p>
-####[html]<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code>, R's way of refusing to guess. <code>mean(posttest, na.rm \= TRUE)</code> averages the 229 students who do have a score. Primer 4 and the datasets page both cover this.</p>
+####[html]<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code>, R's way of refusing to guess. <code>mean(students$posttest, na.rm \= TRUE)</code> averages the 229 students who do have a score. Primer 4 has a section on this, <em>Missing values\: NA and na.rm \= TRUE</em>, and the datasets page covers it too.</p>
 }
 
 // question: 9

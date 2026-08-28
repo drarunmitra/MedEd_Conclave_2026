@@ -162,6 +162,41 @@ alongside a mean, so your reader knows whether that mean rests on 8 students or
 We spell it `summarise`. dplyr also accepts `summarize`, and the two are the same
 function, so use whichever spelling you prefer and be consistent.
 
+## Missing values: `NA` and `na.rm = TRUE`
+
+That worked because every student has an `attendance_pct`. Try the same thing on
+`posttest`, where eleven students do not:
+
+```{webr}
+mean(students$posttest)
+```
+
+`NA`, not a number. One missing value is enough. R will not quietly decide which
+eleven students to drop on your behalf, so it hands the question back to you.
+
+You answer it with `na.rm = TRUE`, which means *remove the NAs first*:
+
+```{webr}
+mean(students$posttest, na.rm = TRUE)
+```
+
+::: {.callout-warning}
+## `NA` does not stop your script
+An error stops. `NA` does not: it travels quietly through every calculation
+downstream and lands in your results table. Nothing warns you. When a number
+comes back as `NA`, a missing value upstream is almost always the reason.
+:::
+
+Count them before you decide anything:
+
+```{webr}
+sum(is.na(students$posttest))
+```
+
+`is.na()` asks each value "are you missing?" and `sum()` counts the `TRUE`s.
+Dropping 11 of 240 students is a decision you should take deliberately, and
+report, not one that happens to you.
+
 ## Putting them together
 
 The verbs are designed to be chained. This is where Primer 3's pipe pays off:
@@ -373,6 +408,16 @@ if (!is.data.frame(.result)) {
 `sort = TRUE` puts the largest count at the top; without it you get the
 colleges in alphabetical order.
 :::
+:::
+
+## Check yourself
+
+::: {.callout-note}
+## Four questions on the Moodle course
+Take [**Check yourself · Primer 4**](https://setfacilitysaral2.org/mod/quiz/view.php?id=3460)
+on the [Moodle course](https://setfacilitysaral2.org/course/view.php?id=394).
+Four questions, unlimited attempts, no marks. Every answer comes back with
+an explanation, so a wrong one costs you nothing and teaches you something.
 :::
 
 ## Next

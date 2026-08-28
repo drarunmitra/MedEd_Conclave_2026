@@ -73,7 +73,7 @@ Section 4, Reference, open all the time
 > | 1 | Install R, RStudio and Quarto | 30 min | Section 1 |
 > | 2 | Install the workshop packages and run the setup check | 15 min | Section 1 |
 > | 3 | Upload your setup-check result so we know you are ready | 2 min | Section 1 |
-> | 4 | Work through the R primers, browser or RStudio, your choice | 45 min | Section 2 |
+> | 4 | Work through the five R primers, in your browser | 45 min | Section 2 |
 > | 5 | Do the five short check quizzes | 15 min | Section 2 |
 > | 6 | Download the workshop datasets | 5 min | Section 3 |
 > | 7 | Skim the pre-reading | 20 min | Section 3 |
@@ -204,38 +204,25 @@ people who never log in.
 
 ## §4 Section 2: Learn just enough R
 
-### Label · Choose your track
+### Label · How this section works
 
-> **Two tracks, same content. Pick one.**
+> **Five primers, in order. About 45 minutes.**
 >
-> In your browser: the five numbered primers below. R runs inside the page, so
-> there is nothing to install and nothing can go wrong with your setup. Start
-> here if your install has not gone smoothly yet, because you can keep learning
-> while we sort it out.
+> R runs inside the page, so there is nothing to install and nothing can go wrong
+> with your setup. Start today even if your install is still giving you trouble;
+> you can keep learning while we sort it out.
 >
-> In RStudio: the R primer, one page, 45 minutes. Choose this if your install
-> worked and you would rather practise in the tool you will actually use on the
-> day. It is also the fallback if your network blocks the browser primers.
+> Each primer ends with a four-question check quiz. Unlimited attempts, no marks,
+> and every answer comes back with an explanation. They are the only way we can
+> tell that anyone has worked through this, so they are also how we know whether
+> Day 1 morning can move at pace.
 >
-> Do the five check quizzes either way. Four questions each, unlimited attempts,
-> answerable from either track. They are the only way we can tell that anyone has
-> worked through this, so they are also how we know whether Day 1 morning can
-> move at pace.
+> Each primer downloads 16 to 37 MB the first time you open it, so open them at
+> home, before you travel. Conference wifi shared by forty people is not the
+> moment to find out.
 >
-> Each browser primer downloads 16 to 37 MB the first time you open it, so open
-> them at home, before you travel. Conference wifi shared by forty people is not
-> the moment to find out.
-
-### URL · R primer (RStudio track)
-
-*Name:* `R primer, the RStudio version`
-*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/r-primer.html`
-
-*Description:*
-
-> **45 minutes, in RStudio.** Objects, vectors, data frames, packages and the
-> pipe, with the full explanation of each. Covers exactly the same ground as the
-> five browser primers below, so do one track or the other rather than both.
+> The **R primer** at the end of this section is a reference card, not a sixth
+> lesson. Skim it once you have R installed, then keep it open on Day 1.
 
 ### URL · Primer 1
 
@@ -295,6 +282,18 @@ people who never log in.
 > starts plotting at 11:15. Work through this and that will not be the first
 > `ggplot()` call you have ever written.
 
+### URL · R primer (reference card)
+
+*Name:* `R primer, the reference card`
+*URL:* `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/r-primer.html`
+
+*Description:*
+
+> **10 minutes, after the five primers.** The things a browser cannot teach you:
+> the four data types, reading a CSV with `here()`, the RStudio shortcuts, and a
+> table of the error messages you will meet with the fix for each. Not a lesson,
+> a page to come back to. Keep it open on Day 1.
+
 ### Quiz descriptions
 
 *Names:* `Check yourself · Primer 1` … `Check yourself · Primer 5`
@@ -306,8 +305,8 @@ people who never log in.
 > with anyone.
 >
 > Nothing here needs R to be running. Every question is answerable from the
-> primer page or from the R primer. If an answer surprises you, go back to the
-> page and run the cell.
+> primer page itself. If an answer surprises you, go back to the page and run
+> the cell.
 
 Per-quiz closing line, appended to the above:
 

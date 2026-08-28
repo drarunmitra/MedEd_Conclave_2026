@@ -186,6 +186,11 @@ failing run in place instead of starting an email thread.
 Quiz module ids: Primer 1 → 3457, Primer 2 → 3458, Primer 3 → 3459,
 Primer 4 → 3460, Primer 5 → 3461 (`…/mod/quiz/view.php?id=NNNN`).
 
+Those ids are now hard-coded into the site: each primer page links straight to
+its own quiz, and `prelude/r-primer.qmd` carries them in a Quiz column. If a
+quiz is ever deleted and rebuilt its cmid changes, so grep the site for
+`mod/quiz/view.php` and update all six places together.
+
 Each quiz sits directly beneath its primer. New activities append to the end of
 a section, so they were interleaved afterwards using each quiz's
 **⋮ → Move → *(target)***, which asks "move X after:" and takes one click.
@@ -197,17 +202,22 @@ when the two ends are more than a screen apart.
 | 1 | Label | **What is R? What is RStudio?** — three tools, three jobs, install order | — |
 | 2 | URL | Install R, RStudio and Quarto | `…/prelude/install.html` |
 | 3 | URL | Install the packages and run the setup check | `…/prelude/check-setup.html` |
-| 4 | URL | R primer — the RStudio version | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/r-primer.html` |
-| 5 | URL | Primer 1 · Objects, functions and vectors | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-01-objects.html` |
-| 4 | Quiz | Check yourself · Primer 1 | 4 questions |
-| 5 | URL | Primer 2 · Tibbles | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-02-tibbles.html` |
-| 6 | Quiz | Check yourself · Primer 2 | 4 questions |
-| 7 | URL | Primer 3 · Packages and the pipe | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-03-packages-pipe.html` |
-| 8 | Quiz | Check yourself · Primer 3 | 4 questions |
-| 9 | URL | Primer 4 · The five dplyr verbs | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-04-dplyr-verbs.html` |
-| 10 | Quiz | Check yourself · Primer 4 | 4 questions |
-| 11 | URL | Primer 5 · Your first plot | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-05-first-plot.html` |
-| 12 | Quiz | Check yourself · Primer 5 | 4 questions |
+| 4 | URL | Primer 1 · Objects, functions and vectors | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-01-objects.html` |
+| 5 | Quiz | Check yourself · Primer 1 | 4 questions |
+| 6 | URL | Primer 2 · Tibbles | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-02-tibbles.html` |
+| 7 | Quiz | Check yourself · Primer 2 | 4 questions |
+| 8 | URL | Primer 3 · Packages and the pipe | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-03-packages-pipe.html` |
+| 9 | Quiz | Check yourself · Primer 3 | 4 questions |
+| 10 | URL | Primer 4 · The five dplyr verbs | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-04-dplyr-verbs.html` |
+| 11 | Quiz | Check yourself · Primer 4 | 4 questions |
+| 12 | URL | Primer 5 · Your first plot | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/primer-05-first-plot.html` |
+| 13 | Quiz | Check yourself · Primer 5 | 4 questions |
+| 14 | URL | R primer — the reference card | `https://drarunmitra.github.io/MedEd_Conclave_2026/prelude/r-primer.html` |
+
+The R primer sits **after** the five primers, not before them. It no longer
+teaches objects, tibbles or the pipe, which the primers do; it holds the type
+table, `here()` paths, the error table and the shortcuts, and is the page to
+return to once R is installed.
 
 ### URL settings — every URL resource in the course
 

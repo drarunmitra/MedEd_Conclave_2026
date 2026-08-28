@@ -1,65 +1,37 @@
 ---
 title: "R Primer"
-subtitle: "The Basics of R so that you are ready for the Workshop!"
+subtitle: "The reference card: types, paths and the errors you will meet"
 ---
 
-The workshop assumes you are all sensitized to R and RStudio. Though it starts with the concepts, it would be immensely helpful for you if you are familiar with them. This page makes sure the words "data frame", "vector" and "package" mean something to you by then.
+The workshop assumes you are already sensitized to R and RStudio. The teaching
+happens in the five interactive primers, which run R **in your browser** with
+nothing installed:
 
-Work through it in RStudio. Type the code. Do not copy-paste. Typing is
-slower, and that is the point: you notice the brackets.
+| | Primer | It teaches | Quiz |
+|---|---|---|---|
+| 1 | [Objects, functions and vectors](primer-01-objects.qmd) | `<-`, calling a function, `c()`, one column of values | [Primer 1](https://setfacilitysaral2.org/mod/quiz/view.php?id=3457) |
+| 2 | [Tibbles](primer-02-tibbles.qmd) | The data rectangle: rows are observations, columns are variables | [Primer 2](https://setfacilitysaral2.org/mod/quiz/view.php?id=3458) |
+| 3 | [Packages and the native pipe](primer-03-packages-pipe.qmd) | `library()`, and chaining steps with <code>&#124;&gt;</code> | [Primer 3](https://setfacilitysaral2.org/mod/quiz/view.php?id=3459) |
+| 4 | [The five dplyr verbs](primer-04-dplyr-verbs.qmd) | `filter()`, `select()`, `arrange()`, `mutate()`, `summarise()`, and missing values | [Primer 4](https://setfacilitysaral2.org/mod/quiz/view.php?id=3460) |
+| 5 | [Your first plot](primer-05-first-plot.qmd) | `ggplot()`: data, aesthetics, geom | [Primer 5](https://setfacilitysaral2.org/mod/quiz/view.php?id=3461) |
 
-## Objects: everything has a name
+**Do those first.** Allow about 45 minutes for all five.
 
-R stores things in objects. `<-` is the assignment arrow.
-
-```{r}
-n_students <- 240
-course     <- "Community Medicine"
-passed     <- TRUE
-
-n_students
-course
-```
+This page is the reference card for afterwards. It holds the four things the
+primers do not: the type table, how to read a file from disk, the errors you
+will meet, and where to read more.
 
 ::: {.callout-tip}
-## Shortcut
-<kbd>Alt</kbd> + <kbd>-</kbd> types `<-` for you. Use it from the start;
-your wrists will thank you.
+## Then do it again in RStudio
+The browser primers cannot teach you file paths or projects, because there are
+no files in a browser. Once R and RStudio are installed, retype a few of the
+primer cells in your own console. Typing is slower than copy-paste, and that is
+the point: you notice the brackets.
 :::
 
-## Functions: verbs that take arguments
+## The four types you will meet
 
-```{r}
-sqrt(64)
-
-round(3.14159, digits = 2)
-
-mean(c(72, 68, 81, 90))
-```
-
-`c()` is the most-used function in R: it **c**ombines values into a vector.
-Arguments in brackets, separated by commas. Named arguments (`digits = 2`)
-are clearer than positional ones. Prefer them.
-
-If you do not know what a function does, ask R:
-
-```{r}
-#| eval: false
-?round
-```
-
-## Vectors: a column of values, all the same type
-
-```{r}
-scores <- c(72, 68, 81, 90, 55)
-scores
-
-length(scores)
-mean(scores)
-scores > 70          # a comparison returns a logical vector
-```
-
-The four types you will meet:
+A vector, and therefore a tibble column, holds only **one** type.
 
 | Type | Example | In your data |
 |---|---|---|
@@ -68,92 +40,23 @@ The four types you will meet:
 | `logical` | `TRUE` | Pass/fail flags |
 | `factor` | `Female` | Categories with fixed levels |
 
-A vector holds only **one** type. Mixing them silently converts everything to the most permissive type, a classic source of confusion:
+Mixing types does not raise an error. R silently converts everything to the most
+permissive type, which is a classic source of confusion:
 
 ```{r}
 c(1, 2, "three")     # all become character
 ```
 
-## Data frames: the Excel/spreadsheets you actually analyse
-
-A data frame is a set of equal-length vectors side by side: rows are
-observations (students, patients, sessions), columns are variables.
-
-```{r}
-students <- data.frame(
-  id     = c("S01", "S02", "S03", "S04"),
-  batch  = c("2023", "2023", "2024", "2024"),
-  score  = c(72, 68, 81, 90),
-  passed = c(TRUE, TRUE, TRUE, TRUE)
-)
-
-students
-```
-
-Ways to look at one:
-
-```{r}
-nrow(students)     # rows
-
-ncol(students)     # columns
-
-names(students)    # variable names
-
-str(students)      # structure: types and first values
-
-summary(students)  # quick descriptives
-```
-
-`str()` is the function you will use most often when something goes wrong.
-Nine times out of ten the problem is that a column is a `character` when you
-thought it was a `numeric`.
-
-Pull out a single column with `$`:
-
-```{r}
-students$score
-mean(students$score)
-```
-
-## Packages: R's extensions
-
-Base R can do a lot. The rest arrives in packages. Install once, load every
-session.
-
-```{r}
-#| eval: false
-install.packages("dplyr")   # once, ever
-library(dplyr)              # every session, at the top of every script
-```
-
-::: {.callout-warning}
-## `install.packages()` does not belong in your script
-Put `library()` calls at the top of a script; keep `install.packages()` in
-the console. A script that reinstalls packages every run is slow and rude to
-whoever else runs it.
-:::
-
-## The pipe `|>`
-
-The pipe passes the thing on its left into the function on its right as the
-first argument. These two lines do exactly the same thing:
-
-```{r}
-round(mean(c(72, 68, 81, 90)), 1)
-
-c(72, 68, 81, 90) |> mean() |> round(1)
-```
-
-The second reads left to right, in the order the work happens: *take these
-scores, take the mean, round to one decimal*. Once your analysis is six steps
-long, the pipe is the difference between readable and unreadable code. We use
-`|>` (native, built into R 4.1+) throughout this workshop.
+`str()` is the function to reach for when something goes wrong. Nine times out
+of ten the problem is a column that is `character` when you thought it was
+`numeric`.
 
 ::: {.callout-note}
-## `|>` vs `%>%`
-You will see `%>%` (from the **magrittr**/**dplyr** world) in older code and
-in most tutorials online. For everything in this workshop they behave the
-same. We use `|>` because it needs no package.
+## Tibble or data frame?
+The primers say **tibble**; older books and most online answers say **data
+frame**. A tibble *is* a data frame, with better printing and fewer surprises.
+`data.frame()` is base R; `tibble()` comes from the tidyverse. Everything in
+this workshop works on both.
 :::
 
 ## Getting data in
@@ -163,65 +66,50 @@ same. We use `|>` because it needs no package.
 library(tidyverse)
 library(here)
 
-students <- read_csv(here("data","meded_students.csv"))
+students <- read_csv(here("data", "meded_students.csv"))
 ```
 
-Relative path, because you are working inside an RStudio project. See
-[Datasets](data.qmd) for the files.
+A relative path, because you are working inside an RStudio project. `here()`
+builds the path from the project folder, so the same line works on your laptop
+and on your colleague's. See [Datasets](data.qmd) for the files.
 
-## Exercise
-
-::: {.callout-note title="Exercise: your first data frame"}
-**Time:** 10 minutes
-
-1. Create a vector `osce` with the marks 78, 64, 91, 55, 83.
-2. Find its mean and its highest value (`max()`).
-3. Which of those marks are 70 or above? *Hint:* `which(osce >= 70)`.
-4. Build a data frame `viva` with two columns: `station`
-   (`"History"`, `"Exam"`, `"Counselling"`) and `marks` (`8`, `7`, `9`).
-5. Print the structure of `viva`.
-:::
-
-::: {.callout-tip title="Solution" collapse="true"}
-```{r}
-osce <- c(78, 64, 91, 55, 83)
-
-mean(osce)
-max(osce)
-which(osce >= 70)
-
-viva <- data.frame(
-  station = c("History", "Exam", "Counselling"),
-  marks   = c(8, 7, 9)
-)
-
-str(viva)
-```
-
-Note that `station` is a character column and `marks` is numeric, exactly
-what `str()` tells you.
+::: {.callout-warning}
+## Never `setwd()`
+`setwd("C:/Users/arun/Desktop/analysis")` is the one line guaranteed to break
+your script on any other computer. An RStudio project plus `here()` replaces it.
 :::
 
 ## Errors you will meet, and what they mean
 
+R is case sensitive. Most beginner errors are a capital letter or a bracket.
+
 | Message | Cause | Fix |
 |---|---|---|
-| `could not find function "read_csv"` | Package not loaded | `library(readr)` <br> Part of the larger `tidyverse` package |
+| `could not find function "read_csv"` | Package not loaded | `library(readr)`, or `library(tidyverse)` which includes it |
+| `there is no package called 'readr'` | Package not installed | `install.packages("readr")`, in the console, once |
 | `object 'viva' not found` | Typo, or you never ran the line that created it | Re-run the earlier line; check spelling and case |
 | `unexpected symbol` / `unexpected ')'` | Missing comma or unbalanced bracket | Look at the line *above* the one flagged |
 | `+` in the console instead of `>` | R is waiting for you to finish an expression | Press <kbd>Esc</kbd> and retype |
+| A result of `NA` | A missing value upstream | Count them with `sum(is.na(x))`, then decide: `na.rm = TRUE` |
 
-R is case sensitive, so be attentive when typing
+Read the message. It names which of the two things is missing, the function or
+the object, and that tells you whether to load a package or fix a typo.
+
+## Handy shortcuts
+
+| Shortcut | Does |
+|---|---|
+| <kbd>Alt</kbd> + <kbd>-</kbd> | Types `<-` |
+| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> | Types the pipe. It gives <code>&#124;&gt;</code> only if you ticked **Use native pipe operator** during [setup](install.qmd) |
+| <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | Runs the current line |
+| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd> | Restarts R (a clean session) |
+| <kbd>Tab</kbd> | Completes a name, and shows the arguments |
 
 ## Where to go if you want more
 
 - [R for Data Science (2e), chapters 2–4](https://r4ds.hadley.nz/): free online, the standard reference
 - [Posit primers](https://posit.cloud/learn/primers): interactive, browser-based, no installation
 - [Swirl](https://swirlstats.com/): learn R inside R, `install.packages("swirl"); library(swirl); swirl()`
-
-<!-- ## Next -->
-
-<!-- → [Datasets](data.qmd): get the files we will use on both days. -->
 
 ## Next
 

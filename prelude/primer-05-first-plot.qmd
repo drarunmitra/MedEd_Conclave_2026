@@ -316,6 +316,16 @@ converts it to `colour`, and both spellings work everywhere in the package.
 :::
 :::
 
+## Check yourself
+
+::: {.callout-note}
+## Four questions on the Moodle course
+Take [**Check yourself · Primer 5**](https://setfacilitysaral2.org/mod/quiz/view.php?id=3461)
+on the [Moodle course](https://setfacilitysaral2.org/course/view.php?id=394).
+Four questions, unlimited attempts, no marks. Every answer comes back with
+an explanation, so a wrong one costs you nothing and teaches you something.
+:::
+
 ## Next
 
 → [Datasets](data.qmd): download the files, ready for Day 1.

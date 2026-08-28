@@ -18,12 +18,19 @@ ready on the morning of workshop, you will miss out on many concepts and will sp
 |---|---|---|---|
 | ☐ | Install R, RStudio, Quarto | 30 min | [Install the software](install.qmd) |
 | ☐ | Install workshop packages and run the check script | 15 min | [Check your setup](check-setup.qmd) |
-| ☐ | Work through the self-paced R primer | 45 min | [R primer](r-primer.qmd) |
+| ☐ | Run the five interactive primers in your browser | 45 min | [Primer 1](primer-01-objects.qmd) · [2](primer-02-tibbles.qmd) · [3](primer-03-packages-pipe.qmd) · [4](primer-04-dplyr-verbs.qmd) · [5](primer-05-first-plot.qmd) |
+| ☐ | Take the five *Check yourself* quizzes, one per primer | 15 min | [Moodle Course](https://setfacilitysaral2.org/course/view.php?id=394) |
+| ☐ | Skim the reference card | 10 min | [R primer](r-primer.qmd) |
 | ☐ | Go through the pre-reading | 20 min | [Pre-reading](pre-reading.qmd) |
 | ☐ | Upload your setup-check output, so we know your laptop is ready | 2 min | *Moodle Course* |
 | ☐ | Complete the online pre-test | 10 min | *Moodle Course* |
 
-The [**Moodle Course**](https://setfacilitysaral2.org/course/view.php?id=394) contains five short check quizzes and a help-desk forum.
+The five primers run R **inside your browser**. Nothing to install, so you can
+start them today, even if R is still downloading.
+
+The [**Moodle Course**](https://setfacilitysaral2.org/course/view.php?id=394) holds the five check
+quizzes, the pre-test and a help-desk forum. The quizzes carry no marks and
+allow unlimited attempts.
 
 
 ## What to bring

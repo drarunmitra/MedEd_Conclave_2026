@@ -204,6 +204,16 @@ from there.
 :::
 :::
 
+## Check yourself
+
+::: {.callout-note}
+## Four questions on the Moodle course
+Take [**Check yourself · Primer 2**](https://setfacilitysaral2.org/mod/quiz/view.php?id=3458)
+on the [Moodle course](https://setfacilitysaral2.org/course/view.php?id=394).
+Four questions, unlimited attempts, no marks. Every answer comes back with
+an explanation, so a wrong one costs you nothing and teaches you something.
+:::
+
 ## Next
 
 → [Primer 3 · Packages and the pipe](primer-03-packages-pipe.qmd): how to load

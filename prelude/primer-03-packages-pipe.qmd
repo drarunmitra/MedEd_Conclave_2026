@@ -193,6 +193,16 @@ place. The piped value is already the first argument.
 :::
 :::
 
+## Check yourself
+
+::: {.callout-note}
+## Four questions on the Moodle course
+Take [**Check yourself · Primer 3**](https://setfacilitysaral2.org/mod/quiz/view.php?id=3459)
+on the [Moodle course](https://setfacilitysaral2.org/course/view.php?id=394).
+Four questions, unlimited attempts, no marks. Every answer comes back with
+an explanation, so a wrong one costs you nothing and teaches you something.
+:::
+
 ## Next
 
 → [Primer 4 · The five dplyr verbs](primer-04-dplyr-verbs.qmd): the verbs that

@@ -172,7 +172,7 @@
   <question type="multichoice">
     <name><text>PRE06 What belongs in a script</text></name>
     <questiontext format="html">
-      <text><![CDATA[<p>You are writing an analysis script that a colleague will also run, on their own computer. Which line belongs at the top of it?</p>]]></text>
+      <text><![CDATA[<p>You have already installed the tidyverse on your own laptop. You now write an analysis script and email it to a colleague, who will run it on their computer.</p><p>Exactly one of these lines should be <strong>inside the script</strong>. Which one?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p><code>library()</code> goes in the script, every session. <code>install.packages()</code> stays in the console: once, ever. Primer 3 covers both, and the difference is what makes a script runnable on somebody else's machine.</p>]]></text>
@@ -197,7 +197,7 @@
     </answer>
     <answer fraction="0" format="html">
       <text><![CDATA[<p><code>rm(list = ls())</code></p>]]></text>
-      <feedback format="html"><text><![CDATA[<p>A common habit, and a weak substitute for the real thing: it clears your objects but leaves attached packages and changed options behind, so it does not give you the clean session it appears to. Restarting R does.</p>]]></text></feedback>
+      <feedback format="html"><text><![CDATA[<p>A common habit, and a weak substitute for the real thing: it clears your objects but leaves attached packages and changed options behind, so it does not give you the clean session it appears to. Restarting R does. It also does nothing to help your colleague run the script.</p>]]></text></feedback>
     </answer>
   </question>
 
@@ -239,7 +239,7 @@
       <text><![CDATA[<p>A cohort of 240 students has a <code>posttest</code> column in which 11 values are missing, recorded as <code>NA</code>. You run:</p><pre><code>mean(students$posttest)</code></pre><p>What comes back?</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
-      <text><![CDATA[<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code>, R's way of refusing to guess. <code>mean(posttest, na.rm = TRUE)</code> averages the 229 students who do have a score. Primer 4 and the datasets page both cover this.</p>]]></text>
+      <text><![CDATA[<p><code>NA</code>. Arithmetic on an unknown value gives an unknown answer, so a single missing value turns the whole mean into <code>NA</code>, R's way of refusing to guess. <code>mean(students$posttest, na.rm = TRUE)</code> averages the 229 students who do have a score. Primer 4 has a section on this, <em>Missing values: NA and na.rm = TRUE</em>, and the datasets page covers it too.</p>]]></text>
     </generalfeedback>
     <defaultgrade>1.0000000</defaultgrade>
     <penalty>0.3333333</penalty>

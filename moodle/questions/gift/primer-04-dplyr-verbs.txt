@@ -32,7 +32,7 @@ $CATEGORY: $course$/top/Prelude/Primer 04 · The five dplyr verbs
 
 // question: 4
 ::P4Q4 The verbs do not edit your table::[html]<p>You run this and look at the result\:</p><pre><code>students |&gt;<br>  filter(batch \=\= 2024) |&gt;<br>  arrange(desc(attendance_pct))</code></pre><p><strong>Afterwards, the object <code>students</code> contains only the 2024 batch.</strong></p>{
-~[html]<p>False</p>#[html]<p>No, the verbs never edit the table you started from. <code>students</code> still holds all 240 rows; the filtered version was printed and then discarded, because it was not assigned to anything.</p>
+~[html]<p>True</p>#[html]<p>No, the verbs never edit the table you started from. <code>students</code> still holds all 240 rows; the filtered version was printed and then discarded, because it was not assigned to anything.</p>
 =[html]<p>False</p>#[html]<p>Correct. <code>students</code> is unchanged, which is also why you must assign the result if you want to keep it.</p>
 ####[html]<p>False. dplyr verbs return a <em>new</em> table and leave the original untouched, so you can experiment freely without damaging your data. The flip side is that a result you want to keep must be assigned to a name\: <code>students_2024 &lt;- students |&gt; filter(batch \=\= 2024)</code>. Beginners lose an afternoon to each half of this in turn.</p>
 }

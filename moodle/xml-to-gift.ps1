@@ -74,10 +74,16 @@ foreach ($f in (Get-ChildItem (Join-Path $srcDir '*.xml') | Sort-Object Name)) {
         $out.Add("::${name}::[html]${text}{")
 
         foreach ($a in @($q.answer)) {
-            $atxt = [string]$a.text.InnerText
+            # A <text> holding CDATA surfaces as an XmlElement, one holding a bare
+            # word (as truefalse answers do) surfaces as a plain string. Asking a
+            # string for .InnerText returns nothing, which silently labelled both
+            # options 'False'. Handle both shapes.
+            $atxt = if ($a.text -is [string]) { $a.text } else { [string]$a.text.InnerText }
             # truefalse answers arrive as the bare words true/false
             if ($q.type -eq 'truefalse') {
-                $atxt = if ($atxt.Trim().ToLower() -eq 'true') { '<p>True</p>' } else { '<p>False</p>' }
+                if ($atxt.Trim().ToLower() -eq 'true') { $atxt = '<p>True</p>' }
+                elseif ($atxt.Trim().ToLower() -eq 'false') { $atxt = '<p>False</p>' }
+                else { throw "Bank $($f.Name): truefalse answer text was '$atxt', expected 'true' or 'false'." }
             }
             $marker = if ($a.fraction -eq '100') { '=' } else { '~' }
             $ans = ConvertTo-GiftText $atxt

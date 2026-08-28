@@ -32,7 +32,7 @@ $CATEGORY: $course$/top/Prelude/Primer 03 · Packages and the pipe
 
 // question: 4
 ::P3Q4 What the browser does for you::[html]<p>The primer pages load dplyr for you before you run anything, so <code>library(dplyr)</code> is not really needed.</p><p><strong>Therefore</strong> you can leave <code>library()</code> calls out of the scripts you write in RStudio too.</p>{
-~[html]<p>False</p>#[html]<p>No. This is the trap the primer warns about. The browser page attaches the packages for you; your own RStudio will not. Every script you write needs its <code>library()</code> calls at the top, in every session.</p>
+~[html]<p>True</p>#[html]<p>No. This is the trap the primer warns about. The browser page attaches the packages for you; your own RStudio will not. Every script you write needs its <code>library()</code> calls at the top, in every session.</p>
 =[html]<p>False</p>#[html]<p>Correct. The browser is the exception, not the rule.</p>
 ####[html]<p>False, and this is the one way the browser primers actively mislead you. Those pages attach their packages before the first cell runs, so <code>library(dplyr)</code> is a no-op there and essential in RStudio. Type it anyway on the primer page. It is the habit that matters, and a script that forgets it fails with <code>could not find function</code>.</p>
 }
